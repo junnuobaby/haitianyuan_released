@@ -1,0 +1,104 @@
+/*基本公用样式*/
+html{
+    height: 100%;
+    margin: 0;
+}
+
+body{
+    height: 100%;
+    margin: 0;
+    overflow: -moz-scrollbars-vertical;
+    font-family: "Helvetica Neue", Helvetica, Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
+}
+a{
+    color: black;
+}
+a:hover{
+    text-decoration: none;
+    color:#f4645f;
+}
+.wrapper {
+    min-height: 100%;
+    margin: 0 auto 3em auto;
+}
+.inline_block{
+    display: inline;
+}
+/*页脚样式*/
+footer.page_footer {
+    font-size: 13px;
+    color: #555555;
+    padding-top: 20px;
+    height: 80px;
+    background-color: #d9d9d9;
+    z-index: 1000;
+}
+footer.page_footer span {
+    margin: 0.5em;
+}
+footer.page_footer a {
+    color: #555555;
+}
+footer.page_footer p{
+    margin-top: 10px;
+}
+/*自定义的字体*/
+.self-font {
+    font-family: Baskerville, Georgia, "Liberation Serif", "Kaiti SC", STKaiti, "AR PL UKai CN", "AR PL UKai HK",
+    "AR PL UKai TW", "AR PL UKai TW MBE", "AR PL KaitiM GB", KaiTi, KaiTi_GB2312, "TW\-Kai", serif;
+}
+/*悬停右下脚的返回顶部和反馈按钮*/
+.fixed-bar {
+    position: fixed;
+    right: 1%;
+    bottom: 1%;
+    width: 40px;
+    border: 1px solid #f4645f;
+    background-color: white;
+    font-size: 24px;
+    z-index: 1040;
+}
+.fixed-bar a {
+    display: block;
+    width: 38px;
+    height: 40px;
+    text-align: center;
+}
+.fixed-bar .go-top {
+    color: #f4645f;
+    padding-top: 5px;
+}
+.fixed-bar .ht_feedback {
+    background-color: #f4645f;
+    color: white;
+    font-size: 12px;
+    padding-top: 10px;
+}
+/*网站的主题颜色*/
+.theme-color {
+    color: #f4645f;
+}
+.theme-bg-color {
+    background-color: #f4645f;
+}
+.self-btn-danger {
+    background-color: #f4645f;
+}
+.green-color{
+    background-color: #96cc75;
+}
+/*白色背景*/
+.bg-white{
+    background-color: white;
+}
+/*灰色背景*/
+.bg-gray{
+    background-color: #ebebeb;
+}
+/*边框圆角*/
+.block-radius{
+    border-radius: 5px;
+}
+.container_to_top{
+    margin-top: 100px;
+}
