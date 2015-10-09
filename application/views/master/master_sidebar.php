@@ -50,7 +50,7 @@ $basic_info = array(
 
                 <div class="list-group">
                     <a href="<?php echo base_url('opinion/pub_page');?>" class="list-group-item">发布观点</a>
-                    <a href="#" class="list-group-item">已发布观点</a>
+                    <a href="<?php echo base_url('opinion/index');?>" class="list-group-item">已发布观点</a>
                 </div>
             </li>
             <li class="list-group-item ">
