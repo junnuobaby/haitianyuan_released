@@ -2,70 +2,90 @@
 .index-thumbnail {
     height: 400px;
 }
-.carousel-control.right{
-    background-image:linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%)
+
+.carousel-control.right {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 100%)
 }
-.carousel-control.left{
-    background-image:linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%)
+
+.carousel-control.left {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 100%)
 }
-.carousel_style{
+
+.carousel_style {
     max-height: 200px;
 }
-.register_input{
+
+.register_input {
     padding-bottom: 0.5em;
 }
-.narbar_li{
+
+.narbar_li {
     width: 2em;
     height: 2em;
 }
-.narbar_font_size{
+
+.narbar_font_size {
     font-size: 16px;
 }
-.key_info{
+
+.key_info {
     color: #ff0000;
     font-size: large;
 }
-#info_dropdown{
+
+#info_dropdown {
     width: 300px;
 }
-.info_dropdown_menu{
+
+.info_dropdown_menu {
     min-width: 300px;
 }
+
 .btn-a-light:link,
 .btn-a-light:visited,
 .btn-a-light:hover,
-.btn-a-light:active{
+.btn-a-light:active {
     color: white;
 }
-.login_form{
+
+.login_form {
     padding-top: 4em;
 }
-.sign{
+
+.sign {
     margin-top: 1em;
     margin-right: 1em;
 }
-.dropdown-menu-profile{
+
+.dropdown-menu-profile {
     background-color: rgba(253, 232, 211, 0.8);
 }
-.dropdown-menu-profile-item{
-    width:1px;
-    border:1px solid black;
-    float:left;height:15px;
+
+.dropdown-menu-profile-item {
+    width: 1px;
+    border: 1px solid black;
+    float: left;
+    height: 15px;
 }
-.profile-thumbnail{
+
+.profile-thumbnail {
     border: 0px;
 }
-#navbar-username, #navbar-menu{
+
+#navbar-username, #navbar-menu {
     color: #fd7d56;
 }
-.dropdown li a:hover{
+
+.dropdown li a:hover {
     color: #32c12d;
 }
+
 /*理财师个人中心侧边栏*/
-.profile-sidebar{
+.profile-sidebar {
     padding: 10px 0 10px 0;
     background-color: #f8f8f8;
 }
+
 .profile-userpic img {
     float: none;
     margin: 0 auto;
@@ -76,16 +96,20 @@
     -moz-border-radius: 50% !important;
     border-radius: 50% !important;
 }
-.profile-usermenu{
+
+.profile-usermenu {
     margin-top: 10px;
 }
-.profile-usermenu ul li{
-   padding:0;
+
+.profile-usermenu ul li {
+    padding: 0;
 }
+
 .profile-usermenu li h4 {
     color: #f4645f;
     border-bottom: 1px solid #ebebeb;
 }
+
 .profile-usermenu ul li a {
     color: #8d9cae;
     font-size: 14px;
@@ -93,27 +117,33 @@
     border: none;
     padding-left: 60px;
 }
+
 .profile-usermenu ul li i {
     margin-left: 8px;
     margin-right: 8px;
     font-size: 14px;
 }
+
 .profile-usermenu ul li a:hover {
     background-color: #f4645f;
     color: #ffffff;
 }
-.master-profile-panel .form-group{
+
+.master-profile-panel .form-group {
     margin-left: 20px;
     width: 400px;
     margin-bottom: 20px;
 }
-a.basic-info-a{
+
+a.basic-info-a {
     color: #f4645f;
 }
-.input-group-verification{
+
+.input-group-verification {
     width: 300px;
 }
-.avatar-upload{
+
+.avatar-upload {
     margin-right: 50px;
     padding: 4px 10px;
     height: 30px;
@@ -129,19 +159,23 @@ a.basic-info-a{
     *display: inline;
     *zoom: 1
 }
-a.avatar-upload:link{
+
+a.avatar-upload:link {
     color: #ffffff;
 }
-a.avatar-upload:visited{
+
+a.avatar-upload:visited {
     color: #ffffff;
 }
-a.avatar-upload:hover{
+
+a.avatar-upload:hover {
     color: #ffffff;
     background: #a62b2b;
     border-color: #ccc;
     text-decoration: none
 }
-.avatar-upload input{
+
+.avatar-upload input {
     position: absolute;
     font-size: 100px;
     right: 0;
@@ -150,45 +184,57 @@ a.avatar-upload:hover{
     filter: alpha(opacity=0);
     cursor: pointer
 }
-#display_avatar_block{
+
+#display_avatar_block {
     margin: 20px 20px;
 }
-#display_avatar_div{
+
+#display_avatar_div {
     display: none;
 }
-#display_avatar_div button{
-    margin-left:20px;
+
+#display_avatar_div button {
+    margin-left: 20px;
     margin-bottom: 10px;
 }
-.self_master_address{
+
+.self_master_address {
     color: #f4645f;
 }
+
 /*联系我们页面样式*/
 #contact_us h1 {
     color: #c1837b;
 }
+
 #contact_us li {
     font-size: 20px;
 }
+
 /*理财师个人主页页面样式*/
-.master_homepage_jumptron{
+.master_homepage_jumptron {
     height: 380px;
     background-color: #e2e2e2;
     color: #ffffff;
 }
-.master_homepage_jumptron_div{
+
+.master_homepage_jumptron_div {
     margin-top: 130px;
 }
-.master_homepage_jumptron_div table.master_info h4{
+
+.master_homepage_jumptron_div table.master_info h4 {
     font-size: 18px;
 }
-.master_homepage_jumptron_div table.master_info h5{
+
+.master_homepage_jumptron_div table.master_info h5 {
     font-size: 16px;
 }
-.master_homepage_jumptron_div p.signature{
+
+.master_homepage_jumptron_div p.signature {
     font-size: 18px;
 }
-.master_homepage_jumptron_div a.btn{
+
+.master_homepage_jumptron_div a.btn {
     color: #f56857;
     background-color: #ffffff;
     font-weight: 600;
@@ -196,40 +242,47 @@ a.avatar-upload:hover{
     position: relative;
     margin-top: 10px;
 }
-.master_homepage_jumptron_div a.btn.vip-link{
+
+.master_homepage_jumptron_div a.btn.vip-link {
     padding: 8px 40px;
     font-size: 18px;
     margin-top: 0;
 }
-.master_homepage_jumptron_div a.vip-link：hover{
+
+.master_homepage_jumptron_div a.vip-link：hover {
     background-color: transparent;
 }
-.master_homepage_jumptron_div .avatar_box{
+
+.master_homepage_jumptron_div .avatar_box {
     width: 150px;
     height: auto;
-    border:solid 5px white;
+    border: solid 5px white;
     overflow: hidden;
 }
-.master_homepage_jumptron_div .online_status{
+
+.master_homepage_jumptron_div .online_status {
     width: 150px;
     height: 30px;
     background-color: white;
-    border:solid 1px white;
+    border: solid 1px white;
     overflow: hidden;
 }
+
 /*vip购买页面*/
-.vip_price_body{
-    background-color:#e2e2e2;
+.vip_price_body {
+    background-color: #e2e2e2;
     background-size: cover;
     background-repeat: no-repeat;
 }
+
 #vip_price h1.slogan {
     margin: 100px auto 150px auto;
     color: #f4645f;
     font-size: 50px;
     text-shadow: 3px 3px 5px #cccccc;
 }
-#vip_price div.box{
+
+#vip_price div.box {
     height: 400px;
     width: 280px;
     background-color: #f4645f;
@@ -237,33 +290,39 @@ a.avatar-upload:hover{
     border-radius: 5px;
     box-shadow: 2px 2px 3px #aaaaaa;
 }
-#vip_price div.box .content{
-    height:321px;
+
+#vip_price div.box .content {
+    height: 321px;
     background-color: white;
     border-radius: 5px;
 
 }
-#vip_price .box .vip_category h3{
+
+#vip_price .box .vip_category h3 {
     color: white;
     font-size: 35px;
 }
-#vip_price .box .price_box{
+
+#vip_price .box .price_box {
     height: 150px;
     background-color: #f5f5f5;
     box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.3);
     border-radius: 5px 5px 0 0;
     border-bottom: 1px solid #c5c5c5;
 }
+
 #vip_price .box .price_box .price {
     display: inline-block;
     font-size: 50px;
-    margin:10px;
+    margin: 10px;
 }
-#vip_price .box .price_box .price small{
+
+#vip_price .box .price_box .price small {
     font-size: 18px;
     float: left;
     margin-top: 10px;
 }
+
 #vip_price .box .price_box .duration {
     font-size: 18px;
     width: 100px;
@@ -272,53 +331,62 @@ a.avatar-upload:hover{
     padding: 3px;
     border-radius: 50px;
 }
-#vip_price .box .price_box .pay.btn{
+
+#vip_price .box .price_box .pay.btn {
     padding-left: 30px;
     padding-right: 30px;
     width: 200px;
-    background-color:#f4645f;
+    background-color: #f4645f;
     border-radius: 50px;
     color: white;
     font-size: 20px;
     margin-bottom: -20px;
 }
-#vip_price .box ul.features{
+
+#vip_price .box ul.features {
     background-color: white;
     list-style: none;
     margin: 50px auto 0 30px;
     text-align: left;
 }
-#vip_price .box ul.features i{
+
+#vip_price .box ul.features i {
     color: #f4645f;
     margin-right: 10px;
 }
+
 /*右侧边栏*/
-.side-bar .widget{
+.side-bar .widget {
     padding: 20px 30px;
     margin-bottom: 20px;
     margin-left: 20px;
-    background-color:#f9f9f9;
+    background-color: #f9f9f9;
     border-radius: 5px;
 }
-.side-bar .widget .title{
+
+.side-bar .widget .title {
     margin-top: 0;
     padding-bottom: 7px;
     border-bottom: 1px solid #dedede;
     margin-bottom: 21px;
     position: relative;
 }
-.side-bar .widget.hot-topics .content ul{
+
+.side-bar .widget.hot-topics .content ul {
     padding-left: 0;
-    list-style-type:none;
+    list-style-type: none;
 }
-.side-bar .widget.hot-topics .content ul li{
+
+.side-bar .widget.hot-topics .content ul li {
     padding-bottom: 10px;
 }
+
 /*问答对样式*/
-.q_a_container{
+.q_a_container {
     padding: 10px 30px;
 }
-.q_a_span{
+
+.q_a_span {
     border: 1px solid #96cc75;
     background-color: #96cc75;
     padding: 4px;
@@ -329,66 +397,75 @@ a.avatar-upload:hover{
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
 }
-.q_a .q_a_question{
+
+.q_a .q_a_question {
     line-height: 150%;
 }
-.q_a_hr{
+
+.q_a_hr {
     margin-bottom: 30px;
     margin-top: 40px;
 }
+
 .q_a_footer span {
     margin-right: 50px;
     float: right;
     font-size: 14px;
 }
-.q_a .q_a_answer{
+
+.q_a .q_a_answer {
     font-size: 16px;
     color: #929292;
     margin-top: 10px;
 }
-.q_a_footer{
+
+.q_a_footer {
     background-color: transparent;
 }
+
 /*提问的模态框样式*/
-#question_modal div.modal-body{
+#question_modal div.modal-body {
     padding: 0;
 }
-#question_modal div.panel{
+
+#question_modal div.panel {
     margin: 0;
 }
-#question_modal #my_question{
+
+#question_modal #my_question {
     width: 100%;
     border: none;
 }
+
 /*理财师主页内容板块样式*/
-.master_homepage_container{
+.master_homepage_container {
     margin-top: 50px;
 }
-.sub_nav{
+
+.sub_nav {
     margin: 10px auto 15px 10px;
     padding: 10px;
     font-size: 18px;
 }
-div.master_view header h4{
-    font-size: 25px;
+
+div.master_view header h4 {
+    font-size: 22px;
     margin-top: 0;
 }
-div.master_view .view_hr{
-    margin-bottom: 20px;
-    margin-top: 20px;
-}
-div.master_view section{
+
+div.master_view section {
     font-size: 15px;
     color: #7a7a7a;
     line-height: 160%;
 }
-.qu_hr{
+
+.qu_hr {
     height: 20px;
-    background-color:#f3f3f3 ;
+    background-color: #f3f3f3;
     margin: 5px 0px;
 }
 
-.key_word{
+.key_word {
     font-size: 12px;
     background: #f3f3f3;
     border-radius: 10px;
@@ -396,7 +473,8 @@ div.master_view section{
     padding: 3px 10px;
     color: #666;
 }
-.qu_btn{
+
+.qu_btn {
     background: #a0d56d;
     font-size: 14px;
     color: #fff;
@@ -404,19 +482,23 @@ div.master_view section{
     cursor: pointer;
     float: right;
 }
-.qu_time{
+
+.qu_time {
     font-size: 14px;
     color: #999;
     margin-bottom: 10px;
 }
-.qu_time .questioner{
+
+.qu_time .questioner {
     color: #428bca;
     margin-left: 5px;
 }
-.qu_line_height{
+
+.qu_line_height {
     line-height: 35px;
 }
-.ta{
+
+.ta {
     color: #808080;
     padding: 8px;
     font-size: 14px;
@@ -427,15 +509,58 @@ div.master_view section{
     border: 1px solid #ccc;
     overflow: auto;
 }
-.qu_margin{
+
+.qu_margin {
     margin-top: 20px;
 }
 
+.publish_btn {
+    height: 50px;
+}
 
+.publish_btn button {
+    float: right;
+}
 
+.free_charge {
+    border: 1px solid #ccc;;
+    padding: 20px;
+}
 
+.panel_body_div {
+    padding: 20px 50px;
+}
 
+.opinion_category {
+    margin-bottom: 10px;
+    padding: 5px;
+    border-bottom: 1px solid #F5F5F5;
+    color: #999;
+}
 
+.opinion_category select {
+    padding: 2px;
+    border: solid 1px #ccc;
+    width: 150px;
+    color: black;
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+.opinion_list {
+    padding: 10px 30px;
+}
+
+.view_footer span {
+    margin-right: 20px;
+    font-size: 14px;
+}
+
+.view_footer .edit_view{
+    color: #f4645f;
+    float: right;
+    margin-right: 10px;
+}
 
 
 

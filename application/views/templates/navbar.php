@@ -24,9 +24,9 @@
 
                 <!--                根据是否登陆导航条显示不同的内容，当前默认为未登录-->
                 <?php $login_state = $this->session->userdata('login_state'); ?>
-                <?php $identity = $this->session->userdata('identity') == '0' ? 'user' : 'master';?>
-                <?php $uuid = $this->session->userdata('uuid');?>
-                <?php $signature = $this->session->userdata('signature');?>
+                <?php $identity = $this->session->userdata('identity') == '0' ? 'user' : 'master'; ?>
+                <?php $uuid = $this->session->userdata('uuid'); ?>
+                <?php $signature = $this->session->userdata('signature'); ?>
                 <?php if ($login_state == false): ?>
                     <div class="navbar-form navbar-right ">
                         <a href="<?php echo base_url('/index.php/login') ?>">
@@ -50,13 +50,17 @@
                                     <div class="row">
                                         <div class="col-md-5">
                                             <img width="100px" class="img-circle"
-                                                 src="<?php echo base_url('/uploads/'.$this->session->userdata('face_pic')); ?>"
+                                                 src="<?php echo base_url('/uploads/' . $this->session->userdata('face_pic')); ?>"
                                                  alt="...">
                                         </div>
                                         <div class="col-md-7">
                                             <div class="panel panel-default sign">
                                                 <div class="panel-body">
-                                                    <?php echo $this->session->userdata('signature');?>
+                                                    <?php if ($this->session->userdata('signature') == null) {
+                                                        echo $this->session->userdata('signature');
+                                                    } else {
+                                                        echo '你还未填写个人资料，请在个人资料页面完善信息';
+                                                    } ?>
                                                 </div>
                                             </div>
                                         </div>
@@ -87,7 +91,9 @@
 
                             <ul class="dropdown-menu">
                                 <li><a href="<?php echo base_url("index.php/modify_info/index"); ?>">我的空间</a></li>
-                                <li><a href="<?php echo base_url("index.php/home/load_home/".$identity."/".$uuid); ?>">我的主页</a></li>
+                                <li>
+                                    <a href="<?php echo base_url("index.php/home/load_home/" . $identity . "/" . $uuid); ?>">我的主页</a>
+                                </li>
                                 <li><a href="#">我的私信</a></li>
                                 <li><a href="#">我的收藏</a></li>
                                 <li><a href="#">我的钱包</a></li>

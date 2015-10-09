@@ -49,7 +49,7 @@ $basic_info = array(
                 <h4><i class="glyphicon glyphicon-list-alt"></i> 观点管理</h4>
 
                 <div class="list-group">
-                    <a href="#" class="list-group-item">发布观点</a>
+                    <a href="<?php echo base_url('opinion/pub_page');?>" class="list-group-item">发布观点</a>
                     <a href="#" class="list-group-item">已发布观点</a>
                 </div>
             </li>
