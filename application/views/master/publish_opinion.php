@@ -47,11 +47,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <label>权限设置</label>
                                     <div class="free_charge block-radius">
                                         <label class="radio-inline">
-                                            <input type="radio" name="op_auth" value="仅VIP可见">
+                                            <input type="radio" name="op_auth" value="0">
                                             仅VIP可见
                                         </label>
                                         <label class="radio-inline">
-                                            <input type="radio" name="op_auth" value="免费">
+                                            <input type="radio" name="op_auth" value="1">
                                             免费
                                         </label>
                                     </div>
