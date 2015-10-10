@@ -1,17 +1,25 @@
 <!--巨幕-->
-<div class="jumbotron">
+<div class="main_jumptron">
     <div class="container">
         <br/><br/><br/>
-        <img src="<?php echo base_url('/assets/images/name_logo.png'); ?>" alt="Logo加载中...">
+        <div class="row">
+            <div class="col-md-3 col-sm-3">
+                <div class="logo_pic">
+                    <img class="img-responsive" src="<?php echo base_url('/assets/images/zhuge0.png'); ?>" alt="Logo加载中...">
+                </div>
+            </div>
+            <div class="col-md-9 col-sm-9">
+                <div class="logo">
+                    <img class="img-responsive" src="<?php echo base_url('/assets/images/slogan0.png'); ?>" alt="Logo加载中...">
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
 <style type="text/css">
-    .jumbotron
+    .main_jumptron
     {
         background-image: url("<?php echo base_url('assets/images/jumptron_background.jpg'); ?>");
-        background-size: cover;
-        background-repeat :no-repeat;
-        height: 300px;
     }
 </style>

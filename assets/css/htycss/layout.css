@@ -1,4 +1,18 @@
 /*�û��Զ���CSS*/
+.main_jumptron
+{
+    background-size: cover;
+    background-repeat :no-repeat;
+    height: 300px;
+    margin-bottom: 30px;
+}
+.main_jumptron .logo{
+    margin-top: 50px;
+    margin-left: 10px;
+}
+.main_jumptron .logo{
+    padding-top: 10px;
+}
 .index-thumbnail {
     height: 400px;
 }
