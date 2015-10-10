@@ -57,9 +57,9 @@
                                             <div class="panel panel-default sign">
                                                 <div class="panel-body">
                                                     <?php if ($this->session->userdata('signature') == null) {
-                                                        echo $this->session->userdata('signature');
-                                                    } else {
                                                         echo '你还未填写个人资料，请在个人资料页面完善信息';
+                                                    } else {
+                                                        echo $this->session->userdata('signature');
                                                     } ?>
                                                 </div>
                                             </div>
