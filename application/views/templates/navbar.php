@@ -90,10 +90,10 @@
                                 我的空间<span class="caret"></span></a>
 
                             <ul class="dropdown-menu">
-                                <li><a href="<?php echo base_url("index.php/modify_info/index"); ?>">我的空间</a></li>
                                 <li>
                                     <a href="<?php echo base_url("index.php/home/load_home/" . $identity . "/" . $uuid); ?>">我的主页</a>
                                 </li>
+                                <li><a href="<?php echo base_url("index.php/modify_info/index"); ?>">我的空间</a></li>
                                 <li><a href="#">我的私信</a></li>
                                 <li><a href="#">我的收藏</a></li>
                                 <li><a href="#">我的钱包</a></li>

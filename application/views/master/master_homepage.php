@@ -33,6 +33,7 @@ $questions_count = $info['questions_count'];
 $satisfication_rate = $info['satisfication_rate'];
 $response_time = $info['response_time'];
 $signature = $info['signature'];
+$view_list = $op;
 ?>
 <div class="wrapper">
     <?php $this->load->view('./templates/navbar');?>
@@ -134,7 +135,35 @@ $signature = $info['signature'];
                         </div>
                 </div>
                 <!--观点-->
-                <div role="tabpanel" class="tab-pane" id="viewpoint">...</div>
+                <div role="tabpanel" class="tab-pane" id="viewpoint">
+                    <div class="bg-white q_a_container">
+                        <?php foreach ($view_list as $view_item): ?>
+                            <div class="master_view">
+                                <article>
+                                    <header>
+                                        <h4 class="inline_div"><a href="#"
+                                                                  target="_blank"> <?php echo $view_item['op_title']; ?></a></h4>
+                                        <span class="key_word"><?php echo $view_item['op_kwords']; ?></span>
+                                    </header>
+                                    <section>
+                                        <!--控制最多显示内容不超过100个字-->
+                                        <p><?php if (strlen($view_item['op_content']) >= 150) {
+                                                echo mb_substr($view_item['op_content'], 0, 150, 'utf-8') . '...';
+                                            } else {
+                                                echo $view_item['op_content'];
+                                            }
+                                            ?>
+                                        </p>
+                                    </section>
+                                    <section class="view_footer">
+                                        <span><?php echo $view_item['op_timestamp']; ?></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </section>
+                                </article>
+                            </div>
+                            <hr class="view_hr"/>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
                 <!--示范-->
                 <div role="tabpanel" class="tab-pane" id="demonstration">...</div>
                 <!--华山论剑+-->
@@ -153,18 +182,18 @@ $signature = $info['signature'];
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body">
-                <div class="panel panel-primary">
+                <div class="panel panel-success">
                     <div class="panel-heading">输入问题（不超过500字）</div>
                     <div class="panel-body">
                         <form>
-                            <textarea id="my_question" name="question" rows="5" placeholder="请尽可能准确地描述您的问题"></textarea>
+                            <textarea class="ta" id="my_question" name="question" rows="5" placeholder="请尽可能准确地描述您的问题"></textarea>
                         </form>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                <button type="button" id="qa_btn" class="btn btn-primary">确定</button>
+                <button type="button" id="qa_btn" class="btn btn-success">确定</button>
             </div>
         </div>
     </div>

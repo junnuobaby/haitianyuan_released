@@ -41,8 +41,7 @@ $basic_info = array(
                 <h4><i class="glyphicon glyphicon-edit"></i> 问答管理</h4>
 
                 <div class="list-group">
-                    <a href="<?php echo base_url('modify_info/get_questions/web/undo');?>" class="list-group-item">待回答问题</a>
-                    <a href="<?php echo base_url('modify_info/get_questions/web/done');?>" class="list-group-item">已回答问题</a>
+                    <a href="<?php echo base_url('modify_info/get_questions/web/undo');?>" class="list-group-item">全部问题</a>
                 </div>
             </li>
             <li class="list-group-item ">
