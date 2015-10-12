@@ -1,4 +1,4 @@
-<!--Àí²ÆÊ¦Ö÷Ò³-->
+<!--ç†è´¢å¸ˆä¸»é¡µ-->
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
@@ -31,9 +31,9 @@ $signature = $info['signature'];
                 <div class="master_homepage_jumptron_div">
                     <div class="avatar_box">
                         <img class="img-responsive" src="<?php echo base_url('/uploads/'.$face_pic); ?>"
-                             alt="Àí²ÆÊ¦Í·Ïñ">
+                             alt="ç†è´¢å¸ˆå¤´åƒ">
                     </div>
-                    <!--¸ù¾İÊÇ·ñÔÚÏßÏÔÊ¾²»Í¬µÄ×´Ì¬£¬µ±Ç°Ä¬ÈÏÎªÔÚÏß-->
+                    <!--æ ¹æ®æ˜¯å¦åœ¨çº¿æ˜¾ç¤ºä¸åŒçš„çŠ¶æ€ï¼Œå½“å‰é»˜è®¤ä¸ºåœ¨çº¿-->
                     <div class="online_status">
                         <?php if ($online_state == false): ?>
                             <img class="img-responsive" src="<?php echo base_url('/assets/images/offline.png'); ?>">
@@ -43,10 +43,10 @@ $signature = $info['signature'];
                     </div>
                     <div>
                         <a class="btn "><span
-                                class="glyphicon glyphicon-plus"></span> ¹Ø×¢
+                                class="glyphicon glyphicon-plus"></span> å…³æ³¨
                         </a>
                         <a class="btn" id="qu_btn"><span
-                                class="glyphicon glyphicon-question-sign"></span> ÌáÎÊ
+                                class="glyphicon glyphicon-question-sign"></span> æé—®
                         </a>
                     </div>
                 </div>
@@ -55,7 +55,7 @@ $signature = $info['signature'];
                 <div class="master_homepage_jumptron_div">
                     <h3><?php echo $username; ?></h3>
                     <hr/>
-                    <p class="self-font signature"><span>¼ò½é£º</span><?php echo $signature; ?></p>
+                    <p class="self-font signature"><span>ç®€ä»‹ï¼š</span><?php echo $signature; ?></p>
                 </div>
             </div>
             <div class="col-md-4 col-md-offset-1 col-sm-4">
@@ -63,43 +63,43 @@ $signature = $info['signature'];
                     <div class="row">
                         <table class="table table-responsive text-center master_info">
                             <tr>
-                                <td><h5>»Ø´ğÎÊÌâÊı</h5> <h4><?php echo $questions_count; ?></h4></td>
-                                <td><h5>ÂúÒâÂÊ</h5><h4><?php echo $satisfication_rate; ?></h4>
+                                <td><h5>å›ç­”é—®é¢˜æ•°</h5> <h4><?php echo $questions_count; ?></h4></td>
+                                <td><h5>æ»¡æ„ç‡</h5><h4><?php echo $satisfication_rate; ?></h4>
                                 </td>
-                                <td><h5>ÏìÓ¦Ê±¼ä</h5><h4><?php echo $response_time; ?>Ğ¡Ê±</h4>
+                                <td><h5>å“åº”æ—¶é—´</h5><h4><?php echo $response_time; ?>å°æ—¶</h4>
                                 </td>
                             </tr>
                             <tr>
-                                <td><h5>VIPÓÃ»§</h5><h4><?php echo $vips_count; ?></h4>
+                                <td><h5>VIPç”¨æˆ·</h5><h4><?php echo $vips_count; ?></h4>
                                 </td>
-                                <td><h5>·ÛË¿</h5><h4><?php echo $fans_count; ?></h4></td>
-                                <td><h5>¹Ø×¢</h5><h4><?php echo $concerns_count; ?></h4>
+                                <td><h5>ç²‰ä¸</h5><h4><?php echo $fans_count; ?></h4></td>
+                                <td><h5>å…³æ³¨</h5><h4><?php echo $concerns_count; ?></h4>
                                 </td>
                             </tr>
                         </table>
                     </div>
                     <div class="row text-center">
                         <a href="<?php echo base_url("index.php/qa/index/".$master_id); ?>" class="btn btn-default vip-link"
-                           target="_blank"><span>ÌåÑéVIP»áÔ±</span></a>
+                           target="_blank"><span>ä½“éªŒVIPä¼šå‘˜</span></a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!--Ò³ÃæÖ÷ÒªÄÚÈİ-->
+    <!--é¡µé¢ä¸»è¦å†…å®¹-->
     <div class="container master_homepage_container">
         <div class="col-md-8 col-sm-8 bg-white block-radius">
             <div class="sub_nav">
                 <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" ><a href="<?php base_url('index.php/home/load_home/web/' .'master'. '/' . $master_id.'/'.'1');?>" role="tab" data-toggle="tab">ÎÊ´ğ</a></li>
-                    <li role="presentation" class="active"><a href="#" role="tab" data-toggle="tab">¹Ûµã</a></li>
-                    <li role="presentation"><a href="#demonstration" role="tab" data-toggle="tab">Ê¾·¶</a></li>
-                    <li role="presentation"><a href="#contest" role="tab" data-toggle="tab">»ªÉ½ÂÛ½£</a></li>
-                    <li role="presentation"><a href="#bbs" role="tab" data-toggle="tab">ÂÛÌ³</a></li>
+                    <li role="presentation" ><a href="<?php base_url('index.php/home/load_home/web/' .'master'. '/' . $master_id.'/'.'1');?>" role="tab" data-toggle="tab">é—®ç­”</a></li>
+                    <li role="presentation" class="active"><a href="#" role="tab" data-toggle="tab">è§‚ç‚¹</a></li>
+                    <li role="presentation"><a href="#demonstration" role="tab" data-toggle="tab">ç¤ºèŒƒ</a></li>
+                    <li role="presentation"><a href="#contest" role="tab" data-toggle="tab">åå±±è®ºå‰‘</a></li>
+                    <li role="presentation"><a href="#bbs" role="tab" data-toggle="tab">è®ºå›</a></li>
                 </ul>
             </div>
             <div class="tab-content">
-                <!--¹Ûµã-->
+                <!--è§‚ç‚¹-->
                 <div role="tabpanel" class="tab-pane active" id="viewpoint">
                     <div class="bg-white q_a_container">
                         <?php foreach ($view_list as $view_item): ?>
@@ -111,7 +111,7 @@ $signature = $info['signature'];
                                         <span class="key_word"><?php echo $view_item['op_kwords']; ?></span>
                                     </header>
                                     <section>
-                                        <!--¿ØÖÆ×î¶àÏÔÊ¾ÄÚÈİ²»³¬¹ı100¸ö×Ö-->
+                                        <!--æ§åˆ¶æœ€å¤šæ˜¾ç¤ºå†…å®¹ä¸è¶…è¿‡100ä¸ªå­—-->
                                         <p><?php if (strlen($view_item['op_content']) >= 150) {
                                                 echo mb_substr($view_item['op_content'], 0, 150, 'utf-8') . '...';
                                             } else {
@@ -133,26 +133,26 @@ $signature = $info['signature'];
         </div>
         <?php $this->load->view('./templates/right-sidebar'); ?>
     </div>
-    <!--ĞüÍ£go-top°´Å¥-->
+    <!--æ‚¬åœgo-topæŒ‰é’®-->
     <?php $this->load->view('./templates/go-top'); ?>
 </div>
-<!--ÌáÎÊµÄÄ£Ì¬¿ò-->
+<!--æé—®çš„æ¨¡æ€æ¡†-->
 <div class="modal fade" id="question_modal" tabindex="-1" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body">
                 <div class="panel panel-success">
-                    <div class="panel-heading">ÊäÈëÎÊÌâ£¨²»³¬¹ı500×Ö£©</div>
+                    <div class="panel-heading">è¾“å…¥é—®é¢˜ï¼ˆä¸è¶…è¿‡500å­—ï¼‰</div>
                     <div class="panel-body">
                         <form>
-                            <textarea class="ta" id="my_question" name="question" rows="5" placeholder="Çë¾¡¿ÉÄÜ×¼È·µØÃèÊöÄúµÄÎÊÌâ"></textarea>
+                            <textarea class="ta" id="my_question" name="question" rows="5" placeholder="è¯·å°½å¯èƒ½å‡†ç¡®åœ°æè¿°æ‚¨çš„é—®é¢˜"></textarea>
                         </form>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">È¡Ïû</button>
-                <button type="button" id="qa_btn" class="btn btn-success">È·¶¨</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">å–æ¶ˆ</button>
+                <button type="button" id="qa_btn" class="btn btn-success">ç¡®å®š</button>
             </div>
         </div>
     </div>
@@ -162,7 +162,7 @@ $signature = $info['signature'];
 <script>
     $(document).ready(function () {
         $('.master_homepage_jumptron').css('background-image', 'url("<?php echo base_url('assets/images/jumptron_background.jpg'); ?>")');
-        /* ÈÃÄ£Ì¬¿ò¾ÓÖĞ */
+        /* è®©æ¨¡æ€æ¡†å±…ä¸­ */
         function centerModals() {
             $('.modal').each(function (i) {
                 var $clone = $(this).clone().css('display', 'block').appendTo('body');
