@@ -92,16 +92,16 @@ $signature = $info['signature'];
         <div class="col-md-8 col-sm-8 bg-white block-radius">
             <div class="sub_nav">
                 <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" ><a href="<?php base_url('index.php/home/load_home/web/' .'master'. '/' . $master_id.'/'.'1');?>" role="tab" data-toggle="tab">问答</a></li>
-                    <li role="presentation" class="active"><a href="#" role="tab" data-toggle="tab">观点</a></li>
-                    <li role="presentation"><a href="#demonstration" role="tab" data-toggle="tab">示范</a></li>
-                    <li role="presentation"><a href="#contest" role="tab" data-toggle="tab">华山论剑</a></li>
-                    <li role="presentation"><a href="#bbs" role="tab" data-toggle="tab">论坛</a></li>
+                    <li role="presentation" ><a href="<?php base_url('index.php/home/load_home/web/' .'master'. '/' . $master_id.'/'.'1');?>" >问答</a></li>
+                    <li role="presentation" class="active"><a href="#">观点</a></li>
+                    <li role="presentation"><a href="#">示范</a></li>
+                    <li role="presentation"><a href="#" >华山论剑</a></li>
+                    <li role="presentation"><a href="#" >论坛</a></li>
                 </ul>
             </div>
             <div class="tab-content">
                 <!--观点-->
-                <div role="tabpanel" class="tab-pane active" id="viewpoint">
+                <div  class="tab-pane active" id="viewpoint">
                     <div class="bg-white q_a_container">
                         <?php foreach ($view_list as $view_item): ?>
                             <div class="master_view">

@@ -25,13 +25,13 @@ $signature = $info['signature'];
 //$view_list = $op;
 ?>
 <div class="wrapper">
-    <?php $this->load->view('./templates/navbar');?>
+    <?php $this->load->view('./templates/navbar'); ?>
     <div class="container-fluid master_homepage_jumptron">
         <div class="container">
             <div class="col-md-2 col-sm-4">
                 <div class="master_homepage_jumptron_div">
                     <div class="avatar_box">
-                        <img class="img-responsive" src="<?php echo base_url('/uploads/'.$face_pic); ?>"
+                        <img class="img-responsive" src="<?php echo base_url('/uploads/' . $face_pic); ?>"
                              alt="理财师头像">
                     </div>
                     <!--根据是否在线显示不同的状态，当前默认为在线-->
@@ -80,7 +80,8 @@ $signature = $info['signature'];
                         </table>
                     </div>
                     <div class="row text-center">
-                        <a href="<?php echo base_url("index.php/qa/index/".$master_id); ?>" class="btn btn-default vip-link"
+                        <a href="<?php echo base_url("index.php/qa/index/" . $master_id); ?>"
+                           class="btn btn-default vip-link"
                            target="_blank"><span>体验VIP会员</span></a>
                     </div>
                 </div>
@@ -92,74 +93,42 @@ $signature = $info['signature'];
         <div class="col-md-8 col-sm-8 bg-white block-radius">
             <div class="sub_nav">
                 <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#qa" role="tab">问答</a></li>
-                    <li role="presentation"><a href="<?php base_url('index.php/home/load_home/web/' .'master'. '/' . $master_id.'/'.'2');?>">观点</a></li>
-                    <li role="presentation"><a href="#demonstration" role="tab" data-toggle="tab">示范</a></li>
-                    <li role="presentation"><a href="#contest" role="tab" data-toggle="tab">华山论剑</a></li>
-                    <li role="presentation"><a href="#bbs" role="tab" data-toggle="tab">论坛</a></li>
+                    <li role="presentation" class="active"><a href="#qa">问答</a></li>
+                    <li role="presentation"><a
+                            href="<?php base_url('index.php/home/load_home/web/' . 'master' . '/' . $master_id . '/' . '2'); ?>">观点</a>
+                    </li>
+                    <li role="presentation"><a href="#">示范</a></li>
+                    <li role="presentation"><a href="#">华山论剑</a></li>
+                    <li role="presentation"><a href="#">论坛</a></li>
                 </ul>
             </div>
             <div class="tab-content">
                 <!--问答-->
-                <div role="tabpanel" class="tab-pane active" id="qa">
-                        <div class="bg-white q_a_container">
-                            <?php foreach ($qa_list as $qa_item): ?>
-                                <div class="q_a">
-                                    <article>
-                                        <h4 class="q_a_question inline_block">
-                                            <span class="theme-color">问</span>
-                                            <a href="#"><?php echo $qa_item['qu_content']; ?> </a></h4>
-                                        <span>【<?php echo $qa_item['qu_timestamp']; ?>】</span>
-                                        <p class="q_a_answer"><span
-                                                class="theme-color">答:</span>&nbsp;&nbsp;<?php echo $qa_item['ans_content']; ?>
-                                        </p>
-                                        <div class="q_a_footer">
-                                            <span>满意度：<?php echo 5; ?></span>
-                                            <span>回答时间：<?php echo $qa_item['ans_timestamp']; ?></span>
-                                        </div>
-                                    </article>
-                                </div>
-                                <hr class="q_a_hr"/>
-                            <?php endforeach; ?>
-                            <p><?php echo $pages?></p>
-                        </div>
+                <div class="tab-pane active" id="qa">
+                    <div class="bg-white q_a_container">
+                        <?php foreach ($qa_list as $qa_item): ?>
+                            <div class="q_a">
+                                <article>
+                                    <h4 class="q_a_question inline_block">
+                                        <span class="theme-color">问</span>
+                                        <a href="#"><?php echo $qa_item['qu_content']; ?> </a></h4>
+                                    <span>【<?php echo $qa_item['qu_timestamp']; ?>】</span>
+
+                                    <p class="q_a_answer"><span
+                                            class="theme-color">答:</span>&nbsp;&nbsp;<?php echo $qa_item['ans_content']; ?>
+                                    </p>
+
+                                    <div class="q_a_footer">
+                                        <span>满意度：<?php echo 5; ?></span>
+                                        <span>回答时间：<?php echo $qa_item['ans_timestamp']; ?></span>
+                                    </div>
+                                </article>
+                            </div>
+                            <hr class="q_a_hr"/>
+                        <?php endforeach; ?>
+                        <p><?php echo $pages ?></p>
+                    </div>
                 </div>
-                <!--观点-->
-<!--                <div role="tabpanel" class="tab-pane" id="viewpoint">-->
-<!--                    <div class="bg-white q_a_container">-->
-<!--                        --><?php //foreach ($view_list as $view_item): ?>
-<!--                            <div class="master_view">-->
-<!--                                <article>-->
-<!--                                    <header>-->
-<!--                                        <h4 class="inline_div"><a href="#"-->
-<!--                                                                  target="_blank"> --><?php //echo $view_item['op_title']; ?><!--</a></h4>-->
-<!--                                        <span class="key_word">--><?php //echo $view_item['op_kwords']; ?><!--</span>-->
-<!--                                    </header>-->
-<!--                                    <section>-->
-<!--                                        <!--控制最多显示内容不超过100个字-->-->
-<!--                                        <p>--><?php //if (strlen($view_item['op_content']) >= 150) {
-//                                                echo mb_substr($view_item['op_content'], 0, 150, 'utf-8') . '...';
-//                                            } else {
-//                                                echo $view_item['op_content'];
-//                                            }
-//                                            ?>
-<!--                                        </p>-->
-<!--                                    </section>-->
-<!--                                    <section class="view_footer">-->
-<!--                                        <span>--><?php //echo $view_item['op_timestamp']; ?><!--</span>&nbsp;&nbsp;&nbsp;&nbsp;-->
-<!--                                    </section>-->
-<!--                                </article>-->
-<!--                            </div>-->
-<!--                            <hr class="view_hr"/>-->
-<!--                        --><?php //endforeach; ?>
-<!--                    </div>-->
-<!--                </div>-->
-                <!--示范-->
-                <div role="tabpanel" class="tab-pane" id="demonstration">...</div>
-                <!--华山论剑+-->
-                <div role="tabpanel" class="tab-pane" id="contest">...</div>
-                <!--论坛-->
-                <div role="tabpanel" class="tab-pane" id="bbs">...</div>
             </div>
         </div>
         <?php $this->load->view('./templates/right-sidebar'); ?>
@@ -176,7 +145,8 @@ $signature = $info['signature'];
                     <div class="panel-heading">输入问题（不超过500字）</div>
                     <div class="panel-body">
                         <form>
-                            <textarea class="ta" id="my_question" name="question" rows="5" placeholder="请尽可能准确地描述您的问题"></textarea>
+                            <textarea class="ta" id="my_question" name="question" rows="5"
+                                      placeholder="请尽可能准确地描述您的问题"></textarea>
                         </form>
                     </div>
                 </div>
@@ -207,29 +177,29 @@ $signature = $info['signature'];
         $('#question_modal').on('show.bs.modal', centerModals);
         $(window).on('resize', centerModals);
     });
-    $(document).ready(function(){
-            $('#qa_btn').click(function () {
-                var content = $('#my_question').val();
-                var master_id = "<?php echo $master_id;?>";
-                var master_name = "<?php echo $username;?>";
-                var data = { master_id : master_id, master_name : master_name, qu_content : content , kwords : null};
-                $.post('<?php echo base_url("index.php/qa/add_qu")?>',data);
-                $('#question_modal').modal('hide');
-            });
-            $('#qu_btn').click(function(){
-                var state;
-                $.get('<?php echo base_url("index.php/qa/qu_state/".$master_id)?>',function(data, status){
-                    state = data;
-                    if(state == '0'){
-                        $('#question_modal').modal();
-                    }else if(state == '1'){
-                        location.href = "<?php echo base_url('index.php/login')?>";
-                    }else{
-                        location.href = "<?php echo base_url('index.php/qa/index/'.$master_id)?>";
-                    }
-                });
-
-            });
+    $(document).ready(function () {
+        $('#qa_btn').click(function () {
+            var content = $('#my_question').val();
+            var master_id = "<?php echo $master_id;?>";
+            var master_name = "<?php echo $username;?>";
+            var data = {master_id: master_id, master_name: master_name, qu_content: content, kwords: null};
+            $.post('<?php echo base_url("index.php/qa/add_qu")?>', data);
+            $('#question_modal').modal('hide');
         });
+        $('#qu_btn').click(function () {
+            var state;
+            $.get('<?php echo base_url("index.php/qa/qu_state/".$master_id)?>', function (data, status) {
+                state = data;
+                if (state == '0') {
+                    $('#question_modal').modal();
+                } else if (state == '1') {
+                    location.href = "<?php echo base_url('index.php/login')?>";
+                } else {
+                    location.href = "<?php echo base_url('index.php/qa/index/'.$master_id)?>";
+                }
+            });
+
+        });
+    });
 </script>
 </html>
