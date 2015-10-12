@@ -30,7 +30,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <div class="col-lg-1 col-md-1"></div>
 
                                     <?php foreach ($master_info as $master): ?>
-                                      <a href = "<?php echo base_url('index.php/load_home/web/' .'master'. '/' .$master['user_id'].'/'.'1');?>">
+                                      <a href = "<?php echo base_url('index.php/home/load_home/web/' .'master'. '/' .$master['user_id'].'/'.'1');?>">
                                         <div class="col-sm-2 col-md-2 col-lg-2 ">
 
                                             <div class="thumbnail">
