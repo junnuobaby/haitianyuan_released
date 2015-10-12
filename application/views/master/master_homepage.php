@@ -9,19 +9,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!--<script src="--><?php //echo base_url('/assets/js/htyjs/general_navbar.js') ?><!--"></script>-->
 <?php $this->load->view('./templates/navbar'); ?>
 <?php
-//$online_state = false;   //是否在线，在线为true
-//$username = "开普勒";
-//$concerns_count = "104";
-//$fans_count = "2000";
-//$vips_count = "1190";
-//$questions_count = "2388";
-//$satisfication_rate = "80%";
-//$response_time = "2";
-//$signature = "生活源于自然,成功源于专业,理财源于全面,具备全面的金融理财学识,精通投资策略分析和资产配置";
-//?>
-<!--生成一个测试用的问答组-->
-<?php
-$qa_list = $qa;
+$qa_list = $op_qa['data_page'];
+$pages = $op_qa['pagination'];
 $master_id = $info['host_id'];
 $username = $info['username'];
 $face_pic = $info['face_pic'];
@@ -33,7 +22,7 @@ $questions_count = $info['questions_count'];
 $satisfication_rate = $info['satisfication_rate'];
 $response_time = $info['response_time'];
 $signature = $info['signature'];
-$view_list = $op;
+//$view_list = $op;
 ?>
 <div class="wrapper">
     <?php $this->load->view('./templates/navbar');?>
@@ -104,7 +93,7 @@ $view_list = $op;
             <div class="sub_nav">
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="active"><a href="#qa" role="tab" data-toggle="tab">问答</a></li>
-                    <li role="presentation"><a href="#viewpoint" role="tab" data-toggle="tab">观点</a></li>
+                    <li role="presentation"><a href="<?php base_url('index.php/load_home/web/' .'master'. '/' . $master_id.'/'.'2');?>>" role="tab" data-toggle="tab">观点</a></li>
                     <li role="presentation"><a href="#demonstration" role="tab" data-toggle="tab">示范</a></li>
                     <li role="presentation"><a href="#contest" role="tab" data-toggle="tab">华山论剑</a></li>
                     <li role="presentation"><a href="#bbs" role="tab" data-toggle="tab">论坛</a></li>
@@ -132,38 +121,39 @@ $view_list = $op;
                                 </div>
                                 <hr class="q_a_hr"/>
                             <?php endforeach; ?>
+                            <p><?php echo $pages?></p>
                         </div>
                 </div>
                 <!--观点-->
-                <div role="tabpanel" class="tab-pane" id="viewpoint">
-                    <div class="bg-white q_a_container">
-                        <?php foreach ($view_list as $view_item): ?>
-                            <div class="master_view">
-                                <article>
-                                    <header>
-                                        <h4 class="inline_div"><a href="#"
-                                                                  target="_blank"> <?php echo $view_item['op_title']; ?></a></h4>
-                                        <span class="key_word"><?php echo $view_item['op_kwords']; ?></span>
-                                    </header>
-                                    <section>
-                                        <!--控制最多显示内容不超过100个字-->
-                                        <p><?php if (strlen($view_item['op_content']) >= 150) {
-                                                echo mb_substr($view_item['op_content'], 0, 150, 'utf-8') . '...';
-                                            } else {
-                                                echo $view_item['op_content'];
-                                            }
-                                            ?>
-                                        </p>
-                                    </section>
-                                    <section class="view_footer">
-                                        <span><?php echo $view_item['op_timestamp']; ?></span>&nbsp;&nbsp;&nbsp;&nbsp;
-                                    </section>
-                                </article>
-                            </div>
-                            <hr class="view_hr"/>
-                        <?php endforeach; ?>
-                    </div>
-                </div>
+<!--                <div role="tabpanel" class="tab-pane" id="viewpoint">-->
+<!--                    <div class="bg-white q_a_container">-->
+<!--                        --><?php //foreach ($view_list as $view_item): ?>
+<!--                            <div class="master_view">-->
+<!--                                <article>-->
+<!--                                    <header>-->
+<!--                                        <h4 class="inline_div"><a href="#"-->
+<!--                                                                  target="_blank"> --><?php //echo $view_item['op_title']; ?><!--</a></h4>-->
+<!--                                        <span class="key_word">--><?php //echo $view_item['op_kwords']; ?><!--</span>-->
+<!--                                    </header>-->
+<!--                                    <section>-->
+<!--                                        <!--控制最多显示内容不超过100个字-->-->
+<!--                                        <p>--><?php //if (strlen($view_item['op_content']) >= 150) {
+//                                                echo mb_substr($view_item['op_content'], 0, 150, 'utf-8') . '...';
+//                                            } else {
+//                                                echo $view_item['op_content'];
+//                                            }
+//                                            ?>
+<!--                                        </p>-->
+<!--                                    </section>-->
+<!--                                    <section class="view_footer">-->
+<!--                                        <span>--><?php //echo $view_item['op_timestamp']; ?><!--</span>&nbsp;&nbsp;&nbsp;&nbsp;-->
+<!--                                    </section>-->
+<!--                                </article>-->
+<!--                            </div>-->
+<!--                            <hr class="view_hr"/>-->
+<!--                        --><?php //endforeach; ?>
+<!--                    </div>-->
+<!--                </div>-->
                 <!--示范-->
                 <div role="tabpanel" class="tab-pane" id="demonstration">...</div>
                 <!--华山论剑+-->
