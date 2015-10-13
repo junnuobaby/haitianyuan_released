@@ -11,82 +11,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?php
 $view_list = $op_qa['data_page'];
 $pages = $op_qa['pagination'];
-$master_id = $info['host_id'];
-$username = $info['username'];
-$face_pic = $info['face_pic'];
-$online_state = $info['online_state'];
-$concerns_count = $info['concerns_count'];
-$fans_count = $info['fans_count'];
-$vips_count = $info['vips_count'];
-$questions_count = $info['questions_count'];
-$satisfication_rate = $info['satisfication_rate'];
-$response_time = $info['response_time'];
-$signature = $info['signature'];
 ?>
 <div class="wrapper">
-    <?php $this->load->view('./templates/navbar');?>
-    <div class="container-fluid master_homepage_jumptron">
-        <div class="container">
-            <div class="col-md-2 col-sm-4">
-                <div class="master_homepage_jumptron_div">
-                    <div class="avatar_box">
-                        <img class="img-responsive" src="<?php echo base_url('/uploads/'.$face_pic); ?>"
-                             alt="理财师头像">
-                    </div>
-                    <!--根据是否在线显示不同的状态，当前默认为在线-->
-                    <div class="online_status">
-                        <?php if ($online_state == false): ?>
-                            <img class="img-responsive" src="<?php echo base_url('/assets/images/offline.png'); ?>">
-                        <?php else: ?>
-                            <img class="img-responsive" src="<?php echo base_url('/assets/images/online.png'); ?>">
-                        <?php endif; ?>
-                    </div>
-                    <div>
-                        <a class="btn "><span
-                                class="glyphicon glyphicon-plus"></span> 关注
-                        </a>
-                        <a class="btn" id="qu_btn"><span
-                                class="glyphicon glyphicon-question-sign"></span> 提问
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-3">
-                <div class="master_homepage_jumptron_div">
-                    <h3><?php echo $username; ?></h3>
-                    <hr/>
-                    <p class="self-font signature"><span>简介：</span><?php echo $signature; ?></p>
-                </div>
-            </div>
-            <div class="col-md-4 col-md-offset-1 col-sm-4">
-                <div class="master_homepage_jumptron_div">
-                    <div class="row">
-                        <table class="table table-responsive text-center master_info">
-                            <tr>
-                                <td><h5>回答问题数</h5> <h4><?php echo $questions_count; ?></h4></td>
-                                <td><h5>满意率</h5><h4><?php echo $satisfication_rate; ?></h4>
-                                </td>
-                                <td><h5>响应时间</h5><h4><?php echo $response_time; ?>小时</h4>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><h5>VIP用户</h5><h4><?php echo $vips_count; ?></h4>
-                                </td>
-                                <td><h5>粉丝</h5><h4><?php echo $fans_count; ?></h4></td>
-                                <td><h5>关注</h5><h4><?php echo $concerns_count; ?></h4>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="row text-center">
-                        <a href="<?php echo base_url("index.php/qa/index/".$master_id); ?>" class="btn btn-default vip-link"
-                           target="_blank"><span>体验VIP会员</span></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    <?php
+    $data['info'] = $info;
+    $data['is_fan'] = $is_fan;
+    $this->load->view('./master/master_jumptron', $data); ?>
     <!--页面主要内容-->
     <div class="container master_homepage_container">
         <div class="col-md-8 col-sm-8 bg-white block-radius">
@@ -128,7 +58,7 @@ $signature = $info['signature'];
                             </div>
                             <hr class="view_hr"/>
                         <?php endforeach; ?>
-                        <p><?php echo $pages ?></p>
+                        <p class="pagination"><?php echo $pages ?></p>
                     </div>
                 </div>
             </div>
