@@ -16,6 +16,7 @@ $pages = $op_qa['pagination'];
     <?php
     $data['info'] = $info;
     $data['is_fan'] = $is_fan;
+    $master_id = $info['master_id'];
     $this->load->view('./master/master_jumptron', $data); ?>
     <!--页面主要内容-->
     <div class="container master_homepage_container">
