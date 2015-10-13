@@ -144,8 +144,9 @@ $face_pic = $info['face_pic'];
     $(document).ready(function () {
         $('#fan_btn').click(function () {
             var is_fan = $('#fan_btn').html();
+            var focus = '已关注';
             alert(is_fan);
-            alert(is_fan == '已关注');
+            alert(is_fan == focus);
             if (is_fan == '已关注') {
                 $.ajax({
                     url: '<?php echo base_url("index.php/home/cancel_fan/web"); ?>' + '/' + '<?php echo $master_id?>' + '/',
