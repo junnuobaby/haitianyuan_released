@@ -30,7 +30,7 @@ $face_pic = $info['face_pic'];
                 </div>
                 <div>
                     <a class="btn" id="fan_btn"><?php if ($is_fan): ?>已关注
-                        <?php else: ?>未关注
+                        <?php else: ?>加关注
                         <?php endif; ?>
                     </a>
                     <a class="btn" id="qu_btn"><span
@@ -144,6 +144,7 @@ $face_pic = $info['face_pic'];
     $(document).ready(function () {
         $('#fan_btn').click(function () {
             var is_fan = $('#fan_btn').html();
+            alert(is_fan);
             alert(is_fan == '已关注');
             if (is_fan == '已关注') {
                 $.ajax({
