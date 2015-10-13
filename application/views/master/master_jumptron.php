@@ -143,7 +143,7 @@ $face_pic = $info['face_pic'];
     //取消关注和加关注
     $(document).ready(function () {
         $('#fan_btn').click(function () {
-            var is_fan = $('#fan_btn').html();
+            var is_fan = $('#fan_btn').text();
             var focus = '已关注';
             alert(is_fan.length);
             alert(focus.length);
