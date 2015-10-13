@@ -29,8 +29,8 @@ $face_pic = $info['face_pic'];
                     <?php endif; ?>
                 </div>
                 <div>
-                    <a class="btn" id="fan_btn" value="1"><?php if ($is_fan): ?>已关注
-                        <?php else: ?>加关注
+                    <a class="btn" id="fan_btn" data-value="1"><?php if ($is_fan): ?>已关注
+                        <?php else: ?>关注
                         <?php endif; ?>
                     </a>
                     <a class="btn" id="qu_btn"><span
@@ -143,7 +143,7 @@ $face_pic = $info['face_pic'];
     //取消关注和加关注
     $(document).ready(function () {
         $('#fan_btn').click(function () {
-            var is_fan = $('#fan_btn').attr('value');
+            var is_fan = $('#fan_btn').attr('data-value');
             alert(is_fan == '1');
             if (is_fan == '1') {
                 $.ajax({
@@ -155,8 +155,8 @@ $face_pic = $info['face_pic'];
                         alert(response);
                         if (response.status == '0') {
                             alert('已取消关注');
-                            $('#fan_btn').html('加关注');
-                            $('#fan_btn').attr('value','0');
+                            $('#fan_btn').html('关注');
+                            $('#fan_btn').attr('data-value','0');
                         } else {
                             alert(response.msg);
                         }
@@ -172,7 +172,7 @@ $face_pic = $info['face_pic'];
                         if (response.status == '0') {
                             alert('关注成功');
                             $('#fan_btn').html('已关注');
-                            $('#fan_btn').attr('value','1');
+                            $('#fan_btn').attr('data-value','1');
                         } else {
                             alert(response.msg);
                         }
