@@ -146,8 +146,9 @@ $face_pic = $info['face_pic'];
             var is_fan = $('#fan_btn').html();
             if (is_fan.length == 48) {
                 $.get('<?php echo base_url("index.php/home/cancel_fan/web"); ?>' + '/' + '<?php echo $master_id?>' + '/', function (data) {
+                    alert('data:'+data);
                     var response = JSON.parse(data);
-                    alert(response.status == '0');
+                    alert('res:' + response);
                     if (response.status == '0') {
                         alert('已取消关注');
                         $('#fan_btn').html('关注');
@@ -174,8 +175,9 @@ $face_pic = $info['face_pic'];
 //                });
             } else {
                 $.get('<?php echo base_url("index.php/home/add_fan/web"); ?>' + '/' + '<?php echo $master_id?>' + '/'+'<?php echo $username?>',function (data) {
+                    alert('data:'+data);
                     var response = JSON.parse(data);
-                    alert(response.status == '0');
+                    alert(response);
                     if (response.status == '0') {
                         alert('关注成功');
                         $('#fan_btn').html('已关注');
