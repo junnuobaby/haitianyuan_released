@@ -42,11 +42,9 @@ $master_id = $info['host_id'];
                                         <span class="theme-color">问</span>
                                         <a href="#"><?php echo $qa_item['qu_content']; ?> </a></h4>
                                     <span>【<?php echo $qa_item['qu_timestamp']; ?>】</span>
-
                                     <p class="q_a_answer"><span
                                             class="theme-color">答:</span>&nbsp;&nbsp;<?php echo $qa_item['ans_content']; ?>
                                     </p>
-
                                     <div class="q_a_footer">
                                         <span>满意度：<?php echo 5; ?></span>
                                         <span>回答时间：<?php echo $qa_item['ans_timestamp']; ?></span>
@@ -55,7 +53,7 @@ $master_id = $info['host_id'];
                             </div>
                             <hr class="q_a_hr"/>
                         <?php endforeach; ?>
-                        <p class="pagination"><?php echo $pages ?></p>
+                        <p><?php echo $pages ?></p>
                     </div>
                 </div>
             </div>
