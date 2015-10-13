@@ -163,7 +163,7 @@ $face_pic = $info['face_pic'];
                 $.ajax({
                     url: '<?php echo base_url("index.php/home/add_fan/web"); ?>' + '/' + '<?php echo $master_id?>' + '/'+'<?php echo $username?>',
                     method: 'get',
-                    data: {master_id: '<?php echo $master_id?>', username: '<?php echo $username?>'},
+//                    data: {master_id: '<?php //echo $master_id?>//', username: '<?php //echo $username?>//'},
                     success: function (data) {
                         var response = JSON.parse(data);
                         if (response.status == 0) {
