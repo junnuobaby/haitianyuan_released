@@ -59,7 +59,7 @@ $pages = $op_qa['pagination'];
                             </div>
                             <hr class="view_hr"/>
                         <?php endforeach; ?>
-                        <p class="pagination"><?php echo $pages ?></p>
+                        <p class="pages"><?php echo $pages ?></p>
                     </div>
                 </div>
             </div>
