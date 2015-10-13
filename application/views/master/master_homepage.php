@@ -53,7 +53,7 @@ $master_id = $info['host_id'];
                             </div>
                             <hr class="q_a_hr"/>
                         <?php endforeach; ?>
-                        <p id="pages"><?php echo $pages ?></p>
+                        <p class="pages"><?php echo $pages ?></p>
                     </div>
                 </div>
             </div>

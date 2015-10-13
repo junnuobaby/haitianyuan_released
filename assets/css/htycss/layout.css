@@ -590,6 +590,9 @@ div.master_view section {
     background-color: #fff;
     border: 1px solid #ddd;
 }
+.pages a.current{
+    background-color: #ababab;
+}
 
 
 
