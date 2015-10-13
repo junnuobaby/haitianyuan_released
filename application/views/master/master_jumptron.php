@@ -148,6 +148,7 @@ $face_pic = $info['face_pic'];
                     url: '<?php echo base_url("index.php/home/cancel_fan/web"); ?>' + '/' + '<?php echo $master_id?>' + '/',
                     method: 'get',
                     success: function (data) {
+                        alert(data);
                         var response = JSON.parse(data);
                         alert(response);
                         if (response.status == '0') {
@@ -163,6 +164,7 @@ $face_pic = $info['face_pic'];
                     url: '<?php echo base_url("index.php/home/add_fan/web"); ?>' + '/' + '<?php echo $master_id?>' + '/'+'<?php echo $username?>',
                     method: 'get',
                     success: function (data) {
+                        alert(data);
                         var response = JSON.parse(data);
                         if (response.status == '0') {
                             alert('关注成功');
