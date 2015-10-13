@@ -29,7 +29,7 @@ $face_pic = $info['face_pic'];
                     <?php endif; ?>
                 </div>
                 <div>
-                    <a class="btn" id="fan_btn" data-value="1"><?php if ($is_fan): ?>已关注
+                    <a class="btn" id="fan_btn"><?php if ($is_fan): ?>已关注
                         <?php else: ?>关注
                         <?php endif; ?>
                     </a>
@@ -143,9 +143,8 @@ $face_pic = $info['face_pic'];
     //取消关注和加关注
     $(document).ready(function () {
         $('#fan_btn').click(function () {
-            var is_fan = $('#fan_btn').attr('data-value');
-            alert(is_fan == '1');
-            if (is_fan == '1') {
+            var is_fan = $('#fan_btn').html();
+            if (is_fan.length == 48) {
                 $.ajax({
                     url: '<?php echo base_url("index.php/home/cancel_fan/web"); ?>' + '/' + '<?php echo $master_id?>' + '/',
                     method: 'get',
