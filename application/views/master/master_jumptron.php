@@ -1,6 +1,6 @@
 <!--理财师主页巨幕显示内容组件-->
 <?php
-$master_id = $info['master_id'];
+$master_id = $info['host_id'];
 $online_state = $info['online_state'];   //是否在线，在线为true
 $username = $info['username'];
 $concerns_count = $info['concerns_count'];
