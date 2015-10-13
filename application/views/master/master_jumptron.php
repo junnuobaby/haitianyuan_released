@@ -29,8 +29,7 @@ $face_pic = $info['face_pic'];
                     <?php endif; ?>
                 </div>
                 <div>
-                    <a class="btn" id="fan_btn"><?php if ($is_fan) echo "已关注"; else echo "关注"; ?>
-                    </a>
+                    <a class="btn" id="fan_btn"><?php if ($is_fan) echo "已关注"; else echo "关注"; ?></a>
                     <a class="btn" id="qu_btn"><span
                             class="glyphicon glyphicon-question-sign"></span> 提问
                     </a>
@@ -143,6 +142,7 @@ $face_pic = $info['face_pic'];
         $('#fan_btn').click(function () {
             var is_fan = $('#fan_btn').html();
             alert(is_fan);
+            alert(is_fan.length);
             alert(is_fan == '已关注');
             if (is_fan == '已关注') {
                 $.ajax({
