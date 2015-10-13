@@ -145,7 +145,8 @@ $face_pic = $info['face_pic'];
         $('#fan_btn').click(function () {
             var is_fan = $('#fan_btn').html();
             var focus = '已关注';
-            alert(is_fan);
+            alert(is_fan.length);
+            alert(focus.length);
             alert(is_fan == focus);
             if (is_fan == '已关注') {
                 $.ajax({
