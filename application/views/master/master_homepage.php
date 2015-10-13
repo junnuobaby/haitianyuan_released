@@ -11,6 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?php
 $qa_list = $op_qa['data_page'];
 $pages = $op_qa['pagination'];
+$master_id = $info['master_id'];
 ?>
 <div class="wrapper">
     <?php
