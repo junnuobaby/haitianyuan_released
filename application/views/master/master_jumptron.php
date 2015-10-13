@@ -151,7 +151,7 @@ $face_pic = $info['face_pic'];
 //                    data: {master_id: '<?php //echo $master_id?>//'},
                     success: function (data) {
                         var response = JSON.parse(data);
-                        if (response.status == 0) {
+                        if (response.status == '0') {
                             alert('已取消关注');
                             $('#fan_btn').html('加关注');
                         } else {
@@ -166,7 +166,7 @@ $face_pic = $info['face_pic'];
 //                    data: {master_id: '<?php //echo $master_id?>//', username: '<?php //echo $username?>//'},
                     success: function (data) {
                         var response = JSON.parse(data);
-                        if (response.status == 0) {
+                        if (response.status == '0') {
                             alert('关注成功');
                             $('#fan_btn').html('已关注');
                         } else {
