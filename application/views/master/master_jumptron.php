@@ -146,8 +146,8 @@ $face_pic = $info['face_pic'];
             var is_fan = $('#fan_btn').html();
             if (is_fan.length == 48) {
                 $.get('<?php echo base_url("index.php/home/cancel_fan/web"); ?>' + '/' + '<?php echo $master_id?>' + '/', function (data) {
-                    alert('data:'+data);
-                    var response = JSON.parse(data);
+                    alert('data:'+JSON.stringify(data));
+                    var response = JSON.parse(JSON.stringify(data));
                     alert('res:' + response);
                     if (response.status == '0') {
                         alert('已取消关注');
