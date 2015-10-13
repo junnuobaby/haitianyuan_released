@@ -1,7 +1,7 @@
-<!--Àí²ÆÊ¦Ö÷Ò³¾ŞÄ»ÏÔÊ¾ÄÚÈİ×é¼ş-->
+<!--ç†è´¢å¸ˆä¸»é¡µå·¨å¹•æ˜¾ç¤ºå†…å®¹ç»„ä»¶-->
 <?php
 $master_id = $info['master_id'];
-$online_state = $info['online_state'];   //ÊÇ·ñÔÚÏß£¬ÔÚÏßÎªtrue
+$online_state = $info['online_state'];   //æ˜¯å¦åœ¨çº¿ï¼Œåœ¨çº¿ä¸ºtrue
 $username = $info['username'];
 $concerns_count = $info['concerns_count'];
 $fans_count = $info['fans_count'];
@@ -18,9 +18,9 @@ $face_pic = $info['face_pic'];
             <div class="master_homepage_jumptron_div">
                 <div class="avatar_box">
                     <img class="img-responsive" src="<?php echo base_url('/uploads/' . $face_pic); ?>"
-                         alt="Àí²ÆÊ¦Í·Ïñ">
+                         alt="ç†è´¢å¸ˆå¤´åƒ">
                 </div>
-                <!--¸ù¾İÊÇ·ñÔÚÏßÏÔÊ¾²»Í¬µÄ×´Ì¬£¬µ±Ç°Ä¬ÈÏÎªÔÚÏß-->
+                <!--æ ¹æ®æ˜¯å¦åœ¨çº¿æ˜¾ç¤ºä¸åŒçš„çŠ¶æ€ï¼Œå½“å‰é»˜è®¤ä¸ºåœ¨çº¿-->
                 <div class="online_status">
                     <?php if ($online_state == false): ?>
                         <img class="img-responsive" src="<?php echo base_url('/assets/images/offline.png'); ?>">
@@ -29,12 +29,12 @@ $face_pic = $info['face_pic'];
                     <?php endif; ?>
                 </div>
                 <div>
-                    <a class="btn" id="fan_btn"><?php if ($is_fan): ?>ÒÑ¹Ø×¢
-                        <?php else: ?>Î´¹Ø×¢
+                    <a class="btn" id="fan_btn"><?php if ($is_fan): ?>å·²å…³æ³¨
+                        <?php else: ?>æœªå…³æ³¨
                         <?php endif; ?>
                     </a>
                     <a class="btn" id="qu_btn"><span
-                            class="glyphicon glyphicon-question-sign"></span> ÌáÎÊ
+                            class="glyphicon glyphicon-question-sign"></span> æé—®
                     </a>
                 </div>
             </div>
@@ -43,7 +43,7 @@ $face_pic = $info['face_pic'];
             <div class="master_homepage_jumptron_div">
                 <h3><?php echo $username; ?></h3>
                 <hr/>
-                <p class="self-font signature"><span>¼ò½é£º</span><?php echo $signature; ?></p>
+                <p class="self-font signature"><span>ç®€ä»‹ï¼š</span><?php echo $signature; ?></p>
             </div>
         </div>
         <div class="col-md-4 col-md-offset-1 col-sm-4">
@@ -51,17 +51,17 @@ $face_pic = $info['face_pic'];
                 <div class="row">
                     <table class="table table-responsive text-center master_info">
                         <tr>
-                            <td><h5>»Ø´ğÎÊÌâÊı</h5> <h4><?php echo $questions_count; ?></h4></td>
-                            <td><h5>ÂúÒâÂÊ</h5><h4><?php echo $satisfication_rate; ?></h4>
+                            <td><h5>å›ç­”é—®é¢˜æ•°</h5> <h4><?php echo $questions_count; ?></h4></td>
+                            <td><h5>æ»¡æ„ç‡</h5><h4><?php echo $satisfication_rate; ?></h4>
                             </td>
-                            <td><h5>ÏìÓ¦Ê±¼ä</h5><h4><?php echo $response_time; ?>Ğ¡Ê±</h4>
+                            <td><h5>å“åº”æ—¶é—´</h5><h4><?php echo $response_time; ?>å°æ—¶</h4>
                             </td>
                         </tr>
                         <tr>
-                            <td><h5>VIPÓÃ»§</h5><h4><?php echo $vips_count; ?></h4>
+                            <td><h5>VIPç”¨æˆ·</h5><h4><?php echo $vips_count; ?></h4>
                             </td>
-                            <td><h5>·ÛË¿</h5><h4><?php echo $fans_count; ?></h4></td>
-                            <td><h5>¹Ø×¢</h5><h4><?php echo $concerns_count; ?></h4>
+                            <td><h5>ç²‰ä¸</h5><h4><?php echo $fans_count; ?></h4></td>
+                            <td><h5>å…³æ³¨</h5><h4><?php echo $concerns_count; ?></h4>
                             </td>
                         </tr>
                     </table>
@@ -69,31 +69,31 @@ $face_pic = $info['face_pic'];
                 <div class="row text-center">
                     <a href="<?php echo base_url("index.php/qa/index/" . $master_id); ?>"
                        class="btn btn-default vip-link"
-                       target="_blank"><span>ÌåÑéVIP»áÔ±</span></a>
+                       target="_blank"><span>ä½“éªŒVIPä¼šå‘˜</span></a>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<!--ÌáÎÊµÄÄ£Ì¬¿ò-->
+<!--æé—®çš„æ¨¡æ€æ¡†-->
 <div class="modal fade" id="question_modal" tabindex="-1" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body">
                 <div class="panel panel-success">
-                    <div class="panel-heading">ÊäÈëÎÊÌâ£¨²»³¬¹ı500×Ö£©</div>
+                    <div class="panel-heading">è¾“å…¥é—®é¢˜ï¼ˆä¸è¶…è¿‡500å­—ï¼‰</div>
                     <div class="panel-body">
                         <form>
                             <textarea class="ta" id="my_question" name="question" rows="5"
-                                      placeholder="Çë¾¡¿ÉÄÜ×¼È·µØÃèÊöÄúµÄÎÊÌâ"></textarea>
+                                      placeholder="è¯·å°½å¯èƒ½å‡†ç¡®åœ°æè¿°æ‚¨çš„é—®é¢˜"></textarea>
                         </form>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">È¡Ïû</button>
-                <button type="button" id="qa_btn" class="btn btn-success">È·¶¨</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">å–æ¶ˆ</button>
+                <button type="button" id="qa_btn" class="btn btn-success">ç¡®å®š</button>
             </div>
         </div>
     </div>
@@ -101,7 +101,7 @@ $face_pic = $info['face_pic'];
 <script>
     $(document).ready(function () {
         $('.master_homepage_jumptron').css('background-image', 'url("<?php echo base_url('assets/images/jumptron_background.jpg'); ?>")');
-        /* ÈÃÄ£Ì¬¿ò¾ÓÖĞ */
+        /* è®©æ¨¡æ€æ¡†å±…ä¸­ */
         function centerModals() {
             $('.modal').each(function (i) {
                 var $clone = $(this).clone().css('display', 'block').appendTo('body');
@@ -140,11 +140,11 @@ $face_pic = $info['face_pic'];
         });
     });
 
-    //È¡Ïû¹Ø×¢ºÍ¼Ó¹Ø×¢
+    //å–æ¶ˆå…³æ³¨å’ŒåŠ å…³æ³¨
     $(document).ready(function () {
         $('#fan_btn').click(function () {
             var is_fan = $('#fan_btn').html();
-            if (is_fan == 'ÒÑ¹Ø×¢') {
+            if (is_fan == 'å·²å…³æ³¨') {
                 $.ajax({
                     url: '<?php echo base_url("index.php/home/cancel_fan/web"); ?>',
                     method: 'get',
@@ -152,8 +152,8 @@ $face_pic = $info['face_pic'];
                     success: function (data) {
                         var response = JSON.parse(data);
                         if (response.status == 0) {
-                            alert('ÒÑÈ¡Ïû¹Ø×¢');
-                            $('#fan_btn').html('¼Ó¹Ø×¢');
+                            alert('å·²å–æ¶ˆå…³æ³¨');
+                            $('#fan_btn').html('åŠ å…³æ³¨');
                         } else {
                             alert(response.msg);
                         }
@@ -167,8 +167,8 @@ $face_pic = $info['face_pic'];
                     success: function (data) {
                         var response = JSON.parse(data);
                         if (response.status == 0) {
-                            alert('¹Ø×¢³É¹¦');
-                            $('#fan_btn').html('ÒÑ¹Ø×¢');
+                            alert('å…³æ³¨æˆåŠŸ');
+                            $('#fan_btn').html('å·²å…³æ³¨');
                         } else {
                             alert(response.msg);
                         }
