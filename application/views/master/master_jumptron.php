@@ -148,7 +148,7 @@ $face_pic = $info['face_pic'];
                 $.ajax({
                     url: '<?php echo base_url("index.php/home/cancel_fan/web"); ?>' + '/' + '<?php echo $master_id?>' + '/',
                     method: 'get',
-                    data: {master_id: '<?php echo $master_id?>'},
+//                    data: {master_id: '<?php //echo $master_id?>//'},
                     success: function (data) {
                         var response = JSON.parse(data);
                         if (response.status == 0) {
