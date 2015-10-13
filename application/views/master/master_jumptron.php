@@ -145,38 +145,59 @@ $face_pic = $info['face_pic'];
         $('#fan_btn').click(function () {
             var is_fan = $('#fan_btn').html();
             if (is_fan.length == 48) {
-                $.ajax({
-                    url: '<?php echo base_url("index.php/home/cancel_fan/web"); ?>' + '/' + '<?php echo $master_id?>' + '/',
-                    method: 'get',
-//                    data: {master_id: '<?php //echo $master_id?>//'},
-                    success: function (data) {
-                        var response = JSON.parse(data);
-                        alert(response);
-                        if (response.status == '0') {
-                            alert('已取消关注');
-                            $('#fan_btn').html('关注');
-                            $('#fan_btn').attr('data-value','0');
-                        } else {
-                            alert(response.msg);
-                        }
+                $.get('<?php echo base_url("index.php/home/cancel_fan/web"); ?>' + '/' + '<?php echo $master_id?>' + '/', function (data) {
+                    var response = JSON.parse(data);
+                    alert(response);
+                    if (response.status == '0') {
+                        alert('已取消关注');
+                        $('#fan_btn').html('关注');
+                        $('#fan_btn').attr('data-value','0');
+                    } else {
+                        alert(response.msg);
                     }
                 });
+//                $.ajax({
+//                    url: '<?php //echo base_url("index.php/home/cancel_fan/web"); ?>//' + '/' + '<?php //echo $master_id?>//' + '/',
+//                    method: 'get',
+////                    data: {master_id: '<?php ////echo $master_id?>////'},
+//                    success: function (data) {
+//                        var response = JSON.parse(data);
+//                        alert(response);
+//                        if (response.status == '0') {
+//                            alert('已取消关注');
+//                            $('#fan_btn').html('关注');
+//                            $('#fan_btn').attr('data-value','0');
+//                        } else {
+//                            alert(response.msg);
+//                        }
+//                    }
+//                });
             } else {
-                $.ajax({
-                    url: '<?php echo base_url("index.php/home/add_fan/web"); ?>' + '/' + '<?php echo $master_id?>' + '/'+'<?php echo $username?>',
-                    method: 'get',
-//                    data: {master_id: '<?php //echo $master_id?>//', username: '<?php //echo $username?>//'},
-                    success: function (data) {
-                        var response = JSON.parse(data);
-                        if (response.status == '0') {
-                            alert('关注成功');
-                            $('#fan_btn').html('已关注');
-                            $('#fan_btn').attr('data-value','1');
-                        } else {
-                            alert(response.msg);
-                        }
+                $.get('<?php echo base_url("index.php/home/add_fan/web"); ?>' + '/' + '<?php echo $master_id?>' + '/'+'<?php echo $username?>',function (data) {
+                    var response = JSON.parse(data);
+                    if (response.status == '0') {
+                        alert('关注成功');
+                        $('#fan_btn').html('已关注');
+                        $('#fan_btn').attr('data-value','1');
+                    } else {
+                        alert(response.msg);
                     }
                 });
+//                $.ajax({
+//                    url: '<?php //echo base_url("index.php/home/add_fan/web"); ?>//' + '/' + '<?php //echo $master_id?>//' + '/'+'<?php //echo $username?>//',
+//                    method: 'get',
+////                    data: {master_id: '<?php ////echo $master_id?>////', username: '<?php ////echo $username?>////'},
+//                    success: function (data) {
+//                        var response = JSON.parse(data);
+//                        if (response.status == '0') {
+//                            alert('关注成功');
+//                            $('#fan_btn').html('已关注');
+//                            $('#fan_btn').attr('data-value','1');
+//                        } else {
+//                            alert(response.msg);
+//                        }
+//                    }
+//                });
             }
         });
     });
