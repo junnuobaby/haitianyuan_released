@@ -144,6 +144,7 @@ $face_pic = $info['face_pic'];
     $(document).ready(function () {
         $('#fan_btn').click(function () {
             var is_fan = $('#fan_btn').html();
+            alert(is_fan == '已关注');
             if (is_fan == '已关注') {
                 $.ajax({
                     url: '<?php echo base_url("index.php/home/cancel_fan/web"); ?>' + '/' + '<?php echo $master_id?>' + '/',
@@ -151,6 +152,7 @@ $face_pic = $info['face_pic'];
 //                    data: {master_id: '<?php //echo $master_id?>//'},
                     success: function (data) {
                         var response = JSON.parse(data);
+                        alert(response);
                         if (response.status == '0') {
                             alert('已取消关注');
                             $('#fan_btn').html('加关注');
