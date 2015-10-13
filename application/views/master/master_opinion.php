@@ -38,7 +38,7 @@ $pages = $op_qa['pagination'];
                             <div class="master_view">
                                 <article>
                                     <header>
-                                        <h4 class="inline_div"><a href="#"
+                                        <h4 class="inline_div"><a href="<?php echo base_url('index.php/home/get_detail/web/' .'op'. '/' . $view_item['op_id']);?>"
                                                                   target="_blank"> <?php echo $view_item['op_title']; ?></a></h4>
                                         <span class="key_word"><?php echo $view_item['op_kwords']; ?></span>
                                     </header>

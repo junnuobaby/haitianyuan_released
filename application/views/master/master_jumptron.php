@@ -29,9 +29,7 @@ $face_pic = $info['face_pic'];
                     <?php endif; ?>
                 </div>
                 <div>
-                    <a class="btn" id="fan_btn"><?php if ($is_fan): ?>已关注
-                        <?php else: ?>关注
-                        <?php endif; ?>
+                    <a class="btn" id="fan_btn"><?php if ($is_fan) echo "已关注"; else echo "关注"; ?>
                     </a>
                     <a class="btn" id="qu_btn"><span
                             class="glyphicon glyphicon-question-sign"></span> 提问
