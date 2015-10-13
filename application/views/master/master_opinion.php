@@ -128,6 +128,7 @@ $signature = $info['signature'];
                             </div>
                             <hr class="view_hr"/>
                         <?php endforeach; ?>
+                        <p><?php echo $pages ?></p>
                     </div>
                 </div>
             </div>
