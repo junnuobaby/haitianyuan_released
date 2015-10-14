@@ -12,8 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><img src="<?php echo base_url('/assets/images/logo.png'); ?>"
-                                                    alt="..." class="img-rounded narbar_li">
+                    <div class="panel-heading">
                         欢迎您登陆<strong>海天理财</strong></div>
                     <div class="panel-body">
                         <div class="row">
@@ -23,7 +22,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
 
                             <div class="col-md-6 col-sm-6 ">
-<!--                                <form class="form-horizontal login_form">-->
                                 <?php echo validation_errors(); ?>
                                 <?php echo form_open('login/login','class="form-horizontal login_form"'); ?>
                                     <div class="form-group">
