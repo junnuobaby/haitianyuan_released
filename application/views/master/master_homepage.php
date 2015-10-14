@@ -6,7 +6,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="zh-cn">
 <?php $this->load->view('./templates/head'); ?>
 <body class="bg-gray">
-<!--<script src="--><?php //echo base_url('/assets/js/htyjs/general_navbar.js') ?><!--"></script>-->
 <?php $this->load->view('./templates/navbar'); ?>
 <?php
 $qa_list = $op_qa['data_page'];
