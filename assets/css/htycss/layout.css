@@ -597,6 +597,18 @@ div.master_view section {
 .pages a.current{
     background-color: #e8e8e8;
 }
+.sop_header{
+    text-align: center;
+    padding: 92px 0 42px 0;
+    color: #fff;
+    margin-bottom: 30px;
+}
+.sop_header h1{
+    font-size: 3em;
+}
+.sop_article article{
+    padding: 35px;
+}
 .sop_article article .sop-author{
     margin: 0 20px;
 }
