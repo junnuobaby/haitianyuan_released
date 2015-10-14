@@ -99,6 +99,12 @@ $current_user = $this->session->userdata('username');
 <script>
     $(document).ready(function () {
         $('.master_homepage_jumptron').css('background-image', 'url("<?php echo base_url('assets/images/jumptron_background.jpg'); ?>")');
+        var username = '<?php echo $username?>';
+        var current_user = '<?php echo $current_user?>';
+        if(username == current_user){
+            $('#fan_btn').removeAttr('onclick');
+            $('#buy_vip').attr('href','#');
+        }
         /* 让模态框居中 */
         function centerModals() {
             $('.modal').each(function (i) {
@@ -130,10 +136,12 @@ $current_user = $this->session->userdata('username');
                     $('#question_modal').modal();
                 } else if (state == '1') {
                     location.href = "<?php echo base_url('index.php/login')?>";
-                } else {
+                } else if (state == '2') {
                     if(confirm("只有VIP才能提问，是否升级成为VIP？")){
                         location.href = "<?php echo base_url('index.php/qa/index/'.$master_id)?>";
                     }
+                }else{
+                    alert('不能向自己提问');
                 }
             });
 
@@ -142,13 +150,6 @@ $current_user = $this->session->userdata('username');
 
     //取消关注和加关注
     $(document).ready(function () {
-        var username = '<?php echo $username?>';
-        var current_user = '<?php echo $current_user?>';
-        if(username == current_user){
-            $('#fan_btn').removeAttr('onclick');
-            $('#qu_btn').removeAttr('onclick');
-            $('#buy_vip').attr('href','#');
-        }
         $('#fan_btn').click(function () {
             var is_fan = $('#fan_btn').html();
             if (is_fan == '已关注') {
