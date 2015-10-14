@@ -94,17 +94,17 @@ $year_price = $price['year'];
 <script>
     $(function(){
         $('#monthly_vip').editable({
-            url:  '<?php echo base_url("index.php/master/change_price"); ?>',
+            url:  '<?php echo base_url("index.php/modify_info/modify_vip_price/web"); ?>',
             title: '修改月会员价格',
             name: 'month'
         });
         $('#half_year_vip').editable({
-            url:  '<?php echo base_url("index.php/master/change_price"); ?>',
+            url:  '<?php echo base_url("index.php/modify_info/modify_vip_price/web"); ?>',
             title: '修改半年制会员价格',
             name: 'half_year'
         });
         $('#year_vip').editable({
-            url:  '<?php echo base_url("index.php/master/change_price"); ?>',
+            url:  '<?php echo base_url("index.php/modify_info/modify_vip_price/web"); ?>',
             title: '修改年会员价格',
             name: 'year'
         });
