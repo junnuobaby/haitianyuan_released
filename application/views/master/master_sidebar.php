@@ -61,21 +61,19 @@ $basic_info = array(
                 </div>
             </li>
             <li class="list-group-item ">
+                <h4><i class="glyphicon glyphicon-list-alt"></i> VIP管理</h4>
+
+                <div class="list-group">
+                    <a href="<?php echo base_url("index.php/modify_info/modify_vip_price/web"); ?>" class="list-group-item">VIP价格</a>
+                    <a href="#" class="list-group-item">VIP会员</a>
+                </div>
+            </li>
+            <li class="list-group-item ">
                 <h4><i class="glyphicon glyphicon-user"></i> 个人信息管理</h4>
 
                 <div class="list-group">
                     <a href="#" class="list-group-item">我的钱包</a>
                     <a href="<?php echo base_url("index.php/modify_info/index"); ?>" class="list-group-item">修改个人资料</a>
-                </div>
-            </li>
-            <li class="list-group-item ">
-                <h4><i class="glyphicon glyphicon-list-alt"></i> 论坛管理</h4>
-
-                <div class="list-group">
-                    <a href="#" class="list-group-item">我的帖子</a>
-                    <a href="#" class="list-group-item">我的回复</a>
-                    <a href="<?php echo base_url('/index.php/master/master_profile') ?>"
-                       class="list-group-item">我的收藏</a>
                 </div>
             </li>
         </ul>
