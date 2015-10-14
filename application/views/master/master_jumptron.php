@@ -147,38 +147,38 @@ $current_user = $this->session->userdata('username');
         $('#fan_btn').click(function () {
             var username = '<?php echo $username?>';
             var current_user = '<?php echo $current_user?>';
-            alert(username == current_user);
-            alert(username == current_user);
             if(username == current_user){
                 alert('不能关注自己');
             }
-            var is_fan = $('#fan_btn').html();
-            if (is_fan == '已关注') {
-                $.ajax({
-                    url: '<?php echo base_url("index.php/home/cancel_fan/web"); ?>' + '/' + '<?php echo $master_id?>' + '/',
-                    method: 'get',
-                    success: function (data) {
-                        if (data.status == '0') {
-                            $('#fan_btn').html('关注');
-                        } else {
-                            alert(data.msg);
-                        }
-                    },
-                    dataType: "json"
-                });
-            } else {
-                $.ajax({
-                    url: '<?php echo base_url("index.php/home/add_fan/web"); ?>' + '/' + '<?php echo $master_id?>' + '/'+'<?php echo $username?>',
-                    method: 'get',
-                    success: function (data) {
-                        if (data.status == '0') {
-                            $('#fan_btn').html('已关注');
-                        } else {
-                            alert(data.msg);
-                        }
-                    },
-                    dataType: "json"
-                });
+            else{
+                var is_fan = $('#fan_btn').html();
+                if (is_fan == '已关注') {
+                    $.ajax({
+                        url: '<?php echo base_url("index.php/home/cancel_fan/web"); ?>' + '/' + '<?php echo $master_id?>' + '/',
+                        method: 'get',
+                        success: function (data) {
+                            if (data.status == '0') {
+                                $('#fan_btn').html('关注');
+                            } else {
+                                alert(data.msg);
+                            }
+                        },
+                        dataType: "json"
+                    });
+                } else {
+                    $.ajax({
+                        url: '<?php echo base_url("index.php/home/add_fan/web"); ?>' + '/' + '<?php echo $master_id?>' + '/'+'<?php echo $username?>',
+                        method: 'get',
+                        success: function (data) {
+                            if (data.status == '0') {
+                                $('#fan_btn').html('已关注');
+                            } else {
+                                alert(data.msg);
+                            }
+                        },
+                        dataType: "json"
+                    });
+                }
             }
         });
     });
