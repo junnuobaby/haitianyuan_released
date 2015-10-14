@@ -72,7 +72,7 @@ $basic_info = array(
 
                 <div class="list-group">
                     <a href="#" class="list-group-item">我的钱包</a>
-                    <a href="<?php echo base_url("index.php/modify_info/index"); ?>" class="list-group-item">修改个人资料</a>
+                    <a href="<?php echo base_url('index.php/modify_info/index'); ?>" class="list-group-item">修改个人资料</a>
                 </div>
             </li>
         </ul>
