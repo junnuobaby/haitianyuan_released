@@ -99,12 +99,6 @@ $current_user = $this->session->userdata('username');
 <script>
     $(document).ready(function () {
         $('.master_homepage_jumptron').css('background-image', 'url("<?php echo base_url('assets/images/jumptron_background.jpg'); ?>")');
-        var username = '<?php echo $username?>';
-        var current_user = '<?php echo $current_user?>';
-        if(username == current_user){
-            $('#fan_btn').removeAttr('onclick');
-            $('#buy_vip').attr('href','#');
-        }
         /* 让模态框居中 */
         function centerModals() {
             $('.modal').each(function (i) {
@@ -151,6 +145,13 @@ $current_user = $this->session->userdata('username');
     //取消关注和加关注
     $(document).ready(function () {
         $('#fan_btn').click(function () {
+            var username = '<?php echo $username?>';
+            var current_user = '<?php echo $current_user?>';
+            alert(username == current_user);
+            alert(username == current_user);
+            if(username == current_user){
+                alert('不能关注自己');
+            }
             var is_fan = $('#fan_btn').html();
             if (is_fan == '已关注') {
                 $.ajax({
