@@ -7,6 +7,7 @@ html{
 body{
     height: 100%;
     margin: 0;
+    line-height: 1.75em;
     overflow: -moz-scrollbars-vertical;
     font-family: "Helvetica Neue", Helvetica, Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
 }
@@ -26,9 +27,6 @@ a:hover{
 }
 .inline_div{
     display: inline-block;
-}
-.align_center{
-    text-align: center;
 }
 /*页脚样式*/
 footer.page_footer {
@@ -92,6 +90,9 @@ footer.page_footer p{
 }
 .green-color{
     background-color: #96cc75;
+}
+.black-color{
+    color:black;
 }
 /*白色背景*/
 .bg-white{

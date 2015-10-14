@@ -574,28 +574,34 @@ div.master_view section {
     float: right;
     margin-right: 10px;
 }
-.pages{
-    display: inline-block;
-    padding-left: 0;
+.sop_header{
+    text-align: center;
+    padding: 92px 0 42px 0;
+    color: #fff;
+    margin-bottom: 30px;
+}
+.sop_header h1{
+    font-size: 3em;
+}
+.sop_article article{
+    padding: 35px;
+}
+.sop_article article .sop-author{
+    margin: 0 20px;
+}
+.sop_article article .sop-meta{
+    color: #959595;
+    margin: 14px 0 0;
+    text-align: center;
+}
+.sop_article .sop-content {
     margin: 20px 0;
-    border-radius: 4px;
 }
-.pages a{
-    position: relative;
-    padding: 6px 12px;
-    margin-left: -1px;
-    line-height: 1.42857143;
-    color: #f4645f;
-    text-decoration: none;
-    background-color: #fff;
-    border: 1px solid #ddd;
+.sop_article footer{
+    border-top: 1px solid #ebebeb;
+    padding: 20px 0 0px 0;
 }
-.pages a.current{
-    background-color: #e8e8e8;
+.sop_article footer button{
+    float: right;
+    margin-left: 20px;
 }
-
-
-
-
-
-
