@@ -114,6 +114,13 @@ $current_user = $this->session->userdata('username');
         $(window).on('resize', centerModals);
     });
     $(document).ready(function () {
+        $('#buy_vip').click(function (e) {
+            var username = '<?php echo $username?>';
+            var current_user = '<?php echo $current_user?>';
+            if(username == current_user){
+                e.preventDefault();
+            }
+        });
         $('#qa_btn').click(function () {
             var content = $('#my_question').val();
             var master_id = "<?php echo $master_id;?>";
