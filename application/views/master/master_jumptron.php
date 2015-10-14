@@ -130,7 +130,9 @@ $face_pic = $info['face_pic'];
                 } else if (state == '1') {
                     location.href = "<?php echo base_url('index.php/login')?>";
                 } else {
-                    location.href = "<?php echo base_url('index.php/qa/index/'.$master_id)?>";
+                    if(confirm("只有VIP才能提问，是否升级成为VIP？")){
+                        location.href = "<?php echo base_url('index.php/qa/index/'.$master_id)?>";
+                    }
                 }
             });
 
