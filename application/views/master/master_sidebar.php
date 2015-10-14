@@ -1,7 +1,5 @@
 <!--理财师个人空间侧边栏-->
 <?php
-//$uuid = $this->session->userdata('uuid');//从session获取用户id
-//$basic_info = $this->session->userdata($uuid);//通过用户Id获取用户基本信息
 $basic_info = array(
     "username" => $this->session->userdata('username'),
     "concerns_count" => $this->session->userdata('concerns_count'),

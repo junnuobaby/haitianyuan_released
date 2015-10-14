@@ -11,6 +11,7 @@ $satisfication_rate = $info['satisfication_rate'];
 $response_time = $info['response_time'];
 $signature = $info['signature'];
 $face_pic = $info['face_pic'];
+$current_user = $this->session->userdata('username');
 ?>
 <div class="container-fluid master_homepage_jumptron">
     <div class="container">
@@ -65,7 +66,7 @@ $face_pic = $info['face_pic'];
                 </div>
                 <div class="row text-center">
                     <a href="<?php echo base_url("index.php/qa/index/" . $master_id); ?>"
-                       class="btn btn-default vip-link"
+                       class="btn btn-default vip-link" id = "buy_vip"
                        target="_blank"><span>体验VIP会员</span></a>
                 </div>
             </div>
@@ -141,6 +142,13 @@ $face_pic = $info['face_pic'];
 
     //取消关注和加关注
     $(document).ready(function () {
+        var username = '<?php echo $username?>';
+        var current_user = '<?php echo $current_user?>';
+        if(username == current_user){
+            $('#fan_btn').removeAttr('onclick');
+            $('#qu_btn').removeAttr('onclick');
+            $('#buy_vip').attr('href','#');
+        }
         $('#fan_btn').click(function () {
             var is_fan = $('#fan_btn').html();
             if (is_fan == '已关注') {
