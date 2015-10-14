@@ -68,7 +68,7 @@ $year_price = $price['year'];
                             <tr>
                                 <td>一年（360天）</td>
                                 <td>
-                                    <p<i class="glyphicon glyphicon-ok"></i> >享受一年VIP权利</p>
+                                    <p<i class="glyphicon glyphicon-ok"></i> 享受一年VIP权利</p>
                                     <p><i class="glyphicon glyphicon-ok"></i> 技术问答</p>
                                     <p><i class="glyphicon glyphicon-ok"></i> 开放全部观点</p>
                                 </td>
