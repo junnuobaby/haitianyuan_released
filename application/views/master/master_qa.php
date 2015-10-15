@@ -36,7 +36,7 @@ $qa_list = $done;
                         <!--待回答问题-->
                         <div role="tabpanel" class="tab-pane active" id="qa_undo_list">
                             <?php if(count($qu_undo_array) < 1):?>
-                            <h4 class="alert_info">没有问题需要回答</h4>
+                            <h3 class="alert_info">没有问题需要回答</h3>
                             <?php else:?>
                             <?php foreach ($qu_undo_array as $qu_undo_item): ?>
                                 <div class="qu_margin">
@@ -80,7 +80,7 @@ $qa_list = $done;
                         <!--已回答问题-->
                         <div role="tabpanel" class="tab-pane" id="qa_done">
                             <?php if(count($qa_list) < 1):?>
-                                <h4 class="alert_info">您还没有解决任何问题</h4>
+                                <h3 class="alert_info">您还没有解决任何问题</h3>
                             <?php else:?>
                             <?php foreach ($qa_list as $qa_item): ?>
                                 <div class="q_a qu_margin">
