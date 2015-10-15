@@ -18,11 +18,11 @@ $view_list = $op;
                 <?php $this->load->view('./master/master_sidebar'); ?>
             </div>
             <div class="col-sm-9 col-md-9 block-radius">
-                <div class="panel panel-success" style="min-height: 1000px">
+                <div class="panel panel-success mas_min_height">
                     <div class="panel-heading"><h3><span class="glyphicon glyphicon-list"></span> 已发表观点</h3>
                     </div>
                     <?php if (count($view_list) < 1): ?>
-                        <h3>您还没有发布任何观点！</h3>
+                        <h3 class="set_price">您还没有发布任何观点！</h3>
                     <?php else: ?>
                         <div class="panel-body">
                             <div class="opinion_category">
