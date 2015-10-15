@@ -23,33 +23,38 @@ $vips = $master_info;
                         <h3 class="panel-title">我的理财师</h3>
                     </div>
                     <div class="panel-body">
-                        <?php if(count($vips) < 1):?>
+                        <?php if (count($vips) < 1): ?>
                             <h4 class="alert_info">
                                 亲，您还没有定制成为任何理财师的VIP用户哟！</h4>
-                        <?php else:?>
-                        <?php foreach ($vips as $vip): ?>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <div class="master_avatar_box">
-                                        <img
-                                            src="<?php echo base_url('/uploads/' . $vip['face_pic']); ?>"
-                                            class="img-responsive img-circle" alt="...">
+                        <?php else: ?>
+                            <?php foreach ($vips as $vip): ?>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="master_avatar_box">
+                                            <img
+                                                src="<?php echo base_url('/uploads/' . $vip['face_pic']); ?>"
+                                                class="img-responsive img-circle" alt="...">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h4>
+                                            <a href="<?php echo base_url('index.php/home/load_home/web/' . 'master' . '/' . $vip['master_id'] . '/' . '1'); ?>"
+                                               target="_blank" class="theme-color"><?php echo $vip['master_name']; ?></a></h4>
+
+                                        <p>关注 <?php echo $vip['concerns_count']; ?> |
+                                            粉丝 <?php echo $vip['fans_count']; ?>
+                                            | <?php if ($vip['online_state'] == true) {
+                                                echo '在线';
+                                            } else {
+                                                echo "离线";
+                                            } ?></p>
+
+                                        <p>个性签名：<?php echo $vip['signature']; ?></p>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <h4><a href= "<?php echo base_url('index.php/home/load_home/web/' . 'master' . '/' . $vip['master_id'] . '/' . '1'); ?>" class="theme-color"><?php echo $vip['master_name']; ?></a></h4>
-                                    <p>关注 <?php echo $vip['concerns_count']; ?> | 粉丝 <?php echo $vip['fans_count']; ?>
-                                        | <?php if ($vip['online_state'] == true) {
-                                            echo '在线';
-                                        } else {
-                                            echo "离线";
-                                        } ?></p>
-                                    <p>个性签名：<?php echo $vip['signature']; ?></p>
-                                </div>
-                            </div>
-                            <hr class="qu_hr"/>
-                        <?php endforeach; ?>
-                        <?php endif;?>
+                                <hr class="qu_hr"/>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
