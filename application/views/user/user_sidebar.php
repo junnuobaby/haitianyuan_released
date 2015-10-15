@@ -26,7 +26,7 @@ $basic_info = array(
             <h5>粉丝</h5>
         </div>
         <div class="col-md-4 text-center">
-            <a href="#"><h4><strong><?php echo $basic_info["vips_count"]; ?></strong></h4></a>
+            <a href="#"><h4><strong><?php echo '5'; ?></strong></h4></a>
             <h5>理财师</h5>
         </div>
     </div>
