@@ -20,7 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
-                    <article class="bg-white">
+                    <article class="bg-white mas_min_height">
                         <header class="txt_center">
                             <h2><?php echo $opinion['op_title']; ?></h2>
                             <section class="sop-meta">
