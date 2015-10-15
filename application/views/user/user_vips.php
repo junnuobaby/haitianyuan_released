@@ -5,6 +5,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!DOCTYPE html>
 <html lang="zh-cn">
 <?php $this->load->view('./templates/head'); ?>
+<?php
+$vips = $master_info;
+?>
 <body class="bg-gray">
 <script src="<?php echo base_url('/assets/js/htyjs/general_navbar.js') ?>"></script>
 <div class="wrapper">
@@ -23,11 +26,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <?php foreach ($vips as $vip): ?>
                             <div class="row">
                                 <div class="col-md-2">
-                                    <div class="master_avatar_box"><img src="<?php echo base_url('/assets/images/touxiang/1.jpg'); ?>"
-                                         class="img-responsive img-circle" alt="..."></div>
+                                    <div class="master_avatar_box">
+                                        <img
+                                            src="<?php echo base_url('/uploads/' . $vip['face_pic']); ?>"
+                                            class="img-responsive img-circle" alt="...">
+                                    </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <h4><a href= "#" class="theme-color"><?php echo $vip['username']; ?></a></h4>
+                                    <h4><a href= "#" class="theme-color"><?php echo $vip['master_name']; ?></a></h4>
                                     <p>关注 <?php echo $vip['concerns_count']; ?> | 粉丝 <?php echo $vip['fans_count']; ?>
                                         | <?php if ($vip['online_state'] == true) {
                                             echo '在线';
