@@ -106,10 +106,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             '</div>' +
                             '<hr class="q_a_hr"/>';
                     }
-                    $('#his_qa').innerHTML(content);
-
-
-
+                    $('#his_qa').html(content);
                 },
                 dataType: "json"
             });
