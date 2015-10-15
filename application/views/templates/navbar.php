@@ -93,7 +93,7 @@
                                 <li>
                                     <a href="<?php echo base_url('index.php/home/load_home/web/' . $identity . '/' . $uuid.'/'.'1'); ?>">我的主页</a>
                                 </li>
-                                <li><a href="<?php echo base_url('modify_info/get_questions/web/undo');?>">我的空间</a></li>
+                                <li><a href="<?php echo base_url('index.php/modify_info/index');?>">我的空间</a></li>
                                 <li><a href="#">我的私信</a></li>
                                 <li><a href="#">我的收藏</a></li>
                                 <li><a href="#">我的钱包</a></li>
