@@ -65,7 +65,7 @@ $current_user = $this->session->userdata('username');
                     </table>
                 </div>
                 <div class="row text-center">
-                    <a href="<?php echo base_url("index.php/qa/index/" . $master_id); ?>"
+                    <a href="<?php echo base_url("index.php/qa/index/" . $master_id.'/'.$username); ?>"
                        class="btn btn-default vip-link" id = "buy_vip"
                        target="_blank"><span>体验VIP会员</span></a>
                 </div>
