@@ -40,7 +40,7 @@ $qa_list = $done;
                                 <div class="qu_margin">
                                     <div class="qu_time">
                                         <span><?php echo $qu_undo_item['qu_timestamp'] ?></span> 您向<a href="#"
-                                                                                                     class="questioner"><?php echo $qu_undo_item['qu_master'] ?></a> 提问
+                                                                                                     class="questioner"><?php echo $qu_undo_item['answerer'] ?></a> 提问
                                     </div>
                                     <p><span class="q_a_span">问</span><?php echo $qu_undo_item['qu_content'] ?></p>
                                 </div>
