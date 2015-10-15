@@ -90,7 +90,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 method: 'get',
                 success: function (data) {
                     var content = '';
-                    for (qa_item in data) {
+                    for (qa_item in data['qa_info']) {
                         content += '<div class="q_a qu_margin">' +
                             '<article>' +
                             '<h4 class="q_a_question inline_block">' +
