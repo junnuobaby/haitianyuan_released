@@ -21,6 +21,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <h3 class="panel-title">我的会员</h3>
                     </div>
                     <div class="panel-body">
+                        <?php if(count($user_info) < 1):?>
+                        <h4>亲，您暂无会员，不要灰心，请继续加油哦！</h4>
+                        <?php else:?>
                         <?php foreach ($user_info as $user): ?>
                             <div class="row">
                                 <div class="col-md-2">
@@ -52,6 +55,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
                             <hr class="qu_hr"/>
                         <?php endforeach; ?>
+                        <?php endif;?>
                     </div>
                 </div>
             </div>
