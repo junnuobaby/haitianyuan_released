@@ -306,6 +306,7 @@ $user_address = explode('-', $basic_info['location']); //分割地址，得到�
      */
 //页面初始化，从后台读取个人信息的值并显示
     $(document).ready(function () {
+        alert('hahah');
         //居住地插件初始化
         AreaSelector().init();
 
