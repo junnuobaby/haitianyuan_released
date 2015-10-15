@@ -18,7 +18,7 @@ $view_list = $op;
             <div class="col-sm-3 col-md-3 ">
                 <?php $this->load->view('./master/master_sidebar'); ?>
             </div>
-            <div class="col-sm-9 col-md-9 block-radius">
+            <div class="col-sm-9 col-md-9 block-radius mas_min_height">
                 <div class="panel panel-success">
                     <div class="panel-heading"><h3><span class="glyphicon glyphicon-list"></span> 已发表观点</h3>
                     </div>
@@ -29,6 +29,9 @@ $view_list = $op;
                     </div>
                     <!-- 已发表的观点列表 -->
                     <div class="opinion_list">
+                        <?php if(count($view_list) < 1):?>
+                        <h3>您还没有发布任何观点！</h3>
+                        <?php else:?>
                         <?php foreach ($view_list as $view_item): ?>
                             <div class="master_view">
                                 <article>
@@ -60,6 +63,7 @@ $view_list = $op;
                             </div>
                             <hr/>
                         <?php endforeach; ?>
+                        <?php endif;?>
                     </div>
                 </div>
             </div>
