@@ -18,7 +18,7 @@ $view_list = $op;
                 <?php $this->load->view('./master/master_sidebar'); ?>
             </div>
             <div class="col-sm-9 col-md-9 block-radius">
-                <div class="panel panel-success">
+                <div class="panel panel-success" style="min-height: 800px">
                     <div class="panel-heading"><h3><span class="glyphicon glyphicon-list"></span> 已发表观点</h3>
                     </div>
                     <?php if (count($view_list) < 1): ?>
