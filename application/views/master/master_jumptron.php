@@ -139,7 +139,7 @@ $current_user = $this->session->userdata('username');
                     location.href = "<?php echo base_url('index.php/login')?>";
                 } else if (state == '2') {
                     if(confirm("只有VIP才能提问，是否升级成为VIP？")){
-                        location.href = "<?php echo base_url('index.php/qa/index/'.$master_id)?>";
+                        location.href = "<?php echo base_url('index.php/qa/index/'.$master_id.'/'.$username)?>";
                     }
                 }else{
                     alert('不能向自己提问');
