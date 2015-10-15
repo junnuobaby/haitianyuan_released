@@ -90,17 +90,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 method: 'get',
                 success: function (data) {
                     var content = '';
-                    for (qa_item in data['qa_info']) {
+                    var qa_list = data['qa_info'];
+                    for(var i= 0; i< qa_list.length; i++){
                         content += '<div class="q_a qu_margin">' +
                             '<article>' +
                             '<h4 class="q_a_question inline_block">' +
                             '<span class="q_a_span">问</span>' +
-                            '<a href="#">' + qa_item['qu_content'] + '</a></h4>' +
-                            '<span class="qu_time">【' + qa_item['qu_timestamp'] + '】</span>' +
-                            '<p class="q_a_answer"><span class="theme-color">答:</span>&nbsp;&nbsp;' + qa_item['ans_content'] +
+                            '<a href="#">' + qa_list[i]['qu_content'] + '</a></h4>' +
+                            '<span class="qu_time">【' + qa_list[i]['qu_timestamp'] + '】</span>' +
+                            '<p class="q_a_answer"><span class="theme-color">答:</span>&nbsp;&nbsp;' + qa_list[i]['ans_content'] +
                             '</p>' +
                             '<div class="q_a_footer">' +
-                            '<span>回答时间：' + qa_item['ans_timestamp'] + '</span>' +
+                            '<span>回答时间：' + qa_list[i]['ans_timestamp'] + '</span>' +
                             '</div>' +
                             '</article>' +
                             '</div>' +
