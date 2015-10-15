@@ -86,7 +86,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     $(document).ready(function () {
         $('.his_qa_btn').click(function () {
             $.ajax({
-                url: '<?php echo base_url("index.php/modify_info/get_user_qa"); ?>' + '/' + $(this).data('id'),
+                url: '<?php echo base_url("index.php/modify_info/get_user_qa"); ?>' +'/' + 'web'+'/' + $(this).data('id'),
                 method: 'get',
                 success: function (data) {
                     var content = '';
