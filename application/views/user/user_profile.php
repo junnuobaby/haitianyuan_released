@@ -26,8 +26,6 @@ $basic_info = array(
 );
 $user_address = explode('-', $basic_info['location']); //分割地址，得到省份/市/县
 ?>
-
-
 <div class="wrapper">
     <?php $this->load->view('./templates/navbar'); ?>
     <div class="container" style="margin-top: 100px">
@@ -76,14 +74,16 @@ $user_address = explode('-', $basic_info['location']); //分割地址，得到�
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <button type="button" id="mobile_btn" class="btn btn-warning  btn-round self-btn-danger">
+                                            <button type="button" id="mobile_btn"
+                                                    class="btn btn-warning  btn-round self-btn-danger">
                                                 确定
                                             </button>
                                         </div>
                                     </div>
                                 </form>
                                 <!--修改邮箱-->
-                                <form id="email_form" class="form-horizontal" action="<?php echo site_url("/modify_info/modify_login_info");?>"
+                                <form id="email_form" class="form-horizontal"
+                                      action="<?php echo site_url("/modify_info/modify_login_info"); ?>"
                                       method="post">
                                     <input type="hidden" name="name" value="email">
 
@@ -96,7 +96,8 @@ $user_address = explode('-', $basic_info['location']); //分割地址，得到�
                                                onchange="display_email_block(this)">
                                     </div>
                                     <div id="submit_email_block" class="form-group" style="display: none">
-                                        <button type="button" id="email_btn" class="btn btn-warning  btn-round self-btn-danger">
+                                        <button type="button" id="email_btn"
+                                                class="btn btn-warning  btn-round self-btn-danger">
                                             确定
                                         </button>
                                     </div>
@@ -104,7 +105,8 @@ $user_address = explode('-', $basic_info['location']); //分割地址，得到�
                             </div>
                             <!--修改登录密码-->
                             <div role="tabpanel" class="tab-pane" id="pwd_panel">
-                                <form id="pwd_form" class="form-horizontal" action="<?php echo site_url("/modify_info/modify_login_info");?>"
+                                <form id="pwd_form" class="form-horizontal"
+                                      action="<?php echo site_url("/modify_info/modify_login_info"); ?>"
                                       method="post">
                                     <input type="hidden" name="name" value="password">
 
@@ -141,21 +143,20 @@ $user_address = explode('-', $basic_info['location']); //分割地址，得到�
                         </div>
                     </div>
                 </div>
-
                 <!--基本信息面板-->
                 <div class="panel panel-danger">
                     <div class="panel-heading">更改个人基本信息(点击即可修改)</div>
                     <div class="panel-body master-profile-panel">
                         <!--上传头像-->
                         <div>
-                            <form action="<?php echo site_url("/modify_info/do_upload");?>" enctype="multipart/form-data"
+                            <form action="<?php echo site_url("/modify_info/do_upload"); ?>"
+                                  enctype="multipart/form-data"
                                   method="post" onsubmit="return checkCoords();">
                                 <p><strong>更换头像(图片文件宽高不得大于500)</strong></p>
                                 <a href="#" class="avatar-upload">
                                     <input type="file" id="master-profile-avatar"
                                            name="master-profile-avatar" onchange="read_avatar()">选择文件
                                 </a>
-
                                 <div id="display_avatar_div">
                                     <div class="row">
                                         <!--预览图-->
@@ -183,14 +184,17 @@ $user_address = explode('-', $basic_info['location']); //分割地址，得到�
                             <tr>
                                 <td width="20%">用户名</td>
                                 <td width="80%"><a href="#" id="username" name="username"
-                                                   data-type="text" data-pk="1" data-url="<?php echo site_url("modify_info/modify_basic_info")?>" class="basic-info-a"
+                                                   data-type="text" data-pk="1"
+                                                   data-url="<?php echo site_url("modify_info/modify_basic_info") ?>"
+                                                   class="basic-info-a"
                                                    data-title="修改用户名"></a></td>
                             </tr>
                             <tr>
                                 <td width="20%">性别</td>
                                 <td width="80%"><a href="#" id="gender" name="gender" data-type="select"
                                                    data-pk="1"
-                                                   data-url="<?php echo site_url("modify_info/modify_basic_info")?>" class="basic-info-a" data-title="选择性别"
+                                                   data-url="<?php echo site_url("modify_info/modify_basic_info") ?>"
+                                                   class="basic-info-a" data-title="选择性别"
                                                    data-emptytext="未设置"></a></td>
                             </tr>
 
@@ -198,7 +202,8 @@ $user_address = explode('-', $basic_info['location']); //分割地址，得到�
                                 <td width="20%">出生年月</td>
                                 <td width="80%"><a href="#" id="birthday" name="birthday"
                                                    data-type="combodate" class="basic-info-a" data-pk="1"
-                                                   data-url="<?php echo site_url("modify_info/modify_basic_info")?>" data-title="设置出生年月"></a>
+                                                   data-url="<?php echo site_url("modify_info/modify_basic_info") ?>"
+                                                   data-title="设置出生年月"></a>
                                 </td>
                             </tr>
                             <tr>
@@ -215,7 +220,8 @@ $user_address = explode('-', $basic_info['location']); //分割地址，得到�
                                             <select id="sel_City" name="city"></select>
                                             <span>*</span> 县/区
                                             <select id="sel_County" name="county"></select>
-                                            <button type="button" id = "address_btn" class="btn btn-danger btn-xs self-btn-danger">
+                                            <button type="button" id="address_btn"
+                                                    class="btn btn-danger btn-xs self-btn-danger">
                                                 确定
                                             </button>
                                         </div>
@@ -225,21 +231,26 @@ $user_address = explode('-', $basic_info['location']); //分割地址，得到�
                             <tr>
                                 <td width="20%">机构</td>
                                 <td width="80%"><a href="#" id="institue" name="institue"
-                                                   data-type="text" data-pk="1" data-url="<?php echo site_url("modify_info/modify_basic_info")?>" class="basic-info-a"
+                                                   data-type="text" data-pk="1"
+                                                   data-url="<?php echo site_url("modify_info/modify_basic_info") ?>"
+                                                   class="basic-info-a"
                                                    data-title="修改所属机构"></a></td>
                             </tr>
                             <tr>
                                 <td width="20%">资格证号码</td>
                                 <td width="80%"><a href="#" id="qualification"
                                                    name="qualification"
-                                                   data-type="text" data-pk="1" data-url="<?php echo site_url("modify_info/modify_basic_info")?>" class="basic-info-a"
+                                                   data-type="text" data-pk="1"
+                                                   data-url="<?php echo site_url("modify_info/modify_basic_info") ?>"
+                                                   class="basic-info-a"
                                                    data-title="修改资格证号码"></a></td>
                             </tr>
                             <tr>
                                 <td width="20%">个人简介</td>
                                 <td width="80%"><a href="#" id="signature"
                                                    name="signature"
-                                                   data-type="textarea" data-pk="1" class="basic-info-a" data-url="<?php echo site_url("modify_info/modify_basic_info")?>"
+                                                   data-type="textarea" data-pk="1" class="basic-info-a"
+                                                   data-url="<?php echo site_url("modify_info/modify_basic_info") ?>"
                                                    data-title="编辑个人简介" data-emptytext="未填写"></a></td>
                             </tr>
                         </table>
@@ -280,27 +291,33 @@ $user_address = explode('-', $basic_info['location']); //分割地址，得到�
         $('#mobile_btn').click(function () {
             var phone_num = $('#mobile').val();
             var code = $('#verification_code').val();
-            var data = {name : 'mobile', value : phone_num, phone_code :code};
-            $.post('<?php echo base_url("index.php/modify_info/modify_login_info")?>',data, function (data, status) {
+            var data = {name: 'mobile', value: phone_num, phone_code: code};
+            $.post('<?php echo base_url("index.php/modify_info/modify_login_info")?>', data, function (data, status) {
                 $("#submit_phone_block").slideUp("slow");
             });
         });
         //点击确定修改邮箱
         $('#email_btn').click(function () {
             var email_num = $('#email').val();
-            $.post('<?php echo base_url("index.php/modify_info/modify_login_info")?>',{name : 'email', value : email_num}, function (data, status) {
+            $.post('<?php echo base_url("index.php/modify_info/modify_login_info")?>', {
+                name: 'email',
+                value: email_num
+            }, function (data, status) {
                 $('#email_btn').slideUp("slow");
             });
         });
-        $('#address_btn').click(function(){
+        $('#address_btn').click(function () {
             var sel_province = $('#sel_Province').val();
             var sel_city = $('#sel_City').val();
             var sel_county = $('#sel_County').val();
-            $.post('<?php echo base_url("index.php/modify_info/modify_basic_info")?>',{name : 'location',province :sel_province, city:sel_city, county:sel_county});
+            $.post('<?php echo base_url("index.php/modify_info/modify_basic_info")?>', {
+                name: 'location',
+                province: sel_province,
+                city: sel_city,
+                county: sel_county
+            });
         });
     });
-
-
 
 
 </script>

@@ -37,7 +37,7 @@ $vips = $master_info;
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <h4><a href= "#" class="theme-color"><?php echo $vip['master_name']; ?></a></h4>
+                                    <h4><a href= "<?php echo base_url('index.php/home/load_home/web/' . 'master' . '/' . $master['user_id'] . '/' . '1'); ?>" class="theme-color"><?php echo $vip['master_name']; ?></a></h4>
                                     <p>关注 <?php echo $vip['concerns_count']; ?> | 粉丝 <?php echo $vip['fans_count']; ?>
                                         | <?php if ($vip['online_state'] == true) {
                                             echo '在线';
