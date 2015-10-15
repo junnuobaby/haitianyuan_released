@@ -25,7 +25,7 @@ $vips = $master_info;
                     <div class="panel-body">
                         <?php if(count($vips) < 1):?>
                             <h4 class="alert_info">
-                                亲，您还没有定制成为任何理财师的VIP用户！</h4>
+                                亲，您还没有定制成为任何理财师的VIP用户哟！</h4>
                         <?php else:?>
                         <?php foreach ($vips as $vip): ?>
                             <div class="row">
