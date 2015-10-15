@@ -26,12 +26,14 @@ $basic_info = array(
 );
 $user_address = explode('-', $basic_info['location']); //分割地址，得到省份/市/县
 ?>
+
+
 <div class="wrapper">
     <?php $this->load->view('./templates/navbar'); ?>
     <div class="container" style="margin-top: 100px">
         <div class="row">
             <div class="col-sm-3 col-md-3 ">
-                <?php $this->load->view('./user/user_sidebar'); ?>
+                <?php $this->load->view('./master/master_sidebar'); ?>
             </div>
 
             <div class="col-md-9 col-sm-9">
@@ -55,7 +57,7 @@ $user_address = explode('-', $basic_info['location']); //分割地址，得到�
                                     <div class="form-group">
                                         <label for="master_profile_phone">手机号码</label>
                                         <label id="master_profile_phone_error" style="color: red"></label>
-                                        <input type="text" class="form-control" id="master_profile_phone"
+                                        <input type="text" class="form-control" id="mobile"
                                                name="mobile" onchange="display_phone_block(this)"
                                                data-old="<?php echo $basic_info['mobile']; ?>">
                                     </div>
@@ -74,27 +76,27 @@ $user_address = explode('-', $basic_info['location']); //分割地址，得到�
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <button type="button" id ="mobile_btn" class="btn btn-warning  btn-round self-btn-danger">
+                                            <button type="button" id="mobile_btn" class="btn btn-warning  btn-round self-btn-danger">
                                                 确定
                                             </button>
                                         </div>
                                     </div>
                                 </form>
                                 <!--修改邮箱-->
-
-                                <form>
+                                <form id="email_form" class="form-horizontal" action="<?php echo site_url("/modify_info/modify_login_info");?>"
+                                      method="post">
                                     <input type="hidden" name="name" value="email">
 
                                     <div class="form-group">
                                         <label for="master_profile_email">邮箱</label>
                                         <label id="master_profile_email_error" style="color: red"></label>
-                                        <input type="email" class="form-control" id="master_profile_email"
+                                        <input type="email" class="form-control" id="email"
                                                name="email"
                                                data-old="<?php echo $basic_info['email']; ?>" required
                                                onchange="display_email_block(this)">
                                     </div>
                                     <div id="submit_email_block" class="form-group" style="display: none">
-                                        <button type="button"  id="email_btn" class="btn btn-warning  btn-round self-btn-danger">
+                                        <button type="button" id="email_btn" class="btn btn-warning  btn-round self-btn-danger">
                                             确定
                                         </button>
                                     </div>
@@ -102,14 +104,15 @@ $user_address = explode('-', $basic_info['location']); //分割地址，得到�
                             </div>
                             <!--修改登录密码-->
                             <div role="tabpanel" class="tab-pane" id="pwd_panel">
-                                <form id="pwd_form" class="form-horizontal">
+                                <form id="pwd_form" class="form-horizontal" action="<?php echo site_url("/modify_info/modify_login_info");?>"
+                                      method="post">
                                     <input type="hidden" name="name" value="password">
 
                                     <div class="form-group">
                                         <label for="old_pwd" class="col-sm-4 col-md-4 control-label">旧的登录密码</label>
 
                                         <div class="col-sm-8 col-md-8">
-                                            <input type="password" class="form-control" id="old_pwd">
+                                            <input type="password" class="form-control" id="old_pwd" name="pwd_old">
                                             <a class="basic-info-a" href="#">(忘记密码)</a>
                                         </div>
                                     </div>
@@ -117,14 +120,14 @@ $user_address = explode('-', $basic_info['location']); //分割地址，得到�
                                         <label for="new_pwd" class="col-sm-4 col-md-4 control-label">新密码</label>
 
                                         <div class="col-sm-8 col-md-8">
-                                            <input type="password" class="form-control" id="new_pwd">
+                                            <input type="password" class="form-control" id="new_pwd" name="pwd_new">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="repeat_pwd" class="col-md-4 col-sm-4 control-label">再次输入新密码</label>
 
                                         <div class="col-sm-8 col-md-8">
-                                            <input type="password" class="form-control" id="conf_pwd">
+                                            <input type="password" class="form-control" id="conf_pwd" name="pwd_conf">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -145,7 +148,7 @@ $user_address = explode('-', $basic_info['location']); //分割地址，得到�
                     <div class="panel-body master-profile-panel">
                         <!--上传头像-->
                         <div>
-                            <form action="http://192.168.0.105/modify_info/do_upload" enctype="multipart/form-data"
+                            <form action="<?php echo site_url("/modify_info/do_upload");?>" enctype="multipart/form-data"
                                   method="post" onsubmit="return checkCoords();">
                                 <p><strong>更换头像(图片文件宽高不得大于500)</strong></p>
                                 <a href="#" class="avatar-upload">
@@ -179,40 +182,40 @@ $user_address = explode('-', $basic_info['location']); //分割地址，得到�
                         <table class="table">
                             <tr>
                                 <td width="20%">用户名</td>
-                                <td width="80%"><a href="#" id="master_profile_name" name="username"
-                                                   data-type="text" data-pk="1" data-url="/post" class="basic-info-a"
+                                <td width="80%"><a href="#" id="username" name="username"
+                                                   data-type="text" data-pk="1" data-url="<?php echo site_url("modify_info/modify_basic_info")?>" class="basic-info-a"
                                                    data-title="修改用户名"></a></td>
                             </tr>
                             <tr>
                                 <td width="20%">性别</td>
-                                <td width="80%"><a href="#" id="master_profile_sex" name="gender" data-type="select"
+                                <td width="80%"><a href="#" id="gender" name="gender" data-type="select"
                                                    data-pk="1"
-                                                   data-url="/post" class="basic-info-a" data-title="选择性别"
+                                                   data-url="<?php echo site_url("modify_info/modify_basic_info")?>" class="basic-info-a" data-title="选择性别"
                                                    data-emptytext="未设置"></a></td>
                             </tr>
 
                             <tr>
                                 <td width="20%">出生年月</td>
-                                <td width="80%"><a href="#" id="master_profile_birthday" name="birthday"
+                                <td width="80%"><a href="#" id="birthday" name="birthday"
                                                    data-type="combodate" class="basic-info-a" data-pk="1"
-                                                   data-url="/post" data-title="设置出生年月"></a>
+                                                   data-url="<?php echo site_url("modify_info/modify_basic_info")?>" data-title="设置出生年月"></a>
                                 </td>
                             </tr>
                             <tr>
                                 <td width="20%">居住地</td>
                                 <td width="80%">
                                     <!-- 居住地信息以form形式提交-->
-                                    <form>
+                                    <form id="pwd_form" class="form-horizontal">
                                         <input type="hidden" name="name" value="location">
 
                                         <div class="self_master_address">
                                             <span>*</span> 省
-                                            <select id="sel_Province" style="width:80px" name="sel_Province"></select>
+                                            <select id="sel_Province" style="width:80px" name="province"></select>
                                             <span>*</span> 市
-                                            <select id="sel_City" name="sel_City"></select>
+                                            <select id="sel_City" name="city"></select>
                                             <span>*</span> 县/区
-                                            <select id="sel_County" name="sel_County"></select>
-                                            <button type="button" id="address_btn" class="btn btn-danger btn-xs self-btn-danger">
+                                            <select id="sel_County" name="county"></select>
+                                            <button type="button" id = "address_btn" class="btn btn-danger btn-xs self-btn-danger">
                                                 确定
                                             </button>
                                         </div>
@@ -221,22 +224,22 @@ $user_address = explode('-', $basic_info['location']); //分割地址，得到�
                             </tr>
                             <tr>
                                 <td width="20%">机构</td>
-                                <td width="80%"><a href="#" id="master_profile_company" name="master_profile_company"
-                                                   data-type="text" data-pk="1" data-url="/post" class="basic-info-a"
+                                <td width="80%"><a href="#" id="institue" name="institue"
+                                                   data-type="text" data-pk="1" data-url="<?php echo site_url("modify_info/modify_basic_info")?>" class="basic-info-a"
                                                    data-title="修改所属机构"></a></td>
                             </tr>
                             <tr>
                                 <td width="20%">资格证号码</td>
-                                <td width="80%"><a href="#" id="master_profile_identification"
-                                                   name="master_profile_identification"
-                                                   data-type="text" data-pk="1" data-url="/post" class="basic-info-a"
+                                <td width="80%"><a href="#" id="qualification"
+                                                   name="qualification"
+                                                   data-type="text" data-pk="1" data-url="<?php echo site_url("modify_info/modify_basic_info")?>" class="basic-info-a"
                                                    data-title="修改资格证号码"></a></td>
                             </tr>
                             <tr>
                                 <td width="20%">个人简介</td>
-                                <td width="80%"><a href="#" id="master_profile_comments"
-                                                   name="master_profile_comments"
-                                                   data-type="textarea" data-pk="1" class="basic-info-a"
+                                <td width="80%"><a href="#" id="signature"
+                                                   name="signature"
+                                                   data-type="textarea" data-pk="1" class="basic-info-a" data-url="<?php echo site_url("modify_info/modify_basic_info")?>"
                                                    data-title="编辑个人简介" data-emptytext="未填写"></a></td>
                             </tr>
                         </table>
@@ -248,9 +251,10 @@ $user_address = explode('-', $basic_info['location']); //分割地址，得到�
 </div>
 <!--.wrapper-->
 <?php $this->load->view('./templates/footer'); ?>
+
 <script>
-    console.log(111);
-    var phone = '<?php echo $basic_info["mobile"]; ?>'; //从session获取手机号
+
+    var phone = "<?php echo $basic_info["mobile"]; ?>"; //从session获取手机号
     var email = '<?php echo $basic_info["email"]; ?>'; //从session获取邮箱号
     var username = '<?php echo $basic_info["username"]; ?>'; //从session获取用户名
     var gender = '<?php echo $basic_info["gender"]; ?>'; //从session获取性别
@@ -262,18 +266,7 @@ $user_address = explode('-', $basic_info['location']); //分割地址，得到�
     var province = '<?php echo $user_address[0]; ?>'; //获取省份
     var city = '<?php echo $user_address[1]; ?>';     //获取城市
     var county = '<?php echo $user_address[2]; ?>';  //获取县
-
     $(document).ready(function () {
-
-        //点击修改居住地
-        $('#address_btn').click(function () {
-            var sel_province = $('#sel_Province').val();
-            var sel_city = $('#sel_City').val();
-            var sel_county = $('#sel_County').val();
-            alert(sel_city);
-            $.post('<?php echo base_url("index.php/register/send_code/")?>', {name: 'location',province: sel_province, city: sel_city, county: sel_county});
-        });
-
         //发送手机验证码
         send_code.click(function () {
             if (!count_down) {
@@ -284,260 +277,26 @@ $user_address = explode('-', $basic_info['location']); //分割地址，得到�
                 countDown(second, speed);
             }
         });
-
-        //点击确定修改手机号码
         $('#mobile_btn').click(function () {
             var phone_num = $('#mobile').val();
-            $.post('<?php echo base_url("index.php/register/send_code/")?>',{name : 'mobile', mobile : phone_num}, function (data, status) {
+            var code = $('#verification_code').val();
+            var data = {name : 'mobile', value : phone_num, phone_code :code};
+            $.post('<?php echo base_url("index.php/modify_info/modify_login_info")?>',data, function (data, status) {
                 $("#submit_phone_block").slideUp("slow");
             });
         });
         //点击确定修改邮箱
         $('#email_btn').click(function () {
             var email_num = $('#email').val();
-            $.post('<?php echo base_url("index.php/register/send_code/")?>',{name : 'email', email : email_num}, function (data, status) {
+            $.post('<?php echo base_url("index.php/modify_info/modify_login_info")?>',{name : 'email', value : email_num}, function (data, status) {
                 $('#email_btn').slideUp("slow");
             });
         });
-    });
-    /**
-     * Created by tch on 2015/8/31.
-     * 理财师个人主页(master_profile)的个人资料页面相关js.
-     */
-//页面初始化，从后台读取个人信息的值并显示
-    $(document).ready(function () {
-        alert('hahah');
-        //居住地插件初始化
-        AreaSelector().init();
-
-        $("#mobile").val(phone); //设置手机号
-        $("#email").val(email); //设置邮箱
-        $("#username").html(username); //设置用户名
-        $("#gender").html(gender); //设置性别
-        $("#birthday").html(birthday); //设置生日
-        $("#institue").html(institue); //设置机构名称
-        $("#qualification").html(qualification); //设置资格证号
-        $("#signature").html(signature); //设置个人简介
-        // 初始化省份、城市、地区
-        AreaSelector().initProvince(province, city, county);
-    });
-
-    //发送验证码按钮倒计时一分钟
-    var second = 59;
-    var speed = 1000;
-    var send_code = $('#send_code');
-    var count_down = false;
-    function countDown(seconds, speed) {
-        var txt = '倒计时 ' + ((seconds < 10) ? "0" + seconds : seconds) + ' 秒';
-        send_code.html(txt);
-        send_code.attr('disabled', 'disabled');
-        count_down = true;
-        var timeId = setTimeout("countDown(second--,speed)", speed);
-        if (seconds == 0) {
-            clearTimeout(timeId);
-            send_code.html('获取验证码');
-            send_code.removeAttr('disabled');
-            second = 59;
-            count_down = false;
-        }
-    }
-
-
-    //验证手机号码是否为11位以及是否修改手机号码，若满足条件则显示验证输入框和提交按钮
-    function display_phone_block(id) {
-        var txt = $(id).val();
-        var submit_phone_block = $("#submit_phone_block");
-        //若手机号码不足11位，显示警告信息
-        if (txt.length != 11) {
-            $("#master_profile_phone_error").html("(请输入11位手机号码)");
-            return;
-        }
-        //若手机号码已经被注册，显示警告信息
-        $.get("<?php  echo base_url('/index.php/register/is_exist/web/')?>" + '/' + txt,
-            function (data, status) {
-                if (data == 'true') {
-                    $('#master_profile_phone_error').html('(该号码已注册！)');
-                    return false;
-                }
-            });
-
-        //若手机号码为11位且进行了修改
-        if (txt != $(id).data('old')) {
-            submit_phone_block.slideDown("slow");
-        }
-        else if (submit_phone_block.css('display') != 'none') {
-            submit_phone_block.slideUp("slow");
-        }
-    }
-
-    //验证邮箱格式是否正确，根据是否更改邮箱决定是否显示提交按钮
-    function display_email_block(id) {
-        var email_val = $(id).val();
-        var apos = email_val.indexOf("@");
-        var dotpos = email_val.lastIndexOf(".");
-        var submit_email_block = $("#submit_email_block");
-        //邮箱格式不正确，发出警告
-        if ((apos < 1 || dotpos - apos < 2) && email_val.length > 0) {
-            $('#master_profile_email_error').html('(邮箱格式错误！)');
-            return;
-        }
-        else {
-            $('#master_profile_email_error').html('');
-        }
-        //若更换了邮箱账号，验证该邮箱账号是否和原来一样，不一样就显示提交按钮
-        if (email_val != $(id).data('old')) {
-            submit_email_block.slideDown("slow");
-        }
-        else if (submit_email_block.css('display') != 'none') {
-            submit_email_block.slideUp("slow");
-        }
-    }
-
-
-    //设置全部使用x-editable的组件均为嵌入形式
-    $.fn.editable.defaults.mode = 'popup';
-    function success (response, newValue){
-        if(!response.success) {
-            return response.msg;
-        }
-    }
-    function error (response, newValue) {
-        return '服务器故障。';
-    }
-    $(document).ready(function () {
-
-        $('#username').editable({success: success, error: error});
-        $('#institue').editable({success: success, error: error});
-        $('#qualification').editable({success: success, error: error});
-        $('#master_profile_truename').editable({success: success, error: error});
-        $('#master_profile_idcard').editable({success: success, error: error});
-        //选择性别的x-editable选项
-        $('#gender').editable({
-            source: [
-                {value: 1, text: '男'},
-                {value: 0, text: '女'},
-            ],
-            success: success,
-            error: error
-        });
-
-        //设置出生日期的x-editable选项
-        $('#birthday').editable({
-            format: 'YYYY-MM-DD',
-            viewformat: 'YYYY/MM/DD',
-            template: 'YYYY/MMMM/D',
-            combodate: {
-                minYear: 1920,
-                maxYear: 2015,
-                minuteStep: 1
-            },
-            success: success,
-            error: error
-        });
-        //个人简介的x-editable选项
-        $('#signature').editable({
-            url: '/post',
-            rows: 5,
-            success: success,
-            error: error
-        });
-    });
-
-    //显示头像预览图片
-    function read_avatar() {
-        var display_avatar_div = $("#display_avatar_div");
-        var obj = document.getElementById('master-profile-avatar');
-        var file = obj.files[0];
-        var reader = new FileReader();
-        //判断类型是不是图片
-        if (!/image\/\w+/.test(file.type)) {
-            alert("请确保文件为图像类型");
-            return false;
-        }
-        reader.onload = function (e) {
-
-
-            $('#display_avatar_block').html('<img id="master-profile-avatar-display" class=" img-responsive"' +
-                'name="master-profile-avatar-display"' +
-                ' src="' + e.target.result + '" alt="我的头像">');
-            $("#master-profile-avatar-display").Jcrop({
-                aspectRatio: 1,
-                onSelect: updateCoords,
-                minSelect: [32, 32], //选框最小选择尺寸。说明：若选框小于该尺寸，则自动取消选择
-                maxSize: [300, 300], //选框最大尺寸
-            });
-            //判断上传的图片文件宽高是否超过限制
-            var img = document.getElementById('master-profile-avatar-display');
-            var avatar_width = img.width;
-            var avatar_height = img.height;
-            if (avatar_width > 500) {
-                alert("您上传的文件过宽，不得超过500px，请重新选择");
-                return false;
-            }
-            if (avatar_height > 500) {
-                alert("您上传的文件过高，不得超过500px，请重新选择");
-                return false;
-            }
-            if (display_avatar_div.css('display') === 'none') {
-                display_avatar_div.slideDown("slow");
-            }
-
-        };
-        reader.readAsDataURL(file);
-    }
-
-    //当裁剪框变动时,将左上角相对图片的X坐标与Y坐标,宽度以及高度放到<input type="hidden">中(上传到服务器上裁剪会用到)
-    function updateCoords(c) {
-        $('#x').val(c.x);
-        $('#y').val(c.y);
-        $('#w').val(c.w);
-        $('#h').val(c.h);
-    }
-    function checkCoords() {
-        if (parseInt($('#w').val())) {
-            return true;
-        }
-        alert('请先选择要裁剪的区域后，再提交。');
-        return false;
-    }
-
-    //检查密码是否合法,密码长度6-50位
-    function validate_pwd(id) {
-        var value = $(id).val();
-        if (value.length < 6 || value.length > 32) {
-            $('#pwd_error_msg').html('(请输入6~32位密码！)');
-            return false;
-        }
-        else {
-            $('#pwd_error_msg').html('');
-            return true;
-        }
-
-    }
-
-    //检查第二次输入的密码是否和第一次一样
-    function validate_pwdconf(id) {
-        var value = $(id).val();
-        if (value != $('#new_pwd').val()) {
-            $('#pwd_error_msg').html('(两次输入不一致！)');
-            return false
-        }
-        else {
-            $('#pwd_error_msg').html('');
-            return true;
-        }
-    }
-
-    $(document).ready(function () {
-        $('#pwd_form').submit(function(){
-            if(validate_pwd('#new_pwd') && validate_pwd('#conf_pwd')){
-                if(!validate_pwdconf('#conf_pwd')){
-                    return false;
-                }
-            }
-            else{
-                return false;
-            }
+        $('#address_btn').click(function(){
+            var sel_province = $('#sel_Province').val();
+            var sel_city = $('#sel_City').val();
+            var sel_county = $('#sel_County').val();
+            $.post('<?php echo base_url("index.php/modify_info/modify_basic_info")?>',{name : 'location',province :sel_province, city:sel_city, county:sel_county});
         });
     });
 
@@ -545,7 +304,9 @@ $user_address = explode('-', $basic_info['location']); //分割地址，得到�
 
 
 </script>
-<!--<script src="--><?php //echo base_url('/assets/js/htyjs/master_profile.js') ?><!--"></script>-->
+<script src="<?php echo base_url('/assets/js/htyjs/master_profile.js') ?>">
+
+</script>
+
 </body>
 </html>
-
