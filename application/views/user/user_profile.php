@@ -33,7 +33,7 @@ $user_address = explode('-', $basic_info['location']); //分割地址，得到�
     <div class="container" style="margin-top: 100px">
         <div class="row">
             <div class="col-sm-3 col-md-3 ">
-                <?php $this->load->view('./master/master_sidebar'); ?>
+                <?php $this->load->view('./user/user_sidebar'); ?>
             </div>
 
             <div class="col-md-9 col-sm-9">
