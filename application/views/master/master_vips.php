@@ -29,7 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             class="img-responsive img-circle" alt="..."></div>
                                 </div>
                                 <div class="col-md-10">
-                                    <h4><a href="#" class="theme-color"><?php echo $user['user_name']; ?></a></h4>
+                                    <h4><a href="#" class="theme-color"><?php echo $user['username']; ?></a></h4>
 
                                     <p><span>剩余服务期： <?php echo $vip['vip_left_days']; ?>天</span> |
                                            <span><a class="hty_a" role="button" data-toggle="collapse"
