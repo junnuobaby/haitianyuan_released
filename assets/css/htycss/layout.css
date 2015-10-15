@@ -640,5 +640,9 @@ div.master_view section {
     overflow: scroll;
     padding: 0 20px;
 }
+.alert_info{
+    text-align: center;
+    padding: 30px 20px;
+}
 
 

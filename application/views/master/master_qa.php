@@ -20,7 +20,7 @@ $qa_list = $done;
             <div class="col-sm-3 col-md-3 ">
                 <?php $this->load->view('./master/master_sidebar'); ?>
             </div>
-            <div class="col-sm-9 col-md-9 bg-white block-radius">
+            <div class="col-sm-9 col-md-9 bg-white block-radius mas_min_height">
                 <div class="sub_nav">
                     <ul class="nav nav-tabs" role="tablist">
                         <li role="presentation" class="active"><a href="#qa_undo_list" role="tab"
@@ -35,6 +35,9 @@ $qa_list = $done;
                     <div class="tab-content">
                         <!--待回答问题-->
                         <div role="tabpanel" class="tab-pane active" id="qa_undo_list">
+                            <?php if(count($qu_undo_array) < 1):?>
+                            <h4 class="alert_info">没有问题需要回答</h4>
+                            <?php else:?>
                             <?php foreach ($qu_undo_array as $qu_undo_item): ?>
                                 <div class="qu_margin">
                                     <div class="qu_time">
@@ -71,10 +74,14 @@ $qa_list = $done;
                                 </div>
                                 <hr class="qu_hr"/>
                             <?php endforeach; ?>
+                            <?php endif;?>
                         </div>
 
                         <!--已回答问题-->
                         <div role="tabpanel" class="tab-pane" id="qa_done">
+                            <?php if(count($qa_list) < 1):?>
+                                <h4 class="alert_info">您还没有解决任何问题</h4>
+                            <?php else:?>
                             <?php foreach ($qa_list as $qa_item): ?>
                                 <div class="q_a qu_margin">
                                     <article>
@@ -94,6 +101,7 @@ $qa_list = $done;
                                 </div>
                                 <hr class="q_a_hr"/>
                             <?php endforeach; ?>
+                            <?php endif;?>
                         </div>
                     </div>
                 </div>
