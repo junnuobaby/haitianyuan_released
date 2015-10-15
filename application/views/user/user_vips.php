@@ -23,6 +23,10 @@ $vips = $master_info;
                         <h3 class="panel-title">我的理财师</h3>
                     </div>
                     <div class="panel-body">
+                        <?php if(count($vips) < 1):?>
+                            <h4 class="alert_info">
+                                亲，您还没有定制成为任何理财师的VIP用户！</h4>
+                        <?php else:?>
                         <?php foreach ($vips as $vip): ?>
                             <div class="row">
                                 <div class="col-md-2">
@@ -45,6 +49,7 @@ $vips = $master_info;
                             </div>
                             <hr class="qu_hr"/>
                         <?php endforeach; ?>
+                        <?php endif;?>
                     </div>
                 </div>
             </div>
