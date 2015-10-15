@@ -62,7 +62,7 @@ $basic_info = array(
 
                 <div class="list-group">
                     <a href="<?php echo base_url('index.php/modify_info/modify_vip_price'); ?>" class="list-group-item">VIP价格</a>
-                    <a href="#" class="list-group-item">VIP会员</a>
+                    <a href="<?php echo base_url('index.php/modify_info/get_vip_list'); ?>" class="list-group-item">VIP会员</a>
                 </div>
             </li>
             <li class="list-group-item ">

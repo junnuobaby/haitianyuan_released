@@ -112,3 +112,12 @@ footer.page_footer p{
 .txt_center{
     text-align: center;
 }
+.hty_a{
+    color: #337ab7;
+}
+.mas_min_height{
+    min-height: 1000px;
+}
+.user_min_height{
+    min-height: 800px;
+}

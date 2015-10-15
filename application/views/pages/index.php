@@ -30,19 +30,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <div class="col-lg-1 col-md-1"></div>
 
                                     <?php foreach ($master_info as $master): ?>
-                                      <a href = "<?php echo base_url('index.php/home/load_home/web/' .'master'. '/' .$master['user_id'].'/'.'1');?>">
-                                        <div class="col-sm-2 col-md-2 col-lg-2 ">
+                                        <a href="<?php echo base_url('index.php/home/load_home/web/' . 'master' . '/' . $master['user_id'] . '/' . '1'); ?>">
+                                            <div class="col-sm-2 col-md-2 col-lg-2 ">
 
-                                            <div class="thumbnail">
+                                                <div class="thumbnail">
 
-                                                <img src="<?php echo base_url('/uploads/'.$master['face_pic']); ?>"
-                                                    class="img-responsive" alt="...">
-                                                <div class="text-center">
-                                                    <h4><?php echo $master['username'] ?></h4>
+                                                    <img
+                                                        src="<?php echo base_url('/uploads/' . $master['face_pic']); ?>"
+                                                        class="img-responsive" alt="...">
+
+                                                    <div class="text-center">
+                                                        <h4><?php echo $master['username'] ?></h4>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                      </a>
+                                        </a>
                                     <?php endforeach; ?>
                                 </div>
                             </div>
@@ -58,16 +60,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <span class="sr-only">Next</span>
                     </a>
                 </div>
-
-
             </div>
-
         </div>
     </div>
 </div>
 <?php $this->load->view('./templates/footer'); ?>
 </body>
-
 
 
 </html>

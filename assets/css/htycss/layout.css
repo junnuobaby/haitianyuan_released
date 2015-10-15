@@ -631,6 +631,14 @@ div.master_view section {
 .set_price{
     padding: 30px 20px;
 }
-
+.master_avatar_box{
+    height: 100px;
+    width: 100px;
+}
+.qa_his_height{
+    max-height: 800px;
+    overflow: scroll;
+    padding: 0 20px;
+}
 
 
