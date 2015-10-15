@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <small>￥</small><?php echo "100" ?>
                         </div>
                         <div class="duration">30天</div>
-                        <a class="pay btn btn-default self-font" href="<?php echo base_url('/index.php/qa/join_vip/month/'.$master_id) ?>">
+                        <a class="pay btn btn-default self-font" href="<?php echo base_url('/index.php/qa/join_vip/month/'.$master_id.'/'.$master_name);?>">
                             立即购买
                         </a>
                     </div>
@@ -49,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <small>￥</small><?php echo "580" ?>
                         </div>
                         <div class="duration">180天</div>
-                        <a class="pay btn btn-default self-font" href="<?php echo base_url('/index.php/qa/join_vip/half_year/'.$master_id) ?>">
+                        <a class="pay btn btn-default self-font" href="<?php echo base_url('/index.php/qa/join_vip/half_year/'.$master_id.'/'.$master_name) ?>">
                             立即购买
                         </a>
                     </div>
@@ -72,7 +72,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <small>￥</small><?php echo "1000" ?>
                         </div>
                         <div class="duration">360天</div>
-                        <a class="pay btn btn-default self-font" href="<?php echo base_url('/index.php/qa/join_vip/year/'.$master_id) ?>">
+                        <a class="pay btn btn-default self-font" href="<?php echo base_url('/index.php/qa/join_vip/year/'.$master_id.'/'.$master_name) ?>">
                             立即购买
                         </a>
                     </div>
