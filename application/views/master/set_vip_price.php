@@ -21,7 +21,7 @@ $year_price = $price['year'];
             <div class="col-sm-3 col-md-3 ">
                 <?php $this->load->view('./master/master_sidebar'); ?>
             </div>
-            <div class="col-sm-9 col-md-9 block-radius bg-white set_price">
+            <div class="col-sm-9 col-md-9 block-radius bg-white set_price mas_min_height">
                 <div class="panel panel-success">
                     <div class="panel-heading">
                         <h3 class="panel-title">设置VIP会员价格</h3>
