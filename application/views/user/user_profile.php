@@ -13,16 +13,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url('/assets/js/moment.js') ?>"></script>
 <?php
 $basic_info = array(
-    "username" => "开普勒",
-    "gender" => "男",
-    "birthday" => "1949-10-1",
-    "institue" => "白宫",
-    "qualification" => "00000000000",
-    "signature" => "生活源于自然,成功源于专业,理财源于全面,具备全面的金融理财学识,精通投资策略分析和资产配置",
-    "location" => "北京-北京市-东城区",
-//    "location" => "1-1-4",
-    "email" => "444092487@qq.com",
-    "mobile" => "18244288433"
+    "username" => $this->session->userdata('username'),
+    "gender" => $this->session->userdata('gender') == 1 ? '男' : '女',
+    "birthday" => $this->session->userdata('birthday'),
+    "institue" => $this->session->userdata('institue'),
+    "qualification" => $this->session->userdata('qualification'),
+    "signature" => $this->session->userdata('signature'),
+    "location" => $this->session->userdata('location'),
+    "email" => $this->session->userdata('email'),
+    "mobile" => $this->session->userdata('mobile')
+
 );
 $user_address = explode('-', $basic_info['location']); //分割地址，得到省份/市/县
 ?>

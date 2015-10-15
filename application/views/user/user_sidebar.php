@@ -9,12 +9,14 @@ $basic_info = array(
 ?>
 <div class="profile-sidebar">
     <div class="profile-userpic">
-                     src="<?php echo site_url('/uploads/'.$basic_info['face_pic']); ?>" alt="我的头像">
+        <img class="img-circle img-responsive"
+             src="<?php echo site_url('/uploads/' . $basic_info['face_pic']); ?>" alt="我的头像">
     </div>
 
     <div class="text-center">
         <h4><?php echo $basic_info["username"] ?></h4>
-        <h5><a href="<?php echo base_url("index.php/auth/index"); ?>"><span class="label label-danger">实名认证</span></a></h5>
+        <h5><a href="<?php echo base_url("index.php/auth/index"); ?>"><span class="label label-danger">实名认证</span></a>
+        </h5>
     </div>
     <div class="row">
         <div class="col-md-4 text-center">
@@ -37,13 +39,15 @@ $basic_info = array(
                 <h4><i class="glyphicon glyphicon-edit"></i> 问答管理</h4>
 
                 <div class="list-group">
-                    <a href="<?php echo base_url('index.php/modify_info/get_questions/web/undo');?>" class="list-group-item">我的提问</a>
+                    <a href="<?php echo base_url('index.php/modify_info/get_questions/web/undo'); ?>"
+                       class="list-group-item">我的提问</a>
                 </div>
             </li>
             <li class="list-group-item ">
                 <h4><i class="glyphicon glyphicon-usd"></i> 会员</h4>
+
                 <div class="list-group">
-                    <a href="<?php echo base_url('index.php/modify_info/get_vip_list');?>" class="list-group-item">我的理财师</a>
+                    <a href="<?php echo base_url('index.php/modify_info/get_vip_list'); ?>" class="list-group-item">我的理财师</a>
                 </div>
             </li>
             <li class="list-group-item ">
@@ -59,7 +63,8 @@ $basic_info = array(
 
                 <div class="list-group">
                     <a href="#" class="list-group-item">我的钱包</a>
-<!--                    <a href="--><?php //echo base_url('index.php/modify_info/index'); ?><!--" class="list-group-item">修改个人资料</a>-->
+                    <!--                    <a href="-->
+                    <?php //echo base_url('index.php/modify_info/index'); ?><!--" class="list-group-item">修改个人资料</a>-->
                     <a href="#" class="list-group-item">修改个人资料</a>
                 </div>
             </li>
