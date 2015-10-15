@@ -17,7 +17,7 @@ $view_list = $op;
             <div class="col-sm-3 col-md-3 ">
                 <?php $this->load->view('./master/master_sidebar'); ?>
             </div>
-            <div class="col-sm-9 col-md-9 block-radius mas_min_height">
+            <div class="col-sm-9 col-md-9 block-radius bg-white mas_min_height">
                 <div class="panel panel-success">
                     <div class="panel-heading"><h3><span class="glyphicon glyphicon-list"></span> 已发表观点</h3>
                     </div>
