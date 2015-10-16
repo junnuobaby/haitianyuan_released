@@ -127,34 +127,35 @@ $pages = $undo['pagination'];
                         url: "<?php echo base_url('modify_info/get_questions/web/done');?>",
                         method: 'get',
                         success: function (data) {
-                            var content = "";
-                            var qa_response = data['done'];
-                            var qa_done = qa_response['data_page'];
-                            var len = qa_done.length;
-                            var pages = qa_response['pagination'];
-                            if (data[count] == 0) {
-                                $('.warning_msg').html('您还没有回答任何问题!');
-                            }
-                            else {
-                                for (var i = 0; i < len; i++) {
-                                    content += '<div class="q_a qu_margin">' +
-                                        '<article>' +
-                                        '<h4 class="q_a_question inline_block">' +
-                                        '<span class="q_a_span">问</span>' +
-                                        '<a href="#">' + qa_done[i]['qu_content'] + '</a></h4>' +
-                                        '<span class="qu_time">【' + qa_done[i]['qu_timestamp'] + '】</span>' +
-                                        '<p class="q_a_answer"><span class="theme-color">答:</span>&nbsp;&nbsp;' +
-                                        qa_done[i]['ans_content'] + '</p>' +
-                                        '<div class="q_a_footer">' +
-                                        '<span>提问者：' + qa_done[i]['questioner'] + '</span>' +
-                                        '<span>回答时间：' + qa_done[i]['ans_timestamp'] + '</span>' +
-                                        '</div>' +
-                                        '</article>' +
-                                        '</div>' + '<hr class="q_a_hr"/>';
-                                }
-                                count += '<div class="txt_center">' + '<p class="pages">' + pages + '</p></div>';
-                            }
-                            $('#qa_done').html(content);
+//                            var content = "";
+//                            var qa_response = data['done'];
+//                            var qa_done = qa_response['data_page'];
+//                            var len = qa_done.length;
+//                            var pages = qa_response['pagination'];
+//                            if (data[count] == 0) {
+//                                $('.warning_msg').html('您还没有回答任何问题!');
+//                            }
+//                            else {
+//                                for (var i = 0; i < len; i++) {
+//                                    content += '<div class="q_a qu_margin">' +
+//                                        '<article>' +
+//                                        '<h4 class="q_a_question inline_block">' +
+//                                        '<span class="q_a_span">问</span>' +
+//                                        '<a href="#">' + qa_done[i]['qu_content'] + '</a></h4>' +
+//                                        '<span class="qu_time">【' + qa_done[i]['qu_timestamp'] + '】</span>' +
+//                                        '<p class="q_a_answer"><span class="theme-color">答:</span>&nbsp;&nbsp;' +
+//                                        qa_done[i]['ans_content'] + '</p>' +
+//                                        '<div class="q_a_footer">' +
+//                                        '<span>提问者：' + qa_done[i]['questioner'] + '</span>' +
+//                                        '<span>回答时间：' + qa_done[i]['ans_timestamp'] + '</span>' +
+//                                        '</div>' +
+//                                        '</article>' +
+//                                        '</div>' + '<hr class="q_a_hr"/>';
+//                                }
+//                                count += '<div class="txt_center">' + '<p class="pages">' + pages + '</p></div>';
+//                            }
+//                            $('#qa_done').html(content);
+                            $('#qa_done').html('ok');
                         },
                         dataType: "json"
                     }
