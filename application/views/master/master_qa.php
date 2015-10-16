@@ -8,9 +8,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body class="bg-gray">
 <script src="<?php echo base_url('/assets/js/htyjs/general_navbar.js') ?>"></script>
 <?php
-//$qu_num = count($undo);
-//$qu_answered_num = count($done);
-//$qa_list = $done;
 $qu_undo_array = $undo['data_page'];
 $qu_num = $undo['count'];
 $pages = $undo['pagination'];
@@ -29,7 +26,7 @@ $pages = $undo['pagination'];
                                                                                      data-toggle="tab">待回答 <span
                                     class="badge green-color"><?php echo $qu_num ?></span></a>
                         </li>
-                        <li role="presentation" id="answered_btn_li"><a href="#qa_done" id="answered_btn"
+                        <li role="presentation" id="answered_btn_li"><a href="<?php echo base_url('modify_info/get_questions/web/done');?>" id="answered_btn"
                                                                         aria-controls="profile" role="tab"
                                                                         data-toggle="tab">已解决
                                 <span class="badge theme-bg-color" id="answered_num"></span></a>
@@ -52,7 +49,11 @@ $pages = $undo['pagination'];
                                         <p><span class="q_a_span">问</span><?php echo $qu_undo_item['qu_content'] ?></p>
 
                                         <div class="qu_line_height">
-                                            <span class="key_word"><?php if($qu_undo_item['kwords'] == ''){echo '暂无标签';}else{echo $qu_undo_item['kwords'];} ?></span>
+                                            <span class="key_word"><?php if ($qu_undo_item['kwords'] == '') {
+                                                    echo '暂无标签';
+                                                } else {
+                                                    echo $qu_undo_item['kwords'];
+                                                } ?></span>
                                             <button class="btn qu_btn"
                                                     id="<?php echo 'qu_btn_' . $qu_undo_item['qu_id']; ?>" type="button"
                                                     data-toggle="collapse"
@@ -84,11 +85,6 @@ $pages = $undo['pagination'];
                                 <div class="txt_center"><p class="pages"><?php echo $pages ?></p></div>
                             <?php endif; ?>
                         </div>
-
-                        <!--已回答问题-->
-                        <div role="tabpanel" class="tab-pane" id="qa_done">
-                            <h4 class="alert_info warning_msg"></h4>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -116,48 +112,6 @@ $pages = $undo['pagination'];
         var ans_collapse = document.getElementById('edit_answer_' + id);
         $(ans_collapse).collapse('hide');
     }
-    $(document).ready(function () {
-        $('#answered_btn').click(
-            function () {
-                $.ajax(
-                    {
-                        url: "<?php echo base_url('modify_info/get_questions/web/done');?>",
-                        method: 'get',
-                        dataType: "json",
-                        success: function (data) {
-                            var content = "";
-                            var qa_response = data["done"];
-                            var qa_done = qa_response['data_page'];
-                            var len = qa_done.length;
-                            var pages = qa_response['pagination'];
-                            if (qa_response['count'] == 0) {
-                                $('.warning_msg').html('您还没有回答任何问题!');
-                            }
-                            else {
-                                for (var i = 0; i < len; i++) {
-                                    content += '<div class="q_a qu_margin">' +
-                                        '<article>' +
-                                        '<h4 class="q_a_question inline_block">' +
-                                        '<span class="q_a_span">问</span>' +
-                                        '<a href="#">' + qa_done[i]['qu_content'] + '</a></h4>' +
-                                        '<span class="qu_time">【' + qa_done[i]['qu_timestamp'] + '】</span>' +
-                                        '<p class="q_a_answer"><span class="theme-color">答:</span>&nbsp;&nbsp;' +
-                                        qa_done[i]['ans_content'] + '</p>' +
-                                        '<div class="q_a_footer">' +
-                                        '<span>提问者：' + qa_done[i]['questioner'] + '</span>' +
-                                        '<span>回答时间：' + qa_done[i]['ans_timestamp'] + '</span>' +
-                                        '</div>' +
-                                        '</article>' +
-                                        '</div>' + '<hr class="q_a_hr"/>';
-                                }
-                                content += '<div class="txt_center">' + '<p class="pages">' + pages + '</p></div>';
-                            }
-                            $('#qa_done').html(content);
-                        },
-                    });
-            });
-    });
-
 </script>
 </body>
 </html>
