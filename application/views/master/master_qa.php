@@ -135,7 +135,7 @@ $pages = $undo['pagination'];
                             var qa_done = qa_response['data_page'];
                             var len = qa_done.length;
                             var pages = qa_response['pagination'];
-                            if (qa_response['count] == 0) {
+                            if (qa_response['count'] == 0) {
                                 $('.warning_msg').html('您还没有回答任何问题!');
                             }
                             else {
@@ -155,7 +155,7 @@ $pages = $undo['pagination'];
                                         '</article>' +
                                         '</div>' + '<hr class="q_a_hr"/>';
                                 }
-                                count += '<div class="txt_center">' + '<p class="pages">' + pages + '</p></div>';
+                                content += '<div class="txt_center">' + '<p class="pages">' + pages + '</p></div>';
                             }
                             $('#qa_done').html(content);
                         },
