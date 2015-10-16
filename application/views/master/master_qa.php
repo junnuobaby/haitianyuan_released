@@ -119,18 +119,12 @@ $pages = $undo['pagination'];
     $(document).ready(function () {
         $('#answered_btn').click(
             function () {
-//                $('#answered_btn_li').addClass("active");
-//                $('#answer_btn_li').removeClass("active");
-//                $('#qa_done').addClass("active");
-//                $('#qa_undo_list').removeClass("active");
                 $.ajax(
                     {
                         url: "<?php echo base_url('modify_info/get_questions/web/done');?>",
                         method: 'get',
                         dataType: "json",
                         success: function (data) {
-                            alert(data);
-                            var content = "hahaha";
                             var qa_response = data["done"];
                             var qa_done = qa_response['data_page'];
                             var len = qa_done.length;
