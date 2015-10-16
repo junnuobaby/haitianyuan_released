@@ -26,11 +26,12 @@ $pages = $undo['pagination'];
                 <div class="sub_nav">
                     <ul class="nav nav-tabs" role="tablist">
                         <li role="presentation" class="active" id="answer_btn_li"><a href="#qa_undo_list" role="tab"
-                                                                  data-toggle="tab">待回答 <span
+                                                                                     data-toggle="tab">待回答 <span
                                     class="badge green-color"><?php echo $qu_num ?></span></a>
                         </li>
-                        <li role="presentation" id="answered_btn_li"><a href="#qa_done" id="answered_btn" aria-controls="profile" role="tab"
-                                                   data-toggle="tab">已解决
+                        <li role="presentation" id="answered_btn_li"><a href="#qa_done" id="answered_btn"
+                                                                        aria-controls="profile" role="tab"
+                                                                        data-toggle="tab">已解决
                                 <span class="badge theme-bg-color" id="answered_num"></span></a>
                         </li>
 
@@ -117,7 +118,7 @@ $pages = $undo['pagination'];
     }
     $(document).ready(function () {
         $('#answered_btn').click(
-            function(){
+            function () {
                 $('#answered_btn_li').addClass("active");
                 $('#answer_btn_li').removeClass("active");
                 $('#qa_done').addClass("active");
@@ -126,39 +127,41 @@ $pages = $undo['pagination'];
                     {
                         url: "<?php echo base_url('modify_info/get_questions/web/done');?>",
                         method: 'get',
+                        dataType: "json",
                         success: function (data) {
-                            alert(typeof (data));
+                            alert(data);
                             var content = "hahaha";
                             var qa_response = data["done"];
                             var qa_done = qa_response['data_page'];
                             var len = qa_done.length;
                             var pages = qa_response['pagination'];
-
-//                            if (data[count] == 0) {
-//                                $('.warning_msg').html('您还没有回答任何问题!');
-//                            }
-//                            else {
-//                                for (var i = 0; i < len; i++) {
-//                                    content += '<div class="q_a qu_margin">' +
-//                                        '<article>' +
-//                                        '<h4 class="q_a_question inline_block">' +
-//                                        '<span class="q_a_span">问</span>' +
-//                                        '<a href="#">' + qa_done[i]['qu_content'] + '</a></h4>' +
-//                                        '<span class="qu_time">【' + qa_done[i]['qu_timestamp'] + '】</span>' +
-//                                        '<p class="q_a_answer"><span class="theme-color">答:</span>&nbsp;&nbsp;' +
-//                                        qa_done[i]['ans_content'] + '</p>' +
-//                                        '<div class="q_a_footer">' +
-//                                        '<span>提问者：' + qa_done[i]['questioner'] + '</span>' +
-//                                        '<span>回答时间：' + qa_done[i]['ans_timestamp'] + '</span>' +
-//                                        '</div>' +
-//                                        '</article>' +
-//                                        '</div>' + '<hr class="q_a_hr"/>';
-//                                }
-//                                count += '<div class="txt_center">' + '<p class="pages">' + pages + '</p></div>';
-//                            }
-//                            $('#qa_done').html(content);
+                            if (data[count] == 0) {
+                                $('.warning_msg').html('您还没有回答任何问题!');
+                            }
+                            else {
+                                for (var i = 0; i < len; i++) {
+                                    content += '<div class="q_a qu_margin">' +
+                                        '<article>' +
+                                        '<h4 class="q_a_question inline_block">' +
+                                        '<span class="q_a_span">问</span>' +
+                                        '<a href="#">' + qa_done[i]['qu_content'] + '</a></h4>' +
+                                        '<span class="qu_time">【' + qa_done[i]['qu_timestamp'] + '】</span>' +
+                                        '<p class="q_a_answer"><span class="theme-color">答:</span>&nbsp;&nbsp;' +
+                                        qa_done[i]['ans_content'] + '</p>' +
+                                        '<div class="q_a_footer">' +
+                                        '<span>提问者：' + qa_done[i]['questioner'] + '</span>' +
+                                        '<span>回答时间：' + qa_done[i]['ans_timestamp'] + '</span>' +
+                                        '</div>' +
+                                        '</article>' +
+                                        '</div>' + '<hr class="q_a_hr"/>';
+                                }
+                                count += '<div class="txt_center">' + '<p class="pages">' + pages + '</p></div>';
+                            }
+                            $('#qa_done').html(content);
                         },
-                        dataType: "json"
+                        error: function () {
+                            alert('error');
+                        }
                     });
             });
     });
