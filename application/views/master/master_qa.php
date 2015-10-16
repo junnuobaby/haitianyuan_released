@@ -127,10 +127,9 @@ $pages = $undo['pagination'];
                     {
                         url: "<?php echo base_url('modify_info/get_questions/web/done');?>",
                         method: 'get',
-//                        dataType: "json",
+                        dataType: "json",
                         success: function (data) {
-                            var ct = JSON.parse(data);
-                            alert(ct);
+                            alert(data);
                             var content = "hahaha";
                             var qa_response = data["done"];
                             var qa_done = qa_response['data_page'];
