@@ -127,9 +127,9 @@ $pages = $undo['pagination'];
                         url: "<?php echo base_url('modify_info/get_questions/web/done');?>",
                         method: 'get',
                         success: function (data) {
-                            alert(data);
+                            alert(typeof (data));
                             var content = "hahaha";
-                            var qa_response = data['done'];
+                            var qa_response = data["done"];
                             var qa_done = qa_response['data_page'];
                             var len = qa_done.length;
                             var pages = qa_response['pagination'];
