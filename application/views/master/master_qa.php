@@ -117,7 +117,7 @@ $pages = $undo['pagination'];
         $(ans_collapse).collapse('hide');
     }
     $(document).ready(function () {
-        $('#answered_btn').click(
+        $('#answered_btn_li').click(
             function () {
                 $('#answered_btn_li').addClass("active");
                 $('#answer_btn_li').removeClass("active");
