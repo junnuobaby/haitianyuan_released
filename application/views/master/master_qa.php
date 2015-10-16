@@ -52,7 +52,7 @@ $pages = $undo['pagination'];
                                         <p><span class="q_a_span">问</span><?php echo $qu_undo_item['qu_content'] ?></p>
 
                                         <div class="qu_line_height">
-<!--                                            <span class="key_word">--><?php //echo $qu_undo_item['kwords'] ?><!--</span>-->
+                                            <span class="key_word"><?php if($qu_undo_item['kwords'] == ''){echo '暂无标签';}else{echo $qu_undo_item['kwords'];} ?></span>
                                             <button class="btn qu_btn"
                                                     id="<?php echo 'qu_btn_' . $qu_undo_item['qu_id']; ?>" type="button"
                                                     data-toggle="collapse"
