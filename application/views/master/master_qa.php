@@ -127,12 +127,12 @@ $pages = $undo['pagination'];
                         url: "<?php echo base_url('modify_info/get_questions/web/done');?>",
                         method: 'get',
                         success: function (data) {
-                            var content = "";
+                            var content = "hahaha";
+                            alert(content);
                             var qa_response = data['done'];
                             var qa_done = qa_response['data_page'];
                             var len = qa_done.length;
                             var pages = qa_response['pagination'];
-                            $('#qa_done').html(qa_done[0]['qu_id']);
 
 //                            if (data[count] == 0) {
 //                                $('.warning_msg').html('您还没有回答任何问题!');
@@ -159,10 +159,8 @@ $pages = $undo['pagination'];
 //                            $('#qa_done').html(content);
                         },
                         dataType: "json"
-                    }
-                );
-            }
-        );
+                    });
+            });
     });
 
 </script>
