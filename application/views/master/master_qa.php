@@ -132,7 +132,7 @@ $pages = $undo['pagination'];
                             var qa_done = qa_response['data_page'];
                             var len = qa_done.length;
                             var pages = qa_response['pagination'];
-                            $('#qa_done').html(qa_response);
+                            $('#qa_done').html(qa_done[0]['qu_id']);
 
 //                            if (data[count] == 0) {
 //                                $('.warning_msg').html('您还没有回答任何问题!');
