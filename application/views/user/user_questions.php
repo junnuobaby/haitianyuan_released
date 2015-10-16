@@ -8,10 +8,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body class="bg-gray">
 <script src="<?php echo base_url('/assets/js/htyjs/general_navbar.js') ?>"></script>
 <?php
-$qu_num = count($undo);
-$qu_answered_num = count($done);
-$qu_undo_array = $undo;
-$qa_list = $done;
+$qu_undo_array = $undo['data_page'];
+$qu_num = $undo['count'];
+$pages = $undo['pagination'];
 ?>
 <div class="wrapper">
     <?php $this->load->view('./templates/navbar'); ?>
@@ -27,8 +26,7 @@ $qa_list = $done;
                                                                   data-toggle="tab">未解决 <span
                                     class="badge green-color"><?php echo $qu_num ?></span></a>
                         </li>
-                        <li role="presentation"><a href="#qa_done" aria-controls="profile" role="tab" data-toggle="tab">已解决
-                                <span class="badge theme-bg-color"><?php echo $qu_answered_num ?></span></a>
+                        <li role="presentation"><a href="<?php echo base_url('index.php/modify_info/get_questions/web/done'); ?>">已解决</a>
                         </li>
 
                     </ul>
@@ -46,30 +44,7 @@ $qa_list = $done;
                                 </div>
                                 <hr class="qu_hr"/>
                             <?php endforeach; ?>
-                        </div>
-
-                        <!--已回答问题-->
-                        <div role="tabpanel" class="tab-pane" id="qa_done">
-                            <?php foreach ($qa_list as $qa_item): ?>
-                                <div class="q_a qu_margin">
-                                    <article>
-                                        <h4 class="q_a_question inline_block">
-                                            <span class="q_a_span">问</span>
-                                            <a href="#"><?php echo $qa_item['question']; ?> </a></h4>
-                                        <span class="qu_time">【<?php echo $qa_item['question_time']; ?>】</span>
-
-                                        <p class="q_a_answer"><span
-                                                class="theme-color">答:</span>&nbsp;&nbsp;<?php echo $qa_item['answer']; ?>
-                                        </p>
-                                        <div class="q_a_footer">
-                                            <span>回答时间：<?php echo $qa_item['answer_time']; ?></span>
-                                            <span>回答者：<a href="#"
-                                                         class="questioner"><?php echo $qa_item['answer_master']; ?></a></span>
-                                        </div>
-                                    </article>
-                                </div>
-                                <hr class="q_a_hr"/>
-                            <?php endforeach; ?>
+                            <div class="txt_center"><p class="pages"><?php echo $pages ?></p></div>
                         </div>
                     </div>
                 </div>

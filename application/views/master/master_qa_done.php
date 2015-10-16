@@ -32,7 +32,6 @@ $pages = $done['pagination'];
                                     class="badge green-color"><?php echo $qa_num; ?></span></a>
                         </li>
                     </ul>
-
                     <div class="tab-content">
                         <!--已回答问题-->
                         <div role="tabpanel" class="tab-pane active" id="qa_done">
