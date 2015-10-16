@@ -22,7 +22,7 @@
                     <li><a href="#">论坛</a></li>
                 </ul>
 
-                <!--                根据是否登陆导航条显示不同的内容，当前默认为未登录-->
+                <!--根据是否登陆导航条显示不同的内容，当前默认为未登录-->
                 <?php $login_state = $this->session->userdata('login_state'); ?>
                 <?php $identity = $this->session->userdata('identity') == '0' ? 'user' : 'master'; ?>
                 <?php $uuid = $this->session->userdata('uuid'); ?>
@@ -36,9 +36,9 @@
                     </div>
 
                 <?php else: ?>
-                    <!--                    登陆成功后导航条上显示的内容-->
+                    <!--登陆成功后导航条上显示的内容-->
                     <ul class="nav navbar-nav navbar-right">
-                        <!--                        显示用户名-->
+                        <!--显示用户名-->
                         <li class="dropdown">
                             <a id='navbar-username' href="#" class="dropdown-toggle" data-toggle="dropdown"
                                role="button"
@@ -90,10 +90,11 @@
                                 我的空间<span class="caret"></span></a>
 
                             <ul class="dropdown-menu">
-                                <?php if ($identity == 1): ?>
+                                <?php if ($identity == '1'): ?>
                                     <li>
                                         <a href="<?php echo base_url('index.php/home/load_home/web/' . $identity . '/' . $uuid . '/' . '1'); ?>">我的主页</a>
                                     </li>
+                                <?php else: ?>
                                 <?php endif; ?>
                                 <li><a href="<?php echo base_url('index.php/modify_info/index'); ?>">我的空间</a></li>
                                 <li><a href="#">我的私信</a></li>
@@ -110,7 +111,6 @@
         </div>
     </div>
 </nav>
-
 <script>
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
