@@ -25,11 +25,11 @@ $pages = $undo['pagination'];
             <div class="col-sm-9 col-md-9 bg-white block-radius mas_min_height">
                 <div class="sub_nav">
                     <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" class="active"><a href="#qa_undo_list" role="tab"
+                        <li role="presentation" class="active" id="answer_btn_li"><a href="#qa_undo_list" role="tab"
                                                                   data-toggle="tab">待回答 <span
                                     class="badge green-color"><?php echo $qu_num ?></span></a>
                         </li>
-                        <li role="presentation"><a href="#qa_done" id="answered_btn" aria-controls="profile" role="tab"
+                        <li role="presentation" id="answered_btn_li"><a href="#qa_done" id="answered_btn" aria-controls="profile" role="tab"
                                                    data-toggle="tab">已解决
                                 <span class="badge theme-bg-color" id="answered_num"></span></a>
                         </li>
@@ -118,6 +118,10 @@ $pages = $undo['pagination'];
     $(document).ready(function () {
         $('#answered_btn').click(
             function(){
+                $('#answered_btn_li').addClass("active");
+                $('#answer_btn_li').removeClass("active");
+                $('#qa_done').addClass("active");
+                $('#qa_undo_list').removeClass("active");
                 $.ajax(
                     {
                         url: "<?php echo base_url('modify_info/get_questions/web/done');?>",
