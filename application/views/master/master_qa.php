@@ -127,6 +127,7 @@ $pages = $undo['pagination'];
                         url: "<?php echo base_url('modify_info/get_questions/web/done');?>",
                         method: 'get',
                         success: function (data) {
+                            alert(data);
                             var content = "hahaha";
                             var qa_response = data['done'];
                             alert(qa_response);
@@ -160,7 +161,7 @@ $pages = $undo['pagination'];
 //                            }
 //                            $('#qa_done').html(content);
                         },
-//                        dataType: "json"
+                        dataType: "json"
                     });
             });
     });
