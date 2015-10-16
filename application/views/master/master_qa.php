@@ -117,12 +117,12 @@ $pages = $undo['pagination'];
         $(ans_collapse).collapse('hide');
     }
     $(document).ready(function () {
-        $('#answered_btn_li').click(
+        $('#answered_btn').click(
             function () {
-                $('#answered_btn_li').addClass("active");
-                $('#answer_btn_li').removeClass("active");
-                $('#qa_done').addClass("active");
-                $('#qa_undo_list').removeClass("active");
+//                $('#answered_btn_li').addClass("active");
+//                $('#answer_btn_li').removeClass("active");
+//                $('#qa_done').addClass("active");
+//                $('#qa_undo_list').removeClass("active");
                 $.ajax(
                     {
                         url: "<?php echo base_url('modify_info/get_questions/web/done');?>",
