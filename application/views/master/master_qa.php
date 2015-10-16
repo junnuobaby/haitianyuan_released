@@ -128,8 +128,8 @@ $pages = $undo['pagination'];
                         method: 'get',
                         success: function (data) {
                             var content = "hahaha";
-                            alert(content);
                             var qa_response = data['done'];
+                            alert(qa_response);
                             var qa_done = qa_response['data_page'];
                             var len = qa_done.length;
                             var pages = qa_response['pagination'];
