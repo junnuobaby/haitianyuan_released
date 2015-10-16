@@ -52,7 +52,7 @@ $pages = $undo['pagination'];
                                         <p><span class="q_a_span">问</span><?php echo $qu_undo_item['qu_content'] ?></p>
 
                                         <div class="qu_line_height">
-                                            <span class="key_word"><?php echo $qu_undo_item['kwords'] ?></span>
+<!--                                            <span class="key_word">--><?php //echo $qu_undo_item['kwords'] ?><!--</span>-->
                                             <button class="btn qu_btn"
                                                     id="<?php echo 'qu_btn_' . $qu_undo_item['qu_id']; ?>" type="button"
                                                     data-toggle="collapse"
@@ -127,9 +127,9 @@ $pages = $undo['pagination'];
                     {
                         url: "<?php echo base_url('modify_info/get_questions/web/done');?>",
                         method: 'get',
-//                        dataType: "json",
+                        dataType: "json",
                         success: function (data) {
-                            alert(eval("(" + data + ")"));
+                            alert(data);
                             var content = "hahaha";
                             var qa_response = data["done"];
                             var qa_done = qa_response['data_page'];

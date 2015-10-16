@@ -8,7 +8,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body class="bg-gray">
 <script src="<?php echo base_url('/assets/js/htyjs/general_navbar.js') ?>"></script>
 <?php
-$view_list = $op;
+$view_list = $op['data_page'];
+$pages = $op['pagination'];
+$view_num = $op['count']; // 已发表的观点数
 ?>
 <div class="wrapper">
     <?php $this->load->view('./templates/navbar'); ?>
@@ -62,6 +64,7 @@ $view_list = $op;
                                 </div>
                                 <hr/>
                             <?php endforeach; ?>
+                            <div class="txt_center"><p class="pages"><?php echo $pages ?></p></div>
                         </div>
                     <?php endif; ?>
                 </div>
