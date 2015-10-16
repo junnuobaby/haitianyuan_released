@@ -124,9 +124,10 @@ $pages = $undo['pagination'];
                         method: 'get',
                         success: function (data) {
                             var content = "";
-                            var qa_done = data['undo'];
+                            var qa_response = data['done'];
+                            var qa_done = qa_response['data_page'];
                             var len = qa_done.length;
-                            var pages = data['pagination'];
+                            var pages = qa_response['pagination'];
                             if (data[count] == 0) {
                                 $('.warning_msg').html('您还没有回答任何问题!');
                             }
