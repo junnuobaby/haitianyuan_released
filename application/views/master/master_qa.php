@@ -127,15 +127,16 @@ $pages = $undo['pagination'];
                     {
                         url: "<?php echo base_url('modify_info/get_questions/web/done');?>",
                         method: 'get',
-                        dataType: "json",
+//                        dataType: "json",
                         success: function (data) {
-                            alert(data);
+                            var ct = JSON.parse(data);
+                            alert(ct);
                             var content = "hahaha";
                             var qa_response = data["done"];
                             var qa_done = qa_response['data_page'];
                             var len = qa_done.length;
                             var pages = qa_response['pagination'];
-                            if (data[count] == 0) {
+                            if (qa_response['count] == 0) {
                                 $('.warning_msg').html('您还没有回答任何问题!');
                             }
                             else {
