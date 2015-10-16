@@ -128,7 +128,8 @@ $pages = $undo['pagination'];
                         method: 'get',
                         success: function (data) {
                             var content = "hahaha";
-                            var qa_response = data['done'];
+                            var data1 = JSON.parse(data);
+                            var qa_response = data1['done'];
                             alert(qa_response);
                             var qa_done = qa_response['data_page'];
                             var len = qa_done.length;
