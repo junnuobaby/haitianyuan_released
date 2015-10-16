@@ -10,7 +10,7 @@
             </div>
             <div class="col-md-9 col-sm-9">
                 <div class="logo">
-                    <img class="img-responsive" src="<?php echo base_url('/assets/images/slogan0.png'); ?>" alt="Logo加载中...">
+                    <img class="img-responsive" src="<?php echo base_url('/assets/images/slogan1.png'); ?>" alt="Logo加载中...">
                 </div>
             </div>
         </div>

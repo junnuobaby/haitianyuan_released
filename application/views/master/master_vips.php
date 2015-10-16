@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="panel-body">
                         <?php if(count($user_info) < 1):?>
                         <h4 class="alert_info">
-                            <img src="<?php echo base_url('/assets/images/1.png'); ?>"/>
+                            <img src="<?php echo base_url('/assets/images/zhuge1.png'); ?>"/>
                             亲，您暂无会员，不要灰心，请继续加油哦！</h4>
                         <?php else:?>
                         <?php foreach ($user_info as $user): ?>
