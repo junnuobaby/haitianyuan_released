@@ -70,7 +70,7 @@ $pages = $undo['pagination'];
                                                             onclick="btn_cancel('<?php echo $qu_undo_item['qu_id'] ?>')">
                                                         取消
                                                     </button>
-                                                    <button class="btn btn-default"
+                                                    <button class="btn btn- default"
                                                             onclick="send_answer('<?php echo $qu_undo_item['qu_id'] ?>')">
                                                         确定
                                                     </button>
@@ -115,42 +115,45 @@ $pages = $undo['pagination'];
         var ans_collapse = document.getElementById('edit_answer_' + id);
         $(ans_collapse).collapse('hide');
     }
-
     $(document).ready(function () {
-        $.ajax(
-            {
-                url: "<?php echo base_url('modify_info/get_questions/web/done');?>",
-                method: 'get',
-                success: function (data) {
-                    var content = "";
-                    var qa_done = data['undo'];
-                    var len = qa_done.length;
-                    var pages = data['pagination'];
-                    if (data[count] == 0) {
-                        $('.warning_msg').html('您还没有回答任何问题!');
+        $('#answered_btn').click(
+            function(){
+                $.ajax(
+                    {
+                        url: "<?php echo base_url('modify_info/get_questions/web/done');?>",
+                        method: 'get',
+                        success: function (data) {
+                            var content = "";
+                            var qa_done = data['undo'];
+                            var len = qa_done.length;
+                            var pages = data['pagination'];
+                            if (data[count] == 0) {
+                                $('.warning_msg').html('您还没有回答任何问题!');
+                            }
+                            else {
+                                for (var i = 0; i < len; i++) {
+                                    content += '<div class="q_a qu_margin">' +
+                                        '<article>' +
+                                        '<h4 class="q_a_question inline_block">' +
+                                        '<span class="q_a_span">问</span>' +
+                                        '<a href="#">' + qa_done[i]['qu_content'] + '</a></h4>' +
+                                        '<span class="qu_time">【' + qa_done[i]['qu_timestamp'] + '】</span>' +
+                                        '<p class="q_a_answer"><span class="theme-color">答:</span>&nbsp;&nbsp;' +
+                                        qa_done[i]['ans_content'] + '</p>' +
+                                        '<div class="q_a_footer">' +
+                                        '<span>提问者：' + qa_done[i]['questioner'] + '</span>' +
+                                        '<span>回答时间：' + qa_done[i]['ans_timestamp'] + '</span>' +
+                                        '</div>' +
+                                        '</article>' +
+                                        '</div>' + '<hr class="q_a_hr"/>';
+                                }
+                                count += '<div class="txt_center">' + '<p class="pages">' + pages + '</p></div>';
+                            }
+                            $('#qa_done').html(content);
+                        },
+                        dataType: "json"
                     }
-                    else {
-                        for (var i = 0; i < len; i++) {
-                            content += '<div class="q_a qu_margin">' +
-                                '<article>' +
-                                '<h4 class="q_a_question inline_block">' +
-                                '<span class="q_a_span">问</span>' +
-                                '<a href="#">' + qa_done[i]['qu_content'] + '</a></h4>' +
-                                '<span class="qu_time">【' + qa_done[i]['qu_timestamp'] + '】</span>' +
-                                '<p class="q_a_answer"><span class="theme-color">答:</span>&nbsp;&nbsp;' +
-                                qa_done[i]['ans_content'] + '</p>' +
-                                '<div class="q_a_footer">' +
-                                '<span>提问者：' + qa_done[i]['questioner'] + '</span>' +
-                                '<span>回答时间：' + qa_done[i]['ans_timestamp'] + '</span>' +
-                                '</div>' +
-                                '</article>' +
-                                '</div>' + '<hr class="q_a_hr"/>';
-                        }
-                        count += '<div class="txt_center">' + '<p class="pages">' + pages + '</p></div>';
-                    }
-                    $('#qa_done').html(content);
-                },
-                dataType: "json"
+                );
             }
         );
     });
