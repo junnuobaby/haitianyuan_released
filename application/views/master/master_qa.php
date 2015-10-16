@@ -31,7 +31,7 @@ $pages = $undo['pagination'];
                         </li>
                         <li role="presentation"><a href="#qa_done" id="answered_btn" aria-controls="profile" role="tab"
                                                    data-toggle="tab">已解决
-                                <span class="badge theme-bg-color"><?php echo $qu_answered_num ?></span></a>
+                                <span class="badge theme-bg-color" id="answered_num"></span></a>
                         </li>
 
                     </ul>
@@ -100,7 +100,6 @@ $pages = $undo['pagination'];
 <?php $this->load->view('./templates/footer'); ?>
 <script>
     //    点击确定按钮，通过ajax将回答发送至后台
-
     function send_answer(id) {
         var answer_div = 'answer_' + id;
         var answer = document.getElementById(answer_div).value;
