@@ -90,7 +90,7 @@
                                 我的空间<span class="caret"></span></a>
 
                             <ul class="dropdown-menu">
-                                <?php if ($identity == '1'): ?>
+                                <?php if ($identity == 'master'): ?>
                                     <li>
                                         <a href="<?php echo base_url('index.php/home/load_home/web/' . $identity . '/' . $uuid . '/' . '1'); ?>">我的主页</a>
                                     </li>
