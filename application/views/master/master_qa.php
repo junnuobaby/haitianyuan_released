@@ -131,7 +131,9 @@ $pages = $undo['pagination'];
                             var qa_response = data['done'];
                             alert(qa_response);
                             var qa_done = qa_response['data_page'];
+                            alert(qa_done);
                             var len = qa_done.length;
+                            alert(len);
                             var pages = qa_response['pagination'];
 
 //                            if (data[count] == 0) {
