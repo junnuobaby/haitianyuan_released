@@ -99,7 +99,7 @@ $current_user = $this->session->userdata('username');
 <script>
     $(document).ready(function () {
         $('.master_homepage_jumptron').css('background-image', 'url("<?php echo base_url('assets/images/jumptron_background.jpg'); ?>")');
-        /* 让模态框居中 */
+        /* 让提问的模态框居中 */
         function centerModals() {
             $('.modal').each(function (i) {
                 var $clone = $(this).clone().css('display', 'block').appendTo('body');
@@ -109,11 +109,11 @@ $current_user = $this->session->userdata('username');
                 $(this).find('.modal-content').css("margin-top", top);
             });
         }
-
         $('#question_modal').on('show.bs.modal', centerModals);
         $(window).on('resize', centerModals);
     });
     $(document).ready(function () {
+//        点击购买VIP购买按钮触发的事件，如果是理财师自己点击，则不跳转
         $('#buy_vip').click(function (e) {
             var username = '<?php echo $username?>';
             var current_user = '<?php echo $current_user?>';
@@ -121,6 +121,7 @@ $current_user = $this->session->userdata('username');
                 e.preventDefault();
             }
         });
+//        在编辑完提出的问题后点击确定按钮触发的事件
         $('#qa_btn').click(function () {
             var content = $('#my_question').val();
             var master_id = "<?php echo $master_id;?>";
@@ -129,6 +130,7 @@ $current_user = $this->session->userdata('username');
             $.post('<?php echo base_url("index.php/qa/add_qu")?>', data);
             $('#question_modal').modal('hide');
         });
+//        点击提问按钮触发的事件
         $('#qu_btn').click(function () {
             var state;
             $.get('<?php echo base_url("index.php/qa/qu_state/".$master_id)?>', function (data, status) {

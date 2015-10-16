@@ -39,7 +39,8 @@ $vips = $master_info;
                                     <div class="col-md-6">
                                         <h4>
                                             <a href="<?php echo base_url('index.php/home/load_home/web/' . 'master' . '/' . $vip['master_id'] . '/' . '1'); ?>"
-                                               target="_blank" class="theme-color"><?php echo $vip['master_name']; ?></a></h4>
+                                               target="_blank"
+                                               class="theme-color"><?php echo $vip['master_name']; ?></a></h4>
 
                                         <p>关注 <?php echo $vip['concerns_count']; ?> |
                                             粉丝 <?php echo $vip['fans_count']; ?>
@@ -51,6 +52,11 @@ $vips = $master_info;
 
                                         <p>个性签名：<?php echo $vip['signature']; ?></p>
                                     </div>
+                                    <div class="col-md-4">
+                                        <a class="btn qu_btn" data-id="<?php echo $vip['master_id'];?>" data-name="<?php echo $vip['master_name'];?>"><span
+                                                class="glyphicon glyphicon-question-sign"></span> 提问
+                                        </a>
+                                    </div>
                                 </div>
                                 <hr class="qu_hr"/>
                             <?php endforeach; ?>
@@ -61,10 +67,82 @@ $vips = $master_info;
         </div>
     </div>
 </div>
-<!--.wrapper-->
+<!--提问的模态框-->
+<div class="modal fade" id="question_modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="panel panel-success">
+                    <div class="panel-heading">输入问题（不超过500字）</div>
+                    <div class="panel-body">
+                        <form>
+                            <textarea class="ta" id="my_question" name="question" rows="5"
+                                      placeholder="请尽可能准确地描述您的问题"></textarea>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" id="qa_btn" class="btn btn-success">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
 <!--悬停go-top按钮-->
 <?php $this->load->view('./templates/go-top'); ?>
 <?php $this->load->view('./templates/footer'); ?>
 </body>
+<script>
+    $(document).ready(function () {
+        /* 让提问的模态框居中 */
+        function centerModals() {
+            $('.modal').each(function (i) {
+                var $clone = $(this).clone().css('display', 'block').appendTo('body');
+                var top = Math.round(($clone.height() - $clone.find('.modal-content').height()) / 2);
+                top = top > 0 ? top : 0;
+                $clone.remove();
+                $(this).find('.modal-content').css("margin-top", top);
+            });
+        }
+
+        $('#question_modal').on('show.bs.modal', centerModals);
+        $(window).on('resize', centerModals);
+    });
+    $(document).ready(function () {
+        //点击提问按钮触发的事件
+        $('.qu_btn').click(function () {
+            var state;
+            var master_id = $(this).data('id');
+            var username = $(this).data('name');
+            $.get('<?php echo base_url("index.php/qa/qu_state")?>' + '/' + master_id, function (data, status) {
+                state = data;
+                if (state == '0') {
+                    var qa_btn = $('#qa_btn');
+                    $('#question_modal').modal();
+                    qa_btn.data('id',master_id);
+                    qa_btn.data('name',username);
+                } else if (state == '1') {
+                    location.href = "<?php echo base_url('index.php/login')?>";
+                } else if (state == '2') {
+                    if (confirm("只有VIP才能提问，是否升级成为VIP？")) {
+                        location.href = "<?php echo base_url('index.php/qa/index')?>" + '/' +master_id +'/' + username ;
+                    }
+                } else {
+                    alert('不能向自己提问');
+                }
+            });
+        });
+        //编辑完问题后点击确定按钮触发的事件
+        $('#qa_btn').click(function () {
+            var content = $('#my_question').val();
+            var master_id = $(this).data('id');
+            var master_name = $(this).data('name');
+            var data = {master_id: master_id, master_name: master_name, qu_content: content, kwords: null};
+            $.post('<?php echo base_url("index.php/qa/add_qu")?>', data);
+            $('#question_modal').modal('hide');
+        });
+    });
+</script>
 </html>
 
