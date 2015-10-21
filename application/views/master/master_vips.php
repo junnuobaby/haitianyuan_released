@@ -1,4 +1,4 @@
-<!--理财师设置VIP会员价格-->
+<!--理财师的全部VIP会员-->
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>

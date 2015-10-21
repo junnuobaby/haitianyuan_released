@@ -1,4 +1,4 @@
-<!--理财师主页-->
+<!--理财师主页，显示理财师的问答对-->
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>

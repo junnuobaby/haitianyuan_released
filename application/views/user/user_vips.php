@@ -1,4 +1,4 @@
-<!--理财师个人中心页面-->
+<!--普通用户购买的VIP-->
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>

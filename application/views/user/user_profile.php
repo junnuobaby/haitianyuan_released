@@ -1,4 +1,4 @@
-<!--理财师个人信息管理页面-->
+<!--普通用户个人信息管理页面-->
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>

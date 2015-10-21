@@ -1,4 +1,4 @@
-<!--理财师主页-->
+<!--理财师主页的观点页面-->
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
