@@ -42,7 +42,7 @@ $pages = $done['pagination'];
                                         <span class="qu_time">【<?php echo $qa_item['qu_timestamp']; ?>】</span>
 
                                         <p class="q_a_answer"><span
-                                                class="theme-color">答:</span>&nbsp;&nbsp;<?php echo $qa_item['answer']; ?>
+                                                class="theme-color">答:</span>&nbsp;&nbsp;<?php echo $qa_item['ans_content']; ?>
                                         </p>
                                         <div class="q_a_footer">
                                             <span>回答时间：<?php echo $qa_item['ans_timestamp']; ?></span>
