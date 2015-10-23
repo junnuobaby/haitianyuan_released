@@ -38,16 +38,16 @@ $pages = $done['pagination'];
                                     <article>
                                         <h4 class="q_a_question inline_block">
                                             <span class="q_a_span">问</span>
-                                            <a href="#"><?php echo $qa_item['question']; ?> </a></h4>
-                                        <span class="qu_time">【<?php echo $qa_item['question_time']; ?>】</span>
+                                            <a href="#"><?php echo $qa_item['qu_content']; ?> </a></h4>
+                                        <span class="qu_time">【<?php echo $qa_item['qu_timestamp']; ?>】</span>
 
                                         <p class="q_a_answer"><span
                                                 class="theme-color">答:</span>&nbsp;&nbsp;<?php echo $qa_item['answer']; ?>
                                         </p>
                                         <div class="q_a_footer">
-                                            <span>回答时间：<?php echo $qa_item['answer_time']; ?></span>
+                                            <span>回答时间：<?php echo $qa_item['ans_timestamp']; ?></span>
                                             <span>回答者：<a href="#"
-                                                         class="questioner"><?php echo $qa_item['answer_master']; ?></a></span>
+                                                         class="questioner"><?php echo $qa_item['answerer']; ?></a></span>
                                         </div>
                                     </article>
                                 </div>
