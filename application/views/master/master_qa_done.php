@@ -29,7 +29,7 @@ $pages = $done['pagination'];
                                                                                        role="tab"
                                                                                        data-toggle="tab">已解决
                                 <span
-                                    class="badge green-color"><?php echo $qa_num; ?></span></a>
+                                    class="badge green-bg-color"><?php echo $qa_num; ?></span></a>
                         </li>
                     </ul>
                     <div class="tab-content">
