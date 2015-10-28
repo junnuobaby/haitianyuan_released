@@ -22,7 +22,7 @@ $pages = $done['pagination'];
             <div class="col-sm-9 col-md-9 bg-white block-radius mas_min_height">
                 <div class="sub_nav">
                     <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" id="answer_btn_li"><a href="<?php echo base_url('modify_info/get_questions/web/undo');?>">待回答 </a>
+                        <li role="presentation" id="answer_btn_li"><a href="<?php echo base_url('modify_info/get_questions/web/undo');?>">待回答11 </a>
                         </li>
                         <li role="presentation" class="active" id="answered_btn_li"><a href="#qa_done" id="answered_btn"
                                                                                        aria-controls="profile"
