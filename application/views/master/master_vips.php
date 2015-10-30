@@ -136,7 +136,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $('a.btn-show-more').hide();
             $.ajax({
                 url: '<?php echo base_url("index.php/modify_info/get_user_qa"); ?>' +'/' + 'web'+'/' + $(this).data('id'),
-                data: {page: page_count},
+                data: {page: counter},
                 method: 'get',
                 success: show_his_qa,
                 dataType: "json"
