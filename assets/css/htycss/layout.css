@@ -637,7 +637,6 @@ div.master_view section {
 }
 .qa_his_height{
     max-height: 800px;
-    overflow: scroll;
     padding: 0 20px;
 }
 .alert_info{

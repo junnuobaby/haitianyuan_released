@@ -76,6 +76,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="modal-body">
                 <!--历史问题-->
                 <div class="tab-pane qa_his_height" id="his_qa">
+
                 </div>
             </div>
             <div class="modal-footer">
@@ -92,11 +93,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     $(document).ready(function () {
         $('.his_qa_btn').click(function () {
             $.ajax({
-                url: '<?php echo base_url("index.php/modify_info/get_user_qa"); ?>' +'/' + 'web'+'/' + $(this).data('id'),
+                url: '<?php echo base_url("index.php/modify_info/get_user_qa"); ?>' +'/' + 'web'+'/' + $(this).data('id')+ '?' + '1',
                 method: 'get',
                 success: function (data) {
                     var content = '';
-                    var qa_list = data['qa_info'];
+                    var qa_list = data['qa_info']['data_page'];
                     for(var i= 0; i< qa_list.length; i++){
                         content += '<div class="q_a qu_margin">' +
                             '<article>' +
