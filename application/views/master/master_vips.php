@@ -75,9 +75,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
             <div class="modal-body">
                 <!--历史问题-->
-                <div class="tab-pane qa_his_height" id="his_qa">
-
-                </div>
+                <div class="tab-pane qa_his_height" id="his_qa"></div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
@@ -91,32 +89,52 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </body>
 <script>
     $(document).ready(function () {
+        var counter = 1;
         $('.his_qa_btn').click(function () {
             $.ajax({
                 url: '<?php echo base_url("index.php/modify_info/get_user_qa"); ?>' +'/' + 'web'+'/' + $(this).data('id'),
-                data: {page: 1},
+                data: {page: page_count},
                 method: 'get',
-                success: function (data) {
-                    var content = '';
-                    var qa_list = data['qa_info']['data_page'];
-                    for(var i= 0; i< qa_list.length; i++){
-                        content += '<div class="q_a qu_margin">' +
-                            '<article>' +
-                            '<h4 class="q_a_question inline_block">' +
-                            '<span class="q_a_span">问</span>' +
-                            '<a href="#">' + qa_list[i]['qu_content'] + '</a></h4>' +
-                            '<span class="qu_time">【' + qa_list[i]['qu_timestamp'] + '】</span>' +
-                            '<p class="q_a_answer"><span class="theme-color">答:</span>&nbsp;&nbsp;' + qa_list[i]['ans_content'] +
-                            '</p>' +
-                            '<div class="q_a_footer">' +
-                            '<span>回答时间：' + qa_list[i]['ans_timestamp'] + '</span>' +
-                            '</div>' +
-                            '</article>' +
-                            '</div>' +
-                            '<hr class="q_a_hr"/>';
-                    }
-                    $('#his_qa').html(content);
-                },
+                success: show_his_qa,
+                dataType: "json"
+            });
+        });
+        function show_his_qa(data){
+            var content = $('#his_qa').html();
+            var qa_list = data['qa_info']['data_page']; //获取历史问题记录内容
+            var count = data['qa_info']['count']; //获取历史回答记录的数量
+            var page_count = data['qa_info']['page_count']; //获取页面的数量
+            for(var i= 0; i< qa_list.length; i++){
+                content += '<div class="q_a qu_margin">' +
+                    '<article>' +
+                    '<h4 class="q_a_question inline_block">' +
+                    '<span class="q_a_span">问</span>' +
+                    '<a href="#">' + qa_list[i]['qu_content'] + '</a></h4>' +
+                    '<span class="qu_time">【' + qa_list[i]['qu_timestamp'] + '】</span>' +
+                    '<p class="q_a_answer"><span class="theme-color">答:</span>&nbsp;&nbsp;' + qa_list[i]['ans_content'] +
+                    '</p>' +
+                    '<div class="q_a_footer">' +
+                    '<span>回答时间：' + qa_list[i]['ans_timestamp'] + '</span>' +
+                    '</div>' +
+                    '</article>' +
+                    '</div>' +
+                    '<hr class="q_a_hr"/>';
+            }
+            if(page_count > counter){
+                content += '<a class="btn btn-success btn-show-more">点击查看更多</a>'
+            }
+            $('#his_qa').html(content);
+        }
+
+        //更查看更多添加事件
+        $('#his_qa').delegate('a.btn-show-more','click', function(){
+            counter += 1;
+            $('a.btn-show-more').hide();
+            $.ajax({
+                url: '<?php echo base_url("index.php/modify_info/get_user_qa"); ?>' +'/' + 'web'+'/' + $(this).data('id'),
+                data: {page: page_count},
+                method: 'get',
+                success: show_his_qa,
                 dataType: "json"
             });
         });
