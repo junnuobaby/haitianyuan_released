@@ -92,6 +92,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         var counter = 1;
         $('.his_qa_btn').click(function () {
             counter = 1;
+            var id = $(this).data('id');
             $.ajax({
                 url: '<?php echo base_url("index.php/modify_info/get_user_qa"); ?>' +'/' + 'web'+'/' + $(this).data('id'),
                 data: {page: 1},
@@ -125,7 +126,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     '<hr class="q_a_hr"/>';
             }
             if(page_count > counter){
-                content += '<a class="btn btn-success btn-show-more show_block center-block">点击查看更多</a>'
+                content += '<a class="btn btn-success btn-show-more show_block center-block" data-id = id>点击查看更多</a>'
             }
             $('#his_qa').html(content);
         }
@@ -164,7 +165,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     '<hr class="q_a_hr"/>';
             }
             if(page_count > counter){
-                content += '<a class="btn btn-success btn-show-more show_block center-block">点击查看更多</a>'
+                content += '<a class="btn btn-success btn-show-more show_block center-block" data-id = id>点击查看更多</a>'
             }
             $('#his_qa').append(content);
         }
