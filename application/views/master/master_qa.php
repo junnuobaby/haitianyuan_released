@@ -40,44 +40,48 @@ $pages = $undo['pagination'];
                                 <h4 class="alert_info">没有问题需要回答！</h4>
                             <?php else: ?>
                                 <?php foreach ($qu_undo_array as $qu_undo_item): ?>
-                                    <div class="qu_margin" id="<?php echo 'qu_div_' . $qu_undo_item['qu_id']; ?>">
-                                        <div class="qu_time">
-                                            <span><?php echo $qu_undo_item['qu_timestamp'] ?></span>来自<a href="#"
-                                                                                                         class="questioner"><?php echo $qu_undo_item['questioner'] ?></a>
-                                        </div>
-                                        <p><span class="q_a_span">问</span><?php echo $qu_undo_item['qu_content'] ?></p>
+                                    <div id="<?php echo 'qu_div_' . $qu_undo_item['qu_id']; ?>">
+                                        <div class="qu_margin">
+                                            <div class="qu_time">
+                                                <span><?php echo $qu_undo_item['qu_timestamp'] ?></span>来自<a href="#"
+                                                                                                             class="questioner"><?php echo $qu_undo_item['questioner'] ?></a>
+                                            </div>
+                                            <p><span class="q_a_span">问</span><?php echo $qu_undo_item['qu_content'] ?>
+                                            </p>
 
-                                        <div class="qu_line_height">
+                                            <div class="qu_line_height">
                                             <span class="key_word"><?php if ($qu_undo_item['kwords'] == '') {
                                                     echo '暂无标签';
                                                 } else {
                                                     echo $qu_undo_item['kwords'];
                                                 } ?></span>
-                                            <button class="btn qu_btn"
-                                                    id="<?php echo 'qu_btn_' . $qu_undo_item['qu_id']; ?>" type="button"
-                                                    data-toggle="collapse"
-                                                    data-target="<?php echo '#edit_answer_' . $qu_undo_item['qu_id']; ?>"
-                                                    aria-expanded="false"
-                                                    aria-controls="collapseExample">回答
-                                            </button>
-                                            <div class="collapse"
-                                                 id="<?php echo 'edit_answer_' . $qu_undo_item['qu_id']; ?>">
-                                                <div class="well">
+                                                <button class="btn qu_btn"
+                                                        id="<?php echo 'qu_btn_' . $qu_undo_item['qu_id']; ?>"
+                                                        type="button"
+                                                        data-toggle="collapse"
+                                                        data-target="<?php echo '#edit_answer_' . $qu_undo_item['qu_id']; ?>"
+                                                        aria-expanded="false"
+                                                        aria-controls="collapseExample">回答
+                                                </button>
+                                                <div class="collapse"
+                                                     id="<?php echo 'edit_answer_' . $qu_undo_item['qu_id']; ?>">
+                                                    <div class="well">
                                                     <textarea class="ta"
                                                               id="<?php echo 'answer_' . $qu_undo_item['qu_id']; ?>"></textarea>
-                                                    <button class="btn btn-default btn_cancel"
-                                                            onclick="btn_cancel('<?php echo $qu_undo_item['qu_id'] ?>')">
-                                                        取消
-                                                    </button>
-                                                    <button class="btn btn-default"
-                                                            onclick="send_answer('<?php echo $qu_undo_item['qu_id'] ?>')">
-                                                        确定
-                                                    </button>
+                                                        <button class="btn btn-default btn_cancel"
+                                                                onclick="btn_cancel('<?php echo $qu_undo_item['qu_id'] ?>')">
+                                                            取消
+                                                        </button>
+                                                        <button class="btn btn-default"
+                                                                onclick="send_answer('<?php echo $qu_undo_item['qu_id'] ?>')">
+                                                            确定
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <hr class="qu_hr"/>
+                                        <hr class="qu_hr"/>
+                                    </div><!---->
                                 <?php endforeach; ?>
                                 <div class="txt_center"><p class="pages"><?php echo $pages ?></p></div>
                             <?php endif; ?>
@@ -100,14 +104,14 @@ $pages = $undo['pagination'];
         var ans_collapse = document.getElementById('edit_answer_' + id);
         var ans_btn = document.getElementById('qu_btn_' + id);
         var qu_div = document.getElementById('qu_div_' + id);
-        if(answer.replace(/\s+/g,"").length < 1){
+        if (answer.replace(/\s+/g, "").length < 1) {
             alert('回答内容不能为空！');
-        }else{
+        } else {
             $.post("<?php echo base_url('/index.php/qa/add_ans') ?>", {qu_id: id, ans_content: answer});
             $(ans_collapse).collapse('hide');
             //动态变化
             ans_btn.innerHTML = '已回答';
-            $(qu_div).hide();
+            $(qu_div).fadeOut('slow');
         }
     }
     //设置取消按钮事件
