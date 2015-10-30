@@ -40,7 +40,15 @@ $view_num = $op['count']; // 已发表的观点数
                                             <h4 class="inline_div"><a
                                                     href="#"
                                                     target="_blank"> <?php echo $view_item['op_title']; ?></a></h4>
-                                            <span class="key_word"><?php echo $view_item['op_kwords']; ?></span>
+                                            <div class="qu_time">
+                                                <span><?php echo $view_item['op_timestamp'] ?></span>
+                                                <span class="key_word"><?php if ($view_item['op_kwords'] == '') {
+                                                        echo '暂无标签';
+                                                    } else {
+                                                        echo $view_item['op_kwords'];
+                                                    } ?></span>
+                                            </div>
+<!--                                            <span class="key_word">--><?php //echo $view_item['op_kwords']; ?><!--</span>-->
                                         </header>
                                         <section>
                                             <!--控制最多显示内容不超过100个字-->

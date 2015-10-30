@@ -45,7 +45,6 @@ $pages = $done['pagination'];
                                             <h4 class="q_a_question inline_block">
                                                 <span class="q_a_span">问</span>
                                                 <a href="#"><?php echo $qa_item['qu_content']; ?> </a></h4>
-
                                             <div class="qu_time">
                                                 <span><?php echo $qa_item['qu_timestamp'] ?></span>来自
                                                 <a href="#" class="questioner"><?php echo $qa_item['questioner'] ?></a>
@@ -55,7 +54,6 @@ $pages = $done['pagination'];
                                                         echo $qa_item['kwords'];
                                                     } ?></span>
                                             </div>
-
                                             <p class="q_a_answer"><span
                                                     class="theme-color">答:</span>&nbsp;&nbsp;<?php echo $qa_item['ans_content']; ?>
                                             </p>
