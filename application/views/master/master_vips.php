@@ -93,7 +93,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         $('.his_qa_btn').click(function () {
             $.ajax({
                 url: '<?php echo base_url("index.php/modify_info/get_user_qa"); ?>' +'/' + 'web'+'/' + $(this).data('id'),
-                data: {page: counter},
+                data: {page: 1},
                 method: 'get',
                 success: show_his_qa,
                 error:function(){
@@ -124,7 +124,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     '<hr class="q_a_hr"/>';
             }
             if(page_count > counter){
-                content += '<a class="btn btn-success btn-show-more">点击查看更多</a>'
+                content += '<a class="btn btn-success btn-show-more show_block center-block">点击查看更多</a>'
             }
             $('#his_qa').html(content);
         }
@@ -142,7 +142,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             });
         });
         function show_more_qa(data){
-            var content = $('#his_qa').html();
+            var content = "";
             var qa_list = data['qa_info']['data_page']; //获取历史问题记录内容
             var count = data['qa_info']['count']; //获取历史回答记录的数量
             var page_count = data['qa_info']['page_count']; //获取页面的数量
@@ -163,9 +163,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     '<hr class="q_a_hr"/>';
             }
             if(page_count > counter){
-                content += '<a class="btn btn-success btn-show-more">点击查看更多</a>'
+                content += '<a class="btn btn-success btn-show-more show_block center-block">点击查看更多</a>'
             }
-            $('#his_qa').html(content);
+            $('#his_qa').append(content);
         }
     });
 </script>

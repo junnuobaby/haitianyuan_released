@@ -28,6 +28,9 @@ a:hover{
 .inline_div{
     display: inline-block;
 }
+.show_block{
+    display: block;
+}
 /*页脚样式*/
 footer.page_footer {
     font-size: 13px;
