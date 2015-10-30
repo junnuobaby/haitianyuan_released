@@ -126,7 +126,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     '<hr class="q_a_hr"/>';
             }
             if(page_count > counter){
-                content += '<a class="btn btn-success btn-show-more show_block center-block" data-id = id>点击查看更多</a>'
+                content += '<a class="btn btn-success btn-show-more show_block center-block">点击查看更多</a>'
+                $('a.btn-show-more').data('id', id);
             }
             $('#his_qa').html(content);
         }
@@ -165,7 +166,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     '<hr class="q_a_hr"/>';
             }
             if(page_count > counter){
-                content += '<a class="btn btn-success btn-show-more show_block center-block" data-id = id>点击查看更多</a>'
+                content += '<a class="btn btn-success btn-show-more show_block center-block">点击查看更多</a>'
+                $('a.btn-show-more').data('id', id);
             }
             $('#his_qa').append(content);
         }
