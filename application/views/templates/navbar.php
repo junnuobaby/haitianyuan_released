@@ -39,11 +39,11 @@
                     <!--登陆成功后导航条上显示的内容-->
                     <ul class="nav navbar-nav navbar-right">
                         <!--个人空间-->
-                        <li class="theme-color"><a href="<?php echo base_url('index.php/modify_info/index'); ?>"><span class="glyphicon glyphicon-user"></span> 个人中心</a></li>
+                        <li><a href="<?php echo base_url('index.php/modify_info/index'); ?>" class="theme-color"><span class="glyphicon glyphicon-user"></span> 个人中心</a></li>
                         <!--用户的个人主页-->
                         <?php if ($identity == 'master'): ?>
-                            <li class="theme-color">
-                                <a href="<?php echo base_url('index.php/home/load_home/web/' . $identity . '/' . $uuid . '/' . '1'); ?>"><span class="glyphicon glyphicon-home"></span> 我的主页</a>
+                            <li>
+                                <a href="<?php echo base_url('index.php/home/load_home/web/' . $identity . '/' . $uuid . '/' . '1'); ?>" class="theme-color"><span class="glyphicon glyphicon-home"></span> 我的主页</a>
                             </li>
                         <?php else: ?>
                         <?php endif; ?>
