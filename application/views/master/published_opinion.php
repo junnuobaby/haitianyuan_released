@@ -48,7 +48,6 @@ $view_num = $op['count']; // 已发表的观点数
                                                         echo $view_item['op_kwords'];
                                                     } ?></span>
                                             </div>
-<!--                                            <span class="key_word">--><?php //echo $view_item['op_kwords']; ?><!--</span>-->
                                         </header>
                                         <section>
                                             <!--控制最多显示内容不超过100个字-->

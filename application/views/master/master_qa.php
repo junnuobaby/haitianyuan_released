@@ -70,7 +70,7 @@ $pages = $undo['pagination'];
                                                             onclick="btn_cancel('<?php echo $qu_undo_item['qu_id'] ?>')">
                                                         取消
                                                     </button>
-                                                    <button class="btn btn- default"
+                                                    <button class="btn btn-default"
                                                             onclick="send_answer('<?php echo $qu_undo_item['qu_id'] ?>')">
                                                         确定
                                                     </button>
