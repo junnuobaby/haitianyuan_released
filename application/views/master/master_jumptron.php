@@ -90,6 +90,17 @@ $current_user = $this->session->userdata('username');
                 </div>
             </div>
             <div class="modal-footer">
+                <div class="question_label inline_block">
+                    <label for="kword">标签</label>
+                    <select id="kword" name="op_kwords">
+                        <option>A股</option>
+                        <option>债券</option>
+                        <option>期货</option>
+                        <option>黄金外汇</option>
+                        <option>美股</option>
+                        <option>其他</option>
+                    </select>
+                </div>
                 <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
                 <button type="button" id="qa_btn" class="btn btn-success">确定</button>
             </div>
@@ -122,13 +133,19 @@ $current_user = $this->session->userdata('username');
             }
         });
 //        在编辑完提出的问题后点击确定按钮触发的事件
-        $('#qa_btn').click(function () {
+        $('#qa_btn').click(function (event) {
             var content = $('#my_question').val();
             var master_id = "<?php echo $master_id;?>";
             var master_name = "<?php echo $username;?>";
-            var data = {master_id: master_id, master_name: master_name, qu_content: content, kwords: null};
-            $.post('<?php echo base_url("index.php/qa/add_qu")?>', data);
-            $('#question_modal').modal('hide');
+            var key_words = $('#kword').find('option:selected').text();
+            var data = {master_id: master_id, master_name: master_name, qu_content: content, kwords: key_words};
+            if (content == "") {
+                alert("问题内容不能为空");
+                event.preventDefault();     //阻止提交按钮的默认行为（提交表单）
+            }else{
+                $.post('<?php echo base_url("index.php/qa/add_qu")?>', data);
+                $('#question_modal').modal('hide');
+            }
         });
 //        点击提问按钮触发的事件
         $('#qu_btn').click(function () {
@@ -191,5 +208,4 @@ $current_user = $this->session->userdata('username');
             }
         });
     });
-
 </script>

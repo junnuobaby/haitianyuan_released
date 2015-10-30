@@ -644,5 +644,11 @@ div.master_view section {
     text-align: center;
     margin: 50px 0;
 }
+.question_label{
+    float: left;
+}
+.question_label label{
+    margin-right: 15px;
+}
 
 
