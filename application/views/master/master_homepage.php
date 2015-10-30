@@ -38,8 +38,8 @@ $master_id = $info['host_id'];
                             <div class="q_a">
                                 <article>
                                     <div class="qu_time">
-                                        <span><?php echo $qu_item['qu_timestamp'] ?></span>来自<a href="#"
-                                                                                                     class="questioner"><?php echo $qu_item['questioner'] ?></a>
+                                        <span><?php echo $qa_item['qu_timestamp'] ?></span>来自<a href="#"
+                                                                                                     class="questioner"><?php echo $qa_item['questioner'] ?></a>
                                     </div>
                                     <h4 class="q_a_question inline_block">
                                         <span class="q_a_span">问</span>
