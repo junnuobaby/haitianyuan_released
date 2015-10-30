@@ -94,7 +94,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             counter = 1;
             var id = $(this).data('id');
             $('#records_modal').data('id', id);
-            alert(id);
             $.ajax({
                 url: '<?php echo base_url("index.php/modify_info/get_user_qa"); ?>' +'/' + 'web'+'/' + $(this).data('id'),
                 data: {page: 1},
