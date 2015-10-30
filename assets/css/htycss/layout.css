@@ -65,7 +65,7 @@
     padding-top: 4em;
 }
 #navbar-username, #sel_homepage,#sel_center {
-    color: #fd7d56;
+    color: #a0d56d;
 }
 
 .dropdown li a:hover {
@@ -193,7 +193,6 @@ a.avatar-upload:hover {
 .self_master_address {
     color: #f4645f;
 }
-
 /*联系我们页面样式*/
 #contact_us h1 {
     color: #c1837b;
@@ -454,7 +453,7 @@ div.master_view section {
 .qu_hr {
     height: 20px;
     background-color: #f3f3f3;
-    margin: 5px 0px;
+    margin: 5px 0;
 }
 
 .key_word {
