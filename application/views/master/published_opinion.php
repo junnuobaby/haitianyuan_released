@@ -38,7 +38,7 @@ $view_num = $op['count']; // 已发表的观点数
                                     <article>
                                         <header>
                                             <h4 class="inline_div"><a
-                                                    href="#"
+                                                    href="<?php echo base_url('index.php/home/get_detail/web/' .'op'. '/' . $view_item['op_id']);?>"
                                                     target="_blank"> <?php echo $view_item['op_title']; ?></a></h4>
                                             <div class="qu_time">
                                                 <span><?php echo $view_item['op_timestamp'] ?></span>
