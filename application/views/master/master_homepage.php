@@ -41,15 +41,15 @@ $master_id = $info['host_id'];
                                         <span class="q_a_span">问</span>
                                         <a href="#"><?php echo $qa_item['qu_content']; ?> </a></h4>
                                     <span>【<?php echo $qa_item['qu_timestamp']; ?> 来自<?php echo $qa_item['questioner']; ?>】</span>
+                                    <span class="key_word"><?php if ($qa_item['kwords'] == '') {
+                                            echo '暂无标签';
+                                        } else {
+                                            echo $qa_item['kwords'];
+                                        } ?></span>
                                     <p class="q_a_answer"><span
                                             class="theme-color">答:</span>&nbsp;&nbsp;<?php echo $qa_item['ans_content']; ?>
                                     </p>
                                     <div class="q_a_footer">
-                                        <span class="key_word"><?php if ($qa_item['kwords'] == '') {
-                                                echo '暂无标签';
-                                            } else {
-                                                echo $qa_item['kwords'];
-                                            } ?></span>
                                         <span>满意度：<?php echo 5; ?></span>
                                         <span>回答时间：<?php echo $qa_item['ans_timestamp']; ?></span>
                                     </div>
