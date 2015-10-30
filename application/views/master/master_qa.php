@@ -40,7 +40,7 @@ $pages = $undo['pagination'];
                                 <h4 class="alert_info">没有问题需要回答！</h4>
                             <?php else: ?>
                                 <?php foreach ($qu_undo_array as $qu_undo_item): ?>
-                                    <div class="qu_margin">
+                                    <div class="qu_margin" id="<?php echo 'qu_div_' . $qu_undo_item['qu_id']; ?>">
                                         <div class="qu_time">
                                             <span><?php echo $qu_undo_item['qu_timestamp'] ?></span>来自<a href="#"
                                                                                                          class="questioner"><?php echo $qu_undo_item['questioner'] ?></a>
@@ -99,6 +99,7 @@ $pages = $undo['pagination'];
         var answer = document.getElementById(answer_div).value;
         var ans_collapse = document.getElementById('edit_answer_' + id);
         var ans_btn = document.getElementById('qu_btn_' + id);
+        var qu_div = document.getElementById('qu_div_' + id);
         if(answer.replace(/\s+/g,"").length < 1){
             alert('回答内容不能为空！');
         }else{
@@ -106,6 +107,7 @@ $pages = $undo['pagination'];
             $(ans_collapse).collapse('hide');
             //动态变化
             ans_btn.innerHTML = '已回答';
+            $(qu_div).hide();
         }
     }
     //设置取消按钮事件
