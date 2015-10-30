@@ -100,7 +100,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             });
         });
         function show_his_qa(data){
-            var content = $('#his_qa').html();
+//            var content = $('#his_qa').html();
+            var content = "";
             var qa_list = data['qa_info']['data_page']; //获取历史问题记录内容
             var count = data['qa_info']['count']; //获取历史回答记录的数量
             var page_count = data['qa_info']['page_count']; //获取页面的数量
@@ -127,17 +128,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
 
         //更查看更多添加事件
-        $('#his_qa').delegate('a.btn-show-more','click', function(){
-            counter += 1;
-            $('a.btn-show-more').hide();
-            $.ajax({
-                url: '<?php echo base_url("index.php/modify_info/get_user_qa"); ?>' +'/' + 'web'+'/' + $(this).data('id'),
-                data: {page: page_count},
-                method: 'get',
-                success: show_his_qa,
-                dataType: "json"
-            });
-        });
+//        $('#his_qa').delegate('a.btn-show-more','click', function(){
+//            counter += 1;
+//            $('a.btn-show-more').hide();
+//            $.ajax({
+//                url: '<?php //echo base_url("index.php/modify_info/get_user_qa"); ?>//' +'/' + 'web'+'/' + $(this).data('id'),
+//                data: {page: page_count},
+//                method: 'get',
+//                success: show_his_qa,
+//                dataType: "json"
+//            });
+//        });
     });
 </script>
 </html>
