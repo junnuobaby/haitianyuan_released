@@ -111,7 +111,7 @@ $pages = $undo['pagination'];
             $(ans_collapse).collapse('hide');
             //动态变化
             ans_btn.innerHTML = '已回答';
-            $(qu_div).fadeOut('slow');
+//            $(qu_div).fadeOut('slow');
         }
     }
     //设置取消按钮事件
