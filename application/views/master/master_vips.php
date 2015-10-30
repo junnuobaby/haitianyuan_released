@@ -104,7 +104,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         });
         function show_his_qa(data){
             var content = $('#his_qa').html();
-            var content = "";
+//            var content = "";
             var qa_list = data['qa_info']['data_page']; //获取历史问题记录内容
             var count = data['qa_info']['count']; //获取历史回答记录的数量
             var page_count = data['qa_info']['page_count']; //获取页面的数量
