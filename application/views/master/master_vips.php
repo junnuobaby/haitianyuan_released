@@ -97,40 +97,66 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 url: '<?php echo base_url("index.php/modify_info/get_user_qa"); ?>' +'/' + 'web'+'/' + $(this).data('id'),
                 data: {page: 1},
                 method: 'get',
-                success: show_his_qa,
+                success: function (data) {
+                    var content = "";
+                    var qa_list = data['qa_info']['data_page']; //获取历史问题记录内容
+                    var count = data['qa_info']['count']; //获取历史回答记录的数量
+                    var page_count = data['qa_info']['page_count']; //获取页面的数量
+                    for(var i= 0; i< qa_list.length; i++){
+                        content += '<div class="q_a qu_margin">' +
+                            '<article>' +
+                            '<h4 class="q_a_question inline_block">' +
+                            '<span class="q_a_span">问</span>' +
+                            '<a href="#">' + qa_list[i]['qu_content'] + '</a></h4>' +
+                            '<span class="qu_time">【' + qa_list[i]['qu_timestamp'] + '】</span>' +
+                            '<p class="q_a_answer"><span class="theme-color">答:</span>&nbsp;&nbsp;' + qa_list[i]['ans_content'] +
+                            '</p>' +
+                            '<div class="q_a_footer">' +
+                            '<span>回答时间：' + qa_list[i]['ans_timestamp'] + '</span>' +
+                            '</div>' +
+                            '</article>' +
+                            '</div>' +
+                            '<hr class="q_a_hr"/>';
+                    }
+                    if(page_count > counter){
+                        content += '<a class="btn btn-success btn-show-more show_block center-block">点击查看更多</a>'
+                        $('a.btn-show-more').data('id', id);
+                    }
+                    $('#his_qa').html(content);
+                },
                 error:function(){
                     alert('亲，对不起，我们的服务器宝宝生病了');
                 },
                 dataType: "json"
             });
         });
-        function show_his_qa(data){
-            var content = "";
-            var qa_list = data['qa_info']['data_page']; //获取历史问题记录内容
-            var count = data['qa_info']['count']; //获取历史回答记录的数量
-            var page_count = data['qa_info']['page_count']; //获取页面的数量
-            for(var i= 0; i< qa_list.length; i++){
-                content += '<div class="q_a qu_margin">' +
-                    '<article>' +
-                    '<h4 class="q_a_question inline_block">' +
-                    '<span class="q_a_span">问</span>' +
-                    '<a href="#">' + qa_list[i]['qu_content'] + '</a></h4>' +
-                    '<span class="qu_time">【' + qa_list[i]['qu_timestamp'] + '】</span>' +
-                    '<p class="q_a_answer"><span class="theme-color">答:</span>&nbsp;&nbsp;' + qa_list[i]['ans_content'] +
-                    '</p>' +
-                    '<div class="q_a_footer">' +
-                    '<span>回答时间：' + qa_list[i]['ans_timestamp'] + '</span>' +
-                    '</div>' +
-                    '</article>' +
-                    '</div>' +
-                    '<hr class="q_a_hr"/>';
-            }
-            if(page_count > counter){
-                content += '<a class="btn btn-success btn-show-more show_block center-block">点击查看更多</a>'
-                $('a.btn-show-more').data('id', id);
-            }
-            $('#his_qa').html(content);
-        }
+//        function show_his_qa(data){
+//            var content = "";
+//            var qa_list = data['qa_info']['data_page']; //获取历史问题记录内容
+//            var count = data['qa_info']['count']; //获取历史回答记录的数量
+//            var page_count = data['qa_info']['page_count']; //获取页面的数量
+//            for(var i= 0; i< qa_list.length; i++){
+//                content += '<div class="q_a qu_margin">' +
+//                    '<article>' +
+//                    '<h4 class="q_a_question inline_block">' +
+//                    '<span class="q_a_span">问</span>' +
+//                    '<a href="#">' + qa_list[i]['qu_content'] + '</a></h4>' +
+//                    '<span class="qu_time">【' + qa_list[i]['qu_timestamp'] + '】</span>' +
+//                    '<p class="q_a_answer"><span class="theme-color">答:</span>&nbsp;&nbsp;' + qa_list[i]['ans_content'] +
+//                    '</p>' +
+//                    '<div class="q_a_footer">' +
+//                    '<span>回答时间：' + qa_list[i]['ans_timestamp'] + '</span>' +
+//                    '</div>' +
+//                    '</article>' +
+//                    '</div>' +
+//                    '<hr class="q_a_hr"/>';
+//            }
+//            if(page_count > counter){
+//                content += '<a class="btn btn-success btn-show-more show_block center-block">点击查看更多</a>'
+//                $('a.btn-show-more').data('id', id);
+//            }
+//            $('#his_qa').html(content);
+//        }
 
         //更查看更多添加事件
         $('#his_qa').delegate('a.btn-show-more','click', function(){
@@ -140,37 +166,63 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 url: '<?php echo base_url("index.php/modify_info/get_user_qa"); ?>' +'/' + 'web'+'/' + $(this).data('id'),
                 data: {page: counter},
                 method: 'get',
-                success: show_more_qa,
+                success: function(data){
+                    var content = "";
+                    var qa_list = data['qa_info']['data_page']; //获取历史问题记录内容
+                    var count = data['qa_info']['count']; //获取历史回答记录的数量
+                    var page_count = data['qa_info']['page_count']; //获取页面的数量
+                    for(var i= 0; i< qa_list.length; i++){
+                        content += '<div class="q_a qu_margin">' +
+                            '<article>' +
+                            '<h4 class="q_a_question inline_block">' +
+                            '<span class="q_a_span">问</span>' +
+                            '<a href="#">' + qa_list[i]['qu_content'] + '</a></h4>' +
+                            '<span class="qu_time">【' + qa_list[i]['qu_timestamp'] + '】</span>' +
+                            '<p class="q_a_answer"><span class="theme-color">答:</span>&nbsp;&nbsp;' + qa_list[i]['ans_content'] +
+                            '</p>' +
+                            '<div class="q_a_footer">' +
+                            '<span>回答时间：' + qa_list[i]['ans_timestamp'] + '</span>' +
+                            '</div>' +
+                            '</article>' +
+                            '</div>' +
+                            '<hr class="q_a_hr"/>';
+                    }
+                    if(page_count > counter){
+                        content += '<a class="btn btn-success btn-show-more show_block center-block">点击查看更多</a>'
+                        $('a.btn-show-more').data('id', id);
+                    }
+                    $('#his_qa').append(content);
+                },
                 dataType: "json"
             });
         });
-        function show_more_qa(data){
-            var content = "";
-            var qa_list = data['qa_info']['data_page']; //获取历史问题记录内容
-            var count = data['qa_info']['count']; //获取历史回答记录的数量
-            var page_count = data['qa_info']['page_count']; //获取页面的数量
-            for(var i= 0; i< qa_list.length; i++){
-                content += '<div class="q_a qu_margin">' +
-                    '<article>' +
-                    '<h4 class="q_a_question inline_block">' +
-                    '<span class="q_a_span">问</span>' +
-                    '<a href="#">' + qa_list[i]['qu_content'] + '</a></h4>' +
-                    '<span class="qu_time">【' + qa_list[i]['qu_timestamp'] + '】</span>' +
-                    '<p class="q_a_answer"><span class="theme-color">答:</span>&nbsp;&nbsp;' + qa_list[i]['ans_content'] +
-                    '</p>' +
-                    '<div class="q_a_footer">' +
-                    '<span>回答时间：' + qa_list[i]['ans_timestamp'] + '</span>' +
-                    '</div>' +
-                    '</article>' +
-                    '</div>' +
-                    '<hr class="q_a_hr"/>';
-            }
-            if(page_count > counter){
-                content += '<a class="btn btn-success btn-show-more show_block center-block">点击查看更多</a>'
-                $('a.btn-show-more').data('id', id);
-            }
-            $('#his_qa').append(content);
-        }
+//        function show_more_qa(data){
+//            var content = "";
+//            var qa_list = data['qa_info']['data_page']; //获取历史问题记录内容
+//            var count = data['qa_info']['count']; //获取历史回答记录的数量
+//            var page_count = data['qa_info']['page_count']; //获取页面的数量
+//            for(var i= 0; i< qa_list.length; i++){
+//                content += '<div class="q_a qu_margin">' +
+//                    '<article>' +
+//                    '<h4 class="q_a_question inline_block">' +
+//                    '<span class="q_a_span">问</span>' +
+//                    '<a href="#">' + qa_list[i]['qu_content'] + '</a></h4>' +
+//                    '<span class="qu_time">【' + qa_list[i]['qu_timestamp'] + '】</span>' +
+//                    '<p class="q_a_answer"><span class="theme-color">答:</span>&nbsp;&nbsp;' + qa_list[i]['ans_content'] +
+//                    '</p>' +
+//                    '<div class="q_a_footer">' +
+//                    '<span>回答时间：' + qa_list[i]['ans_timestamp'] + '</span>' +
+//                    '</div>' +
+//                    '</article>' +
+//                    '</div>' +
+//                    '<hr class="q_a_hr"/>';
+//            }
+//            if(page_count > counter){
+//                content += '<a class="btn btn-success btn-show-more show_block center-block">点击查看更多</a>'
+//                $('a.btn-show-more').data('id', id);
+//            }
+//            $('#his_qa').append(content);
+//        }
     });
 </script>
 </html>
