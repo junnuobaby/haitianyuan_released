@@ -38,11 +38,20 @@
                 <?php else: ?>
                     <!--登陆成功后导航条上显示的内容-->
                     <ul class="nav navbar-nav navbar-right">
+                        <!--个人空间-->
+                        <li class="theme-color"><a href="<?php echo base_url('index.php/modify_info/index'); ?>"><span class="glyphicon glyphicon-user"></span> 个人中心</a></li>
+                        <!--用户的个人主页-->
+                        <?php if ($identity == 'master'): ?>
+                            <li class="theme-color">
+                                <a href="<?php echo base_url('index.php/home/load_home/web/' . $identity . '/' . $uuid . '/' . '1'); ?>"><span class="glyphicon glyphicon-home"></span> 我的主页</a>
+                            </li>
+                        <?php else: ?>
+                        <?php endif; ?>
                         <!--显示用户名-->
                         <li class="dropdown">
                             <a id='navbar-username' href="#" class="dropdown-toggle" data-toggle="dropdown"
                                role="button"
-                               aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span>
+                               aria-haspopup="true" aria-expanded="false">
                                 <?php echo $this->session->userdata('username'); ?><span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">我的私信</a></li>
@@ -53,16 +62,6 @@
                                 <li><a href="<?php echo base_url("index.php/login/logout"); ?>">退出</a></li>
                             </ul>
                         </li>
-                        <!--用户的个人主页-->
-                        <?php if ($identity == 'master'): ?>
-                            <li>
-                                <a href="<?php echo base_url('index.php/home/load_home/web/' . $identity . '/' . $uuid . '/' . '1'); ?>">我的主页</a>
-                            </li>
-                        <?php else: ?>
-                        <?php endif; ?>
-                        <!--个人空间-->
-                        <li><a href="<?php echo base_url('index.php/modify_info/index'); ?>">个人空间</a></li>
-
                     </ul>
                 <?php endif; ?>
             </div>
