@@ -20,7 +20,7 @@ $pages = $op_qa['pagination'];
     $this->load->view('./master/master_jumptron', $data); ?>
     <!--页面主要内容-->
     <div class="container master_homepage_container">
-        <div class="col-md-8 col-sm-8 bg-white block-radius">
+        <div class="col-md-8 col-sm-8 bg-white block-radius mas_min_height">
             <div class="sub_nav">
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" ><a href="<?php echo base_url('index.php/home/load_home/web/' .'master'. '/' . $master_id.'/'.'1');?>" >问答</a></li>

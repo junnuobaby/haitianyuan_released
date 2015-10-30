@@ -19,7 +19,7 @@ $master_id = $info['host_id'];
     $this->load->view('./master/master_jumptron', $data); ?>
     <!--页面主要内容-->
     <div class="container master_homepage_container">
-        <div class="col-md-8 col-sm-8 bg-white block-radius">
+        <div class="col-md-8 col-sm-8 bg-white block-radius mas_min_height">
             <div class="sub_nav">
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="active"><a href="#qa">问答</a></li>
