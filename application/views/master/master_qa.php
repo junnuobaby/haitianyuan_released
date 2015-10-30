@@ -26,7 +26,8 @@ $pages = $undo['pagination'];
                                                                                      data-toggle="tab">待回答 <span
                                     class="badge green-bg-color"><?php echo $qu_num ?></span></a>
                         </li>
-                        <li role="presentation" id="answered_btn_li"><a href="<?php echo base_url('modify_info/get_questions/web/done');?>" id="answered_btn">已解决
+                        <li role="presentation" id="answered_btn_li"><a
+                                href="<?php echo base_url('modify_info/get_questions/web/done'); ?>" id="answered_btn">已解决
                                 <span class="badge theme-bg-color" id="answered_num"></span></a>
                         </li>
 
@@ -58,12 +59,12 @@ $pages = $undo['pagination'];
                                                     data-target="<?php echo '#edit_answer_' . $qu_undo_item['qu_id']; ?>"
                                                     aria-expanded="false"
                                                     aria-controls="collapseExample">回答
-
                                             </button>
                                             <div class="collapse"
                                                  id="<?php echo 'edit_answer_' . $qu_undo_item['qu_id']; ?>">
                                                 <div class="well">
-                                                <textarea class="ta" id="<?php echo 'answer_' . $qu_undo_item['qu_id']; ?>"></textarea>
+                                                    <textarea class="ta"
+                                                              id="<?php echo 'answer_' . $qu_undo_item['qu_id']; ?>"></textarea>
                                                     <button class="btn btn-default btn_cancel"
                                                             onclick="btn_cancel('<?php echo $qu_undo_item['qu_id'] ?>')">
                                                         取消
@@ -98,10 +99,14 @@ $pages = $undo['pagination'];
         var answer = document.getElementById(answer_div).value;
         var ans_collapse = document.getElementById('edit_answer_' + id);
         var ans_btn = document.getElementById('qu_btn_' + id);
-        $.post("<?php echo base_url('/index.php/qa/add_ans') ?>", {qu_id: id, ans_content: answer});
-        $(ans_collapse).collapse('hide');
-        //动态变化
-        ans_btn.innerHTML = '已回答';
+        if(answer.replace(/\s+/g,"").length < 1){
+            alert('回答内容不能为空！');
+        }else{
+            $.post("<?php echo base_url('/index.php/qa/add_ans') ?>", {qu_id: id, ans_content: answer});
+            $(ans_collapse).collapse('hide');
+            //动态变化
+            ans_btn.innerHTML = '已回答';
+        }
     }
     //设置取消按钮事件
     function btn_cancel(id) {
