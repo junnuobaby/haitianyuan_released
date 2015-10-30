@@ -98,7 +98,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 success: show_his_qa,
                 error:function(){
                     alert('亲，对不起，我们的服务器宝宝生病了');
-                }
+                },
                 dataType: "json"
             });
         });
