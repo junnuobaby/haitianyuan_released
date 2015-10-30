@@ -37,14 +37,13 @@ $master_id = $info['host_id'];
                         <?php foreach ($qa_list as $qa_item): ?>
                             <div class="q_a">
                                 <article>
-                                    <div class="qu_time">
-                                        <span><?php echo $qa_item['qu_timestamp'] ?></span>来自<a href="#"
-                                                                                                     class="questioner"><?php echo $qa_item['questioner'] ?></a>
-                                    </div>
                                     <h4 class="q_a_question inline_block">
                                         <span class="q_a_span">问</span>
                                         <a href="#"><?php echo $qa_item['qu_content']; ?> </a></h4>
-                                    <span>【<?php echo $qa_item['qu_timestamp']; ?> 来自</span><span class="theme-color"><?php echo $qa_item['questioner']; ?></span>】
+                                    <div class="qu_time">
+                                        <span><?php echo $qa_item['qu_timestamp'] ?></span>来自<a href="#"
+                                                                                                class="questioner"><?php echo $qa_item['questioner'] ?></a>
+                                    </div>
                                     <span class="key_word"><?php if ($qa_item['kwords'] == '') {
                                             echo '暂无标签';
                                         } else {
