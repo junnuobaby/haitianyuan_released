@@ -60,7 +60,7 @@
                             </li>
                         <?php else: ?>
                         <?php endif; ?>
-                        //个人空间
+                        <!--个人空间-->
                         <li><a href="<?php echo base_url('index.php/modify_info/index'); ?>">个人空间</a></li>
 
                     </ul>
