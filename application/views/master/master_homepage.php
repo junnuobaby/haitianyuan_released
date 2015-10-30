@@ -40,7 +40,7 @@ $master_id = $info['host_id'];
                                     <h4 class="q_a_question inline_block">
                                         <span class="q_a_span">问</span>
                                         <a href="#"><?php echo $qa_item['qu_content']; ?> </a></h4>
-                                    <span>【<?php echo $qa_item['qu_timestamp']; ?> </span><span class="theme-color"><?php echo $qa_item['questioner']; ?>】</span>
+                                    <span>【<?php echo $qa_item['qu_timestamp']; ?> 来自</span><span class="theme-color"><?php echo $qa_item['questioner']; ?></span>】
                                     <span class="key_word"><?php if ($qa_item['kwords'] == '') {
                                             echo '暂无标签';
                                         } else {
