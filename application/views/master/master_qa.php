@@ -63,9 +63,7 @@ $pages = $undo['pagination'];
                                             <div class="collapse"
                                                  id="<?php echo 'edit_answer_' . $qu_undo_item['qu_id']; ?>">
                                                 <div class="well">
-                                                <textarea class="ta"
-                                                          id="<?php echo 'answer_' . $qu_undo_item['qu_id']; ?>">
-                                                    </textarea>
+                                                <textarea class="ta" id="<?php echo 'answer_' . $qu_undo_item['qu_id']; ?>"></textarea>
                                                     <button class="btn btn-default btn_cancel"
                                                             onclick="btn_cancel('<?php echo $qu_undo_item['qu_id'] ?>')">
                                                         取消
