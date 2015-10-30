@@ -121,9 +121,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     '</div>' +
                     '<hr class="q_a_hr"/>';
             }
-            if(page_count > counter){
-                content += '<a class="btn btn-success btn-show-more">点击查看更多</a>'
-            }
+//            if(page_count > counter){
+//                content += '<a class="btn btn-success btn-show-more">点击查看更多</a>'
+//            }
             $('#his_qa').html(content);
         }
 
