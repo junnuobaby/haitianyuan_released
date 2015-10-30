@@ -22,7 +22,8 @@ $pages = $done['pagination'];
             <div class="col-sm-9 col-md-9 bg-white block-radius mas_min_height">
                 <div class="sub_nav">
                     <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" id="answer_btn_li"><a href="<?php echo base_url('modify_info/get_questions/web/undo');?>">待回答 </a>
+                        <li role="presentation" id="answer_btn_li"><a
+                                href="<?php echo base_url('modify_info/get_questions/web/undo'); ?>">待回答 </a>
                         </li>
                         <li role="presentation" class="active" id="answered_btn_li"><a href="#qa_done" id="answered_btn"
                                                                                        aria-controls="profile"
@@ -44,7 +45,16 @@ $pages = $done['pagination'];
                                             <h4 class="q_a_question inline_block">
                                                 <span class="q_a_span">问</span>
                                                 <a href="#"><?php echo $qa_item['qu_content']; ?> </a></h4>
-                                            <span class="qu_time">【<?php echo $qa_item['qu_timestamp']; ?>】</span>
+
+                                            <div class="qu_time">
+                                                <span><?php echo $qa_item['qu_timestamp'] ?></span>来自
+                                                <a href="#" class="questioner"><?php echo $qa_item['questioner'] ?></a>
+                                                <span class="key_word"><?php if ($qa_item['kwords'] == '') {
+                                                        echo '暂无标签';
+                                                    } else {
+                                                        echo $qa_item['kwords'];
+                                                    } ?></span>
+                                            </div>
 
                                             <p class="q_a_answer"><span
                                                     class="theme-color">答:</span>&nbsp;&nbsp;<?php echo $qa_item['ans_content']; ?>
