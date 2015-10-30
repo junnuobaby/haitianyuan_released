@@ -64,28 +64,7 @@
 .login_form {
     padding-top: 4em;
 }
-
-.sign {
-    margin-top: 1em;
-    margin-right: 1em;
-}
-
-.dropdown-menu-profile {
-    background-color: rgba(253, 232, 211, 0.8);
-}
-
-.dropdown-menu-profile-item {
-    width: 1px;
-    border: 1px solid black;
-    float: left;
-    height: 15px;
-}
-
-.profile-thumbnail {
-    border: 0px;
-}
-
-#navbar-username, #navbar-menu {
+#navbar-username, #sel_homepage,#sel_center {
     color: #fd7d56;
 }
 
