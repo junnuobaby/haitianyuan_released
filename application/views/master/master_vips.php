@@ -93,14 +93,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         $('.his_qa_btn').click(function () {
             $.ajax({
                 url: '<?php echo base_url("index.php/modify_info/get_user_qa"); ?>' +'/' + 'web'+'/' + $(this).data('id'),
-                data: {page: page_count},
+                data: {page: counter},
                 method: 'get',
                 success: show_his_qa,
+                error:function(){
+                    alert('亲，对不起，我们的服务器宝宝生病了');
+                }
                 dataType: "json"
             });
         });
         function show_his_qa(data){
-//            var content = $('#his_qa').html();
+            var content = $('#his_qa').html();
             var content = "";
             var qa_list = data['qa_info']['data_page']; //获取历史问题记录内容
             var count = data['qa_info']['count']; //获取历史回答记录的数量
@@ -121,24 +124,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     '</div>' +
                     '<hr class="q_a_hr"/>';
             }
-//            if(page_count > counter){
-//                content += '<a class="btn btn-success btn-show-more">点击查看更多</a>'
-//            }
+            if(page_count > counter){
+                content += '<a class="btn btn-success btn-show-more">点击查看更多</a>'
+            }
             $('#his_qa').html(content);
         }
 
         //更查看更多添加事件
-//        $('#his_qa').delegate('a.btn-show-more','click', function(){
-//            counter += 1;
-//            $('a.btn-show-more').hide();
-//            $.ajax({
-//                url: '<?php //echo base_url("index.php/modify_info/get_user_qa"); ?>//' +'/' + 'web'+'/' + $(this).data('id'),
-//                data: {page: page_count},
-//                method: 'get',
-//                success: show_his_qa,
-//                dataType: "json"
-//            });
-//        });
+        $('#his_qa').delegate('a.btn-show-more','click', function(){
+            counter += 1;
+            $('a.btn-show-more').hide();
+            $.ajax({
+                url: '<?php echo base_url("index.php/modify_info/get_user_qa"); ?>' +'/' + 'web'+'/' + $(this).data('id'),
+                data: {page: page_count},
+                method: 'get',
+                success: show_his_qa,
+                dataType: "json"
+            });
+        });
     });
 </script>
 </html>
