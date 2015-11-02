@@ -37,8 +37,6 @@
                 <?php else: ?>
                     <!--登陆成功后导航条上显示的内容-->
                     <ul class="nav navbar-nav navbar-right">
-                        <!--个人空间-->
-                        <li><a id="sel_homepage" href="<?php echo base_url('index.php/modify_info/index'); ?>"><span class="glyphicon glyphicon-user"></span> 个人中心</a></li>
                         <!--用户的个人主页-->
                         <?php if ($identity == 'master'): ?>
                             <li>
@@ -46,6 +44,8 @@
                             </li>
                         <?php else: ?>
                         <?php endif; ?>
+                        <!--个人空间-->
+                        <li><a id="sel_homepage" href="<?php echo base_url('index.php/modify_info/index'); ?>"><span class="glyphicon glyphicon-user"></span> 个人中心</a></li>
                         <!--显示用户名-->
                         <li class="dropdown">
                             <a id='navbar-username' href="#" class="dropdown-toggle" data-toggle="dropdown"
