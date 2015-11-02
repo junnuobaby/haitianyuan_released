@@ -51,8 +51,8 @@ $view_num = $op['count']; // 已发表的观点数
                                         </header>
                                         <section>
                                             <!--控制最多显示内容不超过100个字-->
-                                            <p><?php if (strlen($view_item['op_content']) >= 150) {
-                                                    echo mb_substr($view_item['op_content'], 0, 150, 'utf-8') . '...';
+                                            <p><?php if (strlen($view_item['op_content']) >= 100) {
+                                                    echo mb_substr($view_item['op_content'], 0, 100, 'utf-8') . '...';
                                                 } else {
                                                     echo $view_item['op_content'];
                                                 }
