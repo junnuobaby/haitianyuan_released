@@ -10,8 +10,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?php echo base_url('/index.php/index') ?>"><span
-                        class="glyphicon glyphicon-home"></span> 首页</a>
+                <a class="navbar-brand" href="<?php echo base_url('/index.php/index') ?>">首页</a>
             </div>
 
             <div class="collapse navbar-collapse narbar_font_size">
