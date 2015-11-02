@@ -25,10 +25,10 @@ $current_user = $this->session->userdata('username');
                 <div class="online_status">
                     <?php if ($online_state == false): ?>
 <!--                        <img class="img-responsive" src="--><?php //echo base_url('/assets/images/offline.png'); ?><!--">-->
-                        <h4>离线</h4>
+                        <h4 class="txt_center">离线</h4>
                     <?php else: ?>
 <!--                        <img class="img-responsive" src="--><?php //echo base_url('/assets/images/online.png'); ?><!--">-->
-                        <h4 class="theme-color">在线</h4>
+                        <h4 class="theme-color txt_center">在线</h4>
                     <?php endif; ?>
                 </div>
                 <div>
