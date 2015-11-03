@@ -59,27 +59,42 @@ footer.page_footer p{
     position: fixed;
     right: 1%;
     bottom: 1%;
-    width: 40px;
-    border: 1px solid #f4645f;
+    z-index: 10000;
+    margin: 0;
+    padding: 0;
+}
+.fixed-bar li{
+    margin: 0;
+    padding: 0;
+    height: 52px;
+    width: 50px;
     background-color: white;
-    font-size: 24px;
-    z-index: 1040;
+    border: 1px solid #dddddd;
+    list-style: none;
+    transition: all 0.5s ease 0s;
 }
-.fixed-bar a {
-    display: block;
-    width: 38px;
-    height: 40px;
+.fixed-bar li:hover{
+    border-color:#f4645f;
+    cursor: pointer;
+}
+.fixed-bar li.go-top{
+    margin-top: -1px;
+}
+.fixed-bar li .hz-icon{
+    width: 100%;
+    height: 100%;
+    line-height: 50px;
     text-align: center;
+    display: block;
+    color: #999;
+    font-size: 25px;
 }
-.fixed-bar .go-top {
-    color: #f4645f;
-    padding-top: 5px;
-}
-.fixed-bar .ht_feedback {
-    background-color: #f4645f;
-    color: white;
-    font-size: 12px;
-    padding-top: 10px;
+.fixed-bar .fixed-bar-text{
+    line-height: 1.2em;
+    display: none;
+    color: #fff;
+    padding: 7px 10px;
+    font-size: 14px;
 }
 /*网站的主题颜色*/
 .theme-color {
