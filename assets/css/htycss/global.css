@@ -80,6 +80,10 @@ footer.page_footer p{
 .fixed-bar li.go-top{
     margin-top: -1px;
 }
+.fixed-bar li.go-top a:hover,a:active, a:focus, a:visited{
+    text-decoration: none;
+    outline: none;
+}
 .fixed-bar li .hz-icon{
     width: 100%;
     height: 100%;
