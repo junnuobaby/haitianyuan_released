@@ -70,10 +70,6 @@
 .login_form {
     padding-top: 4em;
 }
-#navbar-username, #sel_homepage,#sel_center {
-    color: #c17840;
-}
-
 .dropdown li a:hover {
     color: #32c12d;
 }
