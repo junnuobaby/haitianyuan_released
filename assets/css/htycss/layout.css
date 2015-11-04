@@ -31,7 +31,13 @@
 .register_input {
     padding-bottom: 0.5em;
 }
-
+#navbar {
+    background-color: #fff;
+    box-shadow: 0 0 5px #888;
+}
+#navbar a {
+    color: #333;
+}
 .narbar_li {
     width: 2em;
     height: 2em;
