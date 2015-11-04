@@ -36,7 +36,7 @@
 
                 <?php else: ?>
                     <!--登陆成功后导航条上显示的内容-->
-                    <ul class="nav navbar-nav navbar-right">
+                    <ul class="nav navbar-nav navbar-right gen_font_size">
                         <!--用户的个人主页-->
                         <?php if ($identity == 'master'): ?>
                             <li>
