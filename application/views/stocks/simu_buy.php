@@ -241,8 +241,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 case  13: //enter键
                     bond_code.val($('div.hint_list tr.hint_active td:first').html());
                     $('div.hint_list').empty().hide();
-                    setInterval(selected_code_info(bond_code.val()), 1000); //每隔1s自动请求一次
-//                    selected_code_info(bond_code.val());
+                    setInterval(selected_code_info(bond_code.val()), 8000); //每隔8s自动请求一次
                     break;
             }
         }
@@ -262,8 +261,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 bond_code.focus();
                 setInterval(function () {
                     selected_code_info(bond_code.val())
-                }, 1000); //每隔1s自动请求一次
-//                selected_code_info(bond_code.val());
+                }, 8000); //每隔8s自动请求一次
             }
         }
 
@@ -284,10 +282,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             var bond_name = response.Symbol; //ajax获取证券名称
             var bond_cur_price = response.TradePrice; //获取最新价
             var bond_lastday_price = response.PreClosePx; //获取昨日收盘价
-//            var bond__highest = response.up; //涨停
-            var bond__highest = 12.01; //涨停
-//            var bond_lowest = response.down; //跌停
-            var bond_lowest = 9.08; //跌停
+            var bond__highest = 1.1 * bond_lastday_price; //涨停
+            var bond_lowest = 0.9 * bond_lastday_price; //跌停
             var sell_1ist = [response.SellPrice1,response.SellPrice2,response.SellPrice3,response.SellPrice4,response.SellPrice5]; //卖五
             var buy_1ist = [response.BuyPrice1, response.BuyPrice2, response.BuyPrice3, response.BuyPrice4, response.BuyPrice5];  //买五
 
@@ -338,7 +334,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $.ajax({
                     url: '<?php echo base_url("index.php/stock/buy_stock/web"); ?>' + '/' +　bond_code + '/' + bond_price + '/' + bond_quantity,
                     method: 'post',
-//                    data: {code: bond_code, name: bond_name, price: bond_price, quantity: bond_quantity},
                     dataType: 'json',
                     success: function (response) {
                         if (response.status == 'success') {
