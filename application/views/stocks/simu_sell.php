@@ -33,7 +33,17 @@ $sell_stocks = $sell_list; //获取手中持有的股票
                                                     <input type="text" class="form-control" id="bond_code"
                                                            autocomplete="off" name="bond_code" placeholder="代码 / 名称">
 
-                                                    <div class="hint_list"></div>
+                                                    <div class="hint_list">
+                                                        <table class="table table-responsive table-condensed">
+                                                            <tr><th>代码</th><th>名称</th></tr>
+                                                            <?php foreach ($sell_stocks as $stock_item): ?>
+                                                                <tr data-volume=<?php echo $stock_item['max_volume']?> data-cost=<?php echo $stock_item['BuyCost']?>>
+                                                                    <td><?php echo $stock_item['SecurityID']?></td>
+                                                                    <td><?php echo $stock_item['Symbol']?></td>
+                                                                </tr>
+                                                            <?php endforeach;?>
+                                                        </table>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -164,34 +174,15 @@ $sell_stocks = $sell_list; //获取手中持有的股票
     $(document).ready(function () {
         var code_input = $('#bond_code');
         var hint_list = $('div.hint_list');
-        var sell_stocks = [];
-        var count = 0;
-        <?php foreach ($sell_stocks as $stock_item): ?>
-        sell_stocks[count]['code'] = '<?php echo $stock_item['SecurityID'];?>';
-        sell_stocks[count]['name'] = '<?php echo $stock_item['Symbol'];?>';
-        sell_stocks[count]['buy_cost'] = '<?php echo $stock_item['BuyCost'];?>';
-        sell_stocks[count]['max_volume'] = '<?php echo $stock_item['max_volume'];?>';
-        count += 1;
-        <?php endforeach; ?>
-        var h = '<?php echo $sell_stocks?>';
+
         code_input.focus(function () {
-            alert(h);
-            show_hint_list(sell_stocks);
+            $('div.hint_list').show();
+        });
+        code_input.blur(function () {
+            $('div.hint_list').hide();
         });
         code_input.keydown(navigate_list);//实现导航功能，添加向上和向下箭头键以及enter键选择列表项的功能
         hint_list.delegate('tr', 'mouseover mouseout click', mouse_list);
-
-
-        // 显示提示列表
-        function show_hint_list(response) {
-            var content = '<table class="table table-responsive table-condensed">' +
-                '<tr><th>代码</th><th>名称</th></tr>';
-            for (var i = 0; i < response.length; i++) {
-                content += '<tr data-volume=' + response[i]['max_volume'] + '>' + '<td>' + response[i]['code'] + '</td><td>' + response[i]['name'] + '</td></tr>';
-            }
-            content += '</table>';
-            $('div.hint_list').html(content).show();
-        }
 
         //响应上下键事件
         function navigate_list(event) {
