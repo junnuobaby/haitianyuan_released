@@ -51,22 +51,24 @@ $sell_stocks = $sell_list; //获取手中持有的股票
                                             </div>
                                             <div class="form-group hidden largest_quantity">
                                                 <label class="col-sm-4 control-label">最多可卖出:</label>
+
                                                 <div class="col-sm-8">
-                                                    <div class="col-sm-8">
-                                                        <div class="input-group">
+                                                    <div class="input-group">
                                                         <span class="form-control warning_bg_color"
                                                               id="largest_quantity"></span>
-                                                            <div class="input-group-addon">手</div>
-                                                        </div>
+
+                                                        <div class="input-group-addon">手</div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="buy_price" class="col-sm-4 control-label">卖出价格:</label>
+
                                                 <div class="col-sm-8">
                                                     <div class="input-group">
                                                         <input type="text" class="form-control" id="buy_price"
                                                                name="buy_price">
+
                                                         <div class="input-group-addon">¥</div>
                                                     </div>
 
@@ -79,6 +81,7 @@ $sell_stocks = $sell_list; //获取手中持有的股票
                                                     <div class="input-group">
                                                         <input type="text" class="form-control" id="buy_quantity"
                                                                name="buy_quantity">
+
                                                         <div class="input-group-addon">手</div>
                                                     </div>
                                                     <span class="theme-color">(1手 = 100股)</span>
@@ -268,7 +271,12 @@ $sell_stocks = $sell_list; //获取手中持有的股票
                 $.ajax({
                     url: '<?php echo base_url("index.php/stock/sell_stock/web"); ?>',
                     method: 'post',
-                    data: {SecurityID: bond_code, Symbol: bond_name, SellPrice: bond_price, SellVolume: bond_quantities},
+                    data: {
+                        SecurityID: bond_code,
+                        Symbol: bond_name,
+                        SellPrice: bond_price,
+                        SellVolume: bond_quantities
+                    },
                     dataType: 'json',
                     success: function (response) {
                         if (response.status == '0') {
