@@ -50,7 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <div class="form-group">
                                                 <label for="buy_quantity" class="col-sm-4 control-label">买入手数:</label>
 
-                                                <div class="col-sm-8">
+                                                <div class="col-sm-8 input-group">
                                                     <input type="text" class="form-control" id="buy_quantity"
                                                            name="buy_quantity">
                                                     <div class="input-group-addon">手</div>
