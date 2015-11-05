@@ -48,11 +48,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="buy_quantity" class="col-sm-4 control-label">买入股数:</label>
+                                                <label for="buy_quantity" class="col-sm-4 control-label">买入手数:</label>
 
                                                 <div class="col-sm-8">
                                                     <input type="text" class="form-control" id="buy_quantity"
                                                            name="buy_quantity">
+                                                    <span>(1手=100股)</span>
                                                 </div>
                                             </div>
                                             <a class="btn btn-danger self-btn-danger buy_stock_btn" id="buy">买入

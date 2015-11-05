@@ -49,20 +49,20 @@ $sell_stocks = $sell_list; //获取手中持有的股票
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="buy_price" class="col-sm-4 control-label">卖出价格:</label>
-
-                                                <div class="col-sm-8">
-                                                    <input type="text" class="form-control" id="buy_price"
-                                                           name="buy_price">
-                                                </div>
-                                            </div>
                                             <div class="form-group hidden largest_quantity">
                                                 <label class="col-sm-4 control-label">最多可卖出:</label>
 
                                                 <div class="col-sm-8">
                                                     <span style="border-color: red" class="form-control"
                                                           id="largest_quantity"></span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="buy_price" class="col-sm-4 control-label">卖出价格:</label>
+
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" id="buy_price"
+                                                           name="buy_price">
                                                 </div>
                                             </div>
                                             <div class="form-group">
