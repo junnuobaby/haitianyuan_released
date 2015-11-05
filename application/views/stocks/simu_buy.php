@@ -53,6 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <div class="col-sm-8">
                                                     <input type="text" class="form-control" id="buy_quantity"
                                                            name="buy_quantity">
+                                                    <div class="input-group-addon">手</div>
                                                     <span class="theme-color">(1手 = 100股)</span>
                                                 </div>
                                             </div>
