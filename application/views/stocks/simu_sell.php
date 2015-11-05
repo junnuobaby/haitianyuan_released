@@ -1,4 +1,4 @@
-<!--模拟炒股，买入股票-->
+<!--模拟炒股，卖出股票-->
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
