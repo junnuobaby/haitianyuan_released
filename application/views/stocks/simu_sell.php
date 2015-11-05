@@ -173,8 +173,9 @@ $sell_stocks = $sell_list; //获取手中持有的股票
         sell_stocks[count]['max_volume'] = '<?php echo $stock_item['max_volume'];?>';
         count += 1;
         <?php endforeach; ?>
+        var h = '<?php echo $sell_stocks?>';
         code_input.focus(function () {
-            alert(sell_stocks);
+            alert(h);
             show_hint_list(sell_stocks);
         });
         code_input.keydown(navigate_list);//实现导航功能，添加向上和向下箭头键以及enter键选择列表项的功能
