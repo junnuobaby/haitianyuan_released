@@ -66,11 +66,15 @@ $sell_stocks = $sell_list; //获取手中持有的股票
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="buy_quantity" class="col-sm-4 control-label">卖出股数:</label>
+                                                <label for="buy_quantity" class="col-sm-4 control-label">卖出数量:</label>
 
                                                 <div class="col-sm-8">
-                                                    <input type="text" class="form-control" id="buy_quantity"
-                                                           name="buy_quantity">
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control" id="buy_quantity"
+                                                               name="buy_quantity">
+                                                        <div class="input-group-addon">手</div>
+                                                    </div>
+                                                    <span class="theme-color">(1手 = 100股)</span>
                                                 </div>
                                             </div>
                                             <a class="btn btn-danger self-btn-danger buy_stock_btn" id="buy">卖出
@@ -183,7 +187,7 @@ $sell_stocks = $sell_list; //获取手中持有的股票
             var selected_cost = $(this).children('option:selected').data('cost');
             //显示最大可卖出数量
             $('div.largest_quantity').removeClass('hidden');
-            $('#largest_quantity').html(max_volume);
+            $('#largest_quantity').html(Math.round(parseInt(max_volume) / 100));
             selected_code_info(selected_code);
             setInterval(function () {
                 selected_code_info(selected_code)
