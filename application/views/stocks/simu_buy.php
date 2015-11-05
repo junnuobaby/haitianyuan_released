@@ -41,10 +41,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             </div>
                                             <div class="form-group hidden largest_quantity">
                                                 <label class="col-sm-4 control-label">最多可买入:</label>
-
                                                 <div class="col-sm-8">
                                                     <div class="input-group">
-
                                                     <span  class="form-control warning_bg_color"
                                                           id="largest_quantity"></span>
                                                         <div class="input-group-addon">手</div>
@@ -327,7 +325,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $('#buy_price').val(bond_cur_price);
             var bond_price = $('#buy_price').val(); //买入价格
             var available_money = "<?php echo $cash_use;?>";
-            var quantity_avail = Math.round(parseFloat(available_money) / parseFloat(bond_price)); //计算当前可买入的最大股数
+            var quantity_avail = Math.round(parseFloat(available_money) / (parseFloat(bond_price) * 100)); //计算当前可买入的最大股数
             $('div.largest_quantity').removeClass('hidden');
             $('#largest_quantity').html(quantity_avail);
         }
