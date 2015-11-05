@@ -49,27 +49,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             </div>
                                             <div class="form-group">
                                                 <label for="buy_quantity" class="col-sm-4 control-label">买入手数:</label>
-
                                                 <div class="col-sm-8">
                                                     <div class="input-group">
                                                         <input type="text" class="form-control" id="buy_quantity"
                                                                name="buy_quantity">
-                                                        <div class="input-group-addon">.00</div>
+                                                        <div class="input-group-addon">手</div>
                                                     </div>
                                                     <span class="theme-color">(1手 = 100股)</span>
                                                 </div>
                                             </div>
-
-                                            <a class="btn btn-danger self-btn-danger buy_stock_btn" id="buy">买入
-                                            </a>
-                                        </form>
-                                        <form class="form-inline">
-                                            <div class="form-group">
-                                                <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
-                                                <div class="input-group">
-                                                    <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
-                                                </div>
-                                            </div>
+                                            <a class="btn btn-danger self-btn-danger buy_stock_btn" id="buy">买入</a>
                                         </form>
                                     </div>
                                     <div class="col-md-3 col-md-offset-1">
