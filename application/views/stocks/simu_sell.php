@@ -33,7 +33,7 @@ $sell_stocks = $sell_list; //获取手中持有的股票
                                                     <select class="form-control" id="bond_code">
                                                         <?php foreach ($sell_stocks as $stock_item): ?>
                                                             <option data-volume=<?php echo $stock_item['max_volume']?> data-cost=<?php echo $stock_item['BuyCost']?>>
-                                                                &nbsp;&nbsp;<?php echo $stock_item['SecurityID']?>&nbsp;&nbsp;&nbsp;<?php echo $stock_item['Symbol']?>
+                                                                <?php echo $stock_item['SecurityID']?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $stock_item['Symbol']?>
                                                             </option>
                                                         <?php endforeach;?>
                                                     </select>
