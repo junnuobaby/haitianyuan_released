@@ -25,7 +25,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <form class="form-horizontal" onkeydown="if(event.keyCode==13)return false;">
                                             <div class="form-group">
                                                 <label for="bond_code" class="col-sm-4 control-label">证券代码:</label>
-
                                                 <div class="col-sm-8 bond_code_div">
                                                     <input type="text" class="form-control" id="bond_code"
                                                            autocomplete="off" name="bond_code" placeholder="代码 / 名称">
@@ -43,7 +42,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             </div>
                                             <div class="form-group hidden largest_quantity">
                                                 <label class="col-sm-4 control-label">最多可卖出:</label>
-
                                                 <div class="col-sm-8">
                                                     <span style="border-color: red" class="form-control"
                                                           id="largest_quantity"></span>
