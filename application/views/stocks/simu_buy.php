@@ -241,7 +241,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 case  13: //enter键
                     bond_code.val($('div.hint_list tr.hint_active td:first').html());
                     $('div.hint_list').empty().hide();
-                    setInterval(selected_code_info(bond_code.val()), 8000); //每隔8s自动请求一次
+//                    setInterval(selected_code_info(bond_code.val()), 8000); //每隔8s自动请求一次
+                    selected_code_info(bond_code.val());
                     break;
             }
         }
@@ -259,9 +260,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 bond_code.val($(this).children('td:first').html());
                 $('div.hint_list').empty().hide();
                 bond_code.focus();
-                setInterval(function () {
-                    selected_code_info(bond_code.val())
-                }, 8000); //每隔8s自动请求一次
+//                setInterval(function () {
+//                    selected_code_info(bond_code.val())
+//                }, 8000); //每隔8s自动请求一次
+                selected_code_info(bond_code.val());
+
             }
         }
 
