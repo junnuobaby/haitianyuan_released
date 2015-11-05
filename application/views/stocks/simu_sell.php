@@ -227,7 +227,7 @@ $sell_stocks = $sell_list; //获取手中持有的股票
             if (event.type == 'click') {
                 bond_code.val($(this).children('td:first').html());
                 $('div.hint_list').empty().hide();
-//                bond_code.focus();
+                bond_code.focus();
                 $('div.largest_quantity').removeClass('hidden');
                 $('#largest_quantity').html($(this).data('volume')); //显示最多可卖出股数
                 selected_code_info(bond_code.val());

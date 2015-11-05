@@ -721,6 +721,7 @@ ul.simulate_tablist li a:hover{
     width:  85%;
     opacity: 0.9;
     background-color: white;
+    display: none;
 }
 .hint_active{
     background-color: #99cfff;
