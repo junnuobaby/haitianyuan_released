@@ -82,7 +82,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         $('section').css('max-width', '800px');
         $('section h5').addClass('theme-color');
         $('section ol').css('line-height','2em');
-        $('section div').css('text-indent','2em');
+        $('section p').css('text-indent','2em');
 
     });
 </script>
