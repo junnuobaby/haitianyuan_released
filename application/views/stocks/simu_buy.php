@@ -65,7 +65,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                     <span class="theme-color">(1手 = 100股)</span>
                                                 </div>
                                             </div>
-                                            <a class="btn btn-danger btn-lg self-btn-danger buy_stock_btn" id="buy">买入</a>
+                                            <a class="btn btn-danger btn-block self-btn-danger buy_stock_btn" id="buy">买入</a>
                                         </form>
                                     </div>
                                     <div class="col-md-3 col-md-offset-1">
