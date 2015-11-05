@@ -727,7 +727,7 @@ ul.simulate_tablist li a:hover{
     background-color: #99cfff;
 }
 #bond_code option{
-    margin-bottom: 5px;
     border-bottom: 1px solid #e1e1e1;
+    padding: 5px auto;
 }
 
