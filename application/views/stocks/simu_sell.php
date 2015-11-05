@@ -51,18 +51,25 @@ $sell_stocks = $sell_list; //获取手中持有的股票
                                             </div>
                                             <div class="form-group hidden largest_quantity">
                                                 <label class="col-sm-4 control-label">最多可卖出:</label>
-
                                                 <div class="col-sm-8">
-                                                    <span class="form-control warning_bg_color"
-                                                          id="largest_quantity"></span>
+                                                    <div class="col-sm-8">
+                                                        <div class="input-group">
+                                                        <span class="form-control warning_bg_color"
+                                                              id="largest_quantity"></span>
+                                                            <div class="input-group-addon">手</div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="buy_price" class="col-sm-4 control-label">卖出价格:</label>
-
                                                 <div class="col-sm-8">
-                                                    <input type="text" class="form-control" id="buy_price"
-                                                           name="buy_price">
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control" id="buy_price"
+                                                               name="buy_price">
+                                                        <div class="input-group-addon">¥</div>
+                                                    </div>
+
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -254,13 +261,14 @@ $sell_stocks = $sell_list; //获取手中持有的股票
             var bond_name = $('#bond_code').children('option:selected').data('name'); //证券名称
             var bond_price = $('#buy_price').val(); //卖出价格
             var bond_quantity = $('#buy_quantity').val(); //卖出数量
+            var bond_quantities = parseInt(bond_quantity) * 100; //求卖出的股数（卖出手数*100）
             var info_str = '确定卖出 ' + bond_quantity + ' 股' + bond_name + '?';
 
             if (confirm(info_str)) {
                 $.ajax({
                     url: '<?php echo base_url("index.php/stock/sell_stock/web"); ?>',
                     method: 'post',
-                    data: {SecurityID: bond_code, Symbol: bond_name, SellPrice: bond_price, SellVolume: bond_quantity},
+                    data: {SecurityID: bond_code, Symbol: bond_name, SellPrice: bond_price, SellVolume: bond_quantities},
                     dataType: 'json',
                     success: function (response) {
                         if (response.status == '0') {
