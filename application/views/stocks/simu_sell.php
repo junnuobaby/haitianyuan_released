@@ -180,8 +180,9 @@ $sell_stocks = $sell_list; //获取手中持有的股票
             var selected_name = $(this).children('option:selected').data('name');
             var max_volume = $(this).children('option:selected').data('volume');
             var selected_cost = $(this).children('option:selected').data('cost');
+            //显示最大可卖出数量
+            $('div.largest_quantity').removeClass('hidden');
             $('#largest_quantity').html(max_volume);
-            $('div.largest_quantity').show();
             $.ajax({
                 url: '<?php echo base_url("index.php/stock/get_bs/web"); ?>' + '/' + selected_code,
                 method: 'get',
