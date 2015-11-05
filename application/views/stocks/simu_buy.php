@@ -43,9 +43,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <label class="col-sm-4 control-label">最多可买入:</label>
 
                                                 <div class="col-sm-8">
+                                                    <div class="input-group">
+
                                                     <span  class="form-control warning_bg_color"
                                                           id="largest_quantity"></span>
-                                                </div>
+                                                        <div class="input-group-addon">手</div>
+
+                                                </div></div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="buy_quantity" class="col-sm-4 control-label">买入数量:</label>
