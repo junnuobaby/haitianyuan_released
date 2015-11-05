@@ -31,9 +31,9 @@ $sell_stocks = $sell_list; //获取手中持有的股票
 
                                                 <div class="col-sm-8 bond_code_div">
                                                     <select class="form-control" id="bond_code">
-                                                        <option>选择卖出证券</option>
+                                                        <option disabled="disabled">选择卖出证券</option>
                                                         <?php if(count($sell_stocks) == 0):?>
-                                                            <option>暂无可卖证券</option>
+                                                            <option disabled="disabled">暂无可卖证券</option>
                                                         <?php else:?>
                                                         <?php foreach ($sell_stocks as $stock_item): ?>
                                                             <option
