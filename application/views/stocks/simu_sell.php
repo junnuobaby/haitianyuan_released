@@ -31,6 +31,7 @@ $sell_stocks = $sell_list; //获取手中持有的股票
 
                                                 <div class="col-sm-8 bond_code_div">
                                                     <select class="form-control" id="bond_code">
+                                                        <optio>选择代码</optio>
                                                         <?php if(count($sell_stocks) == 0):?>
                                                             <option>暂无可卖证券</option>
                                                         <?php else:?>
