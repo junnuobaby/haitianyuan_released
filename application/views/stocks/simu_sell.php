@@ -31,7 +31,9 @@ $sell_stocks = $sell_list; //获取手中持有的股票
 
                                                 <div class="col-sm-8 bond_code_div">
                                                     <select class="form-control" id="bond_code">
-                                                        <option>&nbsp;&nbsp;代码&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名称</option>
+                                                        <?php if(count($sell_stocks) == 0):?>
+                                                            <option>暂无可卖证券</option>
+                                                        <?php else:?>
                                                         <?php foreach ($sell_stocks as $stock_item): ?>
                                                             <option
                                                                 data-code="<?php echo $stock_item['SecurityID'];?>"
@@ -42,6 +44,7 @@ $sell_stocks = $sell_list; //获取手中持有的股票
                                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $stock_item['Symbol'] ?>
                                                             </option>
                                                         <?php endforeach; ?>
+                                                        <?php endif;?>
                                                     </select>
                                                 </div>
                                             </div>
@@ -177,7 +180,7 @@ $sell_stocks = $sell_list; //获取手中持有的股票
             var selected_name = $(this).children('option:selected').data('name');
             var selected_volume = $(this).children('option:selected').data('volume');
             var selected_cost = $(this).children('option:selected').data('cost');
-
+            alert('haah');
             $.ajax({
                 url: '<?php echo base_url("index.php/stock/get_bs/web"); ?>' + '/' + selected_code,
                 method: 'get',
