@@ -322,7 +322,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             var bond_price = $('#buy_price').val(); //买入价格
             //计算当前可买入的最大股数
             var available_money = "<?php echo $cash_use;?>";
-            var quantity_avail = Math.round(available_money / bond_price);
+            var quantity_avail = Math.round(parseFloat(available_money) / parseFloat(bond_price));
             $('div.largest_quantity').removeClass('hidden');
             $('#largest_quantity').html(quantity_avail);
         }
