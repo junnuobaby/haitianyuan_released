@@ -4,6 +4,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="zh-cn">
 <?php $this->load->view('./templates/head'); ?>
+<?php
+$sell_stocks = $sell_list; //获取手中持有的股票
+?>
 <body class="bg-gray">
 <div class="wrapper">
     <?php $this->load->view('./stocks/bonds_navbar'); ?>
@@ -164,53 +167,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         code_input.keydown(navigate_list);//实现导航功能，添加向上和向下箭头键以及enter键选择列表项的功能
         hint_list.delegate('tr', 'mouseover mouseout click', mouse_list);
 
-        //获取提示
-        function get_hint_list(event) {
-            var code_input_val = $.trim($(this).val());
-            //如果输入框为空或者按了ESC键，则不显示提示框
-            if (code_input_val == '' || event.which == 27) {
-                hint_list.empty().hide();
-            }
-            //如果输入的是数字
-            if ((event.which >= 48 && event.which <= 57) || event.which == 8 || event.which == 46
-                || (event.which >= 96 && event.which <= 105)) {
-                if (xhr) {
-                    xhr.abort();
-                }
-                if (code_input_val.length >= 1) {
-                    xhr = $.ajax({
-                        url: '<?php echo base_url("index.php/stock/sell_code_complement/web"); ?>' + '/' + code_input_val,
-                        method: 'get',
-                        cache: false,
-                        dataType: 'json',
-                        success: show_hint_list
-                    });
-                }
-            }
-            //输入的是非数字
-            else {
-                if (xhr) {
-                    xhr.abort();
-                }
-                if (code_input_val.length >= 1) {
-                    xhr = $.ajax({
-                        url: '<?php echo base_url("index.php/stock/sell_code_complement/web"); ?>' + '/' + encodeURIComponent(code_input_val),
-                        method: 'get',
-                        cache: false,
-                        dataType: 'json',
-                        success: show_hint_list
-                    });
-                }
-            }
-        }
+        code_input.focus(function () {
+            var sell_stocks = new Array();
+            var count = 0;
+            <?php foreach ($sell_stocks as $stock_item): ?>
+            sell_stocks[count]['code'] = <?php echo $stock_item['SecurityID'];?>;
+            sell_stocks[count]['name'] = <?php echo $stock_item['Symbol'];?>;
+            sell_stocks[count]['buy_cost'] = <?php echo $stock_item['BuyCost'];?>;
+            sell_stocks[count]['max_volume'] = <?php echo $stock_item['max_volume'];?>;
+            count += 1;
+            <?php endforeach; ?>
+            show_hint_list(sell_stocks);
+        });
 
         // 显示提示列表
-        function show_hint_list(data) {
-            var response = data.st_code;
+        function show_hint_list(response) {
             var content = '<table class="table table-responsive table-condensed">' +
                 '<tr><th>代码</th><th>名称</th></tr>';
             for (var i = 0; i < response.length; i++) {
-                content += '<tr><td>' + response[i]['code'] + '</td><td>' + response[i]['name'] + '</td></tr>';
+                content += '<tr data-volume=' + response[i]['max_volume'] +'>' + '<td>' + response[i]['code'] + '</td><td>' + response[i]['name'] + '</td></tr>';
             }
             content += '</table>';
             $('div.hint_list').html(content).show();
@@ -241,8 +216,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 case  13: //enter键
                     bond_code.val($('div.hint_list tr.hint_active td:first').html());
                     $('div.hint_list').empty().hide();
-//                    setInterval(selected_code_info(bond_code.val()), 1000); //每隔1s自动请求一次
                     selected_code_info(bond_code.val());
+                    setInterval(selected_code_info(bond_code.val()), 8000); //每隔8s自动请求一次
                     break;
             }
         }
@@ -260,10 +235,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 bond_code.val($(this).children('td:first').html());
                 $('div.hint_list').empty().hide();
                 bond_code.focus();
-//                setInterval(function () {
-//                    selected_code_info(bond_code.val())
-//                }, 1000); //每隔1s自动请求一次
+                $('div.largest_quantity').removeClass('hidden');
+                $('#largest_quantity').html($(this).data('volume')); //显示最多可卖出股数
                 selected_code_info(bond_code.val());
+                setInterval(function () {
+                    selected_code_info(bond_code.val())
+                }, 8000); //每隔8s自动请求一次
             }
         }
 
@@ -316,26 +293,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     $(this).addClass('green-color');
                 }
             });
-            //将当前价格设置为默认的买入价格
+            //将当前价格设置为默认的卖出价格
             $('#buy_price').val(bond_cur_price);
-            var bond_price = $('#buy_price').val(); //买入价格
-            var available_money = "<?php echo $cash_use;?>";
-            var quantity_avail = Math.round(parseFloat(available_money) / parseFloat(bond_price)); //计算当前可买入的最大股数
-            $('div.largest_quantity').removeClass('hidden');
-            $('#largest_quantity').html(quantity_avail);
+            var bond_price = $('#buy_price').val(); //卖出价格
         }
 
         //点击卖出按钮，传给服务器股票信息
         $('#buy').click(function () {
             var bond_code = $('#bond_code').val(); //证券代码
             var bond_name = $('#bond_name').html(); //证券名称
-            var bond_price = $('#buy_price').val(); //买入价格
-            var bond_quantity = $('#buy_quantity').val(); //买入数量
-            var sell_1 = $('#top_sell tr:nth-child(5) td:nth-child(2)').html(); //卖一
-            var sell_2 = $('#top_sell tr:nth-child(4) td:nth-child(2)').html(); //卖二
-            var sell_3 = $('#top_sell tr:nth-child(3) td:nth-child(2)').html(); //卖三
-            var sell_4 = $('#top_sell tr:nth-child(2) td:nth-child(2)').html(); //卖四
-            var sell_5 = $('#top_sell tr:nth-child(1) td:nth-child(2)').html(); //卖五
+            var bond_price = $('#buy_price').val(); //卖出价格
+            var bond_quantity = $('#buy_quantity').val(); //卖出数量
             var info_str = '确定卖出 ' + bond_quantity + ' 股' + bond_name + '?';
 
             if (confirm(info_str)) {
