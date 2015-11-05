@@ -341,7 +341,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     method: 'post',
                     dataType: 'json',
                     success: function (response) {
-                        if (response.status == 'success') {
+                        if (response.status == '0') {
                             $('div.alert-info').removeClass('hidden');
                         }
                     },
