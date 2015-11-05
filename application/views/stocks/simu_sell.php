@@ -340,8 +340,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             if (confirm(info_str)) {
                 $.ajax({
-                    url: '<?php echo base_url("index.php/stock/sell_stock/web"); ?>' + '/' +　bond_code + '/' + bond_price + '/' + bond_quantity,
+                    url: '<?php echo base_url("index.php/stock/sell_stock/web"); ?>',
                     method: 'post',
+                    data: {SecurityID: bond_code, Symbol: bond_name, SellPrice: bond_price, SellVolume: bond_quantity},
                     dataType: 'json',
                     success: function (response) {
                         if (response.status == '0') {

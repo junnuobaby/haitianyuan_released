@@ -241,8 +241,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 case  13: //enter键
                     bond_code.val($('div.hint_list tr.hint_active td:first').html());
                     $('div.hint_list').empty().hide();
-//                    setInterval(selected_code_info(bond_code.val()), 8000); //每隔8s自动请求一次
                     selected_code_info(bond_code.val());
+                    setInterval(selected_code_info(bond_code.val()), 8000); //每隔8s自动请求一次
                     break;
             }
         }
@@ -263,7 +263,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 selected_code_info(bond_code.val());
                 setInterval(function () {
                     selected_code_info(bond_code.val())
-                }, 7000); //每隔8s自动请求一次
+                }, 8000); //每隔8s自动请求一次
 
             }
         }
@@ -338,7 +338,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $.ajax({
                     url: '<?php echo base_url("index.php/stock/buy_stock/web"); ?>',
                     method: 'post',
-                    data: {SecurityID: bond_code, BuyPrice: bond_price, BuyVolume: bond_quantity},
+                    data: {SecurityID: bond_code, BuyPrice: bond_price, BuyVolume: bond_quantity, Symbol: bond_name},
                     dataType: 'json',
                     success: function (response) {
                         if (response.status == '0') {
