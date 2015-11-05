@@ -17,6 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="simulate_panel">
                         <div class="tab-content">
                             <h4 class="blue-color margin_to_top">买入证券</h4>
+
                             <div class="alert alert-info hidden" role="alert">买入委托已经成功提交。您可以点击“撤单”来查看或撤销买入委托。</div>
                             <div class="panel panel-default">
                                 <div class="panel-body">
@@ -24,11 +25,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <form class="form-horizontal" onkeydown="if(event.keyCode==13)return false;">
                                             <div class="form-group">
                                                 <label for="bond_code" class="col-sm-4 control-label">证券代码:</label>
+
                                                 <div class="col-sm-8 bond_code_div">
                                                     <input type="text" class="form-control" id="bond_code"
                                                            autocomplete="off" name="bond_code" placeholder="代码 / 名称">
 
                                                     <div class="hint_list"></div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group hidden largest_quantity">
+                                                <label class="col-sm-4 control-label">最多可买入:</label>
+
+                                                <div class="col-sm-8">
+                                                    <div class="input-group">
+                                                        <span class="form-control warning_bg_color"
+                                                              id="largest_quantity"></span>
+                                                        <div class="input-group-addon">手</div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -39,28 +52,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                            name="buy_price">
                                                 </div>
                                             </div>
-                                            <div class="form-group hidden largest_quantity">
-                                                <label class="col-sm-4 control-label">最多可买入:</label>
-                                                <div class="col-sm-8">
-                                                    <div class="input-group">
-                                                    <span  class="form-control warning_bg_color"
-                                                          id="largest_quantity"></span>
-                                                        <div class="input-group-addon">手</div>
-
-                                                </div></div>
-                                            </div>
                                             <div class="form-group">
                                                 <label for="buy_quantity" class="col-sm-4 control-label">买入数量:</label>
+
                                                 <div class="col-sm-8">
                                                     <div class="input-group">
                                                         <input type="text" class="form-control" id="buy_quantity"
                                                                name="buy_quantity">
+
                                                         <div class="input-group-addon">手</div>
                                                     </div>
                                                     <span class="theme-color">(1手 = 100股)</span>
                                                 </div>
                                             </div>
-                                            <a class="btn btn-danger self-btn-danger buy_stock_btn" id="buy">买入</a>
+                                            <a class="btn btn-danger btn-lg self-btn-danger buy_stock_btn" id="buy">买入</a>
                                         </form>
                                     </div>
                                     <div class="col-md-3 col-md-offset-1">
@@ -291,7 +296,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             var bond_lastday_price = response.PreClosePx; //获取昨日收盘价
             var bond__highest = (1.1 * bond_lastday_price).toFixed(2); //涨停
             var bond_lowest = (0.9 * bond_lastday_price).toFixed(2); //跌停
-            var sell_1ist = [response.SellPrice1,response.SellPrice2,response.SellPrice3,response.SellPrice4,response.SellPrice5]; //卖五
+            var sell_1ist = [response.SellPrice1, response.SellPrice2, response.SellPrice3, response.SellPrice4, response.SellPrice5]; //卖五
             var buy_1ist = [response.BuyPrice1, response.BuyPrice2, response.BuyPrice3, response.BuyPrice4, response.BuyPrice5];  //买五
 
             $('#bond_name').html(bond_name);
