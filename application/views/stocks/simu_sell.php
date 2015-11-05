@@ -32,10 +32,15 @@ $sell_stocks = $sell_list; //获取手中持有的股票
                                                 <div class="col-sm-8 bond_code_div">
                                                     <select class="form-control" id="bond_code">
                                                         <?php foreach ($sell_stocks as $stock_item): ?>
-                                                            <option data-volume=<?php echo $stock_item['max_volume']?> data-cost=<?php echo $stock_item['BuyCost']?>>
-                                                                &nbsp;&nbsp;<?php echo $stock_item['SecurityID']?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $stock_item['Symbol']?>
+                                                            <option
+                                                                data-code="<?php echo $stock_item['SecurityID'];?>"
+                                                                data-name="<?php echo $stock_item['Symbol'];?>"
+                                                                data-volume="<?php echo $stock_item['max_volume'];?>"
+                                                                data-cost="<?php echo $stock_item['BuyCost'];?>" >
+                                                                &nbsp;&nbsp;<?php echo $stock_item['SecurityID'] ?>
+                                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $stock_item['Symbol'] ?>
                                                             </option>
-                                                        <?php endforeach;?>
+                                                        <?php endforeach; ?>
                                                     </select>
                                                 </div>
                                             </div>
@@ -166,27 +171,20 @@ $sell_stocks = $sell_list; //获取手中持有的股票
     });
     $(document).ready(function () {
         var code_input = $('#bond_code');
+        $(code_input).onChange(function () {
+            var selected_code = $(this).children('option:selected').data('code');
+            var selected_name = $(this).children('option:selected').data('name');
+            var selected_volume = $(this).children('option:selected').data('volume');
+            var selected_cost = $(this).children('option:selected').data('cost');
 
-        code_input.focus(function () {
-            $('div.hint_list').show();
-        });
-        code_input.blur(function () {
-            $('div.hint_list').hide();
-        });
-        code_input.keydown(navigate_list);//实现导航功能，添加向上和向下箭头键以及enter键选择列表项的功能
-        hint_list.delegate('tr', 'mouseover mouseout click', mouse_list);
-
-
-        //在鼠标点击选中和enter键之后调用该函数
-        function selected_code_info(code) {
             $.ajax({
-                url: '<?php echo base_url("index.php/stock/get_bs/web"); ?>' + '/' + code,
+                url: '<?php echo base_url("index.php/stock/get_bs/web"); ?>' + '/' + selected_code,
                 method: 'get',
                 cache: false,
                 dataType: 'json',
                 success: code_info_display
             });
-        }
+        });
 
         //显示所选证券的实时数据信息
         function code_info_display(data) {
@@ -233,8 +231,8 @@ $sell_stocks = $sell_list; //获取手中持有的股票
 
         //点击卖出按钮，传给服务器股票信息
         $('#buy').click(function () {
-            var bond_code = $('#bond_code').val(); //证券代码
-            var bond_name = $('#bond_name').html(); //证券名称
+            var bond_code = $('#bond_code').children('option:selected').data('code'); //证券代码
+            var bond_name = $('#bond_code').children('option:selected').data('name'); //证券名称
             var bond_price = $('#buy_price').val(); //卖出价格
             var bond_quantity = $('#buy_quantity').val(); //卖出数量
             var info_str = '确定卖出 ' + bond_quantity + ' 股' + bond_name + '?';
