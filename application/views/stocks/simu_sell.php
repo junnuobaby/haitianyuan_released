@@ -31,6 +31,7 @@ $sell_stocks = $sell_list; //获取手中持有的股票
 
                                                 <div class="col-sm-8 bond_code_div">
                                                     <select class="form-control" id="bond_code">
+                                                        <option>&nbsp;&nbsp;代码&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名称</option>
                                                         <?php foreach ($sell_stocks as $stock_item): ?>
                                                             <option
                                                                 data-code="<?php echo $stock_item['SecurityID'];?>"
