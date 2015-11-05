@@ -183,14 +183,22 @@ $sell_stocks = $sell_list; //获取手中持有的股票
             //显示最大可卖出数量
             $('div.largest_quantity').removeClass('hidden');
             $('#largest_quantity').html(max_volume);
+            selected_code_info(selected_code);
+            setInterval(function () {
+                selected_code_info(selected_code)
+            }, 8000); //每隔8s自动请求一次
+        });
+
+        //ajax向后台请求要卖出股票的最新信息
+        function selected_code_info(code) {
             $.ajax({
-                url: '<?php echo base_url("index.php/stock/get_bs/web"); ?>' + '/' + selected_code,
+                url: '<?php echo base_url("index.php/stock/get_bs/web"); ?>' + '/' + code,
                 method: 'get',
                 cache: false,
                 dataType: 'json',
                 success: code_info_display
             });
-        });
+        }
 
         //显示所选证券的实时数据信息
         function code_info_display(data) {
