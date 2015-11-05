@@ -16,14 +16,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="bg-white stocks_min_h  block-radius">
                     <div class="simulate_panel">
                         <div class="tab-content">
-                            <h4 class="blue-color margin_to_top">买入证券</h4>
-                            <div class="alert alert-info hidden" role="alert">买入委托已经成功提交。您可以点击“撤单”来查看或撤销买入委托。</div>
+                            <h4 class="blue-color margin_to_top">卖出证券</h4>
+
+                            <div class="alert alert-info hidden" role="alert">卖出委托已经成功提交。您可以点击“撤单”来查看或撤销买入委托。</div>
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <div class="col-md-5">
                                         <form class="form-horizontal" onkeydown="if(event.keyCode==13)return false;">
                                             <div class="form-group">
                                                 <label for="bond_code" class="col-sm-4 control-label">证券代码:</label>
+
                                                 <div class="col-sm-8 bond_code_div">
                                                     <input type="text" class="form-control" id="bond_code"
                                                            autocomplete="off" name="bond_code" placeholder="代码 / 名称">
@@ -32,7 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="buy_price" class="col-sm-4 control-label">买入价格:</label>
+                                                <label for="buy_price" class="col-sm-4 control-label">卖出价格:</label>
 
                                                 <div class="col-sm-8">
                                                     <input type="text" class="form-control" id="buy_price"
@@ -40,7 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 </div>
                                             </div>
                                             <div class="form-group hidden largest_quantity">
-                                                <label class="col-sm-4 control-label">最多可买入:</label>
+                                                <label class="col-sm-4 control-label">最多可卖出:</label>
 
                                                 <div class="col-sm-8">
                                                     <span style="border-color: red" class="form-control"
@@ -48,14 +50,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="buy_quantity" class="col-sm-4 control-label">买入股数:</label>
+                                                <label for="buy_quantity" class="col-sm-4 control-label">卖出股数:</label>
 
                                                 <div class="col-sm-8">
                                                     <input type="text" class="form-control" id="buy_quantity"
                                                            name="buy_quantity">
                                                 </div>
                                             </div>
-                                            <a class="btn btn-danger self-btn-danger buy_stock_btn" id="buy">买入
+                                            <a class="btn btn-danger self-btn-danger buy_stock_btn" id="buy">卖出
                                             </a>
                                         </form>
                                     </div>
@@ -179,7 +181,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 }
                 if (code_input_val.length >= 1) {
                     xhr = $.ajax({
-                        url: '<?php echo base_url("index.php/stock/buy_code_complement/web"); ?>' + '/' + code_input_val,
+                        url: '<?php echo base_url("index.php/stock/sell_code_complement/web"); ?>' + '/' + code_input_val,
                         method: 'get',
                         cache: false,
                         dataType: 'json',
@@ -194,7 +196,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 }
                 if (code_input_val.length >= 1) {
                     xhr = $.ajax({
-                        url: '<?php echo base_url("index.php/stock/buy_code_complement/web"); ?>' + '/' + encodeURIComponent(code_input_val),
+                        url: '<?php echo base_url("index.php/stock/sell_code_complement/web"); ?>' + '/' + encodeURIComponent(code_input_val),
                         method: 'get',
                         cache: false,
                         dataType: 'json',
@@ -210,7 +212,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             var content = '<table class="table table-responsive table-condensed">' +
                 '<tr><th>代码</th><th>名称</th></tr>';
             for (var i = 0; i < response.length; i++) {
-                content += '<tr><td>' + response[i]['SecurityID'] + '</td><td>' + response[i]['Symbol'] + '</td></tr>';
+                content += '<tr><td>' + response[i]['code'] + '</td><td>' + response[i]['name'] + '</td></tr>';
             }
             content += '</table>';
             $('div.hint_list').html(content).show();
@@ -241,7 +243,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 case  13: //enter键
                     bond_code.val($('div.hint_list tr.hint_active td:first').html());
                     $('div.hint_list').empty().hide();
-//                    setInterval(selected_code_info(bond_code.val()), 8000); //每隔8s自动请求一次
+//                    setInterval(selected_code_info(bond_code.val()), 1000); //每隔1s自动请求一次
                     selected_code_info(bond_code.val());
                     break;
             }
@@ -262,9 +264,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 bond_code.focus();
 //                setInterval(function () {
 //                    selected_code_info(bond_code.val())
-//                }, 8000); //每隔8s自动请求一次
+//                }, 1000); //每隔1s自动请求一次
                 selected_code_info(bond_code.val());
-
             }
         }
 
@@ -326,17 +327,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $('#largest_quantity').html(quantity_avail);
         }
 
-        //点击买入按钮，将买入股票信息
+        //点击卖出按钮，传给服务器股票信息
         $('#buy').click(function () {
             var bond_code = $('#bond_code').val(); //证券代码
             var bond_name = $('#bond_name').html(); //证券名称
             var bond_price = $('#buy_price').val(); //买入价格
             var bond_quantity = $('#buy_quantity').val(); //买入数量
-            var info_str = '确定买入 ' + bond_quantity + ' 股' + bond_name + '?';
+            var sell_1 = $('#top_sell tr:nth-child(5) td:nth-child(2)').html(); //卖一
+            var sell_2 = $('#top_sell tr:nth-child(4) td:nth-child(2)').html(); //卖二
+            var sell_3 = $('#top_sell tr:nth-child(3) td:nth-child(2)').html(); //卖三
+            var sell_4 = $('#top_sell tr:nth-child(2) td:nth-child(2)').html(); //卖四
+            var sell_5 = $('#top_sell tr:nth-child(1) td:nth-child(2)').html(); //卖五
+            var info_str = '确定卖出 ' + bond_quantity + ' 股' + bond_name + '?';
 
             if (confirm(info_str)) {
                 $.ajax({
-                    url: '<?php echo base_url("index.php/stock/buy_stock/web"); ?>' + '/' +　bond_code + '/' + bond_price + '/' + bond_quantity,
+                    url: '<?php echo base_url("index.php/stock/sell_stock/web"); ?>' + '/' +　bond_code + '/' + bond_price + '/' + bond_quantity,
                     method: 'post',
                     dataType: 'json',
                     success: function (response) {
