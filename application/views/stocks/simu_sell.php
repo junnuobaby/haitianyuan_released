@@ -53,7 +53,7 @@ $sell_stocks = $sell_list; //获取手中持有的股票
                                                 <label class="col-sm-4 control-label">最多可卖出:</label>
 
                                                 <div class="col-sm-8">
-                                                    <span style="border-color: red" class="form-control"
+                                                    <span class="form-control warning_bg_color"
                                                           id="largest_quantity"></span>
                                                 </div>
                                             </div>

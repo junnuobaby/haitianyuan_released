@@ -43,7 +43,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <label class="col-sm-4 control-label">最多可买入:</label>
 
                                                 <div class="col-sm-8">
-                                                    <span class="form-control info"
+                                                    <span  class="form-control warning_bg_color"
                                                           id="largest_quantity"></span>
                                                 </div>
                                             </div>
