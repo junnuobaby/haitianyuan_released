@@ -627,5 +627,102 @@ div.master_view section {
 .question_label label{
     margin-right: 15px;
 }
-
+/*stocks*/
+.sub_navigation{
+    border-top: 1px solid #ebebeb;
+    border-bottom: 2px solid #e1e1e1;
+    margin-bottom: 20px;
+}
+.stocks_menu{
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    position: relative;
+}
+.stocks_menu li{
+    list-style: none;
+    display: inline-block;
+    padding: 0 15px;
+}
+.stocks_menu li a{
+    padding: 0 21px;
+    line-height: 4em;
+    color: #effdff;
+    font-size: 16px;
+    text-shadow: 1px 1px 0.8em #222222;
+}
+.stocks_menu li a:link, a:visited, a:active{
+    text-decoration: none;
+}
+.nav_current{
+    border-bottom: 2px solid #f4645f;
+    margin-bottom: -2px;
+}
+.stocks_min_h{
+    min-height: 1000px;
+}
+.sel_pill{
+    border: solid 1px #ebebeb;
+}
+.simulate_panel{
+    padding: 10px 40px;
+}
+.tab_header{
+    margin-bottom: 40px;
+}
+ul.simulate_tablist{
+    padding: 20px 20px 0 20px;
+}
+ul.simulate_tablist li{
+    list-style: none;
+    display: inline-block;
+    border: none;
+}
+ul.simulate_tablist li a{
+    width: 100%;
+    height: 100%;
+    padding:10px 25px;
+    line-height: 2.5em;
+    border: 1px solid #548294;
+    border-radius: 25px 25px 25px 25px;
+    box-shadow: 0 0 0.05em #548294;
+    margin-right: 20px;
+    transition: all 0.2s;
+}
+ul.simulate_tablist li a:hover{
+    background-color: #548294;
+    color: white;
+}
+.active_a_item {
+    background-color: #548294;
+    color: white;
+    text-shadow: 1px 1px 0.8em #000;
+}
+.margin_to_top{
+    margin-top: 30px;
+}
+.margin_to_bottom{
+    margin-bottom: 30px;
+}
+.buy_stock_btn{
+    float: right;
+}
+.navbar-not-fixed{
+    margin-bottom: 0;
+}
+.bond_code_div{
+    position: relative;
+}
+.hint_list{
+    border: 1px solid #dedede;
+    color: #555;
+    position: absolute;
+    z-index: 1000;
+    width:  85%;
+    opacity: 0.9;
+    background-color: white;
+}
+.hint_active{
+    background-color: #99cfff;
+}
 

@@ -1,12 +1,13 @@
-/*基本公用样式*/
-html{
-    height: 100%;
+/*@groop general styles*/
+*{
+    padding: 0;
     margin: 0;
 }
-
+html{
+    height: 100%;
+}
 body{
     height: 100%;
-    margin: 0;
     line-height: 1.75em;
     overflow: -moz-scrollbars-vertical;
     font-family: "Helvetica Neue", Helvetica, Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
@@ -28,10 +29,7 @@ a:hover{
 .inline_div{
     display: inline-block;
 }
-.show_block{
-    display: block;
-}
-/*页脚样式*/
+/*footer style*/
 footer.page_footer {
     font-size: 13px;
     color: #555555;
@@ -54,7 +52,7 @@ footer.page_footer p{
     font-family: Baskerville, Georgia, "Liberation Serif", "Kaiti SC", STKaiti, "AR PL UKai CN", "AR PL UKai HK",
     "AR PL UKai TW", "AR PL UKai TW MBE", "AR PL KaitiM GB", KaiTi, KaiTi_GB2312, "TW\-Kai", serif;
 }
-/*悬停右下脚的返回顶部和反馈按钮*/
+/*feedback and Go-top*/
 .fixed-bar {
     position: fixed;
     right: 1%;
@@ -100,6 +98,7 @@ footer.page_footer p{
     padding: 7px 10px;
     font-size: 14px;
 }
+
 /*网站的主题颜色*/
 .theme-color {
     color: #f4645f;
@@ -113,8 +112,20 @@ footer.page_footer p{
 .green-bg-color{
     background-color: #96cc75;
 }
+.green-color{
+    color: #008000;
+}
 .black-color{
     color:black;
+}
+.blue-color{
+    color: #59b0ff;;
+}
+.white-color{
+    color: white;
+}
+.blue-color{
+    color: #59b0ff;;
 }
 /*白色背景*/
 .bg-white{
@@ -143,6 +154,13 @@ footer.page_footer p{
 .user_min_height{
     min-height: 800px;
 }
+/*缩进*/
+.ht_indent{
+    padding-left: 2em;
+}
 .gen_font_size{
     font-size: 14px;
+}
+.position_relative{
+    position: relative;
 }

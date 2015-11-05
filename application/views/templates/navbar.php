@@ -16,7 +16,7 @@
             <div class="collapse navbar-collapse narbar_font_size">
                 <ul class="nav navbar-nav">
                     <li><a href="#">理财室</a></li>
-                    <li><a href="#">华山论剑</a></li>
+                    <li><a href="<?php echo base_url('/index.php/stock/index/web/1/1');?>">华山论剑</a></li>
                     <li><a href="#">知识服务</a></li>
                     <li><a href="#">论坛</a></li>
                 </ul>
