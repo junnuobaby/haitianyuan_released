@@ -174,6 +174,7 @@ $sell_stocks = $sell_list; //获取手中持有的股票
         count += 1;
         <?php endforeach; ?>
         code_input.focus(function () {
+            alert(sell_stocks);
             show_hint_list(sell_stocks);
         });
         code_input.keydown(navigate_list);//实现导航功能，添加向上和向下箭头键以及enter键选择列表项的功能
