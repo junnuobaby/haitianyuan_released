@@ -728,7 +728,6 @@ ul.simulate_tablist li a:hover{
 }
 #bond_code option{
     margin-bottom: 5px;
-    display: inline-block;
     border-bottom: 1px solid #e1e1e1;
 }
 
