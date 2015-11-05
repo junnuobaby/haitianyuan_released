@@ -260,10 +260,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 bond_code.val($(this).children('td:first').html());
                 $('div.hint_list').empty().hide();
                 bond_code.focus();
-//                setInterval(function () {
-//                    selected_code_info(bond_code.val())
-//                }, 8000); //每隔8s自动请求一次
                 selected_code_info(bond_code.val());
+                setInterval(function () {
+                    selected_code_info(bond_code.val())
+                }, 7000); //每隔8s自动请求一次
 
             }
         }
@@ -277,11 +277,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 dataType: 'json',
                 success: code_info_display
             });
-            return function(){
-                setInterval(function () {
-                    selected_code_info(bond_code.val())
-                }, 8000);
-            }
         }
 
         //显示所选证券的实时数据信息
