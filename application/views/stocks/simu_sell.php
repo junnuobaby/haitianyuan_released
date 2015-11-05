@@ -33,22 +33,10 @@ $sell_stocks = $sell_list; //获取手中持有的股票
                                                     <select class="form-control" id="bond_code">
                                                         <?php foreach ($sell_stocks as $stock_item): ?>
                                                             <option data-volume=<?php echo $stock_item['max_volume']?> data-cost=<?php echo $stock_item['BuyCost']?>>
-                                                                <?php echo $stock_item['SecurityID']?> <?php echo $stock_item['Symbol']?>
+                                                                &nbsp;&nbsp;<?php echo $stock_item['SecurityID']?>&nbsp;&nbsp;&nbsp;<?php echo $stock_item['Symbol']?>
                                                             </option>
                                                         <?php endforeach;?>
                                                     </select>
-
-                                                    <div class="hint_list">
-                                                        <table class="table table-responsive table-condensed">
-                                                            <tr><th>代码</th><th>名称</th></tr>
-                                                            <?php foreach ($sell_stocks as $stock_item): ?>
-                                                                <tr data-volume=<?php echo $stock_item['max_volume']?> data-cost=<?php echo $stock_item['BuyCost']?>>
-                                                                    <td><?php echo $stock_item['SecurityID']?></td>
-                                                                    <td><?php echo $stock_item['Symbol']?></td>
-                                                                </tr>
-                                                            <?php endforeach;?>
-                                                        </table>
-                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -188,58 +176,6 @@ $sell_stocks = $sell_list; //获取手中持有的股票
         code_input.keydown(navigate_list);//实现导航功能，添加向上和向下箭头键以及enter键选择列表项的功能
         hint_list.delegate('tr', 'mouseover mouseout click', mouse_list);
 
-        //响应上下键事件
-        function navigate_list(event) {
-            var cur = $('div.hint_list tr.hint_active');
-            var bond_code = $('#bond_code');
-            switch (event.which) {
-                case 38:   //上键
-                    if (cur.length > 0) {
-                        cur.removeClass('hint_active').prev('tr').addClass('hint_active');
-                    }
-                    else {
-                        $('div.hint_list tr:last').addClass('hint_active');
-                    }
-                    break;
-
-                case 40:   //下键
-                    if (cur.length > 0) {
-                        cur.removeClass('hint_active').next('tr').addClass('hint_active');
-                    }
-                    else {
-                        $('div.hint_list tr:nth-child(2)').addClass('hint_active');
-                    }
-                    break;
-                case  13: //enter键
-                    bond_code.val($('div.hint_list tr.hint_active td:first').html());
-                    $('div.hint_list').empty().hide();
-                    selected_code_info(bond_code.val());
-                    setInterval(selected_code_info(bond_code.val()), 8000); //每隔8s自动请求一次
-                    break;
-            }
-        }
-
-        //鼠标移动和点击事件
-        function mouse_list(event) {
-            var cur = $('div.hint_list tr.hint_active');
-            var bond_code = $('#bond_code');
-            if (event.type == 'mouseover') {
-                cur.removeClass('hint_active');
-            }
-            $(this).toggleClass('hint_active');
-
-            if (event.type == 'click') {
-                bond_code.val($(this).children('td:first').html());
-                $('div.hint_list').empty().hide();
-                bond_code.focus();
-                $('div.largest_quantity').removeClass('hidden');
-                $('#largest_quantity').html($(this).data('volume')); //显示最多可卖出股数
-                selected_code_info(bond_code.val());
-                setInterval(function () {
-                    selected_code_info(bond_code.val())
-                }, 8000); //每隔8s自动请求一次
-            }
-        }
 
         //在鼠标点击选中和enter键之后调用该函数
         function selected_code_info(code) {
