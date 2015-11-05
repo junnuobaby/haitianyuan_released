@@ -175,7 +175,7 @@ $sell_stocks = $sell_list; //获取手中持有的股票
     });
     $(document).ready(function () {
         var code_input = $('#bond_code');
-        $(code_input).onChange(function () {
+        $(code_input).change(function () {
             var selected_code = $(this).children('option:selected').data('code');
             var selected_name = $(this).children('option:selected').data('name');
             var selected_volume = $(this).children('option:selected').data('volume');
