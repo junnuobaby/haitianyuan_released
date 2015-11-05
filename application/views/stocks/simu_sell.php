@@ -178,9 +178,10 @@ $sell_stocks = $sell_list; //获取手中持有的股票
         $(code_input).change(function () {
             var selected_code = $(this).children('option:selected').data('code');
             var selected_name = $(this).children('option:selected').data('name');
-            var selected_volume = $(this).children('option:selected').data('volume');
+            var max_volume = $(this).children('option:selected').data('volume');
             var selected_cost = $(this).children('option:selected').data('cost');
-            alert('haah');
+            $('#largest_quantity').html(max_volume);
+            $('div.largest_quantity').show();
             $.ajax({
                 url: '<?php echo base_url("index.php/stock/get_bs/web"); ?>' + '/' + selected_code,
                 method: 'get',
