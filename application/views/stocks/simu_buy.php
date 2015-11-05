@@ -277,6 +277,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 dataType: 'json',
                 success: code_info_display
             });
+            return function(){
+                setInterval(function () {
+                    selected_code_info(bond_code.val())
+                }, 8000);
+            }
         }
 
         //显示所选证券的实时数据信息
