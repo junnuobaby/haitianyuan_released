@@ -28,6 +28,7 @@ $sell_stocks = $sell_list; //获取手中持有的股票
                                         <form class="form-horizontal" onkeydown="if(event.keyCode==13)return false;">
                                             <div class="form-group">
                                                 <label for="bond_code" class="col-sm-4 control-label">证券代码:</label>
+
                                                 <div class="col-sm-8 bond_code_div">
                                                     <input type="text" class="form-control" id="bond_code"
                                                            autocomplete="off" name="bond_code" placeholder="代码 / 名称">
@@ -45,6 +46,7 @@ $sell_stocks = $sell_list; //获取手中持有的股票
                                             </div>
                                             <div class="form-group hidden largest_quantity">
                                                 <label class="col-sm-4 control-label">最多可卖出:</label>
+
                                                 <div class="col-sm-8">
                                                     <span style="border-color: red" class="form-control"
                                                           id="largest_quantity"></span>
@@ -160,32 +162,31 @@ $sell_stocks = $sell_list; //获取手中持有的股票
         $('.main_jumptron').css('margin-bottom', '0px');
     });
     $(document).ready(function () {
-        var xhr;
         var code_input = $('#bond_code');
         var hint_list = $('div.hint_list');
-        code_input.keyup(get_hint_list);//响应按键操作并使用AJAX请求获取匹配结果
+        var sell_stocks = [];
+        var count = 0;
+        <?php foreach ($sell_stocks as $stock_item): ?>
+        sell_stocks[count]['code'] = '<?php echo $stock_item['SecurityID'];?>';
+        sell_stocks[count]['name'] = '<?php echo $stock_item['Symbol'];?>';
+        sell_stocks[count]['buy_cost'] = '<?php echo $stock_item['BuyCost'];?>';
+        sell_stocks[count]['max_volume'] = '<?php echo $stock_item['max_volume'];?>';
+        count += 1;
+        <?php endforeach; ?>
+        code_input.focus(function () {
+            alert('haha');
+            show_hint_list(sell_stocks);
+        });
         code_input.keydown(navigate_list);//实现导航功能，添加向上和向下箭头键以及enter键选择列表项的功能
         hint_list.delegate('tr', 'mouseover mouseout click', mouse_list);
 
-        code_input.focus(function () {
-            var sell_stocks = [];
-            var count = 0;
-            <?php foreach ($sell_stocks as $stock_item): ?>
-            sell_stocks[count]['code'] = <?php echo $stock_item['SecurityID'];?>;
-            sell_stocks[count]['name'] = <?php echo $stock_item['Symbol'];?>;
-            sell_stocks[count]['buy_cost'] = <?php echo $stock_item['BuyCost'];?>;
-            sell_stocks[count]['max_volume'] = <?php echo $stock_item['max_volume'];?>;
-            count += 1;
-            <?php endforeach; ?>
-            show_hint_list(sell_stocks);
-        });
 
         // 显示提示列表
         function show_hint_list(response) {
             var content = '<table class="table table-responsive table-condensed">' +
                 '<tr><th>代码</th><th>名称</th></tr>';
             for (var i = 0; i < response.length; i++) {
-                content += '<tr data-volume=' + response[i]['max_volume'] +'>' + '<td>' + response[i]['code'] + '</td><td>' + response[i]['name'] + '</td></tr>';
+                content += '<tr data-volume=' + response[i]['max_volume'] + '>' + '<td>' + response[i]['code'] + '</td><td>' + response[i]['name'] + '</td></tr>';
             }
             content += '</table>';
             $('div.hint_list').html(content).show();
@@ -263,7 +264,7 @@ $sell_stocks = $sell_list; //获取手中持有的股票
             var bond_lastday_price = response.PreClosePx; //获取昨日收盘价
             var bond__highest = (1.1 * bond_lastday_price).toFixed(2); //涨停
             var bond_lowest = (0.9 * bond_lastday_price).toFixed(2); //跌停
-            var sell_1ist = [response.SellPrice1,response.SellPrice2,response.SellPrice3,response.SellPrice4,response.SellPrice5]; //卖五
+            var sell_1ist = [response.SellPrice1, response.SellPrice2, response.SellPrice3, response.SellPrice4, response.SellPrice5]; //卖五
             var buy_1ist = [response.BuyPrice1, response.BuyPrice2, response.BuyPrice3, response.BuyPrice4, response.BuyPrice5];  //买五
 
             $('#bond_name').html(bond_name);
