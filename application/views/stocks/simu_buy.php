@@ -48,8 +48,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <label for="buy_price" class="col-sm-4 control-label">买入价格:</label>
 
                                                 <div class="col-sm-8">
-                                                    <input type="text" class="form-control" id="buy_price"
-                                                           name="buy_price">
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control" id="buy_price"
+                                                               name="buy_price">
+                                                        <div class="input-group-addon">¥</div>
+                                                    </div>
+
                                                 </div>
                                             </div>
                                             <div class="form-group">
