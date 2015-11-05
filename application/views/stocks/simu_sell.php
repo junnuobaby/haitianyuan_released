@@ -168,7 +168,7 @@ $sell_stocks = $sell_list; //获取手中持有的股票
         hint_list.delegate('tr', 'mouseover mouseout click', mouse_list);
 
         code_input.focus(function () {
-            var sell_stocks = new Array();
+            var sell_stocks = [];
             var count = 0;
             <?php foreach ($sell_stocks as $stock_item): ?>
             sell_stocks[count]['code'] = <?php echo $stock_item['SecurityID'];?>;
