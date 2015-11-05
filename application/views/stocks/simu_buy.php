@@ -43,12 +43,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <label class="col-sm-4 control-label">最多可买入:</label>
 
                                                 <div class="col-sm-8">
-                                                    <span style="border-color: red" class="form-control"
+                                                    <span class="form-control info"
                                                           id="largest_quantity"></span>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="buy_quantity" class="col-sm-4 control-label">买入手数:</label>
+                                                <label for="buy_quantity" class="col-sm-4 control-label">买入数量:</label>
                                                 <div class="col-sm-8">
                                                     <div class="input-group">
                                                         <input type="text" class="form-control" id="buy_quantity"
@@ -333,14 +333,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             var bond_code = $('#bond_code').val(); //证券代码
             var bond_name = $('#bond_name').html(); //证券名称
             var bond_price = $('#buy_price').val(); //买入价格
-            var bond_quantity = $('#buy_quantity').val(); //买入数量
-            var info_str = '确定买入 ' + bond_quantity + ' 股' + bond_name + '?';
+            var bond_quantity = $('#buy_quantity').val(); //买入数量(以手为单位)
+            var info_str = '确定买入 ' + bond_quantity + ' 手' + bond_name + '?';
+            var bond_quantities = parseInt(bond_quantity) * 100; //求买入的股数（买入数量*100）
 
             if (confirm(info_str)) {
                 $.ajax({
                     url: '<?php echo base_url("index.php/stock/buy_stock/web"); ?>',
                     method: 'post',
-                    data: {SecurityID: bond_code, BuyPrice: bond_price, BuyVolume: bond_quantity, Symbol: bond_name},
+                    data: {SecurityID: bond_code, BuyPrice: bond_price, BuyVolume: bond_quantities, Symbol: bond_name},
                     dataType: 'json',
                     success: function (response) {
                         if (response.status == '0') {
