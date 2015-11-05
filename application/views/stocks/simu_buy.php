@@ -59,6 +59,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <a class="btn btn-danger self-btn-danger buy_stock_btn" id="buy">买入
                                             </a>
                                         </form>
+                                        <form class="form-inline">
+                                            <div class="form-group">
+                                                <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">$</div>
+                                                    <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+                                                    <div class="input-group-addon">.00</div>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Transfer cash</button>
+                                        </form>
                                     </div>
                                     <div class="col-md-3 col-md-offset-1">
                                         <h4 id="bond_name" class="theme-color"></h4>
