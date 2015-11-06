@@ -98,15 +98,15 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                             </thead>
                                             <tbody>
                                             <?php foreach ($user_stocks as $stock_item): ?>
-                                            <tr>
+                                            <tr id="<?php echo $stock_item['SecurityID'];?>">
                                                 <td><?php echo $stock_item['SecurityID'];?></td>
                                                 <td><?php echo $stock_item['SecurityID'];?></td>
                                                 <td><?php echo $stock_item['Volume_All'];?></td>
                                                 <td><?php echo intval($stock_item['Volume_All']) - intval($stock_item['Ban_Volume']);?></td>
                                                 <td><?php echo $stock_item['BuyCost'];?></td>
-                                                <td id="trade_price"></td>
-                                                <td id="float_pl"></td>
-                                                <td id="extent"></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
                                             <?php endforeach;?>
                                             </tbody>
@@ -127,23 +127,38 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
 <?php $this->load->view('./templates/footer'); ?>
 </body>
 <script>
+    var interval;
     $(document).ready(function () {
         $('.main_jumptron').css('margin-bottom', '0px');
     });
     $(document).ready(function () {
-        var xhr;
-        if (xhr) {
-            xhr.abort();
-        }
-        xhr = $.ajax({
-                url: '<?php echo base_url("index.php/stock/get_dynamic_info/web"); ?>',
-                method: 'get',
-                dataType: 'json',
-                success: function (response) {
-                    $
-                }
+        load_dynamic_data();
+        clearInterval(intertval);
+        intertval = setInterval(load_dynamic_data, 8000); //每隔8s自动请求一次
+        //请求动态加载数据
+        function load_dynamic_data(){
+            var xhr;
+            var key;
+            if (xhr) {
+                xhr.abort();
             }
-        );
+            xhr = $.ajax({
+                    url: '<?php echo base_url("index.php/stock/get_dynamic_info/web"); ?>',
+                    method: 'get',
+                    dataType: 'json',
+                    success: function (response) {
+                        $('#stock_value').html(response.stock_value);
+                        var stock_info = response.stock_info;
+                        for(key in stock_info){
+                            var tr_id = '#' + key;
+                            $(tr_id).children('td:eq(5)').html(stock_info[key]['TradePrice']);  //设置当前价
+                            $(tr_id).children('td:eq(6)').html(stock_info[key]['float_pl']);   //设置浮动盈亏
+                            $(tr_id).children('td:eq(7)').html(stock_info[key]['id_extent']);  //设置涨跌幅
+                        }
+                    }
+                });
+        }
+
     })
 </script>
 </html>
