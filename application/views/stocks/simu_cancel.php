@@ -20,40 +20,44 @@ $records = $pre_list['data_page'];
                     <div class="simulate_panel">
                         <div class="tab-content">
                             <h4 class="blue-color margin_to_top">今日委托单</h4>
+
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <table class="table">
                                         <thead>
                                         <tr>
-                                        <th>时间</th>
-                                        <th>证券代码</th>
-                                        <th>证券名称</th>
-                                        <th>委托方向</th>
-                                        <th>委托数量</th>
-                                        <th>委托价格</th>
-                                        <th>委托金额</th>
-                                        <th>预收交易费用</th>
-                                        <th>状态</th>
-                                        <th>动作</th>
+                                            <th>时间</th>
+                                            <th>证券代码</th>
+                                            <th>证券名称</th>
+                                            <th>委托方向</th>
+                                            <th>委托数量</th>
+                                            <th>委托价格</th>
+                                            <th>委托金额</th>
+                                            <th>预收交易费用</th>
+                                            <th>状态</th>
+                                            <th>动作</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         <?php foreach ($records as $stock_item): ?>
-                                        <tr>
-                                            <td><?php echo $stock_item['timestamp']?></td>
-                                            <td><?php echo $stock_item['SecurityID']?></td>
-                                            <td><?php echo $stock_item['Symbol']?></td>
-                                            <td><?php if($stock_item['timestamp'] == '0'){echo '买入';}elseif($stock_item['timestamp'] == '1'){
-                                                    echo "卖出";
-                                                }?></td>
-                                            <td><?php echo $stock_item['Volume'];?></td>
-                                            <td><?php echo $stock_item['Price']?></td>
-                                            <td><?php echo $stock_item['Price']* $stock_item['Volume'];?></td>
-                                            <td>5.00</td>
-                                            <td>委托中</td>
-                                            <td><a class="theme-color cancel_btn" data-id="<?php echo $stock_item['pre_id'];?>">撤单</a></td>
-                                        </tr>
-                                        <?php endforeach;?>
+                                            <tr>
+                                                <td><?php echo $stock_item['timestamp'] ?></td>
+                                                <td><?php echo $stock_item['SecurityID'] ?></td>
+                                                <td><?php echo $stock_item['Symbol'] ?></td>
+                                                <td><?php if ($stock_item['trade_type'] == '0') {
+                                                        echo '买入';
+                                                    } else {
+                                                        echo "卖出";
+                                                    } ?></td>
+                                                <td><?php echo $stock_item['Volume']; ?></td>
+                                                <td><?php echo $stock_item['Price'] ?></td>
+                                                <td><?php echo $stock_item['Price'] * $stock_item['Volume']; ?></td>
+                                                <td>5.00</td>
+                                                <td>委托中</td>
+                                                <td><a class="theme-color cancel_btn"
+                                                       data-id="<?php echo $stock_item['pre_id']; ?>">撤单</a></td>
+                                            </tr>
+                                        <?php endforeach; ?>
                                         </tbody>
 
                                     </table>
@@ -82,11 +86,11 @@ $records = $pre_list['data_page'];
                 url: '<?php echo base_url("index.php/stock/cancel_order/web"); ?>' + '/' + record_id,
                 method: 'get',
                 dataType: 'json',
-                success: function(response){
-                    if(response.status == '0'){
+                success: function (response) {
+                    if (response.status == '0') {
                         alert('撤销成功');
                     }
-                    else if(response.status == '1'){
+                    else if (response.status == '1') {
                         alert(response.msg);
                     }
                 }
