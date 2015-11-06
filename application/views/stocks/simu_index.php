@@ -133,8 +133,8 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
     });
     $(document).ready(function () {
         load_dynamic_data();
-        clearInterval(intertval);
-        intertval = setInterval(load_dynamic_data, 8000); //每隔8s自动请求一次
+        clearInterval(interval);
+        interval = setInterval(load_dynamic_data, 8000); //每隔8s自动请求一次
         //请求动态加载数据
         function load_dynamic_data(){
             var xhr;
