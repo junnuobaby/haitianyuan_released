@@ -309,15 +309,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 var bond_name = response.Symbol; //ajax获取证券名称
                 var bond_cur_price = response.TradePrice; //获取最新价
                 var bond_lastday_price = response.PreClosePx; //获取昨日收盘价
-                var bond__highest = (1.1 * bond_lastday_price).toFixed(2); //涨停
+                var bond_highest = (1.1 * bond_lastday_price).toFixed(2); //涨停
                 var bond_lowest = (0.9 * bond_lastday_price).toFixed(2); //跌停
                 var sell_1ist = [response.SellPrice1, response.SellPrice2, response.SellPrice3, response.SellPrice4, response.SellPrice5]; //卖五
                 var buy_1ist = [response.BuyPrice1, response.BuyPrice2, response.BuyPrice3, response.BuyPrice4, response.BuyPrice5];  //买五
+                for(var i = 0; i < sell_1ist.length; i++){
+                    sell_1ist[i] = parseFloat(sell_1ist[i]).toFixed(2);
+                }
+                for(var j = 0; j < buy_1ist.length; i++){
+                    buy_1ist[j] = parseFloat(buy_1ist[j]).toFixed(2);
+                }
 
                 $('#bond_name').html(bond_name);
                 $('#bond_price tr:nth-child(1) td:nth-child(2)').html(bond_cur_price);
                 $('#bond_price tr:nth-child(2) td:nth-child(2)').html(bond_lastday_price);
-                $('#bond_price tr:nth-child(3) td:nth-child(2)').html(bond__highest);
+                $('#bond_price tr:nth-child(3) td:nth-child(2)').html(bond_highest);
                 $('#bond_price tr:nth-child(4) td:nth-child(2)').html(bond_lowest);
 
                 $('#top_sell tr:nth-child(1) td:nth-child(2)').html(sell_1ist[4]); //卖五
