@@ -360,27 +360,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             var info_str = '确定买入 ' + bond_quantity + ' 手' + bond_name + '?';
             var bond_quantities = parseInt(bond_quantity) * 100; //求买入的股数（买入数量*100）
 
-            if (!validate(bond_code, bond_price, bond_quantity)) {
-                alert(validate(bond_code, bond_price, bond_quantity));
-            }
-            if (confirm(info_str)) {
-                $.ajax({
-                    url: '<?php echo base_url("index.php/stock/buy_stock/web"); ?>',
-                    method: 'post',
-                    data: {SecurityID: bond_code, BuyPrice: bond_price, BuyVolume: bond_quantities, Symbol: bond_name},
-                    dataType: 'json',
-                    success: function (response) {
-                        if (response.status == '0') {
-                            $('div.alert-info').removeClass('hidden');
+            if (validate(bond_code, bond_price, bond_quantity)) {
+                if (confirm(info_str)) {
+                    $.ajax({
+                        url: '<?php echo base_url("index.php/stock/buy_stock/web"); ?>',
+                        method: 'post',
+                        data: {
+                            SecurityID: bond_code,
+                            BuyPrice: bond_price,
+                            BuyVolume: bond_quantities,
+                            Symbol: bond_name
+                        },
+                        dataType: 'json',
+                        success: function (response) {
+                            if (response.status == '0') {
+                                $('div.alert-info').removeClass('hidden');
+                            }
+                            else if (response.status == '1') {
+                                alert(response.msg);
+                            }
+                        },
+                        error: function () {
+                            alert('服务器错误');
                         }
-                        else if (response.status == '1') {
-                            alert(response.msg);
-                        }
-                    },
-                    error: function () {
-                        alert('服务器错误');
-                    }
-                });
+                    });
+                }
             }
 
             //提交之前验证数据是否填写以及填写正确
