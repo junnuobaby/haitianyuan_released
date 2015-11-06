@@ -54,7 +54,7 @@ $records = $pre_list['data_page'];
                                                 <td><?php echo $stock_item['Price'] * $stock_item['Volume']; ?></td>
                                                 <td>5.00</td>
                                                 <td>委托中</td>
-                                                <td><a class="theme-color cancel_btn"
+                                                <td><a href="#" class="theme-color cancel_btn"
                                                        data-id="<?php echo $stock_item['pre_id']; ?>">撤单</a></td>
                                             </tr>
                                         <?php endforeach; ?>
@@ -77,7 +77,7 @@ $records = $pre_list['data_page'];
 </body>
 <script>
     $(document).ready(function () {
-        $('.main_jumptron').css('margin-bottom', '0px');
+        $('.main_jumptron').css('margin-bottom', '0');
     });
     $(document).ready(function () {
         $('a.cancel_btn').click(function () {
