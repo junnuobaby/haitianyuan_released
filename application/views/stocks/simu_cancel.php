@@ -43,10 +43,9 @@ $records = $pre_list['data_page'];
                                             <td><?php echo $stock_item['timestamp']?></td>
                                             <td><?php echo $stock_item['SecurityID']?></td>
                                             <td><?php echo $stock_item['Symbol']?></td>
-                                            <td><?php if($stock_item['timestamp'] == '0'):?> 买入
-                                                <?php elseif($stock_item['timestamp'] == '1'):?>
-                                                卖出
-                                                <?php endif;?></td>
+                                            <td><?php if($stock_item['timestamp'] == '0'){echo '买入';}elseif($stock_item['timestamp'] == '1'){
+                                                    echo "卖出";
+                                                }?></td>
                                             <td><?php echo $stock_item['Volume'];?></td>
                                             <td><?php echo $stock_item['Price']?></td>
                                             <td><?php echo $stock_item['Price']* $stock_item['Volume'];?></td>
