@@ -38,9 +38,9 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                             <tr>
                                                 <td><?php echo $user_data['cash_all'];?></td>
                                                 <td><?php echo $user_data['cash_use'];?></td>
-                                                <td>10,000</td>
-                                                <td>10</td>
-                                                <td>0</td>
+                                                <td id="stock_value"></td>
+                                                <td><?php echo $user_data['position'];?></td>
+                                                <td><?php echo $user_data['cash_freeze'];?></td>
                                             </tr>
                                             </tbody>
                                         </table>
