@@ -385,7 +385,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             //提交之前验证数据是否填写以及填写正确
             function validate(code, price, quantity) {
-                if (($.trim(code).length !== 6) {
+                if ($.trim(code).length !== 6) {
                     alert('请填写6位数字的证券代码');
                     return false;
                 }
