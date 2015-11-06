@@ -391,7 +391,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             function validate(code, price, quantity) {
                 if ($.trim(code).length !== 6) {
 //                    alert('请填写6位数字的证券代码');
-                    $('<span>请填写6位数字的证券代码</spn>').insertAfter('#bond_code');
+                    $('<span class="theme-color">请填写6位数字的证券代码</spn>').insertAfter('#bond_code');
                     return false;
                 }
                 if (($.trim(code).length < 1) || parseFloat(price) <= 0) {
