@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="zh-cn">
 <?php $this->load->view('./templates/head'); ?>
 <?php
-$records = $pre_list['data_page'];
+$records = $pre_list['data_page']; //获取还在委托状态的订单详情
 ?>
 <body class="bg-gray">
 <div class="wrapper">
@@ -52,7 +52,14 @@ $records = $pre_list['data_page'];
                                                 <td><?php echo $stock_item['Volume']; ?></td>
                                                 <td><?php echo $stock_item['Price'] ?></td>
                                                 <td><?php echo $stock_item['Price'] * $stock_item['Volume']; ?></td>
-                                                <td>5.00</td>
+                                                <td><?php
+                                                    $trade_money = $stock_item['Price'] * $stock_item['Volume'];
+                                                    if($trade_money >= 1000){
+                                                        echo $trade_money * 0.03;
+                                                    }else{
+                                                        echo '5.00';
+                                                    }
+                                                    ?></td>
                                                 <td>委托中</td>
                                                 <td><a href="#" class="theme-color cancel_btn"
                                                        data-id="<?php echo $stock_item['pre_id']; ?>">撤单</a></td>
