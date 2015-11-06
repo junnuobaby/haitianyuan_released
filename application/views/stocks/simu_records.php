@@ -22,7 +22,7 @@ $done_records = $his_list['data_page'];  //获取已成交记录
                             <h4 class="blue-color margin_to_top">交易记录</h4>
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                    <table class="table">
+                                    <table class="table table-striped">
                                         <thead>
                                         <tr>
                                             <th>时间</th>
