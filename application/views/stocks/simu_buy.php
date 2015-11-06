@@ -22,7 +22,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <div class="col-md-5">
-                                        <form class="form-horizontal" onkeydown="if(event.keyCode==13)return false;" autocomplete="off">
+                                        <form class="form-horizontal" onkeydown="if(event.keyCode==13)return false;"
+                                              autocomplete="off">
                                             <div class="form-group">
                                                 <label for="bond_code" class="col-sm-4 control-label">证券代码:</label>
 
@@ -40,6 +41,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                     <div class="input-group">
                                                         <span class="form-control warning_bg_color"
                                                               id="largest_quantity"></span>
+
                                                         <div class="input-group-addon">手</div>
                                                     </div>
                                                 </div>
@@ -51,6 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                     <div class="input-group">
                                                         <input type="text" class="form-control" id="buy_price"
                                                                name="buy_price">
+
                                                         <div class="input-group-addon">¥</div>
                                                     </div>
 
@@ -297,49 +300,56 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         //显示所选证券的实时数据信息
         function code_info_display(data) {
-            var response = data.st_info;
-            var bond_name = response.Symbol; //ajax获取证券名称
-            var bond_cur_price = response.TradePrice; //获取最新价
-            var bond_lastday_price = response.PreClosePx; //获取昨日收盘价
-            var bond__highest = (1.1 * bond_lastday_price).toFixed(2); //涨停
-            var bond_lowest = (0.9 * bond_lastday_price).toFixed(2); //跌停
-            var sell_1ist = [response.SellPrice1, response.SellPrice2, response.SellPrice3, response.SellPrice4, response.SellPrice5]; //卖五
-            var buy_1ist = [response.BuyPrice1, response.BuyPrice2, response.BuyPrice3, response.BuyPrice4, response.BuyPrice5];  //买五
+            if (data.status == '2') {
+                alert('本支股票已停牌');
+            }
+            else {
 
-            $('#bond_name').html(bond_name);
-            $('#bond_price tr:nth-child(1) td:nth-child(2)').html(bond_cur_price);
-            $('#bond_price tr:nth-child(2) td:nth-child(2)').html(bond_lastday_price);
-            $('#bond_price tr:nth-child(3) td:nth-child(2)').html(bond__highest);
-            $('#bond_price tr:nth-child(4) td:nth-child(2)').html(bond_lowest);
 
-            $('#top_sell tr:nth-child(1) td:nth-child(2)').html(sell_1ist[4]); //卖五
-            $('#top_sell tr:nth-child(2) td:nth-child(2)').html(sell_1ist[3]); //卖四
-            $('#top_sell tr:nth-child(3) td:nth-child(2)').html(sell_1ist[2]); //卖三
-            $('#top_sell tr:nth-child(4) td:nth-child(2)').html(sell_1ist[1]); //卖二
-            $('#top_sell tr:nth-child(5) td:nth-child(2)').html(sell_1ist[0]); //卖一
+                var response = data.st_info;
+                var bond_name = response.Symbol; //ajax获取证券名称
+                var bond_cur_price = response.TradePrice; //获取最新价
+                var bond_lastday_price = response.PreClosePx; //获取昨日收盘价
+                var bond__highest = (1.1 * bond_lastday_price).toFixed(2); //涨停
+                var bond_lowest = (0.9 * bond_lastday_price).toFixed(2); //跌停
+                var sell_1ist = [response.SellPrice1, response.SellPrice2, response.SellPrice3, response.SellPrice4, response.SellPrice5]; //卖五
+                var buy_1ist = [response.BuyPrice1, response.BuyPrice2, response.BuyPrice3, response.BuyPrice4, response.BuyPrice5];  //买五
 
-            $('#top_buy tr:nth-child(1) td:nth-child(2)').html(buy_1ist[0]); //买一
-            $('#top_buy tr:nth-child(2) td:nth-child(2)').html(buy_1ist[1]); //买二
-            $('#top_buy tr:nth-child(3) td:nth-child(2)').html(buy_1ist[2]); //买三
-            $('#top_buy tr:nth-child(4) td:nth-child(2)').html(buy_1ist[3]); //买四
-            $('#top_buy tr:nth-child(5) td:nth-child(2)').html(buy_1ist[4]); //买五
+                $('#bond_name').html(bond_name);
+                $('#bond_price tr:nth-child(1) td:nth-child(2)').html(bond_cur_price);
+                $('#bond_price tr:nth-child(2) td:nth-child(2)').html(bond_lastday_price);
+                $('#bond_price tr:nth-child(3) td:nth-child(2)').html(bond__highest);
+                $('#bond_price tr:nth-child(4) td:nth-child(2)').html(bond_lowest);
 
-            //根据价格设置显示颜色
-            var top_price = $('#bond_price tr td:nth-child(2),#top_buy tr td:nth-child(2), #top_sell tr td:nth-child(2)');
-            top_price.each(function () {
-                if (parseFloat($(this).html()) > parseFloat(bond_lastday_price)) {
-                    $(this).addClass('theme-color');
-                } else {
-                    $(this).addClass('green-color');
-                }
-            });
-            //将当前价格设置为默认的买入价格
-            $('#buy_price').val(bond_cur_price);
-            var bond_price = $('#buy_price').val(); //买入价格
-            var available_money = "<?php echo $cash_use;?>";
-            var quantity_avail = Math.round(parseFloat(available_money) / (parseFloat(bond_price) * 100)); //计算当前可买入的最大股数
-            $('div.largest_quantity').removeClass('hidden');
-            $('#largest_quantity').html(quantity_avail);
+                $('#top_sell tr:nth-child(1) td:nth-child(2)').html(sell_1ist[4]); //卖五
+                $('#top_sell tr:nth-child(2) td:nth-child(2)').html(sell_1ist[3]); //卖四
+                $('#top_sell tr:nth-child(3) td:nth-child(2)').html(sell_1ist[2]); //卖三
+                $('#top_sell tr:nth-child(4) td:nth-child(2)').html(sell_1ist[1]); //卖二
+                $('#top_sell tr:nth-child(5) td:nth-child(2)').html(sell_1ist[0]); //卖一
+
+                $('#top_buy tr:nth-child(1) td:nth-child(2)').html(buy_1ist[0]); //买一
+                $('#top_buy tr:nth-child(2) td:nth-child(2)').html(buy_1ist[1]); //买二
+                $('#top_buy tr:nth-child(3) td:nth-child(2)').html(buy_1ist[2]); //买三
+                $('#top_buy tr:nth-child(4) td:nth-child(2)').html(buy_1ist[3]); //买四
+                $('#top_buy tr:nth-child(5) td:nth-child(2)').html(buy_1ist[4]); //买五
+
+                //根据价格设置显示颜色
+                var top_price = $('#bond_price tr td:nth-child(2),#top_buy tr td:nth-child(2), #top_sell tr td:nth-child(2)');
+                top_price.each(function () {
+                    if (parseFloat($(this).html()) > parseFloat(bond_lastday_price)) {
+                        $(this).addClass('theme-color');
+                    } else {
+                        $(this).addClass('green-color');
+                    }
+                });
+                //将当前价格设置为默认的买入价格
+                $('#buy_price').val(bond_cur_price);
+                var bond_price = $('#buy_price').val(); //买入价格
+                var available_money = "<?php echo $cash_use;?>";
+                var quantity_avail = Math.round(parseFloat(available_money) / (parseFloat(bond_price) * 100)); //计算当前可买入的最大股数
+                $('div.largest_quantity').removeClass('hidden');
+                $('#largest_quantity').html(quantity_avail);
+            }
         }
 
         //点击买入按钮，将买入股票信息
@@ -361,7 +371,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         if (response.status == '0') {
                             $('div.alert-info').removeClass('hidden');
                         }
-                        else if(response.status == '1'){
+                        else if (response.status == '1') {
                             alert(response.msg);
                         }
                     },
@@ -372,16 +382,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
 
             //提交之前验证数据是否填写以及填写正确
-            function validate(code, price, quantity){
-                if(length(trim(code)) !== 6){
+            function validate(code, price, quantity) {
+                if (length(trim(code)) !== 6) {
                     alert('请填写6位数字的证券代码');
                     return false;
                 }
-                if((length(trim(code))<1) ||parseFloat(price) < 0){
+                if ((length(trim(code)) < 1) || parseFloat(price) < 0) {
                     alert('请输入合法的买入价格');
                     return false;
                 }
-                if((length(trim(quantity))<1) ||parseInt(quantity) < 1){
+                if ((length(trim(quantity)) < 1) || parseInt(quantity) < 1) {
                     alert('请输入合法的买入数量');
                     return false;
                 }
