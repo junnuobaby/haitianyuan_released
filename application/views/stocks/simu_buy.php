@@ -150,10 +150,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <li>交易时间与沪深A股的开市时间一致。一般为周一至周五，上午09:30至11:30，下午13:00至15:00。</li>
                                 <li>交易价格按照实盘价格成交，目前支持全部沪深A股，包括创业板。</li>
                                 <li>所有买卖均实行T+1制度，即当天买入的股票只能在第二个交易日卖出。</li>
-                                <li>买入时，不收取印花税，收取交易金额的千分之一的手续费，手续费不足5元按5元收取。</li>
-                                <li>卖出时，收取交易金额千分之一的印花税，收取交易金额千分之一的手续费，手续费不足5元按5元收取。</li>
+                                <li>买入卖出时，不收取印花税，超过一万收取交易金额的万分之三的手续费，手续费不足5元按5元收取。</li>
+                                <li>大约可买入的数量根据可用金额和当前最新价计算获得。</li>
                                 <li>买卖交易的股票数量不受实盘的买卖委托数量的限制。</li>
-                                <li>股票价格到了涨跌停板后不再成交，直到停板被打开；</li>
+                                <li>股票价格到了跌停板后不再成交，直到停板被打开。</li>
                                 <li>不能买入已经涨停的股票，不能卖出已经跌停的股票。</li>
                             </ol>
 
@@ -342,7 +342,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     }
                 });
                 //将当前价格设置为默认的买入价格
-//                $('#buy_price').val(bond_cur_price);
                 var bond_price = $('#buy_price').val(); //买入价格
                 var available_money = "<?php echo $cash_use;?>";
                 var quantity_avail = Math.round(parseFloat(available_money) / (parseFloat(bond_cur_price) * 100)); //计算当前可买入的最大股数
@@ -391,7 +390,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             //提交之前验证数据是否填写以及填写正确
             function validate(code, price, quantity) {
                 if ($.trim(code).length !== 6) {
-                    alert('请填写6位数字的证券代码');
+//                    alert('请填写6位数字的证券代码');
+                    $('<span>请填写6位数字的证券代码</spn>').insertAfter('#bond_code');
                     return false;
                 }
                 if (($.trim(code).length < 1) || parseFloat(price) <= 0) {
