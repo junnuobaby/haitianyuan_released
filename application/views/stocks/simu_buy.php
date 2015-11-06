@@ -361,6 +361,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         if (response.status == '0') {
                             $('div.alert-info').removeClass('hidden');
                         }
+                        else if(response.status == '1'){}
+                        alert(response.msg);
                     },
                     error: function () {
                         alert('服务器错误');
