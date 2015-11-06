@@ -104,6 +104,7 @@ $records = $pre_list['data_page']; //获取还在委托状态的订单详情
                 success: function (response) {
                     if (response.status == '0') {
                         alert('撤销成功');
+                        $(this).parent('tr').fadeOut('slow');
                     }
                     else if (response.status == '1') {
                         alert(response.msg);
