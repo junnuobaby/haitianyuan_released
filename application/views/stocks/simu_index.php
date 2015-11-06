@@ -88,8 +88,8 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                             <tr>
                                                 <th>股票代码</th>
                                                 <th>股票名称</th>
-                                                <th>总股数</th>
-                                                <th>可卖数量</th>
+                                                <th>总股数(股)</th>
+                                                <th>可卖数量(股)</th>
                                                 <th>买入成本</th>
                                                 <th>当前价</th>
                                                 <th>浮动盈亏</th>
@@ -151,9 +151,12 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                         var stock_info = response.stock_info;
                         for(key in stock_info){
                             var tr_id = '#' + key;
-                            $(tr_id).children('td:eq(5)').html(stock_info[key]['TradePrice']);  //设置当前价
+                            var trade_price = parseFloat(stock_info[key]['TradePrice']).toFixed(2);  //获取当前价，保留小数点后两位
+                            var id_extent = (parseFloat(stock_info[key]['id_extent'])*100).toFixed(2);  //获取涨跌幅，保留小数点后两位
+//                            var float_pl = stock_info[key]['float_pl'];  //获取浮动盈亏，并设置显示格式
+                            $(tr_id).children('td:eq(5)').html(trade_price);  //设置当前价
                             $(tr_id).children('td:eq(6)').html(stock_info[key]['float_pl']);   //设置浮动盈亏
-                            $(tr_id).children('td:eq(7)').html(parseFloat(stock_info[key]['id_extent'])*100);  //设置涨跌幅
+                            $(tr_id).children('td:eq(7)').html(id_extent + '%');  //设置涨跌幅
                         }
                     }
                 });
