@@ -40,7 +40,7 @@ $records = $pre_list['data_page']; //获取还在委托状态的订单详情
                                         </thead>
                                         <tbody>
                                         <?php foreach ($records as $stock_item): ?>
-                                            <tr>
+                                            <tr class="done_record">
 <!--                                                时间-->
                                                 <td><?php echo $stock_item['timestamp'];?></td>
 <!--                                                证券代码-->
@@ -97,7 +97,7 @@ $records = $pre_list['data_page']; //获取还在委托状态的订单详情
     $(document).ready(function () {
         $('a.cancel_btn').click(function () {
             var record_id = $(this).data('id');
-            var record_tr = $(this).parentsUntil('tr');
+            var record_tr = $(this).parents('tr.done_record');
             $.ajax({
                 url: '<?php echo base_url("index.php/stock/cancel_order/web"); ?>' + '/' + record_id,
                 method: 'get',
