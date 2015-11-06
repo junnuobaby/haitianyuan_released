@@ -97,6 +97,7 @@ $records = $pre_list['data_page']; //获取还在委托状态的订单详情
     $(document).ready(function () {
         $('a.cancel_btn').click(function () {
             var record_id = $(this).data('id');
+            var record_tr = $(this).parentsUntil('tr');
             $.ajax({
                 url: '<?php echo base_url("index.php/stock/cancel_order/web"); ?>' + '/' + record_id,
                 method: 'get',
@@ -104,7 +105,7 @@ $records = $pre_list['data_page']; //获取还在委托状态的订单详情
                 success: function (response) {
                     if (response.status == '0') {
                         alert('撤销成功');
-                        $(this).parent('td').parent('tr').fadeOut('slow');
+                        record_tr.fadeOut('slow');
                     }
                     else if (response.status == '1') {
                         alert(response.msg);
