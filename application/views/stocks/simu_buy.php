@@ -361,7 +361,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             var bond_quantities = parseInt(bond_quantity) * 100; //求买入的股数（买入数量*100）
 
             if(!validate(bond_code, bond_price, bond_quantity)){
-                return false;
+                alert(validate(bond_code, bond_price, bond_quantity));
             }
             if (confirm(info_str)) {
                 $.ajax({
