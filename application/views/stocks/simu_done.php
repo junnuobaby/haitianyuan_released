@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="zh-cn">
 <?php $this->load->view('./templates/head'); ?>
 <?php
-$done_records = $pre_list;  //获取已成交记录
+$done_records = $done_list;  //获取已成交记录
 ?>
 <body class="bg-gray">
 <div class="wrapper">
@@ -36,16 +36,29 @@ $done_records = $pre_list;  //获取已成交记录
                                         </tr>
                                         </thead>
                                         <tbody>
+                                        <?php foreach ($done_records as $stock_item): ?>
                                         <tr>
-                                            <td>2015-10-22 10:41</td>
-                                            <td>000001</td>
-                                            <td>平安银行</td>
-                                            <td>买入</td>
-                                            <td>400</td>
-                                            <td>11.27</td>
-                                            <td>4508.00</td>
-                                            <td>5.00</td>
+                                            <td><?php echo $stock_item['timestamp'];?></td>
+                                            <td><?php echo $stock_item['SecurityID'];?></td>
+                                            <td><?php echo $stock_item['Symbol'];?></td>
+                                            <td><?php if ($stock_item['trade_type'] == '0') {
+                                                    echo '买入';
+                                                } else {
+                                                    echo "卖出";
+                                                } ?></td>
+                                            <td><?php echo $stock_item['Volume']; ?></td>
+                                            <td><?php echo $stock_item['Price'];?></td>
+                                            <td><?php echo $stock_item['Price'] * $stock_item['Volume']; ?></td>
+                                            <td><?php
+                                                $trade_money = $stock_item['Price'] * $stock_item['Volume'];
+                                                if($trade_money >= 10000){
+                                                    echo $trade_money * 0.0003;
+                                                }else{
+                                                    echo '5.00';
+                                                }
+                                                ?></td>
                                         </tr>
+                                        <?php endforeach; ?>
                                         </tbody>
 
                                     </table>

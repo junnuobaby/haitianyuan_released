@@ -42,11 +42,11 @@ $records = $pre_list['data_page']; //获取还在委托状态的订单详情
                                         <?php foreach ($records as $stock_item): ?>
                                             <tr>
 <!--                                                时间-->
-                                                <td><?php echo $stock_item['timestamp'] ?></td>
+                                                <td><?php echo $stock_item['timestamp'];?></td>
 <!--                                                证券代码-->
-                                                <td><?php echo $stock_item['SecurityID'] ?></td>
+                                                <td><?php echo $stock_item['SecurityID'];?></td>
 <!--                                                证券名称-->
-                                                <td><?php echo $stock_item['Symbol'] ?></td>
+                                                <td><?php echo $stock_item['Symbol'];?></td>
 <!--                                                委托方向-->
                                                 <td><?php if ($stock_item['trade_type'] == '0') {
                                                         echo '买入';
@@ -56,7 +56,7 @@ $records = $pre_list['data_page']; //获取还在委托状态的订单详情
 <!--                                                委托数量-->
                                                 <td><?php echo $stock_item['Volume']; ?></td>
 <!--                                                委托价格-->
-                                                <td><?php echo $stock_item['Price'] ?></td>
+                                                <td><?php echo $stock_item['Price'];?></td>
 <!--                                                委托金额-->
                                                 <td><?php echo $stock_item['Price'] * $stock_item['Volume']; ?></td>
 <!--                                                预收交易费用（不超过1万统一收5元，超过10000按万三标准收取）-->
