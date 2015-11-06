@@ -22,7 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <div class="col-md-5">
-                                        <form class="form-horizontal" onkeydown="if(event.keyCode==13)return false;">
+                                        <form class="form-horizontal" onkeydown="if(event.keyCode==13)return false;" autocomplete="off">
                                             <div class="form-group">
                                                 <label for="bond_code" class="col-sm-4 control-label">证券代码:</label>
 
