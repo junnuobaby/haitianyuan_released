@@ -385,15 +385,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             //提交之前验证数据是否填写以及填写正确
             function validate(code, price, quantity) {
-                if (length(trim(code)) !== 6) {
+                if (length($.trim(code)) !== 6) {
                     alert('请填写6位数字的证券代码');
                     return false;
                 }
-                if ((length(trim(code)) < 1) || parseFloat(price) < 0) {
+                if ((length($.trim(code)) < 1) || parseFloat(price) < 0) {
                     alert('请输入合法的买入价格');
                     return false;
                 }
-                if ((length(trim(quantity)) < 1) || parseInt(quantity) < 1) {
+                if ((length($.trim(quantity)) < 1) || parseInt(quantity) < 1) {
                     alert('请输入合法的买入数量');
                     return false;
                 }
