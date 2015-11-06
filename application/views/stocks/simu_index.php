@@ -39,7 +39,7 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                                 <td><?php echo $user_data['cash_all'];?></td>
                                                 <td><?php echo $user_data['cash_use'];?></td>
                                                 <td id="stock_value"></td>
-                                                <td><?php echo $user_data['position'];?></td>
+                                                <td><?php echo floatval($user_data['position'])*100;?></td>
                                                 <td><?php echo $user_data['cash_freeze'];?></td>
                                             </tr>
                                             </tbody>
@@ -153,7 +153,7 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                             var tr_id = '#' + key;
                             $(tr_id).children('td:eq(5)').html(stock_info[key]['TradePrice']);  //设置当前价
                             $(tr_id).children('td:eq(6)').html(stock_info[key]['float_pl']);   //设置浮动盈亏
-                            $(tr_id).children('td:eq(7)').html(stock_info[key]['id_extent']);  //设置涨跌幅
+                            $(tr_id).children('td:eq(7)').html(parseFloat(stock_info[key]['id_extent'])*100);  //设置涨跌幅
                         }
                     }
                 });
