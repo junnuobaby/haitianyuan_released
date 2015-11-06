@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="zh-cn">
 <?php $this->load->view('./templates/head'); ?>
 <?php
-$done_records = $done_list['data_page'];  //获取已成交记录
+$done_records = $his_list['data_page'];  //获取已成交记录
 ?>
 <body class="bg-gray">
 <div class="wrapper">
@@ -19,8 +19,7 @@ $done_records = $done_list['data_page'];  //获取已成交记录
                 <div class="bg-white stocks_min_h  block-radius">
                     <div class="simulate_panel">
                         <div class="tab-content">
-                            <h4 class="blue-color margin_to_top">今日成交</h4>
-
+                            <h4 class="blue-color margin_to_top">交易记录</h4>
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <table class="table">
@@ -30,10 +29,10 @@ $done_records = $done_list['data_page'];  //获取已成交记录
                                             <th>证券代码</th>
                                             <th>证券名称</th>
                                             <th>委托方向</th>
-                                            <th>成交数量</th>
-                                            <th>成交价格</th>
-                                            <th>成交金额</th>
-                                            <th>实际交易费用</th>
+                                            <th>委托数量</th>
+                                            <th>委托价格</th>
+                                            <th>委托金额</th>
+                                            <th>交易费用</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -42,11 +41,18 @@ $done_records = $done_list['data_page'];  //获取已成交记录
                                                 <td><?php echo $stock_item['timestamp']; ?></td>
                                                 <td><?php echo $stock_item['SecurityID']; ?></td>
                                                 <td><?php echo $stock_item['Symbol']; ?></td>
-                                                <td><?php if ($stock_item['trade_type'] == '2') {
-                                                        echo '买入';
+                                                <td><?php if ($stock_item['trade_type'] == '1') {
+                                                        echo '预买';
                                                     } else if ($stock_item['trade_type'] == '4') {
+                                                        echo "买入";
+                                                    }else if ($stock_item['trade_type'] == '4') {
+                                                        echo "预卖";
+                                                    }else if ($stock_item['trade_type'] == '4') {
                                                         echo "卖出";
-                                                    } ?></td>
+                                                    }else if ($stock_item['trade_type'] == '4') {
+                                                        echo "撤销";
+                                                    }
+                                                    ?></td>
                                                 <td><?php echo $stock_item['Volume']; ?></td>
                                                 <td><?php echo $stock_item['Price']; ?></td>
                                                 <td><?php echo $stock_item['Price'] * $stock_item['Volume']; ?></td>
