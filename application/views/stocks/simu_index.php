@@ -5,7 +5,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="zh-cn">
 <?php $this->load->view('./templates/head'); ?>
 <?php
-
+$user_data = $user_info['data_user']; //获取用户资金数据
+$user_stocks = $user_info['data_stock']; //获取用户持仓数据
 ?>
 <body class="bg-gray">
 <div class="wrapper">
@@ -35,8 +36,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             </thead>
                                             <tbody>
                                             <tr>
-                                                <td>1000,000</td>
-                                                <td>1000,000</td>
+                                                <td><?php echo $user_data['cash_all'];?></td>
+                                                <td><?php echo $user_data['cash_use'];?></td>
                                                 <td>10,000</td>
                                                 <td>10</td>
                                                 <td>0</td>
