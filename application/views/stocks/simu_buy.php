@@ -305,8 +305,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 clearInterval(interval);
             }
             else {
-
-
                 var response = data.st_info;
                 var bond_name = response.Symbol; //ajax获取证券名称
                 var bond_cur_price = response.TradePrice; //获取最新价
@@ -362,6 +360,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             var info_str = '确定买入 ' + bond_quantity + ' 手' + bond_name + '?';
             var bond_quantities = parseInt(bond_quantity) * 100; //求买入的股数（买入数量*100）
 
+            if(!validate(bond_code, bond_price, bond_quantity)){
+                return false;
+            }
             if (confirm(info_str)) {
                 $.ajax({
                     url: '<?php echo base_url("index.php/stock/buy_stock/web"); ?>',
