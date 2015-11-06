@@ -6,7 +6,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?php $this->load->view('./templates/head'); ?>
 <?php
 $done_records = $done_list['data_page'];  //获取已成交记录
-print_r($done_records);
 ?>
 <body class="bg-gray">
 <div class="wrapper">
