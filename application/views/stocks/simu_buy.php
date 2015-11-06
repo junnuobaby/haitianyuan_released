@@ -351,7 +351,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             var info_str = '确定买入 ' + bond_quantity + ' 手' + bond_name + '?';
             var bond_quantities = parseInt(bond_quantity) * 100; //求买入的股数（买入数量*100）
 
-            if (confirm(info_str) && validate(bond_code, bond_price, bond_quantity)) {
+            if (confirm(info_str)) {
                 $.ajax({
                     url: '<?php echo base_url("index.php/stock/buy_stock/web"); ?>',
                     method: 'post',
