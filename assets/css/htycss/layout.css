@@ -692,6 +692,7 @@ ul.simulate_tablist li a{
 ul.simulate_tablist li a:hover{
     background-color: #548294;
     color: white;
+    text-shadow: 1px 1px 0.8em #000;
 }
 .active_a_item {
     background-color: #548294;
