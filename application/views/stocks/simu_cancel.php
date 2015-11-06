@@ -4,6 +4,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="zh-cn">
 <?php $this->load->view('./templates/head'); ?>
+<?php
+$records = $pre_list['data_page'];
+?>
 <body class="bg-gray">
 <div class="wrapper">
     <?php $this->load->view('./stocks/bonds_navbar'); ?>
@@ -35,18 +38,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         </tr>
                                         </thead>
                                         <tbody>
+                                        <?php foreach ($records as $stock_item): ?>
                                         <tr>
-                                            <td>2015-10-22 10:41</td>
-                                            <td>000001</td>
-                                            <td>平安银行</td>
-                                            <td>买入</td>
-                                            <td>400</td>
-                                            <td>11.27</td>
-                                            <td>4508.00</td>
+                                            <td><?php echo $stock_item['timestamp']?></td>
+                                            <td><?php echo $stock_item['SecurityID']?></td>
+                                            <td><?php echo $stock_item['Symbol']?></td>
+                                            <td><?php if($stock_item['timestamp'] == '0') echo'买入';else echo '卖出';?></td>
+                                            <td><?php echo $stock_item['Volume'];?></td>
+                                            <td><?php echo $stock_item['Price']?></td>
+                                            <td><?php echo $stock_item['Price']* $stock_item['Volume'];?></td>
                                             <td>5.00</td>
                                             <td>委托中</td>
-                                            <td><a href="#" class="theme-color">撤单</a></td>
+                                            <td><a class="theme-color cancel_btn" data-id="<?php echo $stock_item['pre_id'];?>">撤单</a></td>
                                         </tr>
+                                        <?php endforeach;?>
                                         </tbody>
 
                                     </table>
@@ -67,6 +72,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script>
     $(document).ready(function () {
         $('.main_jumptron').css('margin-bottom', '0px');
+    });
+    $(document).ready(function () {
+        $('a.cancel_btn').click(function () {
+            var record_id = $(this).data('id');
+            $.ajax({
+                url: '<?php echo base_url("index.php/stock/cancel_order/web"); ?>' + '/' + record_id,
+                method: 'get',
+                dataType: 'json',
+                success: function(response){
+                    if(response.status == '0'){
+                        alert('撤销成功');
+                    }
+                    else if(response.status == '1'){
+                        alert(response.msg);
+                    }
+                }
+            });
+
+        });
     });
 </script>
 </html>
