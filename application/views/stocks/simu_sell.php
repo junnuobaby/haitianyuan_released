@@ -284,6 +284,9 @@ $sell_stocks = $sell_list; //获取手中持有的股票
                         if (response.status == '0') {
                             $('div.alert-info').removeClass('hidden');
                         }
+                        else if(response.status == '1'){
+                            alert(response.msg);
+                        }
                     },
                     error: function () {
                         alert('服务器错误');
