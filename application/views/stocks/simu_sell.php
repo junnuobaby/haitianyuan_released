@@ -185,6 +185,7 @@ $sell_stocks = $sell_list; //获取手中持有的股票
 <?php $this->load->view('./templates/footer'); ?>
 </body>
 <script>
+    var intertval;
     $(document).ready(function () {
         $('.main_jumptron').css('margin-bottom', '0px');
     });
@@ -199,7 +200,8 @@ $sell_stocks = $sell_list; //获取手中持有的股票
             $('div.largest_quantity').removeClass('hidden');
             $('#largest_quantity').html(Math.round(parseInt(max_volume) / 100));
             selected_code_info(selected_code);
-            setInterval(function () {
+            clearInterval(intertval);
+            intertval = setInterval(function () {
                 selected_code_info(selected_code)
             }, 8000); //每隔8s自动请求一次
         });
