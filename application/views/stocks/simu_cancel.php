@@ -44,7 +44,11 @@ $records = $pre_list['data_page'];
                                                 <td><?php echo $stock_item['timestamp'] ?></td>
                                                 <td><?php echo $stock_item['SecurityID'] ?></td>
                                                 <td><?php echo $stock_item['Symbol'] ?></td>
-                                                <td></td>
+                                                <td><?php if ($stock_item['trade_type'] == '0') {
+                                                        echo '买入';
+                                                    } else {
+                                                        echo "卖出";
+                                                    } ?></td>
                                                 <td><?php echo $stock_item['Volume']; ?></td>
                                                 <td><?php echo $stock_item['Price'] ?></td>
                                                 <td><?php echo $stock_item['Price'] * $stock_item['Volume']; ?></td>
