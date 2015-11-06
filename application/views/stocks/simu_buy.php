@@ -256,7 +256,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     bond_code.val($('div.hint_list tr.hint_active td:first').html());
                     $('div.hint_list').empty().hide();
                     selected_code_info(bond_code.val());
-                    clearInterval(intertval);
+                    clearInterval(interval);
                     interval = setInterval(selected_code_info(bond_code.val()), 8000); //每隔8s自动请求一次
                     break;
             }
@@ -276,7 +276,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $('div.hint_list').empty().hide();
                 bond_code.focus();
                 selected_code_info(bond_code.val());
-                clearInterval(intertval);
+                clearInterval(interval);
                 interval = setInterval(function () {
                     selected_code_info(bond_code.val())
                 }, 8000); //每隔8s自动请求一次

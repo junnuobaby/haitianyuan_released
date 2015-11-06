@@ -97,16 +97,18 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                             </tr>
                                             </thead>
                                             <tbody>
+                                            <?php foreach ($user_stocks as $stock_item): ?>
                                             <tr>
-                                                <td>000001</td>
-                                                <td>平安银行</td>
-                                                <td>0</td>
-                                                <td>0</td>
-                                                <td>0</td>
-                                                <td>0</td>
-                                                <td>0</td>
-                                                <td>0</td>
+                                                <td><?php echo $stock_item['SecurityID'];?></td>
+                                                <td><?php echo $stock_item['SecurityID'];?></td>
+                                                <td><?php echo $stock_item['Volume_All'];?></td>
+                                                <td><?php echo intval($stock_item['Volume_All']) - intval($stock_item['Ban_Volume']);?></td>
+                                                <td><?php echo $stock_item['BuyCost'];?></td>
+                                                <td id="trade_price"></td>
+                                                <td id="float_pl"></td>
+                                                <td id="extent"></td>
                                             </tr>
+                                            <?php endforeach;?>
                                             </tbody>
                                         </table>
                                     </div>
@@ -128,5 +130,20 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
     $(document).ready(function () {
         $('.main_jumptron').css('margin-bottom', '0px');
     });
+    $(document).ready(function () {
+        var xhr;
+        if (xhr) {
+            xhr.abort();
+        }
+        xhr = $.ajax({
+                url: '<?php echo base_url("index.php/stock/get_dynamic_info/web"); ?>',
+                method: 'get',
+                dataType: 'json',
+                success: function (response) {
+                    $
+                }
+            }
+        );
+    })
 </script>
 </html>
