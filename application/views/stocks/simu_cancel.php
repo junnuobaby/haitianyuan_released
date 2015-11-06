@@ -41,21 +41,23 @@ $records = $pre_list['data_page']; //获取还在委托状态的订单详情
                                         <tbody>
                                         <?php foreach ($records as $stock_item): ?>
                                             <tr>
-                                                <td><?php echo $stock_item['timestamp'] ?></td>
-                                                <td><?php echo $stock_item['SecurityID'] ?></td>
-                                                <td><?php echo $stock_item['Symbol'] ?></td>
+                                                <td><?php echo $stock_item['timestamp'] ?></td>   //时间
+                                                <td><?php echo $stock_item['SecurityID'] ?></td>  //证券代码
+                                                <td><?php echo $stock_item['Symbol'] ?></td>   //证券名称
+                                                //委托方向
                                                 <td><?php if ($stock_item['trade_type'] == '0') {
                                                         echo '买入';
                                                     } else {
                                                         echo "卖出";
                                                     } ?></td>
-                                                <td><?php echo $stock_item['Volume']; ?></td>
-                                                <td><?php echo $stock_item['Price'] ?></td>
-                                                <td><?php echo $stock_item['Price'] * $stock_item['Volume']; ?></td>
+                                                <td><?php echo $stock_item['Volume']; ?></td> //委托数量
+                                                <td><?php echo $stock_item['Price'] ?></td> //委托价格
+                                                <td><?php echo $stock_item['Price'] * $stock_item['Volume']; ?></td> //委托金额
+                                                //预收交易费用（不超过1万统一收5元，超过10000按万三标准收取）
                                                 <td><?php
                                                     $trade_money = $stock_item['Price'] * $stock_item['Volume'];
                                                     if($trade_money >= 1000){
-                                                        echo $trade_money * 0.03;
+                                                        echo $trade_money * 0.0003;
                                                     }else{
                                                         echo '5.00';
                                                     }
