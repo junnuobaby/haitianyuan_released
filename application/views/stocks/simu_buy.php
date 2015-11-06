@@ -341,8 +341,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         $(this).addClass('green-color');
                     }
                 });
-                //将当前价格设置为默认的买入价格
-                $('#buy_price').val(bond_cur_price);
                 var bond_price = $('#buy_price').val(); //买入价格
                 var available_money = "<?php echo $cash_use;?>";
                 var quantity_avail = Math.round(parseFloat(available_money) / (parseFloat(bond_price) * 100)); //计算当前可买入的最大股数
