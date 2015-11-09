@@ -54,7 +54,7 @@ $pages = $done_list['pagination']; //获取分页
                                                 <td><?php
                                                     $trade_money = $stock_item['Price'] * $stock_item['Volume'];
                                                     if ($trade_money >= 10000) {
-                                                        echo $trade_money * 0.0003;
+                                                        echo round($trade_money * 0.0003, 2);
                                                     } else {
                                                         echo '5.00';
                                                     }
