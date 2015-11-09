@@ -41,15 +41,15 @@ $done_records = $his_list['data_page'];  //获取已成交记录
                                                 <td><?php echo $stock_item['timestamp']; ?></td>
                                                 <td><?php echo $stock_item['SecurityID']; ?></td>
                                                 <td><?php echo $stock_item['Symbol']; ?></td>
-                                                <td><?php if ($stock_item['trade_type'] == '1') {
+                                                <td><?php if ($stock_item['trade_type'] == '0') {
                                                         echo '预买';
-                                                    } else if ($stock_item['trade_type'] == '2') {
+                                                    } else if ($stock_item['trade_type'] == '1') {
                                                         echo "买入";
-                                                    }else if ($stock_item['trade_type'] == '3') {
+                                                    }else if ($stock_item['trade_type'] == '2') {
                                                         echo "预卖";
-                                                    }else if ($stock_item['trade_type'] == '4') {
+                                                    }else if ($stock_item['trade_type'] == '3') {
                                                         echo "卖出";
-                                                    }else if ($stock_item['trade_type'] == '5') {
+                                                    }else if ($stock_item['trade_type'] == '4') {
                                                         echo "撤销";
                                                     }
                                                     ?></td>
