@@ -33,7 +33,7 @@ $records = $pre_list['data_page']; //获取还在委托状态的订单详情
                                             <th>委托数量</th>
                                             <th>委托价格</th>
                                             <th>委托金额</th>
-                                            <th>预收交易费用</th>
+                                            <th>预收费用</th>
                                             <th>状态</th>
                                             <th>动作</th>
                                         </tr>
@@ -105,7 +105,6 @@ $records = $pre_list['data_page']; //获取还在委托状态的订单详情
                     dataType: 'json',
                     success: function (response) {
                         if (response.status == '0') {
-                            alert('撤销成功');
                             record_tr.fadeOut('slow');
                         }
                         else if (response.status == '1') {
