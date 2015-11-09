@@ -7,7 +7,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?php
 $done_records = $done_list['data_page'];  //获取已成交记录
 $pages = $done_list['pagination']; //获取分页
-
 ?>
 <body class="bg-gray">
 <div class="wrapper">

@@ -6,6 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?php $this->load->view('./templates/head'); ?>
 <?php
 $records = $pre_list['data_page']; //获取还在委托状态的订单详情
+$pages = $pre_list['pagination']; //获取分页
 ?>
 <body class="bg-gray">
 <div class="wrapper">
@@ -74,10 +75,10 @@ $records = $pre_list['data_page']; //获取还在委托状态的订单详情
                                             </tr>
                                         <?php endforeach; ?>
                                         </tbody>
-
                                     </table>
                                 </div>
                             </div>
+                            <div class="txt_center"><p class="pages"><?php echo $pages; ?></p></div>
                         </div>
                     </div>
                 </div>

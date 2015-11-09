@@ -156,7 +156,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <li>股票价格到了跌停板后不再成交，直到停板被打开。</li>
                                 <li>不能买入已经涨停的股票，不能卖出已经跌停的股票。</li>
                             </ol>
-
                         </div>
                     </div>
                 </div>
