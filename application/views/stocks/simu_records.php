@@ -37,7 +37,18 @@ $pages = $his_list['pagination']; //获取分页
                                         </thead>
                                         <tbody>
                                         <?php foreach ($done_records as $stock_item): ?>
-                                            <tr>
+                                            <tr class="<?php if ($stock_item['trade_type'] == '0') {
+                                                echo 'warning';
+                                            } else if ($stock_item['trade_type'] == '1') {
+                                                echo "danger";
+                                            }else if ($stock_item['trade_type'] == '2') {
+                                                echo "info";
+                                            }else if ($stock_item['trade_type'] == '3') {
+                                                echo "success";
+                                            }else if ($stock_item['trade_type'] == '4') {
+                                                echo "active";
+                                            }
+                                            ?>">
                                                 <td><?php echo $stock_item['timestamp']; ?></td>
                                                 <td><?php echo $stock_item['SecurityID']; ?></td>
                                                 <td><?php echo $stock_item['Symbol']; ?></td>
