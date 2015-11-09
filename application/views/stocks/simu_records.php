@@ -21,7 +21,7 @@ $pages = $his_list['pagination']; //获取分页
                     <div class="simulate_panel">
                         <div class="tab-content">
                             <h4 class="blue-color margin_to_top">交易记录</h4>
-                            <div class="panel panel-default" style="border: none">
+                            <div class="panel panel-default" >
                                 <div class="panel-body">
                                     <table class="table table-striped table-bordered">
                                         <thead>
@@ -33,7 +33,6 @@ $pages = $his_list['pagination']; //获取分页
                                             <th>委托数量</th>
                                             <th>委托价格</th>
                                             <th>委托金额</th>
-                                            <th>交易费用</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -57,14 +56,6 @@ $pages = $his_list['pagination']; //获取分页
                                                 <td><?php echo $stock_item['Volume']; ?></td>
                                                 <td><?php echo $stock_item['Price']; ?></td>
                                                 <td><?php echo $stock_item['Price'] * $stock_item['Volume']; ?></td>
-                                                <td><?php
-                                                    $trade_money = $stock_item['Price'] * $stock_item['Volume'];
-                                                    if ($trade_money >= 10000) {
-                                                        echo $trade_money * 0.0003;
-                                                    } else {
-                                                        echo '5.00';
-                                                    }
-                                                    ?></td>
                                             </tr>
                                         <?php endforeach; ?>
                                         </tbody>
