@@ -23,7 +23,7 @@ $pages = $his_list['pagination']; //获取分页
                             <h4 class="blue-color margin_to_top">交易记录</h4>
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                    <table class="table table-striped">
+                                    <table class="table table-striped table-bordered">
                                         <thead>
                                         <tr>
                                             <th>时间</th>
@@ -69,9 +69,9 @@ $pages = $his_list['pagination']; //获取分页
                                         <?php endforeach; ?>
                                         </tbody>
                                     </table>
-                                    <div class="txt_center"><p class="pages"><?php echo $pages; ?></p></div>
                                 </div>
                             </div>
+                            <div class="txt_center"><p class="pages"><?php echo $pages; ?></p></div>
                         </div>
                     </div>
                 </div>
