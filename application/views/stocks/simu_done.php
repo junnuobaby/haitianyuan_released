@@ -23,7 +23,7 @@ $done_records = $done_list['data_page'];  //获取已成交记录
 
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                    <table class="table">
+                                    <table class="table table-responsive table-hover">
                                         <thead>
                                         <tr>
                                             <th>时间</th>

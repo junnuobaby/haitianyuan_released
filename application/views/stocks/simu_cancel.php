@@ -23,7 +23,7 @@ $records = $pre_list['data_page']; //获取还在委托状态的订单详情
 
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                    <table class="table">
+                                    <table class="table  table-responsive table-hover">
                                         <thead>
                                         <tr>
                                             <th>时间</th>
