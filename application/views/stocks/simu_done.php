@@ -6,6 +6,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?php $this->load->view('./templates/head'); ?>
 <?php
 $done_records = $done_list['data_page'];  //获取已成交记录
+$pages = $done_list['pagination']; //获取分页
+
 ?>
 <body class="bg-gray">
 <div class="wrapper">
@@ -20,7 +22,6 @@ $done_records = $done_list['data_page'];  //获取已成交记录
                     <div class="simulate_panel">
                         <div class="tab-content">
                             <h4 class="blue-color margin_to_top">今日成交</h4>
-
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <table class="table table-responsive table-hover">
@@ -61,10 +62,10 @@ $done_records = $done_list['data_page'];  //获取已成交记录
                                             </tr>
                                         <?php endforeach; ?>
                                         </tbody>
-
                                     </table>
                                 </div>
                             </div>
+                            <div class="txt_center"><p class="pages"><?php echo $pages; ?></p></div>
                         </div>
                     </div>
                 </div>

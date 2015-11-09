@@ -732,4 +732,6 @@ ul.simulate_tablist li a:hover{
 }
 .warning_bg_color{
     background-color: #FCF8E3;}
-
+.border_none{
+    border: none;
+}

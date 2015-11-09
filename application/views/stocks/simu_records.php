@@ -21,7 +21,7 @@ $pages = $his_list['pagination']; //获取分页
                     <div class="simulate_panel">
                         <div class="tab-content">
                             <h4 class="blue-color margin_to_top">交易记录</h4>
-                            <div class="panel panel-default" >
+                            <div class="panel panel-default border_none" >
                                 <div class="panel-body">
                                     <table class="table table-striped table-bordered table-hover">
                                         <thead>
