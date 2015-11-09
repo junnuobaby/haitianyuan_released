@@ -73,7 +73,7 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                             <td>未有排名</td>
                                         </tr>
                                         <tr>
-                                            <td>平均周收益率</td>
+                                            <td>平均日收益率</td>
                                             <td>0.00%</td>
                                             <td>未有排名</td>
                                         </tr>
