@@ -396,7 +396,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     alert('请填写6位数字的证券代码');
                     return false;
                 }
-                if (($.trim(code).length < 1) || parseFloat(price) <= 0) {
+                if (($.trim(price).length < 1) || parseFloat(price) <= 0) {
                     alert('请输入合法的买入价格');
                     return false;
                 }

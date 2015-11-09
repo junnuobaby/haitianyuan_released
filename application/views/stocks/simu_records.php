@@ -30,7 +30,7 @@ $pages = $his_list['pagination']; //获取分页
                                             <th>时间</th>
                                             <th>证券代码</th>
                                             <th>证券名称</th>
-                                            <th><a href="#" data-toggle="tooltip" title="Some tooltip text!">委托方向</a></th>
+                                            <th><a href="#" data-toggle="tooltip" title="预买（卖）代表还处于委托中的买入（卖出）订单；买入（卖出）代表已成交的订单">委托方向</a></th>
                                             <th>委托数量</th>
                                             <th>委托价格</th>
                                             <th>委托金额</th>
