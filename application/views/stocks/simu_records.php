@@ -23,7 +23,7 @@ $pages = $his_list['pagination']; //获取分页
                             <h4 class="blue-color margin_to_top">交易记录</h4>
                             <div class="panel panel-default border_none" >
                                 <div class="panel-body">
-                                    <table class="table table-striped table-bordered table-hover">
+                                    <table class="table table-striped table-bordered table-hover table-condensed">
                                         <thead>
                                         <tr>
                                             <th>时间</th>
