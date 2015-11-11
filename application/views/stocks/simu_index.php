@@ -102,7 +102,7 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                                 <td><?php echo $stock_item['SecurityID'];?></td>
                                                 <td><?php echo $stock_item['Symbol'];?></td>
                                                 <td><?php echo $stock_item['Volume_All'];?></td>
-                                                <td><?php echo intval($stock_item['Volume_All']) - intval($stock_item['Ban_Volume']);?></td>
+                                                <td><?php echo intval($stock_item['Volume_All']) - intval($stock_item['Ban_Volume']) - intval($stock_item['Order_Volume']);?></td>
                                                 <td><?php echo number_format(floatval($stock_item['BuyCost']), 2);?></td>
                                                 <td></td>
                                                 <td></td>
