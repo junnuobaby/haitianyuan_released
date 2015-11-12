@@ -32,7 +32,7 @@ $pages = $his_list['pagination']; //获取分页
                                             <th>证券名称</th>
                                             <th><a href="#" data-toggle="tooltip" title="预买（卖）代表还处于委托中的买入
                                             （卖出）订,买入（卖出）代表已成交的订单.">
-                                                    委托方向</a></th>
+                                                    委托</a></th>
                                             <th>委托数量</th>
                                             <th>委托价格</th>
                                             <th>委托金额</th>
@@ -42,13 +42,17 @@ $pages = $his_list['pagination']; //获取分页
                                         <?php foreach ($done_records as $stock_item): ?>
                                             <tr class="<?php if ($stock_item['trade_type'] == '0') {
                                                 echo 'warning';
-                                            } else if ($stock_item['trade_type'] == '1') {
-                                                echo "danger";
-                                            } else if ($stock_item['trade_type'] == '2') {
+                                            }
+//                                            else if ($stock_item['trade_type'] == '1') {
+//                                                echo "danger";
+//                                            }
+                                            else if ($stock_item['trade_type'] == '2') {
                                                 echo "info";
-                                            } else if ($stock_item['trade_type'] == '3') {
-                                                echo "success";
-                                            } else if ($stock_item['trade_type'] == '4') {
+                                            }
+//                                            else if ($stock_item['trade_type'] == '3') {
+//                                                echo "success";
+//                                            }
+                                            else if ($stock_item['trade_type'] == '4') {
                                                 echo "active";
                                             }
                                             ?>">
@@ -57,13 +61,17 @@ $pages = $his_list['pagination']; //获取分页
                                                 <td><?php echo $stock_item['Symbol']; ?></td>
                                                 <td><?php if ($stock_item['trade_type'] == '0') {
                                                         echo '预买';
-                                                    } else if ($stock_item['trade_type'] == '1') {
-                                                        echo "买入";
-                                                    } else if ($stock_item['trade_type'] == '2') {
+                                                    }
+//                                                    else if ($stock_item['trade_type'] == '1') {
+//                                                        echo "买入";
+//                                                    }
+                                                    else if ($stock_item['trade_type'] == '2') {
                                                         echo "预卖";
-                                                    } else if ($stock_item['trade_type'] == '3') {
-                                                        echo "卖出";
-                                                    } else if ($stock_item['trade_type'] == '4') {
+                                                    }
+//                                                    else if ($stock_item['trade_type'] == '3') {
+//                                                        echo "卖出";
+//                                                    }
+                                                    else if ($stock_item['trade_type'] == '4') {
                                                         echo "撤销";
                                                     }
                                                     ?></td>
