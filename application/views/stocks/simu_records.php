@@ -41,11 +41,11 @@ $pages = $his_list['pagination']; //获取分页
                                         <tbody>
                                         <?php foreach ($done_records as $stock_item): ?>
                                             <tr class="<?php if ($stock_item['trade_type'] == '0') {
-                                                echo 'warning';
+                                                echo 'danger';
                                             } else if ($stock_item['trade_type'] == '2') {
                                                 echo "info";
                                             } else if ($stock_item['trade_type'] == '4') {
-                                                echo "active";
+                                                echo "warning";
                                             }
                                             ?>">
                                                 <td><?php echo $stock_item['timestamp']; ?></td>
