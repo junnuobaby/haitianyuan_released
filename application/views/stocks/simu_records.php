@@ -42,17 +42,13 @@ $pages = $his_list['pagination']; //获取分页
                                         <?php foreach ($done_records as $stock_item): ?>
                                             <tr class="<?php if ($stock_item['trade_type'] == '0') {
                                                 echo 'warning';
-                                            }
-//                                            else if ($stock_item['trade_type'] == '1') {
-//                                                echo "danger";
-//                                            }
-                                            else if ($stock_item['trade_type'] == '2') {
+                                            } else if ($stock_item['trade_type'] == '1') {
+                                                echo "danger";
+                                            } else if ($stock_item['trade_type'] == '2') {
                                                 echo "info";
-                                            }
-//                                            else if ($stock_item['trade_type'] == '3') {
-//                                                echo "success";
-//                                            }
-                                            else if ($stock_item['trade_type'] == '4') {
+                                            } else if ($stock_item['trade_type'] == '3') {
+                                                echo "success";
+                                            } else if ($stock_item['trade_type'] == '4') {
                                                 echo "active";
                                             }
                                             ?>">
@@ -62,15 +58,15 @@ $pages = $his_list['pagination']; //获取分页
                                                 <td><?php if ($stock_item['trade_type'] == '0') {
                                                         echo '预买';
                                                     }
-//                                                    else if ($stock_item['trade_type'] == '1') {
-//                                                        echo "买入";
-//                                                    }
+                                                    else if ($stock_item['trade_type'] == '1') {
+                                                        echo "买入";
+                                                    }
                                                     else if ($stock_item['trade_type'] == '2') {
                                                         echo "预卖";
                                                     }
-//                                                    else if ($stock_item['trade_type'] == '3') {
-//                                                        echo "卖出";
-//                                                    }
+                                                    else if ($stock_item['trade_type'] == '3') {
+                                                        echo "卖出";
+                                                    }
                                                     else if ($stock_item['trade_type'] == '4') {
                                                         echo "撤销";
                                                     }
