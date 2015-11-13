@@ -157,6 +157,18 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                             var id_extent = (parseFloat(stock_info[key]['id_extent'])*100).toFixed(2);  //获取涨跌幅，保留小数点后两位
                             if(parseFloat(stock_info[key]['float_pl']) < 0){
                                 $(tr_id).children('td:eq(6)').css('color','green');
+                            }else if(parseFloat(stock_info[key]['float_pl']) >= 0){
+                                $(tr_id).children('td:eq(6)').css('color','red');
+                            }
+                            if(parseFloat(stock_info[key]['float_pl_rate']) < 0){
+                                $(tr_id).children('td:eq(7)').css('color','green');
+                            }else if(parseFloat(stock_info[key]['float_pl_rate']) >= 0){
+                                $(tr_id).children('td:eq(7)').css('color','red');
+                            }
+                            if(id_extent < 0){
+                                $(tr_id).children('td:eq(8)').css('color','green');
+                            }else if(id_extent >= 0){
+                                $(tr_id).children('td:eq(8)').css('color','red');
                             }
                             $(tr_id).children('td:eq(5)').html(trade_price);  //设置当前价
                             $(tr_id).children('td:eq(6)').html(stock_info[key]['float_pl']);   //设置浮动盈亏
