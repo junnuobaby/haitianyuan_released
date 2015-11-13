@@ -93,6 +93,7 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                                 <th>买入成本</th>
                                                 <th>当前价</th>
                                                 <th>浮动盈亏</th>
+                                                <th>盈亏比</th>
                                                 <th>涨跌幅</th>
                                             </tr>
                                             </thead>
@@ -104,6 +105,7 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                                 <td><?php echo $stock_item['Volume_All'];?></td>
                                                 <td><?php echo intval($stock_item['Volume_All']) - intval($stock_item['Ban_Volume']) - intval($stock_item['Order_Volume']);?></td>
                                                 <td><?php echo number_format(floatval($stock_item['BuyCost']), 2);?></td>
+                                                <td></td>
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>
@@ -153,9 +155,11 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                             var tr_id = '#' + key;
                             var trade_price = parseFloat(stock_info[key]['TradePrice']).toFixed(2);  //获取当前价，保留小数点后两位
                             var id_extent = (parseFloat(stock_info[key]['id_extent'])*100).toFixed(2);  //获取涨跌幅，保留小数点后两位
+                            var volume_all = parseFloat(stock_info[key]['Volume_All']);
                             $(tr_id).children('td:eq(5)').html(trade_price);  //设置当前价
                             $(tr_id).children('td:eq(6)').html(stock_info[key]['float_pl']);   //设置浮动盈亏
-                            $(tr_id).children('td:eq(7)').html(id_extent + '%');  //设置涨跌幅
+                            $(tr_id).children('td:eq(7)').html((stock_info[key]['float_pl'] * 100) / volume_all );   //设置浮动盈亏
+                            $(tr_id).children('td:eq(8)').html(id_extent + '%');  //设置涨跌幅
                         }
                     }
                 });
