@@ -149,7 +149,7 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                     method: 'get',
                     dataType: 'json',
                     success: function (response) {
-                        $('#stock_value').html(response.stock_value);
+                        $('#stock_value').html(response.stock_value).css('color','red');
                         var stock_info = response.stock_info;
                         for(key in stock_info){
                             var tr_id = '#' + key;
