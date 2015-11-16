@@ -30,9 +30,7 @@ $pages = $his_list['pagination']; //获取分页
                                             <th>时间</th>
                                             <th>证券代码</th>
                                             <th>证券名称</th>
-                                            <th><a href="#" data-toggle="tooltip" title="预买（卖）代表还处于委托中的买入
-                                            （卖出）订,买入（卖出）代表已成交的订单.">
-                                                    委托</a></th>
+                                            <th>委托</th>
                                             <th>委托数量</th>
                                             <th>委托价格</th>
                                             <th>委托金额</th>
@@ -61,9 +59,9 @@ $pages = $his_list['pagination']; //获取分页
                                                         echo "撤销";
                                                     }
                                                     ?></td>
-                                                <td><?php echo $stock_item['Volume']; ?></td>
-                                                <td><?php echo $stock_item['Price']; ?></td>
-                                                <td><?php echo $stock_item['Price'] * $stock_item['Volume']; ?></td>
+                                                <td class="formatted"><?php echo $stock_item['Volume']; ?></td>
+                                                <td class="formatted decimal"><?php echo $stock_item['Price']; ?></td>
+                                                <td class="formatted"><?php echo $stock_item['Price'] * $stock_item['Volume']; ?></td>
                                             </tr>
                                         <?php endforeach; ?>
                                         </tbody>
@@ -86,7 +84,14 @@ $pages = $his_list['pagination']; //获取分页
 <script>
     $(document).ready(function () {
         $('.main_jumptron').css('margin-bottom', '0px');
-        $('[data-toggle="tooltip"]').tooltip();
+        $('.formatted').each(function(){
+            var value = format_num($(this).html());
+            $(this).html(value);
+        });
+        $('.decimal').each(function () {
+            var value = decimal($(this).html());
+            $(this).html(value);
+        });
     });
 </script>
 </html>
