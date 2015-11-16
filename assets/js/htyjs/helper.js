@@ -3,4 +3,8 @@
  * 辅助函数
  */
 
-
+//给数字加三位一逗号间隔
+function split_number(str){
+    var new_str=str.split('').reverse().join('').replace(/(\d{3})/g,'$1,').replace(/\,$/,'').split('').reverse().join('');
+    //alert(new_str);
+}
