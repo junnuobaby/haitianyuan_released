@@ -59,6 +59,7 @@
                             name: 'TA的收益率',
                             type: 'line',
                             data: user_rate,
+                            smooth:true,
                             markPoint: {
                                 data: [
                                     {type: 'max', name: '最大值'},
