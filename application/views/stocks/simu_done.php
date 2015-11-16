@@ -47,10 +47,10 @@ $pages = $done_list['pagination']; //获取分页
                                                     } else if ($stock_item['trade_type'] == '3') {
                                                         echo "卖出";
                                                     } ?></td>
-                                                <td><?php echo $stock_item['Volume']; ?></td>
-                                                <td><?php echo $stock_item['Price']; ?></td>
-                                                <td><?php echo $stock_item['Price'] * $stock_item['Volume']; ?></td>
-                                                <td><?php
+                                                <td class="formatted"><?php echo $stock_item['Volume']; ?></td>
+                                                <td class="formatted"><?php echo $stock_item['Price']; ?></td>
+                                                <td class="formatted"><?php echo $stock_item['Price'] * $stock_item['Volume']; ?></td>
+                                                <td class="formatted"><?php
                                                     $trade_money = $stock_item['Price'] * $stock_item['Volume'];
                                                     if ($trade_money >= 10000) {
                                                         echo round($trade_money * 0.0003, 2);
@@ -80,6 +80,10 @@ $pages = $done_list['pagination']; //获取分页
 <script>
     $(document).ready(function () {
         $('.main_jumptron').css('margin-bottom', '0px');
+        $('.formatted').each(function(){
+            var value = format_num($(this).html());
+            $(this).html(value);
+        });
     });
 </script>
 </html>
