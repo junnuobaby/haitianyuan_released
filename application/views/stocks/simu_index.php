@@ -149,7 +149,6 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
         //将数据显示格式化
         $('.formatted').each(function(){
             var value = format_num($(this).html());
-            alert(value);
             $(this).html(value);
         });
 

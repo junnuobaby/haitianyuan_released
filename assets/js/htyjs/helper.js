@@ -18,12 +18,12 @@ function format_float(s){
 
 //给数字三位一间隔
 function format_num(s){
-    alert(s.toString().indexOf('.') == -1);
     if(s.toString().indexOf('.') == -1){
-        alert();
+        alert(format_int(s));
         format_int(s);
     }
     else{
+        alert(format_float(s));
         format_float(s);
     }
 }
