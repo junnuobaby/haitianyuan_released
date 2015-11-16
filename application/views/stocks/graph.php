@@ -12,9 +12,9 @@
         require(
             [
                 'echarts',
+                'echarts/theme/shine',
                 'echarts/chart/line', // 加载折线图
-                'echarts/chart/bar',  // 加载柱状图
-                'echarts/theme/shine'
+                'echarts/chart/bar'   // 加载柱状图
             ],
             function (ec) {
                 // 基于准备好的dom，初始化echarts图表
