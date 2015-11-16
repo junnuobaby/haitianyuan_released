@@ -49,7 +49,7 @@ $perform_avg = $performance['data_avg'];  //平均历史收益率数据
         var time_list = new Array();
         <?php $count = 0;?>
         <?php foreach($perform_info as $item):?>
-        <?php $day_rate = round($item['day_rate'], 2);?>
+        <?php $day_rate = round(floatval($item['day_rate']), 2);?>
         user_rate[<?php echo $count;?>] = "<?php echo $day_rate;?>";
         time_list[<?php echo $count;?>] = "<?php echo $item['timestamp'];?>";
         <?php $count += 1;?>
@@ -57,7 +57,7 @@ $perform_avg = $performance['data_avg'];  //平均历史收益率数据
 
         <?php $count = 0;?>
         <?php foreach($perform_avg as $item):?>
-        <?php $avg_rate = round($item['day_rate'], 2);?>
+        <?php $avg_rate = round(floatval($item['day_rate']), 2);?>
         avg_rate[<?php echo $count;?>] = "<?php echo $avg_rate;?>";
         <?php $count += 1;?>
         <?php endforeach;?>
