@@ -35,7 +35,6 @@ $pages = $pre_list['pagination']; //获取分页
                                             <th>委托价格</th>
                                             <th>委托金额</th>
                                             <th>预收费用</th>
-                                            <th>状态</th>
                                             <th>动作</th>
                                         </tr>
                                         </thead>
@@ -64,12 +63,11 @@ $pages = $pre_list['pagination']; //获取分页
                                                 <td class="formatted"><?php
                                                     $trade_money = $stock_item['Price'] * $stock_item['Volume'];
                                                     if ($trade_money >= 10000) {
-                                                        echo $trade_money * 0.0003;
+                                                        echo  number_format(floatval($trade_money * 0.0003), 2);
                                                     } else {
                                                         echo '5.00';
                                                     }
                                                     ?></td>
-                                                <td>委托中</td>
                                                 <td><a href="#" class="theme-color cancel_btn"
                                                        data-id="<?php echo $stock_item['pre_id']; ?>">撤单</a></td>
                                             </tr>
@@ -94,6 +92,10 @@ $pages = $pre_list['pagination']; //获取分页
 <script>
     $(document).ready(function () {
         $('.main_jumptron').css('margin-bottom', '0');
+        $('.formatted').each(function(){
+            var value = format_num($(this).html());
+            $(this).html(value);
+        });
     });
     $(document).ready(function () {
         $('a.cancel_btn').click(function () {
