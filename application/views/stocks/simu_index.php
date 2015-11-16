@@ -43,8 +43,8 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                                 <td class="formatted"><?php echo $user_data['cash_use']; ?></td>
                                                 <td><?php echo number_format(floatval($user_data['position']) * 100, 2); ?></td>
                                                 <td class="formatted"><?php echo $user_data['cash_freeze']; ?></td>
-                                                <td class="formatted" id="stock_value"></td>
-                                                <td class="formatted" id="pl_value"></td>
+                                                <td id="stock_value"></td>
+                                                <td  id="pl_value"></td>
                                                 <td id="pl_rate"></td>
                                             </tr>
                                             </tbody>
