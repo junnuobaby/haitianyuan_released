@@ -7,6 +7,7 @@
     <file url="file://$PROJECT_DIR$/application/views/master/published_opinion.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/assets/css/htycss/global.css" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/assets/css/htycss/layout.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/assets/js/echarts" charset="GBK" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
