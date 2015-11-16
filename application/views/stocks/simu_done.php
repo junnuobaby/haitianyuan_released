@@ -48,7 +48,7 @@ $pages = $done_list['pagination']; //获取分页
                                                         echo "卖出";
                                                     } ?></td>
                                                 <td class="formatted"><?php echo $stock_item['Volume']; ?></td>
-                                                <td class="formatted"><?php echo $stock_item['Price']; ?></td>
+                                                <td class="formatted decimal"><?php echo $stock_item['Price']; ?></td>
                                                 <td class="formatted"><?php echo $stock_item['Price'] * $stock_item['Volume']; ?></td>
                                                 <td class="formatted"><?php
                                                     $trade_money = $stock_item['Price'] * $stock_item['Volume'];
@@ -82,6 +82,10 @@ $pages = $done_list['pagination']; //获取分页
         $('.main_jumptron').css('margin-bottom', '0px');
         $('.formatted').each(function(){
             var value = format_num($(this).html());
+            $(this).html(value);
+        });
+        $('.decimal').each(function () {
+            var value = decimal($(this).html());
             $(this).html(value);
         });
     });
