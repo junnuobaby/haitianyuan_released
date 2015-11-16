@@ -27,3 +27,9 @@ function format_num(s){
     }
     return result;
 }
+
+//给带小数点的数格式化为小数点后保留两位
+function decimal(s){
+    var result = parseFloat(s).toFixed(2);
+    return result;
+}

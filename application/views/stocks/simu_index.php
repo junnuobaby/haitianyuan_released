@@ -43,8 +43,8 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                                 <td class="formatted"><?php echo $user_data['cash_use']; ?></td>
                                                 <td><?php echo number_format(floatval($user_data['position']) * 100, 2); ?></td>
                                                 <td class="formatted"><?php echo $user_data['cash_freeze']; ?></td>
-                                                <td class="formatted" id="stock_value"></td>
-                                                <td class="formatted" id="pl_value"></td>
+                                                <td id="stock_value"></td>
+                                                <td id="pl_value"></td>
                                                 <td id="pl_rate"></td>
                                             </tr>
                                             </tbody>
@@ -120,7 +120,7 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                                     <td class="formatted"><?php echo intval($stock_item['Volume_All']) - intval($stock_item['Ban_Volume']) - intval($stock_item['Order_Volume']); ?></td>
                                                     <td><?php echo number_format(floatval($stock_item['BuyCost']), 2); ?></td>
                                                     <td></td>
-                                                    <td class="formatted"></td>
+                                                    <td></td>
                                                     <td></td>
                                                     <td></td>
                                                 </tr>
@@ -193,8 +193,8 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                             $(tr_id).children('td:eq(7)').html('--');   //设置盈亏比
                             $(tr_id).children('td:eq(8)').html('--');  //设置涨跌幅
                         } else {
-                            var trade_price = parseFloat(stock_info[key]['TradePrice']).toFixed(2);  //获取当前价，保留小数点后两位
-                            var id_extent = (parseFloat(stock_info[key]['id_extent']) * 100).toFixed(2);  //获取涨跌幅，保留小数点后两位
+                            var trade_price = decimal(stock_info[key]['TradePrice']);  //获取当前价，保留小数点后两位
+                            var id_extent = decimal(parseFloat(stock_info[key]['id_extent']) * 100);  //获取涨跌幅，保留小数点后两位
                             if (parseFloat(stock_info[key]['float_pl']) < 0) {
                                 $(tr_id).children('td:eq(6)').css('color', 'green');
                             } else if (parseFloat(stock_info[key]['float_pl']) >= 0) {
@@ -212,7 +212,7 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                             }
                             $(tr_id).children('td:eq(5)').html(trade_price);  //设置当前价
                             $(tr_id).children('td:eq(6)').html(format_num(stock_info[key]['float_pl']));   //设置浮动盈亏
-                            $(tr_id).children('td:eq(7)').html(parseFloat(stock_info[key]['float_pl_rate']).toFixed(2) + '%');   //设置盈亏比
+                            $(tr_id).children('td:eq(7)').html(format_num(stock_info[key]['float_pl_rate']) + '%');   //设置盈亏比
                             $(tr_id).children('td:eq(8)').html(id_extent + '%');  //设置涨跌幅
                         }
                     }
