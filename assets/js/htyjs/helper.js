@@ -3,9 +3,15 @@
  * 辅助函数
  */
 
-//给数字加三位一逗号间隔
-function formatter_number(s){
+//给整数加三位一逗号间隔
+function format_int(s){
     var str = s.toString();
+    var new_str=str.replace(/\B(?=(?:\d{3})+\b)/g, ',');
+    return new_str;
+}
+//给浮点数加三位一逗号间隔，浮点数保留两位小数点
+function format_float(s){
+    var str = parseFloat(s).toFixed(2).toString();
     var new_str=str.replace(/\B(?=(?:\d{3})+\b)/g, ',');
     return new_str;
 }
