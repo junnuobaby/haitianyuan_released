@@ -42,30 +42,30 @@ $pages = $pre_list['pagination']; //获取分页
                                         <tbody>
                                         <?php foreach ($records as $stock_item): ?>
                                             <tr class="done_record">
-<!--                                                时间-->
-                                                <td><?php echo $stock_item['timestamp'];?></td>
-<!--                                                证券代码-->
-                                                <td><?php echo $stock_item['SecurityID'];?></td>
-<!--                                                证券名称-->
-                                                <td><?php echo $stock_item['Symbol'];?></td>
-<!--                                                委托方向-->
+                                                <!--                                                时间-->
+                                                <td><?php echo $stock_item['timestamp']; ?></td>
+                                                <!--                                                证券代码-->
+                                                <td><?php echo $stock_item['SecurityID']; ?></td>
+                                                <!--                                                证券名称-->
+                                                <td><?php echo $stock_item['Symbol']; ?></td>
+                                                <!--                                                委托方向-->
                                                 <td><?php if ($stock_item['trade_type'] == '0') {
                                                         echo '买入';
                                                     } else {
                                                         echo "卖出";
                                                     } ?></td>
-<!--                                                委托数量-->
-                                                <td><?php echo $stock_item['Volume']; ?></td>
-<!--                                                委托价格-->
-                                                <td><?php echo $stock_item['Price'];?></td>
-<!--                                                委托金额-->
-                                                <td><?php echo $stock_item['Price'] * $stock_item['Volume']; ?></td>
-<!--                                                预收交易费用（不超过1万统一收5元，超过10000按万三标准收取）-->
-                                                <td><?php
+                                                <!--                                                委托数量-->
+                                                <td class="formatted"><?php echo $stock_item['Volume']; ?></td>
+                                                <!--                                                委托价格-->
+                                                <td class="formatted"><?php echo $stock_item['Price']; ?></td>
+                                                <!--                                                委托金额-->
+                                                <td class="formatted"><?php echo $stock_item['Price'] * $stock_item['Volume']; ?></td>
+                                                <!--                                                预收交易费用（不超过1万统一收5元，超过10000按万三标准收取）-->
+                                                <td class="formatted"><?php
                                                     $trade_money = $stock_item['Price'] * $stock_item['Volume'];
-                                                    if($trade_money >= 10000){
+                                                    if ($trade_money >= 10000) {
                                                         echo $trade_money * 0.0003;
-                                                    }else{
+                                                    } else {
                                                         echo '5.00';
                                                     }
                                                     ?></td>
@@ -99,7 +99,7 @@ $pages = $pre_list['pagination']; //获取分页
         $('a.cancel_btn').click(function () {
             var record_id = $(this).data('id');
             var record_tr = $(this).parents('tr.done_record');
-            if(confirm('确定撤销该订单？')){
+            if (confirm('确定撤销该订单？')) {
                 $.ajax({
                     url: '<?php echo base_url("index.php/stock/cancel_order/web"); ?>' + '/' + record_id,
                     method: 'get',

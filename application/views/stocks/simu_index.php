@@ -193,8 +193,8 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                             $(tr_id).children('td:eq(7)').html('--');   //设置盈亏比
                             $(tr_id).children('td:eq(8)').html('--');  //设置涨跌幅
                         } else {
-                            var trade_price = decimal(stock_info[key]['TradePrice']);  //获取当前价，保留小数点后两位
-                            var id_extent = decimal(parseFloat(stock_info[key]['id_extent']) * 100);  //获取涨跌幅，保留小数点后两位
+                            var trade_price = format_num(stock_info[key]['TradePrice']);  //获取当前价，保留小数点后两位
+                            var id_extent = format_num(parseFloat(stock_info[key]['id_extent']) * 100);  //获取涨跌幅，保留小数点后两位
                             if (parseFloat(stock_info[key]['float_pl']) < 0) {
                                 $(tr_id).children('td:eq(6)').css('color', 'green');
                             } else if (parseFloat(stock_info[key]['float_pl']) >= 0) {
