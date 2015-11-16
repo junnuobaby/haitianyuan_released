@@ -169,7 +169,7 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                 method: 'get',
                 dataType: 'json',
                 success: function (response) {
-                    $('#stock_value').html(response.stock_value).css('color', 'red');  //获取并设置股票市值
+                    $('#stock_value').html(format_num(response.stock_value)).css('color', 'red');  //获取并设置股票市值
                     var pl_value = $('#pl_value');
                     var pl_rate = $('#pl_rate');
                     if (parseFloat(response.pl_value) > 0) {
@@ -182,7 +182,7 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                     } else {
                         pl_rate.css('color', 'green');
                     }
-                    pl_value.html((response.pl_value).toString().replace(/\B(?=(?:\d{3})+\b)/g, ',')); //获取并设置总盈亏金额
+                    pl_value.html(format_num(response.pl_value)); //获取并设置总盈亏金额
                     pl_rate.html(response.pl_rate); //获取并设置总盈亏比
                     var stock_info = response.stock_info;
                     for (key in stock_info) {
