@@ -43,8 +43,8 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                                 <td class="formatted"><?php echo $user_data['cash_use']; ?></td>
                                                 <td><?php echo number_format(floatval($user_data['position']) * 100, 2); ?></td>
                                                 <td class="formatted"><?php echo $user_data['cash_freeze']; ?></td>
-                                                <td id="stock_value"></td>
-                                                <td  id="pl_value"></td>
+                                                <td class="formatted" id="stock_value"></td>
+                                                <td class="formatted" id="pl_value"></td>
                                                 <td id="pl_rate"></td>
                                             </tr>
                                             </tbody>
@@ -116,11 +116,11 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                                 <tr id="<?php echo $stock_item['SecurityID']; ?>">
                                                     <td><?php echo $stock_item['SecurityID']; ?></td>
                                                     <td><?php echo $stock_item['Symbol']; ?></td>
-                                                    <td><?php echo $stock_item['Volume_All']; ?></td>
-                                                    <td><?php echo intval($stock_item['Volume_All']) - intval($stock_item['Ban_Volume']) - intval($stock_item['Order_Volume']); ?></td>
+                                                    <td class="formatted"><?php echo $stock_item['Volume_All']; ?></td>
+                                                    <td class="formatted"><?php echo intval($stock_item['Volume_All']) - intval($stock_item['Ban_Volume']) - intval($stock_item['Order_Volume']); ?></td>
                                                     <td><?php echo number_format(floatval($stock_item['BuyCost']), 2); ?></td>
                                                     <td></td>
-                                                    <td></td>
+                                                    <td class="formatted"></td>
                                                     <td></td>
                                                     <td></td>
                                                 </tr>
@@ -148,7 +148,6 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
         $('.main_jumptron').css('margin-bottom', '0px');
         //将数据显示格式化
         $('.formatted').each(function(){
-            alert( format_num($(this).html()));
             var value = format_num($(this).html());
             $(this).html(value);
         });
@@ -170,7 +169,7 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                 method: 'get',
                 dataType: 'json',
                 success: function (response) {
-                    $('#stock_value').html(format_int(response.stock_value)).css('color', 'red');  //获取并设置股票市值
+                    $('#stock_value').html(response.stock_value).css('color', 'red');  //获取并设置股票市值
                     var pl_value = $('#pl_value');
                     var pl_rate = $('#pl_rate');
                     if (parseFloat(response.pl_value) > 0) {
