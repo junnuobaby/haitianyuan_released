@@ -57,7 +57,7 @@
                     series: [
                         {
                             name: 'TA的收益率',
-                            type: 'curve',
+                            type: 'line',
                             data: user_rate,
                             markPoint: {
                                 data: [
@@ -73,7 +73,7 @@
                         },
                         {
                             name: '平均收益率',
-                            type: 'curve',
+                            type: 'line',
                             data: avg_rate,
                             markPoint: {
                                 data: [
