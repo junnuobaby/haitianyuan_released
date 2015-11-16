@@ -81,7 +81,7 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                     </table>
                                 </div>
                                 <div>
-                                    <h4 class="blue-color margin_to_top ">我的持仓</h4>
+                                    <h4 class="blue-color margin_to_top ">我的持仓 <small>总盈亏：1000</small>&nbps;&nbps;<small>总盈亏比：10%</small></h4>
                                     <div class="table-responsive">
                                         <table class="table table-bordered">
                                             <thead>
@@ -94,7 +94,7 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                                 <th>当前价</th>
                                                 <th>浮动盈亏</th>
                                                 <th>盈亏比</th>
-                                                <th>涨跌幅</th>
+                                                <th>今日涨跌幅</th>
                                             </tr>
                                             </thead>
                                             <tbody>
