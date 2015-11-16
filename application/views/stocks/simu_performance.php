@@ -23,7 +23,7 @@ $perform_avg = $performance['data_avg'];  //平均历史收益率数据
                 <div class="panel panel-default mas_min_height">
                     <div class="panel-heading"><h4>历史成绩</h4></div>
                     <div class="panel-body">
-                        <div id="perform_canvas" style="height: 500px;"></div>
+                        <div id="perform_canvas" style="height: 450px;"></div>
                         <div class="asset">
                             <h4>资产收益状况</h4>
                             <div class="asset_detail">
