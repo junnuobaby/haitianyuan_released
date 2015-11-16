@@ -4,7 +4,8 @@
  */
 
 //给数字加三位一逗号间隔
-function split_number(str){
-    var new_str=str.split('').reverse().join('').replace(/(\d{3})/g,'$1,').replace(/\,$/,'').split('').reverse().join('');
+function formatter_number(s){
+    var str = s.toString();
+    var new_str=str.replace(/\B(?=(?:\d{3})+\b)/g, ',');
     return new_str;
 }
