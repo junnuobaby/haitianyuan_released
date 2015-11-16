@@ -12,13 +12,12 @@
         require(
             [
                 'echarts',
-                'echarts/theme/shine',
                 'echarts/chart/line', // 加载折线图
                 'echarts/chart/bar'   // 加载柱状图
             ],
             function (ec) {
                 // 基于准备好的dom，初始化echarts图表
-                var myChart = ec.init(document.getElementById('perform_canvas'), 'shine');
+                var myChart = ec.init(document.getElementById('perform_canvas'), 'macarons');
 
                 option = {
                     title: {
