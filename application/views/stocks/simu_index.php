@@ -32,6 +32,8 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                                 <th>股票市值</th>
                                                 <th>仓位（%）</th>
                                                 <th>冻结金额</th>
+                                                <th>总盈亏</th>
+                                                <th>总盈亏比</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -41,6 +43,8 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                                 <td id="stock_value"></td>
                                                 <td><?php echo floatval($user_data['position'])*100;?></td>
                                                 <td><?php echo $user_data['cash_freeze'];?></td>
+                                                <td>1000</td>
+                                                <td>11%</td>
                                             </tr>
                                             </tbody>
                                         </table>
@@ -81,7 +85,7 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                     </table>
                                 </div>
                                 <div>
-                                    <h4 class="blue-color margin_to_top ">我的持仓 <small>总盈亏：1000</small> <small>总盈亏比：10%</small></h4>
+                                    <h4 class="blue-color margin_to_top ">我的持仓</h4>
                                     <div class="table-responsive">
                                         <table class="table table-bordered">
                                             <thead>
