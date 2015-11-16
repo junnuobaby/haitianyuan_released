@@ -38,7 +38,7 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                             </thead>
                                             <tbody>
                                             <tr>
-                                                <td>split_number(<?php echo $user_data['cash_all'];?>)</td>
+                                                <td>split_number("<?php echo $user_data['cash_all'];?>")</td>
                                                 <td><?php echo $user_data['cash_use'];?></td>
                                                 <td><?php echo floatval($user_data['position'])*100;?></td>
                                                 <td><?php echo $user_data['cash_freeze'];?></td>
