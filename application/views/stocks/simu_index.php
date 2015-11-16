@@ -43,8 +43,8 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                                 <td id="stock_value"></td>
                                                 <td><?php echo floatval($user_data['position'])*100;?></td>
                                                 <td><?php echo $user_data['cash_freeze'];?></td>
-                                                <td>1000</td>
-                                                <td>11%</td>
+                                                <td id="pl_value"></td>
+                                                <td id="pl_rate"></td>
                                             </tr>
                                             </tbody>
                                         </table>
@@ -153,7 +153,21 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                     method: 'get',
                     dataType: 'json',
                     success: function (response) {
-                        $('#stock_value').html(response.stock_value).css('color','red');
+                        $('#stock_value').html(response.stock_value).css('color','red');  //获取并设置股票市值
+                        var pl_value = $('#pl_value');
+                        var pl_rate = $('#pl_rate');
+                        if(parseFloat(response.pl_value) > 0){
+                            pl_value.css('color','red');
+                        }else{
+                            pl_value.css('color','green');
+                        }
+                        if(parseFloat(response.pl_rate) > 0){
+                            pl_rate.css('color','red');
+                        }else{
+                            pl_rate.css('color','green');
+                        }
+                        pl_value.html(response.pl_value); //获取并设置总盈亏金额
+                        pl_rate.html(response.pl_rate); //获取并设置总盈亏比
                         var stock_info = response.stock_info;
                         for(key in stock_info){
                             var tr_id = '#' + key;
