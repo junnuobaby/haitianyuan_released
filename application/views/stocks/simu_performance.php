@@ -26,7 +26,6 @@ $perform_avg = $performance['data_avg'];  //平均历史收益率数据
                         <div id="perform_canvas" style="height: 500px;"></div>
                         <div class="asset">
                             <h4>资产收益状况</h4>
-
                             <div class="asset_detail">
 
                             </div>

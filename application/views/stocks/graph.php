@@ -28,7 +28,7 @@
                         trigger: 'axis'
                     },
                     legend: {
-                        data: ['收益率', '平均收益率']
+                        data: ['TA的收益率', '平均收益率']
                     },
                     toolbox: {
                         show: true,
@@ -56,7 +56,7 @@
                     ],
                     series: [
                         {
-                            name: '收益率',
+                            name: 'TA的收益率',
                             type: 'line',
                             data: user_rate,
                             markPoint: {
