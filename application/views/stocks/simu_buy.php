@@ -50,11 +50,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <label for="buy_price" class="col-sm-4 control-label">买入价格:</label>
 
                                                 <div class="col-sm-8">
-                                                    <div class="input-group">
+                                                    <div class="input-group has-feedback">
                                                         <input type="text" class="form-control" id="buy_price"
                                                                name="buy_price">
-
-                                                        <div class="input-group-addon">¥</div>
+                                                        <span class="glyphicon glyphicon-yen form-control-feedback" aria-hidden="true"></span>
                                                     </div>
 
                                                 </div>
