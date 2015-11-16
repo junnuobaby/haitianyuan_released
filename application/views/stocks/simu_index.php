@@ -38,7 +38,7 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                             </thead>
                                             <tbody>
                                             <tr>
-                                                <td>"split_number(<?php echo $user_data['cash_all'];?>)"</td>
+                                                <td><?php echo $user_data['cash_all'];?></td>
                                                 <td><?php echo $user_data['cash_use'];?></td>
                                                 <td><?php echo floatval($user_data['position'])*100;?></td>
                                                 <td><?php echo $user_data['cash_freeze'];?></td>
@@ -153,7 +153,8 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                     method: 'get',
                     dataType: 'json',
                     success: function (response) {
-                        $('#stock_value').html(response.stock_value).css('color','red');  //获取并设置股票市值
+                        var value = split_number(response.stock_value);
+                        $('#stock_value').html(value).css('color','red');  //获取并设置股票市值
                         var pl_value = $('#pl_value');
                         var pl_rate = $('#pl_rate');
                         if(parseFloat(response.pl_value) > 0){
