@@ -18,7 +18,9 @@ function format_float(s){
 
 //给数字三位一间隔
 function format_num(s){
+    alert(s.toString().indexOf('.') == -1);
     if(s.toString().indexOf('.') == -1){
+        alert();
         format_int(s);
     }
     else{

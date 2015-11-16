@@ -148,7 +148,6 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
         $('.main_jumptron').css('margin-bottom', '0px');
         //将数据显示格式化
         $('.formatted').each(function(){
-            alert($(this).html());
             var value = format_num($(this).html());
             alert(value);
             $(this).html(value);
