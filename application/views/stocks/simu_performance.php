@@ -51,7 +51,7 @@ $perform_avg = $performance['data_avg'];  //平均历史收益率数据
         <?php foreach($perform_info as $item):?>
         <?php $day_rate = round(floatval($item['day_rate'])*100, 2);?>
         user_rate[<?php echo $count;?>] = "<?php echo $day_rate;?>";
-        time_list[<?php echo $count;?>] = "<?php echo $item['timestamp'];?>";
+        time_list[<?php echo $count;?>] = "<?php echo explode($item['timestamp'], ' ')[0];?>";
         <?php $count += 1;?>
         <?php endforeach;?>
 

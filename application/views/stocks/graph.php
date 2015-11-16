@@ -77,7 +77,8 @@
                             data: avg_rate,
                             markPoint: {
                                 data: [
-                                    {name: '周最低', value: -2, xAxis: 1, yAxis: -1.5}
+                                    {type: 'max', name: '最大值'},
+                                    {type: 'min', name: '最小值'}
                                 ]
                             },
                             markLine: {
