@@ -10,15 +10,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $basic_info = $performance['data_user'];  //用户收益率等当前信息
 $perform_info = $performance['data_line']; //用户历史收益率数据
 $perform_avg = $performance['data_avg'];  //平均历史收益率数据
-//数据预处理
-$user_rate = array();  //保存用户历史收益率数组
-$avg_rate = array();   //保存平均收益率的数组
-$time_list = array();  //保存时间的数组
-foreach ($perform_info as $item) {
-    $time = explode(' ', '')
-    array_push($user_rate, $item['day_rate']);
-    array_push($time_list, $item['timestamp']);
-}
 ?>
 <body class="bg-gray">
 <div class="wrapper">
@@ -53,8 +44,19 @@ foreach ($perform_info as $item) {
 </body>
 <script>
     $(document).ready(function () {
+        var user_rate = new Array();
+        var avg_rate = new Array();
+        var time_list = new Array();
+        var i = 0;
+        <?php foreach($perform_info as $item):?>
+        user_rate[i] = "<?php echo $item['day_rate'];?>";
+        <?php endforeach;?>
+
+    });
+    $(document).ready(function () {
         draw();
     });
+
 </script>
 
 <style type="text/css">
