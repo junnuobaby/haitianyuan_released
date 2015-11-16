@@ -13,11 +13,12 @@
             [
                 'echarts',
                 'echarts/chart/line', // 加载折线图
-                'echarts/chart/bar'  // 加载柱状图
+                'echarts/chart/bar',  // 加载柱状图
+                'echarts/theme/shine'
             ],
             function (ec) {
                 // 基于准备好的dom，初始化echarts图表
-                var myChart = ec.init(document.getElementById('perform_canvas'), 'infographic');
+                var myChart = ec.init(document.getElementById('perform_canvas'), 'shine');
 
                 option = {
                     title: {
