@@ -15,3 +15,13 @@ function format_float(s){
     var new_str=str.replace(/\B(?=(?:\d{3})+\b)/g, ',');
     return new_str;
 }
+
+//给数字三位一间隔
+function format_num(s){
+    if(s.toString().indexOf('.') == -1){
+        format_int(s);
+    }
+    else{
+        format_float(s);
+    }
+}
