@@ -70,7 +70,7 @@ $sell_stocks = $sell_list; //获取手中持有的股票
                                                         <input type="text" class="form-control" id="buy_price"
                                                                name="buy_price">
 
-                                                        <div class="input-group-addon">¥</div>
+                                                        <div class="input-group-addon">元</div>
                                                     </div>
 
                                                 </div>
