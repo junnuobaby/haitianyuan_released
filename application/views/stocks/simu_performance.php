@@ -50,11 +50,14 @@ $perform_avg = $performance['data_avg'];  //平均历史收益率数据
         var i = 0;
         <?php foreach($perform_info as $item):?>
         user_rate[i] = "<?php echo $item['day_rate'];?>";
+        time_list[i] = "<?php echo $item['timestamp'];?>";
         <?php endforeach;?>
 
-    });
-    $(document).ready(function () {
-        draw();
+        <?php foreach($perform_avg as $item):?>
+        avg_rate[i] = "<?php echo $item['day_rate'];?>";
+        <?php endforeach;?>
+
+        draw(user_rate, avg_rate, time_list);
     });
 
 </script>

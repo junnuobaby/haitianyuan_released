@@ -1,7 +1,7 @@
 <!--绘制收益率曲线图-->
 <script src="<?php echo base_url("assets/js/echarts/echarts.js"); ?>"></script>
 <script>
-    function draw() {
+    function draw(user_rate, avg_rate, time_list) {
         //路径配置
         require.config({
             paths: {
@@ -43,7 +43,7 @@
                         {
                             type: 'category',
                             boundaryGap: false,
-                            data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+                            data: time_list
                         }
                     ],
                     yAxis: [
@@ -58,7 +58,7 @@
                         {
                             name: '收益率',
                             type: 'line',
-                            data: [3, 4, 5, 3, 2, 3, 4],
+                            data: user_rate,
                             markPoint: {
                                 data: [
                                     {type: 'max', name: '最大值'},
@@ -74,7 +74,7 @@
                         {
                             name: '平均收益率',
                             type: 'line',
-                            data: [-1, 0, 1, 0.5, -0.5, 2, 1.5],
+                            data: avg_rate,
                             markPoint: {
                                 data: [
                                     {name: '周最低', value: -2, xAxis: 1, yAxis: -1.5}
