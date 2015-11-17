@@ -121,7 +121,7 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                             <?php foreach ($user_stocks as $stock_item): ?>
                                                 <tr id="<?php echo $stock_item['SecurityID']; ?>">
                                                     <td data-toggle="modal" data-target="#graphModal"
-                                                        onclick="fillimage(<?= $stock_item['SecurityID']; ?>, <?= $stock_item['Symbol']; ?>)">
+                                                        onclick="fillimage('<?= $stock_item['SecurityID']; ?>', '<?= $stock_item['Symbol']; ?>')">
                                                         <a href="#"><?php echo $stock_item['SecurityID']; ?></a></td>
                                                     <td><?php echo $stock_item['Symbol']; ?></td>
                                                     <td class="formatted"><?php echo $stock_item['Volume_All']; ?></td>
