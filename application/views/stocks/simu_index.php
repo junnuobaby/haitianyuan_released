@@ -155,12 +155,12 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                         aria-hidden="true">&times;</span></button>
-                <h5 class="modal-title" id="modal_title"></h5>
+                <h3 class="modal-title" id="graph_modal_title"></h3>
             </div>
-            <div class="modal-body" id="modal_body">
+            <div class="modal-body" id="graph_modal_body">
             </div>
         </div>
-    </div>
+    </div>k_
 </div>
 </body>
 <script>
@@ -252,8 +252,8 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
 
     //从新浪获取分时图
     function fillimage(stock_id, stock_name) {
-        var modal_body = document.getElementById("modal_body");
-        var modal_title = document.getElementById("modal_title");
+        var modal_body = document.getElementById("graph_modal_body");
+        var modal_title = document.getElementById("graph_modal_title");
         var start_code = stock_id.toString().substr(0, 3);
         console.log(start_code);
         if(start_code == '300' || start_code == '000'){

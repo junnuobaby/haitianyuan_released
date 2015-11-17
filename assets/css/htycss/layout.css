@@ -738,3 +738,6 @@ ul.simulate_tablist li a:hover{
 .warehouse{
     margin-top: 50px;
 }
+#graph_modal_body{
+    padding-top: 5px;
+}
