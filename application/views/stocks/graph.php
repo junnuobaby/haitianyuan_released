@@ -121,8 +121,8 @@
                         formatter: "{a} <br/>{b} : {c} ({d}%)"
                     },
                     legend: {
-                        orient : 'vertical',
-                        x : 'left',
+//                        orient : 'vertical',
+//                        x : 'left',
                         data:component
                     },
                     calculable : true,
