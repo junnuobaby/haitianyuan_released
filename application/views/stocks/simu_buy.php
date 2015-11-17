@@ -34,16 +34,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                     <div class="hint_list"></div>
                                                 </div>
                                             </div>
-                                            <div class="form-group hidden largest_quantity">
-                                                <label class="col-sm-4 control-label">大约可买入:</label>
+                                            <div class="form-group">
+                                                <label for="bond_code" class="col-sm-4 control-label">可用现金:</label>
 
                                                 <div class="col-sm-8">
-                                                    <div class="input-group">
-                                                        <span class="form-control warning_bg_color"
-                                                              id="largest_quantity"></span>
-
-                                                        <div class="input-group-addon">手</div>
-                                                    </div>
+                                                    <input type="text" class="form-control" id="cash_able"
+                                                           autocomplete="off" value="<?php echo $cash_use;?>">
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -57,6 +53,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                         <div class="input-group-addon">元</div>
                                                     </div>
 
+                                                </div>
+                                            </div>
+                                            <div class="form-group hidden largest_quantity">
+                                                <label class="col-sm-4 control-label">大约可买入:</label>
+
+                                                <div class="col-sm-8">
+                                                    <div class="input-group">
+                                                        <span class="form-control warning_bg_color"
+                                                              id="largest_quantity"></span>
+
+                                                        <div class="input-group-addon">手</div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -313,9 +321,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 var sell_1ist = [response.SellPrice1, response.SellPrice2, response.SellPrice3, response.SellPrice4, response.SellPrice5]; //卖五
                 var buy_1ist = [response.BuyPrice1, response.BuyPrice2, response.BuyPrice3, response.BuyPrice4, response.BuyPrice5];  //买五
 
-                sell_1ist.forEach(function(item, index, array){
-
-                });
 
                 $('#bond_name').html(bond_name);
                 $('#bond_price tr:nth-child(1) td:nth-child(2)').html(bond_cur_price);
