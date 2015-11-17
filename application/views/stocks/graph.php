@@ -125,7 +125,7 @@
                     },
                     series : [
                         {
-                            name:'访问来源',
+                            name:'资产分布',
                             type:'pie',
                             radius : '55%',
                             center: ['50%', '60%'],
