@@ -36,7 +36,7 @@ $perform_avg = $performance['data_avg'];  //平均历史收益率数据
                                                 <label class="control-label col-sm-4">总资产：</label>
                                                 <div class="col-sm-8 align_left">
                                                     <div class="form-control-static">
-                                                        <span href="#" class="color-gray"><?php echo $basic_info[''];?></span>
+                                                        <span href="#" class="color-gray"><?php echo $basic_info['fund'];?></span>
                                                     </div>
                                                 </div>
                                             </div>
