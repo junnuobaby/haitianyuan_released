@@ -51,17 +51,23 @@ $pages = $his_list['pagination']; //获取分页
                                                 <td><?php echo $stock_item['Symbol']; ?></td>
                                                 <td><?php if ($stock_item['trade_type'] == '0') {
                                                         echo '买入';
-                                                    }
-                                                    else if ($stock_item['trade_type'] == '2') {
+                                                    } else if ($stock_item['trade_type'] == '2') {
                                                         echo "卖出";
-                                                    }
-                                                    else if ($stock_item['trade_type'] == '4') {
+                                                    } else if ($stock_item['trade_type'] == '4') {
                                                         echo "撤销";
                                                     }
                                                     ?></td>
                                                 <td class="formatted"><?php echo $stock_item['Volume']; ?></td>
-                                                <td class="formatted decimal"><?php echo $stock_item['Price']; ?></td>
-                                                <td class="formatted"><?php echo $stock_item['Price'] * $stock_item['Volume']; ?></td>
+                                                <td class="formatted decimal"><?php if ($stock_item['trade_type'] == '4') {
+                                                        echo $stock_item['price_order'];
+                                                    } else {
+                                                        echo $stock_item['Price'];
+                                                    } ?></td>
+                                                <td class="formatted"><?php if ($stock_item['trade_type'] == '4') {
+                                                        echo $stock_item['price_order'] * $stock_item['Volume'];
+                                                    } else {
+                                                        echo $stock_item['Price'] * $stock_item['Volume'];
+                                                    } ?></td>
                                             </tr>
                                         <?php endforeach; ?>
                                         </tbody>
@@ -84,7 +90,7 @@ $pages = $his_list['pagination']; //获取分页
 <script>
     $(document).ready(function () {
         $('.main_jumptron').css('margin-bottom', '0px');
-        $('.formatted').each(function(){
+        $('.formatted').each(function () {
             var value = format_num($(this).html());
             $(this).html(value);
         });

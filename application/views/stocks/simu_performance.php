@@ -10,6 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $basic_info = $performance['data_user'];  //用户收益率等当前信息
 $perform_info = $performance['data_line']; //用户历史收益率数据
 $perform_avg = $performance['data_avg'];  //平均历史收益率数据
+$stock_value = floatval($basic_info['fund']) - floatval($basic_info['cash_all']);  //计算持有股票的市值
 ?>
 <body class="bg-gray">
 <div class="wrapper">
@@ -42,25 +43,25 @@ $perform_avg = $performance['data_avg'];  //平均历史收益率数据
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label col-sm-4">可用现金：</label>
-                                                <div class="col-sm-8">
+                                                <div class="col-sm-8 align_left">
                                                     <div class="form-control-static">
-                                                        <span href="#" class="color-gray">99,000</span>
+                                                        <span href="#" class="color-gray"><?php echo $basic_info['cash_use'];?></span>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label col-sm-4">冻结金额：</label>
-                                                <div class="col-sm-8">
+                                                <div class="col-sm-8 align_left">
                                                     <div class="form-control-static">
-                                                        <span href="#" class="color-gray">99,000</span>
+                                                        <span href="#" class="color-gray"><?php echo $basic_info['cash_freeze'];?></span>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label col-sm-4">股票市值：</label>
-                                                <div class="col-sm-8">
+                                                <div class="col-sm-8 align_left">
                                                     <div class="form-control-static">
-                                                        <span href="#" class="color-gray">99,000</span>
+                                                        <span href="#" class="color-gray"><?php echo $basic_info['cash_use'];?></span>
                                                     </div>
                                                 </div>
                                             </div>
