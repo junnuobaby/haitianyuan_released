@@ -160,7 +160,7 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
             <div class="modal-body" id="graph_modal_body">
             </div>
         </div>
-    </div>k_
+    </div>
 </div>
 </body>
 <script>
@@ -267,6 +267,7 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
         }
         modal_body.innerHTML = "<h3>分时图</h3>";
         modal_body.innerHTML += "<img src='http://image.sinajs.cn/newchart/min/n/" + stock_id + ".gif' />";
+        modal_body.innerHTML += "<hr/>";
         modal_body.innerHTML += "<h3>K线图</h3>";
         modal_body.innerHTML += "<img src='http://image.sinajs.cn/newchart/daily/n/" + stock_id + ".gif' />";
         modal_title.innerHTML = "<h1>" + "<strong>" + stock_name + "</strong>" + "(" + stock_id + ")" + "</h1>"
