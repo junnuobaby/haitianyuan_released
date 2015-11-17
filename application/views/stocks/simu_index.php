@@ -31,7 +31,7 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                                 <th>总资产</th>
                                                 <th>可用现金</th>
                                                 <th>冻结金额</th>
-                                                <th>仓位（%）</th>
+                                                <th>仓位</th>
                                                 <th>股票市值</th>
                                                 <th>总盈亏</th>
                                                 <th>总盈亏比</th>
@@ -42,7 +42,7 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                                 <td id="my_asset"></td>
                                                 <td class="formatted"><?php echo $user_data['cash_use']; ?></td>
                                                 <td class="formatted"><?php echo $user_data['cash_freeze']; ?></td>
-                                                <td><?php echo number_format(floatval($user_data['position']) * 100, 2); ?></td>
+                                                <td><?php echo number_format(floatval($user_data['position']) * 100, 2); ?>%</td>
                                                 <td id="stock_value"></td>
                                                 <td id="pl_value"></td>
                                                 <td id="pl_rate"></td>
