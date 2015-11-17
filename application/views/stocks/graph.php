@@ -125,18 +125,6 @@
                         x : 'left',
                         data:component
                     },
-//                    toolbox: {
-//                        show : true,
-//                        feature : {
-//                            dataView : {show: true, readOnly: false},
-//                            magicType : {
-//                                show: true,
-//                                type: ['pie'],
-//                            },
-//                            restore : {show: true},
-//                            saveAsImage : {show: true}
-//                        }
-//                    },
                     calculable : true,
                     series : [
                         {

@@ -116,10 +116,11 @@ $stock_value = floatval($basic_info['fund']) - floatval($basic_info['cash_all'])
         var cash_use = parseFloat("<?php echo $basic_info['cash_use'];?>");
         var cash_freeze = parseFloat("<?php echo $basic_info['cash_freeze'];?>");
         var stock_value = parseFloat("<?php echo $stock_value;?>");
+        var funds = parseFloat("<?php echo $basic_info['fund'];?>");
         var parts_value = [
-            {value:cash_use, name:'可用现金'},
-            {value:cash_freeze, name:'冻结金额'},
-            {value:stock_value, name:'股票市值'}
+            {value:cash_use, name:'可用现金' + decimal(cash_use * 100/ funds) + '%'},
+            {value:cash_freeze, name:'冻结金额' + decimal(cash_freeze * 100/ funds) + '%'},
+            {value:stock_value, name:'股票市值' + decimal(stock_value * 100/ funds) + '%'}
         ];
         draw_pie(parts, parts_value); //绘制资金使用情况饼图
     });
