@@ -55,6 +55,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                                name="buy_price">
 
                                                         <div class="input-group-addon">元</div>
+                                                        <span>格式错误</span>
                                                     </div>
 
                                                 </div>
@@ -364,6 +365,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         $('#buy_price').blur(function () {
             var bond_price = $.trim($(this).val());
             var available_money = "<?php echo $cash_use;?>";
+            if(isNaN(bond_price){
+            }
             if(bond_price.length > 0 && !isNaN(bond_price)){
                 var quantity_avail = parseInt(parseFloat(available_money) / (parseFloat(bond_price) * 100)); //计算当前可买入的最大股数
                 $('div.largest_quantity').removeClass('hidden');
