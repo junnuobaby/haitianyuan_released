@@ -72,6 +72,12 @@ $stock_value = floatval($basic_info['fund']) - floatval($basic_info['cash_all'])
                                     </div>
                                     <div class="col-md-6"></div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-md-7">
+                                        <div id="bar_canvas"></div>
+                                    </div>
+                                    <div class="col-md-5"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -122,6 +128,8 @@ $stock_value = floatval($basic_info['fund']) - floatval($basic_info['cash_all'])
             {value:stock_value, name:'股票市值'}
         ];
         draw_pie(parts, parts_value); //绘制资金使用情况饼图
+
+
     });
 
 </script>
