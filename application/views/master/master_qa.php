@@ -27,7 +27,7 @@ $pages = $undo['pagination'];
                                     class="badge green-bg-color"><?php echo $qu_num ?></span></a>
                         </li>
                         <li role="presentation" id="answered_btn_li"><a
-                                href="<?php echo base_url('modify_info/get_questions/web/done'); ?>" id="answered_btn">已解决
+                                href="<?php echo base_url('index.php/my_center/index/1/2'); ?>" id="answered_btn">已解决
                                 <span class="badge theme-bg-color" id="answered_num"></span></a>
                         </li>
 
