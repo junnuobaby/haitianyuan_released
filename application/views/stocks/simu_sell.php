@@ -62,6 +62,17 @@ $sell_stocks = $sell_list; //获取手中持有的股票
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="form-group hidden largest_quantity">
+                                                <label class="col-sm-4 control-label">买入价:</label>
+
+                                                <div class="col-sm-8">
+                                                    <div class="input-group">
+                                                        <span class="form-control warning_bg_color"
+                                                              id="buy_in_price"></span>
+                                                        <div class="input-group-addon">元</div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="form-group">
                                                 <label for="buy_price" class="col-sm-4 control-label">卖出价格:</label>
 
@@ -198,6 +209,8 @@ $sell_stocks = $sell_list; //获取手中持有的股票
             var selected_cost = $(this).children('option:selected').data('cost');
             //显示最大可卖出数量
             $('div.largest_quantity').removeClass('hidden');
+            //显示买入该股票价格
+            $('#buy_in_price').html(selected_cost);
             $('#largest_quantity').html(Math.round(parseInt(max_volume) / 100));
             selected_code_info(selected_code);
             clearInterval(interval);
@@ -260,9 +273,6 @@ $sell_stocks = $sell_list; //获取手中持有的股票
                         $(this).addClass('green-color');
                     }
                 });
-                //将当前价格设置为默认的卖出价格
-                $('#buy_price').val(bond_cur_price);
-                var bond_price = $('#buy_price').val(); //卖出价格
             }
         }
 
