@@ -28,6 +28,7 @@ $perform_avg = $performance['data_avg'];  //平均历史收益率数据
                             <h4>资产收益状况</h4>
                             <div class="asset_detail">
                                 <div class="row">
+                                    <div class="col-md-4">
                                         <form class="form-horizontal">
                                             <div class="form-group">
                                                 <label class="control-label col-sm-4">总资产：</label>
@@ -61,7 +62,9 @@ $perform_avg = $performance['data_avg'];  //平均历史收益率数据
                                                     </p>
                                                 </div>
                                             </div>
+
                                         </form>
+                                    </div>
                                     <div class="col-md-6"></div>
                                 </div>
                             </div>
