@@ -113,10 +113,9 @@ $stock_value = floatval($basic_info['fund']) - floatval($basic_info['cash_all'])
         draw(user_rate, avg_rate, time_list);//绘制收益率曲线图
 
         var parts = ['可用现金', '冻结金额', '股票市值'];
-        var cash_use = parseFloat("<?php echo $basic_info['cash_use'];?>");
-        var cash_freeze = parseFloat("<?php echo $basic_info['cash_freeze'];?>");
-        var stock_value = parseFloat("<?php echo $stock_value;?>");
-        var funds = parseFloat("<?php echo $basic_info['fund'];?>");
+        var cash_use = format_num(parseFloat("<?php echo $basic_info['cash_use'];?>"));
+        var cash_freeze = format_num(parseFloat("<?php echo $basic_info['cash_freeze'];?>"));
+        var stock_value = format_num(parseFloat("<?php echo $stock_value;?>"));
         var parts_value = [
             {value:cash_use, name:'可用现金'},
             {value:cash_freeze, name:'冻结金额'},
