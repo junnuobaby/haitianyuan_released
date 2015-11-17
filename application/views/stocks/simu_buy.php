@@ -39,7 +39,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                                 <div class="col-sm-8">
                                                     <div class="input-group">
-                                                        <span class="form-control warning_bg_color formatted"><?php echo $cash_use;?></span>
+                                                        <span
+                                                            class="form-control warning_bg_color formatted"><?php echo $cash_use; ?></span>
+
                                                         <div class="input-group-addon">元</div>
                                                     </div>
                                                 </div>
@@ -181,7 +183,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     var interval;
     $(document).ready(function () {
         $('.main_jumptron').css('margin-bottom', '0px');
-        $('.formatted').each(function(){
+        $('.formatted').each(function () {
             var value = format_num($(this).html());
             $(this).html(value);
         });
@@ -355,20 +357,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         $(this).addClass('green-color');
                     }
                 });
-//                //将当前价格设置为默认的买入价格
-//                var bond_price = $('#buy_price').val(); //买入价格
-//                var available_money = "<?php //echo $cash_use;?>//";
-//                var quantity_avail = Math.round(parseFloat(available_money) / (parseFloat(bond_price) * 100)); //计算当前可买入的最大股数
-//                $('div.largest_quantity').removeClass('hidden');
-//                $('#largest_quantity').html(quantity_avail);
-
             }
         }
 
+        //用户输入买入价格后提示最大可买入量
         $('#buy_price').blur(function () {
             var bond_price = $(this).val();
+            if()
             var available_money = "<?php echo $cash_use;?>";
-            var quantity_avail = Math.round(parseFloat(available_money) / (parseFloat(bond_price) * 100)); //计算当前可买入的最大股数
+            var quantity_avail = parseInt(parseFloat(available_money) / (parseFloat(bond_price) * 100)); //计算当前可买入的最大股数
             $('div.largest_quantity').removeClass('hidden');
             $('#largest_quantity').html(quantity_avail);
         });
