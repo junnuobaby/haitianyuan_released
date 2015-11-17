@@ -34,7 +34,7 @@ $month_rank = floatval($basic_info['month_rank']);
                     <div class="panel-body">
                         <div id="perform_canvas"></div>
                         <div>
-                            <table class="table">
+                            <table class="table table-bordered">
                                 <thead>
                                 <tr>
                                     <th>周期</th>
