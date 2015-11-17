@@ -39,7 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                                 <div class="col-sm-8">
                                                     <div class="input-group">
-                                                        <span class="form-control warning_bg_color"><?php echo $cash_use;?></span>
+                                                        <span class="form-control warning_bg_color formatted"><?php echo $cash_use;?></span>
                                                         <div class="input-group-addon">元</div>
                                                     </div>
                                                 </div>
@@ -181,6 +181,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     var interval;
     $(document).ready(function () {
         $('.main_jumptron').css('margin-bottom', '0px');
+        $('.formatted').each(function(){
+            var value = format_num($(this).html());
+            $(this).html(value);
+        });
     });
     $(document).ready(function () {
         var xhr;
