@@ -84,7 +84,7 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                                 %
                                             </td>
                                         </tr>
-                                        <tr>
+                                        <tr class="text-center">
                                             <td>排名</td>
                                             <td>
                                                 <?php echo $user_data['profit_rank'];?>
