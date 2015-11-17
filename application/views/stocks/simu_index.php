@@ -277,7 +277,7 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
         modal_body.innerHTML += "<hr/>";
         modal_body.innerHTML += "<h3>K线图</h3>";
         modal_body.innerHTML += "<img src='http://image.sinajs.cn/newchart/daily/n/" + stock_id + ".gif' />";
-        modal_title.innerHTML = "<h1>" + "<strong>" + stock_name + "</strong>" + "(" + stock_id + ")" + "</h1>"
+        modal_title.innerHTML = "<h2>" + "<strong>" + stock_name + "</strong>" + "(" + stock_id + ")" + "</h2>"
     }
 </script>
 </html>
