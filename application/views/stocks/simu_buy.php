@@ -55,8 +55,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                                name="buy_price">
 
                                                         <div class="input-group-addon">元</div>
-                                                        <span>格式错误</span>
                                                     </div>
+                                                    <span>格式错误</span>
 
                                                 </div>
                                             </div>
