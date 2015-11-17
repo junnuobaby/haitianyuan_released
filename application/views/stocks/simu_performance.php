@@ -61,7 +61,7 @@ $stock_value = floatval($basic_info['fund']) - floatval($basic_info['cash_all'])
                                                 <label class="control-label col-sm-4">股票市值：</label>
                                                 <div class="col-sm-8 align_left">
                                                     <div class="form-control-static">
-                                                        <span href="#" class="color-gray"><?php echo $basic_info['cash_use'];?></span>
+                                                        <span href="#" class="color-gray"><?php echo $stock_value;?></span>
                                                     </div>
                                                 </div>
                                             </div>
