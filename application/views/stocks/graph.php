@@ -116,6 +116,9 @@
                 var myChart = ec.init(document.getElementById('pie_canvas'), 'macarons');
 
                 option = {
+                    title: {
+                        text: '资产分布情况',
+                    },
                     tooltip : {
                         trigger: 'item',
                         formatter: "{a} <br/>{b} : {c} ({d}%)"
