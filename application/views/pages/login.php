@@ -22,7 +22,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
 
                             <div class="col-md-6 col-sm-6 ">
-                                <?php echo validation_errors(); ?>
                                 <?php $username_error = form_error('user_name_input'); ?>
                                 <?php $password_error = form_error('password_input'); ?>
                                 <?php echo form_open('login/login','class="form-horizontal login_form"'); ?>
