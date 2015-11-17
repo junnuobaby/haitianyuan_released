@@ -39,7 +39,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                                 <div class="col-sm-8">
                                                     <input type="text" class="form-control" id="cash_able"
-                                                           autocomplete="off" value="<?php echo $cash_use;?>">
+                                                           disabled="true"
+                                                           autocomplete="off" value="<?php echo $cash_use; ?>">
                                                 </div>
                                             </div>
                                             <div class="form-group">
