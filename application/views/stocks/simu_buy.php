@@ -266,8 +266,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                 case 40:   //下键
                     if (cur.length > 0) {
-                        alert(cur.length);
-                        cur.removeClass('hint_active').next('tr').addClass('hint_active');
+                        cur.removeClass('hint_active');
+                        cur = cur.next('tr');
+                        cur.addClass('hint_active');
                     }
                     else {
                         $('div.hint_list tr:nth-child(2)').addClass('hint_active');
