@@ -34,7 +34,7 @@ $stock_value = floatval($basic_info['fund']) - floatval($basic_info['cash_all'])
                                     <div class="col-md-5">
                                         <form class="form-horizontal" id="assets_form">
                                             <div class="form-group">
-                                                <label class="control-label col-sm-4 green-color">总资产：</label>
+                                                <label class="control-label col-sm-4 grey-color">总资产：</label>
                                                 <div class="col-sm-8 align_left">
                                                     <div class="form-control-static">
                                                         <span href="#" class="formatted"><?php echo $basic_info['fund'];?></span>
