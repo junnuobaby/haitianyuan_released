@@ -160,8 +160,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <h4 class="blue-color margin_to_top">模拟交易说明：</h4>
                             <ol class="ht_indent">
                                 <li>目前可买卖股票和债券。</li>
-                                <li>交易时间与沪深A股的开市时间一致。一般为周一至周五，上午09:30至11:30，下午13:00至15:00。</li>
                                 <li>申报价格保留小数点后两位数字</li>
+                                <li>交易时间与沪深A股的开市时间一致。一般为周一至周五，上午09:30至11:30，下午13:00至15:00。</li>
                                 <li>交易价格按照实盘价格成交，目前支持全部沪深A股，包括创业板。</li>
                                 <li>所有买卖均实行T+1制度，即当天买入的股票只能在第二个交易日卖出。</li>
                                 <li>买入卖出时，不收取印花税，超过一万收取交易金额的万分之三的手续费，手续费不足5元按5元收取。</li>
@@ -375,6 +375,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             var available_money = "<?php echo $cash_use;?>";
             if(isNaN(bond_price) || parseFloat(bond_price) <= 0){
                 $('span.buy_price_alert').removeClass('hidden');
+
             }
             if(bond_price.length > 0 && !isNaN(bond_price) && parseFloat(bond_price) > 0){
                 bond_price = decimal(bond_price);
