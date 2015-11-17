@@ -255,6 +255,7 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
         var modal_body = document.getElementById("modal_body");
         var modal_title = document.getElementById("modal_title");
         var start_code = stock_id.toString().substr(0, 3);
+        console.log(start_code);
         if(start_code == '300' || start_code == '000'){
             stock_id = 'sz' + stock_id;
         }else if(start_code == '600'){
@@ -269,5 +270,6 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
         modal_body.innerHTML += "<h3>K线图</h3>";
         modal_body.innerHTML += "<img src='http://image.sinajs.cn/newchart/daily/n/" + stock_id + ".gif' />";
         modal_title.innerHTML = "<h1>" + "<strong>" + stock_name + "</strong>" + "(" + stock_id + ")" + "</h1>"
-    }</script>
+    }
+</script>
 </html>
