@@ -31,10 +31,12 @@ $perform_avg = $performance['data_avg'];  //平均历史收益率数据
                                     <div class="col-md-6">
                                         <form class="form-horizontal">
                                             <div class="form-group">
-                                                <label class="control-label">总资产：</label>
+                                                <label class="control-label col-sm-4">总资产：</label>
+                                                <div class="col-sm-8">
                                                     <p class="form-control-static">
                                                         <span href="#" class="color-gray">99,000</span>
                                                     </p>
+                                                </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label col-sm-4">可用现金：</label>
