@@ -121,11 +121,9 @@
                         formatter: "{a} <br/>{b} : {c} ({d}%)"
                     },
                     legend: {
-//                        orient : 'vertical',
-//                        x : 'left',
                         data:component
                     },
-                    calculable : true,
+                    calculable : false,
                     series : [
                         {
                             name:'访问来源',
