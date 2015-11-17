@@ -363,7 +363,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         //用户输入买入价格后提示最大可买入量
         $('#buy_price').blur(function () {
             var bond_price = $(this).val();
-            if()
             var available_money = "<?php echo $cash_use;?>";
             var quantity_avail = parseInt(parseFloat(available_money) / (parseFloat(bond_price) * 100)); //计算当前可买入的最大股数
             $('div.largest_quantity').removeClass('hidden');
