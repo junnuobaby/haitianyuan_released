@@ -57,41 +57,83 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                         <thead>
                                         <tr>
                                             <th>周期</th>
-                                            <th>收益率</th>
-                                            <th>排名</th>
+                                            <th>总收益率</th>
+                                            <th>本月收益率</th>
+                                            <th>本周收益率</th>
+                                            <th>本日收益率</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         <tr>
-                                            <td>总收益率</td>
-                                            <td><?php echo number_format(floatval($user_data['profit_rate']) * 100, 2); ?>
+                                            <td>
+                                                收益率
+                                            </td>
+                                            <td>
+                                                <?php echo number_format(floatval($user_data['profit_rate']) * 100, 2); ?>%
+                                            </td>
+                                            <td>
+                                                <?php echo number_format(floatval($user_data['month_rate']) * 100, 2); ?>
                                                 %
                                             </td>
-                                            <td><?php echo $user_data['profit_rank'] ?></td>
+                                            <td>
+                                                <?php echo number_format(floatval($user_data['week_rate']) * 100, 2); ?>
+                                                %
+                                            </td>
+                                            <td>
+                                                <?php echo number_format(floatval($user_data['day_rate']) * 100, 2); ?>
+                                                %
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <td>本月收益率</td>
-                                            <td><?php echo number_format(floatval($user_data['month_rate']) * 100, 2); ?>
-                                                %
+                                            <td>排名</td>
+                                            <td>
+                                                <?php echo $user_data['profit_rank'];?>
                                             </td>
-                                            <td><?php echo $user_data['month_rank'] ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>本周收益率</td>
-                                            <td><?php echo number_format(floatval($user_data['week_rate']) * 100, 2); ?>
-                                                %
-                                            </td>
+                                            <td><?php echo $user_data['month_rank'];?></td>
                                             <td><?php echo $user_data['week_rank']; ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>本日收益率</td>
-                                            <td><?php echo number_format(floatval($user_data['day_rate']) * 100, 2); ?>
-                                                %
-                                            </td>
                                             <td><?php echo $user_data['day_rank']; ?></td>
                                         </tr>
                                         </tbody>
                                     </table>
+<!--                                    <table class="table">-->
+<!--                                        <thead>-->
+<!--                                        <tr>-->
+<!--                                            <th>周期</th>-->
+<!--                                            <th>收益率</th>-->
+<!--                                            <th>排名</th>-->
+<!--                                        </tr>-->
+<!--                                        </thead>-->
+<!--                                        <tbody>-->
+<!--                                        <tr>-->
+<!--                                            <td>总收益率</td>-->
+<!--                                            <td>--><?php //echo number_format(floatval($user_data['profit_rate']) * 100, 2); ?>
+<!--                                                %-->
+<!--                                            </td>-->
+<!--                                            <td>--><?php //echo $user_data['profit_rank'] ?><!--</td>-->
+<!--                                        </tr>-->
+<!--                                        <tr>-->
+<!--                                            <td>本月收益率</td>-->
+<!--                                            <td>--><?php //echo number_format(floatval($user_data['month_rate']) * 100, 2); ?>
+<!--                                                %-->
+<!--                                            </td>-->
+<!--                                            <td>--><?php //echo $user_data['month_rank'] ?><!--</td>-->
+<!--                                        </tr>-->
+<!--                                        <tr>-->
+<!--                                            <td>本周收益率</td>-->
+<!--                                            <td>--><?php //echo number_format(floatval($user_data['week_rate']) * 100, 2); ?>
+<!--                                                %-->
+<!--                                            </td>-->
+<!--                                            <td>--><?php //echo $user_data['week_rank']; ?><!--</td>-->
+<!--                                        </tr>-->
+<!--                                        <tr>-->
+<!--                                            <td>本日收益率</td>-->
+<!--                                            <td>--><?php //echo number_format(floatval($user_data['day_rate']) * 100, 2); ?>
+<!--                                                %-->
+<!--                                            </td>-->
+<!--                                            <td>--><?php //echo $user_data['day_rank']; ?><!--</td>-->
+<!--                                        </tr>-->
+<!--                                        </tbody>-->
+<!--                                    </table>-->
                                 </div>
                                 <div>
                                     <h4 class="blue-color margin_to_top ">我的持仓</h4>
