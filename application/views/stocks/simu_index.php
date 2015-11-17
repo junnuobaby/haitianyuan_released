@@ -53,7 +53,7 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                 </div>
                                 <div>
                                     <h4 class="blue-color margin_to_top">我的收益</h4>
-                                    <table class="table">
+                                    <table class="table table-bordered">
                                         <thead>
                                         <tr>
                                             <th>周期</th>
