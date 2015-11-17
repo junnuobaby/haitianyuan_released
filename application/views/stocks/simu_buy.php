@@ -56,7 +56,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                                         <div class="input-group-addon">元</div>
                                                     </div>
-                                                    <span>格式错误</span>
+                                                    <span class="theme-color">格式错误</span>
 
                                                 </div>
                                             </div>
