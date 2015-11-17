@@ -37,7 +37,7 @@ $stock_value = floatval($basic_info['fund']) - floatval($basic_info['cash_all'])
                                                 <label class="control-label col-sm-4">总资产：</label>
                                                 <div class="col-sm-8 align_left">
                                                     <div class="form-control-static">
-                                                        <span href="#" class="color-gray"><?php echo $basic_info['fund'];?></span>
+                                                        <span href="#" class="color-gray formatted"><?php echo $basic_info['fund'];?></span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -45,7 +45,7 @@ $stock_value = floatval($basic_info['fund']) - floatval($basic_info['cash_all'])
                                                 <label class="control-label col-sm-4">可用现金：</label>
                                                 <div class="col-sm-8 align_left">
                                                     <div class="form-control-static">
-                                                        <span href="#" class="color-gray"><?php echo $basic_info['cash_use'];?></span>
+                                                        <span href="#" class="color-gray formatted"><?php echo $basic_info['cash_use'];?></span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -53,7 +53,7 @@ $stock_value = floatval($basic_info['fund']) - floatval($basic_info['cash_all'])
                                                 <label class="control-label col-sm-4">冻结金额：</label>
                                                 <div class="col-sm-8 align_left">
                                                     <div class="form-control-static">
-                                                        <span href="#" class="color-gray"><?php echo $basic_info['cash_freeze'];?></span>
+                                                        <span href="#" class="color-gray formatted"><?php echo $basic_info['cash_freeze'];?></span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -61,7 +61,7 @@ $stock_value = floatval($basic_info['fund']) - floatval($basic_info['cash_all'])
                                                 <label class="control-label col-sm-4">股票市值：</label>
                                                 <div class="col-sm-8 align_left">
                                                     <div class="form-control-static">
-                                                        <span href="#" class="color-gray"><?php echo $stock_value;?></span>
+                                                        <span href="#" class="color-gray formatted"><?php echo $stock_value;?></span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -85,6 +85,11 @@ $stock_value = floatval($basic_info['fund']) - floatval($basic_info['cash_all'])
 </body>
 <script>
     $(document).ready(function () {
+        //将数据显示格式化
+        $('.formatted').each(function () {
+            var value = format_num($(this).html());
+            $(this).html(value);
+        });
         var user_rate = new Array();
         var avg_rate = new Array();
         var time_list = new Array();
