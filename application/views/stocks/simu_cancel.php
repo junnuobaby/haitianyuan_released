@@ -61,9 +61,9 @@ $pages = $pre_list['pagination']; //获取分页
                                                 <td class="formatted"><?php echo $stock_item['Price'] * $stock_item['Volume']; ?></td>
                                                 <!--                                                预收交易费用（不超过1万统一收5元，超过10000按万三标准收取）-->
                                                 <td class="formatted"><?php
-                                                    $trade_money = $stock_item['Price'] * $stock_item['Volume'];
-                                                    if ($trade_money >= 10000) {
-                                                        echo  number_format(floatval($trade_money * 0.0003), 2);
+                                                    $trade_money = floatval($stock_item['Price'] * $stock_item['Volume']) * 0.0003;
+                                                    if ($trade_money > 5) {
+                                                        echo  number_format($trade_money, 2);
                                                     } else {
                                                         echo '5.00';
                                                     }
