@@ -81,7 +81,8 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                                 %
                                             </td>
                                             <td class="render">
-                                                <?php echo number_format(floatval($user_data['profit_rate']) * 100, 2); ?>%
+                                                <?php echo number_format(floatval($user_data['profit_rate']) * 100, 2); ?>
+                                                %
                                             </td>
 
                                         </tr>
@@ -89,9 +90,9 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                             <td>排名</td>
                                             <td><?php echo $user_data['day_rank']; ?></td>
                                             <td><?php echo $user_data['week_rank']; ?></td>
-                                            <td><?php echo $user_data['month_rank'];?></td>
+                                            <td><?php echo $user_data['month_rank']; ?></td>
                                             <td>
-                                                <?php echo $user_data['profit_rank'];?>
+                                                <?php echo $user_data['profit_rank']; ?>
                                             </td>
                                         </tr>
                                         </tbody>
@@ -100,6 +101,7 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
 
                                 <div class="warehouse">
                                     <h4 class="blue-color">我的持仓</h4>
+
                                     <div class="table-responsive">
                                         <table class="table table-bordered">
                                             <thead>
@@ -118,7 +120,9 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                             <tbody>
                                             <?php foreach ($user_stocks as $stock_item): ?>
                                                 <tr id="<?php echo $stock_item['SecurityID']; ?>">
-                                                    <td><?php echo $stock_item['SecurityID']; ?></td>
+                                                    <td data-toggle="modal" data-target="#graphModal"
+                                                        onclick="fillimage(<?= $stock_item['SecurityID']; ?>, <?= $stock_item['Symbol']; ?>)">
+                                                        <a href="#"><?php echo $stock_item['SecurityID']; ?></a></td>
                                                     <td><?php echo $stock_item['Symbol']; ?></td>
                                                     <td class="formatted"><?php echo $stock_item['Volume_All']; ?></td>
                                                     <td class="formatted"><?php echo intval($stock_item['Volume_All']) - intval($stock_item['Ban_Volume']) - intval($stock_item['Order_Volume']); ?></td>
@@ -140,28 +144,41 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
             </div>
         </div>
     </div>
-
     <!--悬停go-top按钮-->
     <?php $this->load->view('./templates/go-top'); ?>
 </div>
 <?php $this->load->view('./templates/footer'); ?>
+
+<div class="modal fade" id="graphModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="modal_title"></h4>
+            </div>
+            <div class="modal-body" id="modal_body">
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 <script>
     var interval;
     $(document).ready(function () {
         $('.main_jumptron').css('margin-bottom', '0px');
         //将数据显示格式化
-        $('.formatted').each(function(){
+        $('.formatted').each(function () {
             var value = format_num($(this).html());
             $(this).html(value);
         });
 //       拥有.render类的元素，若大于0，设置为红色，若小于0，设置为绿色
-        $('.render').each(function(){
+        $('.render').each(function () {
             var value = $(this).html().indexOf('-');
-            if(value == -1){
-                $(this).css('color','red');
-            }else{
-                $(this).css('color','green');
+            if (value == -1) {
+                $(this).css('color', 'red');
+            } else {
+                $(this).css('color', 'green');
             }
         });
     });
@@ -231,7 +248,26 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                 }
             });
         }
+    });
 
-    })
-</script>
+    //从新浪获取分时图
+    function fillimage(stock_id, stock_name) {
+        var modal_body = document.getElementById("modal_body");
+        var modal_title = document.getElementById("modal_title");
+        var start_code = stock_id.toString().substr(0, 3);
+        if(start_code == '300' || start_code == '000'){
+            stock_id = 'sz' + stock_id;
+        }else if(start_code == '600'){
+            stock_id = 'sh' + stock_id;
+        }
+        else{
+            modal_body.innerHTML = '暂无该数据';
+            return;
+        }
+        modal_body.innerHTML = "<h3>分时图</h3>";
+        modal_body.innerHTML += "<img src='http://image.sinajs.cn/newchart/min/n/" + stock_id + ".gif' />";
+        modal_body.innerHTML += "<h3>K线图</h3>";
+        modal_body.innerHTML += "<img src='http://image.sinajs.cn/newchart/daily/n/" + stock_id + ".gif' />";
+        modal_title.innerHTML = "<h1>" + "<strong>" + stock_name + "</strong>" + "(" + stock_id + ")" + "</h1>"
+    }</script>
 </html>
