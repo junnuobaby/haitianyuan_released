@@ -92,6 +92,75 @@
                         }
                     ]
                 };
+                // 为echarts对象加载数据
+                myChart.setOption(option);
+            });
+
+    }
+    //绘制饼图
+    function draw_pie(component, value){
+        //路径配置
+        require.config({
+            paths: {
+                echarts: '<?php echo base_url("assets/js/echarts"); ?>'
+            }
+        });
+        //使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/pie', // 加载饼状图
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('pie_canvas'), 'macarons');
+
+                option = {
+                    title : {
+                        text: '资产使用情况',
+                        x:'center'
+                    },
+                    tooltip : {
+                        trigger: 'item',
+                        formatter: "{a} <br/>{b} : {c} ({d}%)"
+                    },
+                    legend: {
+                        orient : 'vertical',
+                        x : 'left',
+                        data:component
+                    },
+                    toolbox: {
+                        show : true,
+                        feature : {
+                            mark : {show: true},
+                            dataView : {show: true, readOnly: false},
+                            magicType : {
+                                show: true,
+                                type: ['pie'],
+//                                option: {
+//                                    funnel: {
+//                                        x: '25%',
+//                                        width: '50%',
+//                                        funnelAlign: 'left',
+//                                        max: 1548
+//                                    }
+//                                }
+                            },
+                            restore : {show: true},
+                            saveAsImage : {show: true}
+                        }
+                    },
+                    calculable : true,
+                    series : [
+                        {
+                            name:'访问来源',
+                            type:'pie',
+                            radius : '55%',
+                            center: ['50%', '60%'],
+                            data:value
+                        }
+                    ]
+                };
 
                 // 为echarts对象加载数据
                 myChart.setOption(option);

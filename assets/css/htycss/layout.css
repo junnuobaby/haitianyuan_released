@@ -755,3 +755,6 @@ ul.simulate_tablist li a:hover{
 #perform_canvas{
     height: 450px;
 }
+#pie_canvas{
+    height: 300px;
+}

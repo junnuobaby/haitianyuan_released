@@ -30,7 +30,9 @@ $stock_value = floatval($basic_info['fund']) - floatval($basic_info['cash_all'])
                             <h4>资产收益状况</h4>
                             <div class="asset_detail">
                                 <div class="row">
-                                    <div class="col-md-7"></div>
+                                    <div class="col-md-7">
+                                        <div id="pie_canvas"></div>
+                                    </div>
                                     <div class="col-md-5">
                                         <form class="form-horizontal" id="assets_form">
                                             <div class="form-group">
@@ -108,7 +110,18 @@ $stock_value = floatval($basic_info['fund']) - floatval($basic_info['cash_all'])
         <?php $count += 1;?>
         <?php endforeach;?>
 
-        draw(user_rate, avg_rate, time_list);
+        draw(user_rate, avg_rate, time_list);//绘制收益率曲线图
+
+        var parts = ['可用现金', '冻结金额', '股票市值'];
+        var cash_use = "<?php echo $basic_info['cash_use'];?>";
+        var cash_freeze = "<?php echo $basic_info['cash_freeze'];?>";
+        var stock_value = "<?php echo $stock_value;?>";
+        var parts_value = [
+            {value: cash_use, name:'可用现金'},
+            {value: cash_freeze, name:'冻结金额'},
+            {value: stock_value, name:'股票市值'}
+        ];
+        draw(parts, parts_value); //绘制资金使用情况饼图
     });
 
 </script>
