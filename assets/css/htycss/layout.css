@@ -744,6 +744,7 @@ ul.simulate_tablist li a:hover{
 .asset_detail{
     background-color: #fff8ed;
     height: 500px;
+    padding: 10px;
 }
 #assets_form .form-group{
     margin-bottom: 0;
