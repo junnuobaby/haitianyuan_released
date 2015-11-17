@@ -117,7 +117,7 @@
 
                 option = {
                     title: {
-                        text: '资产分布情况',
+                        text: '资产分布情况'
                     },
                     tooltip : {
                         trigger: 'item',
