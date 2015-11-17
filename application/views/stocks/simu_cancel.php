@@ -31,7 +31,7 @@ $pages = $pre_list['pagination']; //获取分页
                                             <th>证券代码</th>
                                             <th>证券名称</th>
                                             <th>委托方向</th>
-                                            <th>委托数量</th>
+                                            <th>委托量（股）</th>
                                             <th>委托价格</th>
                                             <th>委托金额</th>
                                             <th>预收费用</th>
