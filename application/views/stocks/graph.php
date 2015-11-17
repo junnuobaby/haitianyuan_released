@@ -123,7 +123,6 @@
                     legend: {
                         data:component
                     },
-                    calculable : false,
                     series : [
                         {
                             name:'访问来源',
