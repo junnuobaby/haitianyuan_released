@@ -56,8 +56,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                                         <div class="input-group-addon">元</div>
                                                     </div>
-                                                    <span class="theme-color">格式错误</span>
-
+                                                    <span class="theme-color hidden buy_price_alert">请输入正确的买入价格</span>
                                                 </div>
                                             </div>
                                             <div class="form-group hidden largest_quantity">
@@ -366,12 +365,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             var bond_price = $.trim($(this).val());
             var available_money = "<?php echo $cash_use;?>";
             if(isNaN(bond_price){
+                $('span.buy_price_alert').removeClass('hidden');
             }
             if(bond_price.length > 0 && !isNaN(bond_price)){
                 var quantity_avail = parseInt(parseFloat(available_money) / (parseFloat(bond_price) * 100)); //计算当前可买入的最大股数
                 $('div.largest_quantity').removeClass('hidden');
                 $('#largest_quantity').html(quantity_avail);
             }
+        });
+
+        $('#buy_price').focus(function () {
+            $('span.buy_price_alert').addClass('hidden');
         });
 
         //点击买入按钮，将买入股票信息
