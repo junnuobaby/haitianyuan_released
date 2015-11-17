@@ -51,6 +51,17 @@ $sell_stocks = $sell_list; //获取手中持有的股票
                                                 </div>
                                             </div>
                                             <div class="form-group hidden largest_quantity">
+                                                <label class="col-sm-4 control-label">买入价:</label>
+
+                                                <div class="col-sm-8">
+                                                    <div class="input-group">
+                                                        <span class="form-control warning_bg_color"
+                                                              id="buy_in_price"></span>
+                                                        <div class="input-group-addon">元</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group hidden largest_quantity">
                                                 <label class="col-sm-4 control-label">最多可卖出:</label>
 
                                                 <div class="col-sm-8">
@@ -62,17 +73,7 @@ $sell_stocks = $sell_list; //获取手中持有的股票
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="form-group hidden largest_quantity">
-                                                <label class="col-sm-4 control-label">买入价:</label>
 
-                                                <div class="col-sm-8">
-                                                    <div class="input-group">
-                                                        <span class="form-control warning_bg_color"
-                                                              id="buy_in_price"></span>
-                                                        <div class="input-group-addon">元</div>
-                                                    </div>
-                                                </div>
-                                            </div>
                                             <div class="form-group">
                                                 <label for="buy_price" class="col-sm-4 control-label">卖出价格:</label>
 
