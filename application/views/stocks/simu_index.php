@@ -122,7 +122,7 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                                 <tr id="<?php echo $stock_item['SecurityID']; ?>">
                                                     <td data-toggle="modal" data-target="#graphModal"
                                                         onclick="fillimage('<?= $stock_item['SecurityID']; ?>', '<?= $stock_item['Symbol']; ?>')">
-                                                        <a href="#"><?php echo $stock_item['SecurityID']; ?></a></td>
+                                                        <a href="#" class="blue-color"><?php echo $stock_item['SecurityID']; ?></a></td>
                                                     <td><?php echo $stock_item['Symbol']; ?></td>
                                                     <td class="formatted"><?php echo $stock_item['Volume_All']; ?></td>
                                                     <td class="formatted"><?php echo intval($stock_item['Volume_All']) - intval($stock_item['Ban_Volume']) - intval($stock_item['Order_Volume']); ?></td>
