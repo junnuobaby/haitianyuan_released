@@ -735,3 +735,6 @@ ul.simulate_tablist li a:hover{
 .border_none{
     border: none;
 }
+.warehouse{
+    margin-top: 20px;
+}
