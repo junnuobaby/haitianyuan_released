@@ -24,7 +24,7 @@ $pages = $pre_list['pagination']; //获取分页
 
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                    <table class="table  table-bordered table-responsive table-hover">
+                                    <table class="table  table-responsive table-hover">
                                         <thead>
                                         <tr>
                                             <th>时间</th>
