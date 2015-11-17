@@ -61,8 +61,8 @@ $basic_info = array(
                 <h4><i class="glyphicon glyphicon-jpy"></i> VIP管理</h4>
 
                 <div class="list-group">
-                    <a href="<?php echo base_url('index.php/my_center/4/1'); ?>" class="list-group-item">VIP价格</a>
-                    <a href="<?php echo base_url('index.php/my_center/4/2'); ?>" class="list-group-item">VIP会员</a>
+                    <a href="<?php echo base_url('index.php/my_center/index/4/1'); ?>" class="list-group-item">VIP价格</a>
+                    <a href="<?php echo base_url('index.php/my_center/index/4/2'); ?>" class="list-group-item">VIP会员</a>
                 </div>
             </li>
             <li class="list-group-item ">
