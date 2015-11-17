@@ -25,16 +25,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <form class="form-horizontal" onkeydown="if(event.keyCode==13)return false;"
                                               autocomplete="off">
                                             <div class="form-group">
-                                                <label for="bond_code" class="col-sm-4 control-label">证券代码:</label>
-
-                                                <div class="col-sm-8 bond_code_div">
-                                                    <input type="text" class="form-control" id="bond_code"
-                                                           autocomplete="off" name="bond_code" placeholder="代码 / 名称">
-
-                                                    <div class="hint_list"></div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
                                                 <label class="col-sm-4 control-label">可用现金:</label>
 
                                                 <div class="col-sm-8">
@@ -46,6 +36,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="form-group">
+                                                <label for="bond_code" class="col-sm-4 control-label">证券代码:</label>
+
+                                                <div class="col-sm-8 bond_code_div">
+                                                    <input type="text" class="form-control" id="bond_code"
+                                                           autocomplete="off" name="bond_code" placeholder="代码 / 名称">
+
+                                                    <div class="hint_list"></div>
+                                                </div>
+                                            </div>
+
                                             <div class="form-group">
                                                 <label for="buy_price" class="col-sm-4 control-label">买入价格:</label>
 
