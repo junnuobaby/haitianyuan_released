@@ -29,7 +29,7 @@ $month_rank = floatval($basic_info['month_rank']);
         </div>
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
-                <div class="panel panel-default mas_min_height">
+                <div class="panel panel-default user_min_height">
                     <div class="panel-heading"><h4>历史成绩</h4></div>
                     <div class="panel-body">
                         <div id="perform_canvas"></div>
