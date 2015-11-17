@@ -53,7 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <div class="col-sm-8">
                                                     <div class="input-group">
                                                         <input type="text" class="form-control" id="buy_price"
-                                                               name="buy_price" placeholder="保留小数点后两位数字">
+                                                               name="buy_price" placeholder="保留小数点后两位">
 
                                                         <div class="input-group-addon">元</div>
                                                     </div>
