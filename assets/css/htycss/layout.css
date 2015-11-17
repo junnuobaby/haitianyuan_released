@@ -746,5 +746,5 @@ ul.simulate_tablist li a:hover{
     height: 500px;
 }
 #assets_form .form-group{
-    margin-bottom: 5px;
+    margin-bottom: 0;
 }
