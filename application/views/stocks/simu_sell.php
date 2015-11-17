@@ -290,7 +290,7 @@ $sell_stocks = $sell_list; //获取手中持有的股票
             var bond_price = $('#buy_price').val(); //卖出价格
             var bond_quantity = $('#buy_quantity').val(); //卖出数量
             var bond_quantities = parseInt(bond_quantity) * 100; //求卖出的股数（卖出手数*100）
-            var info_str = '确定卖出 ' + bond_quantity + ' 股' + bond_name + '?';
+            var info_str = '确定卖出' + bond_quantity + '手' + bond_name + '?';
 
             if (confirm(info_str)) {
                 $.ajax({
