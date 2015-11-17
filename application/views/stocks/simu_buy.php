@@ -53,7 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <div class="col-sm-8">
                                                     <div class="input-group">
                                                         <input type="text" class="form-control" id="buy_price"
-                                                               name="buy_price">
+                                                               name="buy_price" placeholder="小数点后保留两位有效数字">
 
                                                         <div class="input-group-addon">元</div>
                                                     </div>
@@ -161,6 +161,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <ol class="ht_indent">
                                 <li>目前可买卖股票和债券。</li>
                                 <li>交易时间与沪深A股的开市时间一致。一般为周一至周五，上午09:30至11:30，下午13:00至15:00。</li>
+                                <li>交易价格均保留小数点后两位为有效数字。</li>
                                 <li>交易价格按照实盘价格成交，目前支持全部沪深A股，包括创业板。</li>
                                 <li>所有买卖均实行T+1制度，即当天买入的股票只能在第二个交易日卖出。</li>
                                 <li>买入卖出时，不收取印花税，超过一万收取交易金额的万分之三的手续费，手续费不足5元按5元收取。</li>
