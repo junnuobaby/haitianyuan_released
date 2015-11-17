@@ -375,8 +375,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         });
 
         $('#buy_price').focus(function () {
-            $('span.buy_price_alert').hide();
-            $('div.largest_quantity').hide();
+            $('span.buy_price_alert').addClass('hidden');
+            $('div.largest_quantity').addClass('hidden');
         });
 
         //点击买入按钮，将买入股票信息
