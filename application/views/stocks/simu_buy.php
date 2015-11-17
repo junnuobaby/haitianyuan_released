@@ -35,12 +35,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="bond_code" class="col-sm-4 control-label">可用现金:</label>
+                                                <label class="col-sm-4 control-label">可用现金:</label>
 
                                                 <div class="col-sm-8">
-                                                    <input type="text" class="form-control" id="cash_able"
-                                                           disabled="true"
-                                                           autocomplete="off" value="<?php echo $cash_use; ?>">
+                                                    <div class="input-group">
+                                                        <span class="form-control warning_bg_color"><?php echo $cash_use;?></span>
+                                                        <div class="input-group-addon">元</div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
