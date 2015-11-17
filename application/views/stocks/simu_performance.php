@@ -66,11 +66,4 @@ $perform_avg = $performance['data_avg'];  //平均历史收益率数据
 
 </script>
 
-<style type="text/css">
-    .asset_detail {
-        background-image: url("<?php echo base_url('assets/images/baidubg.png'); ?>");
-        background-color: #FFF8ED;
-        height: 200px;
-    }
-</style>
 </html>

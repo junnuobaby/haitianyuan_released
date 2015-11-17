@@ -741,3 +741,7 @@ ul.simulate_tablist li a:hover{
 #graph_modal_body{
     padding-top: 5px;
 }
+.asset_detail{
+    background-color: #fff8ed;
+    height: 500px;
+}
