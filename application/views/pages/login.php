@@ -23,6 +23,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                             <div class="col-md-6 col-sm-6 ">
                                 <?php echo validation_errors(); ?>
+                                <?php $username_error = form_error('user_name_input'); ?>
+                                <?php $password_error = form_error('password_input'); ?>
                                 <?php echo form_open('login/login','class="form-horizontal login_form"'); ?>
                                     <div class="form-group">
                                         <label for="weibo_name" class="col-md-3 col-sm-3 control-label">用户名：</label>
@@ -30,7 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <div class="col-md-7 col-sm-7">
                                             <input type="text" class="form-control" id="user_name_input"
                                                    name="user_name_input"
-                                                   placeholder="用户名/手机号码/邮箱">
+                                                   placeholder="<?php echo $username_error ? $username_error : '用户名/手机号码/邮箱'?>">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -38,7 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                         <div class="col-md-7 col-sm-7">
                                             <input type="password" class="form-control" id="password_input"
-                                                   name="password_input" placeholder="请输入密码">
+                                                   name="password_input" placeholder="<?php echo $password_error ? $password_error :'请输入密码';?>">
                                         </div>
                                     </div>
 
@@ -66,23 +68,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="row login_form">
                                     <div class="col-md-7 col-md-offset-3">
                                         <ul class="nav navbar-nav">
-                                            <!--                                            qq第三方登陆-->
+                                            <!--qq第三方登陆-->
                                             <li><a href="#">
                                                     <img src="<?php echo base_url('/assets/images/qq.png'); ?>"
                                                          alt="..." class="img-rounded narbar_li"></a></li>
-                                            <!--                                            微博第三方登陆-->
+                                            <!--微博第三方登陆-->
                                             <li><a href="#">
                                                     <img src="<?php echo base_url('/assets/images/weibo.png'); ?>"
                                                          alt="..." class="img-rounded narbar_li"></a></li>
-                                            <!--                                            微信第三方登陆-->
+                                            <!--微信第三方登陆-->
                                             <li><a href="#">
                                                     <img src="<?php echo base_url('/assets/images/weixin.jpg'); ?>"
                                                          alt="..." class="img-rounded narbar_li"></a></li>
                                         </ul>
                                     </div>
                                 </div>
-
-
                             </div>
                         </div>
                     </div>
