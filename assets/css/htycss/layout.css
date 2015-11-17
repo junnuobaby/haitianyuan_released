@@ -749,3 +749,7 @@ ul.simulate_tablist li a:hover{
 #assets_form .form-group{
     margin-bottom: 0;
 }
+#assets_form .align_left{
+    padding-left: 1px;
+    padding-right: 1px;
+}
