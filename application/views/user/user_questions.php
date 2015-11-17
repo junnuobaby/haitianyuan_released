@@ -26,7 +26,7 @@ $pages = $undo['pagination'];
                                                                   data-toggle="tab">未解决 <span
                                     class="badge green-color"><?php echo $qu_num ?></span></a>
                         </li>
-                        <li role="presentation"><a href="<?php echo base_url('index.php/modify_info/get_questions/web/done'); ?>">已解决</a>
+                        <li role="presentation"><a href="<?php echo base_url('index.php/my_center/index/1/2'); ?>">已解决</a>
                         </li>
 
                     </ul>

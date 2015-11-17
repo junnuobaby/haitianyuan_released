@@ -22,7 +22,7 @@ $pages = $done['pagination'];
             <div class="col-sm-9 col-md-9 bg-white block-radius user_min_height">
                 <div class="sub_nav">
                     <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation"><a href="<?php echo base_url('index.php/modify_info/get_questions/web/undo'); ?>">未解决 </a>
+                        <li role="presentation"><a href="<?php echo base_url('index.php/my_center/index/1/1'); ?>">未解决 </a>
                         </li>
                         <li role="presentation"  class="active"><a href="#qa_done" aria-controls="profile" role="tab" data-toggle="tab">已解决
                                 <span class="badge theme-bg-color"><?php echo $qa_num ?></span></a>
