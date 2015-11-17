@@ -124,8 +124,11 @@ footer.page_footer p{
 .white-color{
     color: white;
 }
-.blue-color{
-    color: #59b0ff;;
+.hty_a{
+    color: #337ab7;
+}
+.grey_color{
+    color: #808080;
 }
 /*白色背景*/
 .bg-white{
@@ -144,9 +147,6 @@ footer.page_footer p{
 }
 .txt_center{
     text-align: center;
-}
-.hty_a{
-    color: #337ab7;
 }
 .mas_min_height{
     min-height: 1000px;
