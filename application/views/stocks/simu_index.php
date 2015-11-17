@@ -42,7 +42,7 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                                 <td id="my_asset"></td>
                                                 <td class="formatted"><?php echo $user_data['cash_use']; ?></td>
                                                 <td class="formatted"><?php echo $user_data['cash_freeze']; ?></td>
-                                                <td><?php echo number_format(floatval($user_data['position']) * 100, 2); ?>%</td>
+                                                <td id="my_position"><?php echo number_format(floatval($user_data['position']) * 100, 2); ?>%</td>
                                                 <td id="stock_value"></td>
                                                 <td id="pl_value"></td>
                                                 <td id="pl_rate"></td>
@@ -202,8 +202,10 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                 success: function (response) {
                     $('#stock_value').html(format_num(response.stock_value));  //获取并设置股票市值
                     var cash_all = '<?php echo $user_data['cash_all']; ?>'; //获取总现金
-                    var asset_all = format_num(parseFloat(cash_all) + parseFloat(response.stock_value));
-                    $('#my_asset').html(asset_all);  //设置总资产
+                    var asset_all = parseFloat(cash_all) + parseFloat(response.stock_value);
+                    $('#my_asset').html(format_num(asset_all));  //设置总资产
+                    var position = parseFloat(response.stock_value) * 100 / parseFloat(asset_all);
+                    $('#my_position').html(format_num(position) + '%'); //设置仓位
                     var pl_value = $('#pl_value');
                     var pl_rate = $('#pl_rate');
                     if (parseFloat(response.pl_value) > 0) {
