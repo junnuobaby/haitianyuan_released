@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <?php $username_error = form_error('user_name_input'); ?>
                                 <?php $password_error = form_error('password_input'); ?>
                                 <?php echo form_open('login/login','class="form-horizontal login_form"'); ?>
-                                    <div class="form-group">
+                                    <div class="form-group has-error">
                                         <label for="weibo_name" class="col-md-3 col-sm-3 control-label">用户名：</label>
 
                                         <div class="col-md-7 col-sm-7">
