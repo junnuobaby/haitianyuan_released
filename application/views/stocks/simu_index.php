@@ -200,7 +200,7 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                 method: 'get',
                 dataType: 'json',
                 success: function (response) {
-                    $('#stock_value').html(format_num(response.stock_value)).css('color', 'red');  //获取并设置股票市值
+                    $('#stock_value').html(format_num(response.stock_value));  //获取并设置股票市值
                     var cash_all = '<?php echo $user_data['cash_all']; ?>'; //获取总现金
                     var asset_all = format_num(parseFloat(cash_all) + parseFloat(response.stock_value));
                     $('#my_asset').html(asset_all);  //设置总资产
