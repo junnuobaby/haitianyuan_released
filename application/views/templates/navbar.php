@@ -45,7 +45,7 @@
                         <?php else: ?>
                         <?php endif; ?>
                         <!--个人空间-->
-                        <li><a id="sel_homepage" href="<?php echo base_url('index.php/modify_info/index'); ?>"><span class="glyphicon glyphicon-user"></span> 个人中心</a></li>
+                        <li><a id="sel_homepage" href="<?php echo base_url('index.php/my_center/index'); ?>"><span class="glyphicon glyphicon-user"></span> 个人中心</a></li>
                         <!--显示用户名-->
                         <li class="dropdown">
                             <a id='navbar-username' href="#" class="dropdown-toggle" data-toggle="dropdown"
