@@ -155,7 +155,7 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                         aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="modal_title"></h4>
+                <h5 class="modal-title" id="modal_title"></h5>
             </div>
             <div class="modal-body" id="modal_body">
             </div>
