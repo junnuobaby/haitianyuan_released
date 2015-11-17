@@ -355,15 +355,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         $(this).addClass('green-color');
                     }
                 });
-                //将当前价格设置为默认的买入价格
-                var bond_price = $('#buy_price').val(); //买入价格
-                var available_money = "<?php echo $cash_use;?>";
-                var quantity_avail = Math.round(parseFloat(available_money) / (parseFloat(bond_cur_price) * 100)); //计算当前可买入的最大股数
-                $('div.largest_quantity').removeClass('hidden');
-                $('#largest_quantity').html(quantity_avail);
+//                //将当前价格设置为默认的买入价格
+//                var bond_price = $('#buy_price').val(); //买入价格
+//                var available_money = "<?php //echo $cash_use;?>//";
+//                var quantity_avail = Math.round(parseFloat(available_money) / (parseFloat(bond_price) * 100)); //计算当前可买入的最大股数
+//                $('div.largest_quantity').removeClass('hidden');
+//                $('#largest_quantity').html(quantity_avail);
 
             }
         }
+
+        $('#buy_price').blur(function () {
+            var bond_price = $(this).val();
+            var available_money = "<?php echo $cash_use;?>";
+            var quantity_avail = Math.round(parseFloat(available_money) / (parseFloat(bond_price) * 100)); //计算当前可买入的最大股数
+            $('div.largest_quantity').removeClass('hidden');
+            $('#largest_quantity').html(quantity_avail);
+        });
 
         //点击买入按钮，将买入股票信息
         $('#buy').click(function () {
