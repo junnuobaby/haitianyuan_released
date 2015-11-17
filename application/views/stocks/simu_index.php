@@ -28,6 +28,7 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                         <table class="table table-bordered basic_fund_info">
                                             <thead>
                                             <tr>
+                                                <th>总资产</th>
                                                 <th>总现金</th>
                                                 <th>可用现金</th>
                                                 <th>冻结金额</th>
@@ -39,6 +40,7 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                             </thead>
                                             <tbody>
                                             <tr>
+                                                <td id="my_asset"></td>
                                                 <td class="formatted"><?php echo $user_data['cash_all']; ?></td>
                                                 <td class="formatted"><?php echo $user_data['cash_use']; ?></td>
                                                 <td class="formatted"><?php echo $user_data['cash_freeze']; ?></td>
@@ -122,7 +124,9 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                                 <tr id="<?php echo $stock_item['SecurityID']; ?>">
                                                     <td data-toggle="modal" data-target="#graphModal"
                                                         onclick="fillimage('<?= $stock_item['SecurityID']; ?>', '<?= $stock_item['Symbol']; ?>')">
-                                                        <a href="#" class="hty_a"><?php echo $stock_item['SecurityID']; ?></a></td>
+                                                        <a href="#"
+                                                           class="hty_a"><?php echo $stock_item['SecurityID']; ?></a>
+                                                    </td>
                                                     <td><?php echo $stock_item['Symbol']; ?></td>
                                                     <td class="formatted"><?php echo $stock_item['Volume_All']; ?></td>
                                                     <td class="formatted"><?php echo intval($stock_item['Volume_All']) - intval($stock_item['Ban_Volume']) - intval($stock_item['Order_Volume']); ?></td>
@@ -172,7 +176,7 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
             var value = format_num($(this).html());
             $(this).html(value);
         });
-//       拥有.render类的元素，若大于0，设置为红色，若小于0，设置为绿色
+        //拥有.render类的元素，若大于0，设置为红色，若小于0，设置为绿色
         $('.render').each(function () {
             var value = $(this).html().indexOf('-');
             if (value == -1) {
@@ -240,7 +244,7 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                 $(tr_id).children('td:eq(8)').css('color', 'red');
                             }
                             $(tr_id).children('td:eq(5)').html(trade_price);  //设置当前价
-                            $(tr_id).children('td:eq(6)').html(format_num(stock_info[key]['float_pl']));   //设置浮动盈亏
+                            $(tr_id).children('td:eq(6)').html(format_num(decimal(stock_info[key]['float_pl'])));   //设置浮动盈亏
                             $(tr_id).children('td:eq(7)').html(format_num(stock_info[key]['float_pl_rate']) + '%');   //设置盈亏比
                             $(tr_id).children('td:eq(8)').html(id_extent + '%');  //设置涨跌幅
                         }
@@ -256,12 +260,12 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
         var modal_title = document.getElementById("graph_modal_title");
         var start_code = stock_id.toString().substr(0, 3);
         console.log(start_code);
-        if(start_code == '300' || start_code == '000'){
+        if (start_code == '300' || start_code == '000') {
             stock_id = 'sz' + stock_id;
-        }else if(start_code == '600'){
+        } else if (start_code == '600') {
             stock_id = 'sh' + stock_id;
         }
-        else{
+        else {
             modal_body.innerHTML = '暂无该数据';
             return;
         }
