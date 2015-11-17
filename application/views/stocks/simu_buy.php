@@ -415,7 +415,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     alert('请输入合法的买入价格');
                     return false;
                 }
-                if (($.trim(quantity).length < 1) || parseInt(quantity) < 1) {
+                if (($.trim(quantity).length < 1) || parseInt(quantity) < 1 || parseInt(quantity) > parseInt($('#largest_quantity').html()) ) {
                     alert('请输入合法的买入数量');
                     return false;
                 }
