@@ -33,9 +33,53 @@ $month_rank = floatval($basic_info['month_rank']);
                     <div class="panel-heading"><h4>历史成绩</h4></div>
                     <div class="panel-body">
                         <div id="perform_canvas"></div>
+                        <div>
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>周期</th>
+                                    <th>本日收益率</th>
+                                    <th>本周收益率</th>
+                                    <th>本月收益率</th>
+                                    <th>总收益率</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        收益率
+                                    </td>
+                                    <td class="render">
+                                        <?php echo $day_rate; ?>
+                                        %
+                                    </td>
+                                    <td class="render">
+                                        <?php echo $week_rate;?>
+                                        %
+                                    </td>
+                                    <td class="render">
+                                        <?php echo $month_rate;?>
+                                        %
+                                    </td>
+                                    <td class="render">
+                                        <?php echo $profit_rate;?>
+                                        %
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>排名</td>
+                                    <td><?php echo $day_rank;?></td>
+                                    <td><?php echo $week_rank; ?></td>
+                                    <td><?php echo $month_rank; ?></td>
+                                    <td>
+                                        <?php echo $profit_rank; ?>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
                         <hr/>
                         <div class="asset">
-<!--                            <h4>资产分布</h4>-->
                             <div class="asset_detail">
                                 <div class="row">
                                     <div class="col-md-7">

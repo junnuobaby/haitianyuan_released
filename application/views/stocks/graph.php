@@ -114,7 +114,6 @@
             function (ec) {
                 // 基于准备好的dom，初始化echarts图表
                 var myChart = ec.init(document.getElementById('pie_canvas'), 'macarons');
-
                 option = {
                     title: {
                         text: '资产分布情况'
