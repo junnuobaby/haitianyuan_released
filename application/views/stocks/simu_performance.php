@@ -29,7 +29,41 @@ $perform_avg = $performance['data_avg'];  //平均历史收益率数据
                             <div class="asset_detail">
                                 <div class="row">
                                     <div class="col-md-6">
+                                        <form class="form-horizontal">
+                                            <div class="form-group">
+                                                <label class="control-label col-sm-2">总资产：</label>
+                                                <div class="col-sm-8">
+                                                    <p class="form-control-static">
+                                                        <span href="#" class="color-gray">99,000</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-sm-2">可用现金：</label>
+                                                <div class="col-sm-8">
+                                                    <p class="form-control-static">
+                                                        <span href="#" class="color-gray">99,000</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-sm-2">冻结金额：</label>
+                                                <div class="col-sm-8">
+                                                    <p class="form-control-static">
+                                                        <span href="#" class="color-gray">99,000</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-sm-2">股票市值：</label>
+                                                <div class="col-sm-8">
+                                                    <p class="form-control-static">
+                                                        <span href="#" class="color-gray">99,000</span>
+                                                    </p>
+                                                </div>
+                                            </div>
 
+                                        </form>
                                     </div>
                                     <div class="col-md-6"></div>
                                 </div>
