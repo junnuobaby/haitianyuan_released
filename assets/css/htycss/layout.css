@@ -752,3 +752,6 @@ ul.simulate_tablist li a:hover{
 #assets_form .align_left{
     padding-left: 0;
 }
+#perform_canvas{
+    height: 450px;
+}
