@@ -116,10 +116,6 @@
                 var myChart = ec.init(document.getElementById('pie_canvas'), 'macarons');
 
                 option = {
-                    title : {
-                        text: '资产使用情况',
-                        x:'center'
-                    },
                     tooltip : {
                         trigger: 'item',
                         formatter: "{a} <br/>{b} : {c} ({d}%)"
@@ -129,27 +125,18 @@
                         x : 'left',
                         data:component
                     },
-                    toolbox: {
-                        show : true,
-                        feature : {
-                            mark : {show: true},
-                            dataView : {show: true, readOnly: false},
-                            magicType : {
-                                show: true,
-                                type: ['pie'],
-//                                option: {
-//                                    funnel: {
-//                                        x: '25%',
-//                                        width: '50%',
-//                                        funnelAlign: 'left',
-//                                        max: 1548
-//                                    }
-//                                }
-                            },
-                            restore : {show: true},
-                            saveAsImage : {show: true}
-                        }
-                    },
+//                    toolbox: {
+//                        show : true,
+//                        feature : {
+//                            dataView : {show: true, readOnly: false},
+//                            magicType : {
+//                                show: true,
+//                                type: ['pie'],
+//                            },
+//                            restore : {show: true},
+//                            saveAsImage : {show: true}
+//                        }
+//                    },
                     calculable : true,
                     series : [
                         {

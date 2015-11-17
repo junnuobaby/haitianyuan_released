@@ -27,7 +27,7 @@ $stock_value = floatval($basic_info['fund']) - floatval($basic_info['cash_all'])
                         <div id="perform_canvas"></div>
                         <hr/>
                         <div class="asset">
-                            <h4>资产收益状况</h4>
+                            <h4>资产分布</h4>
                             <div class="asset_detail">
                                 <div class="row">
                                     <div class="col-md-7">
