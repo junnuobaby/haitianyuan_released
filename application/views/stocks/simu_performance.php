@@ -13,11 +13,11 @@ $perform_avg = $performance['data_avg'];  //平均历史收益率数据
 $stock_value = floatval($basic_info['fund']) - floatval($basic_info['cash_all']);  //计算持有股票的市值
 $profit_rate = number_format(floatval($basic_info['profit_rate']) * 100, 2);
 $profit_rank = floatval($basic_info['profit_rank']);
-$day_rate = floatval($basic_info['day_rate']);
+$day_rate = number_format(floatval($basic_info['day_rate']) * 100,2);
 $day_rank = floatval($basic_info['day_rank']);
-$week_rate = floatval($basic_info['week_rate']);
+$week_rate = number_format(floatval($basic_info['week_rate']) * 100, 2);
 $week_rank = floatval($basic_info['week_rank']);
-$month_rate = floatval($basic_info['month_rate']);
+$month_rate = number_format(floatval($basic_info['month_rate']) * 100, 2);
 $month_rank = floatval($basic_info['month_rank']);
 ?>
 <body class="bg-gray">
