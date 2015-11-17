@@ -33,7 +33,7 @@ $month_rank = floatval($basic_info['month_rank']);
                     <div class="panel-heading"><h4>历史成绩</h4></div>
                     <div class="panel-body">
                         <div id="perform_canvas"></div>
-                        <div>
+                        <div id="profit_table">
                             <table class="table table-bordered">
                                 <thead>
                                 <tr>
