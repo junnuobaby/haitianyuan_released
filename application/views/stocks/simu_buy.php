@@ -322,31 +322,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             else {
                 var response = data.st_info;
                 var bond_name = response.Symbol; //ajax获取证券名称
-                var bond_cur_price = response.TradePrice; //获取最新价
-                var bond_lastday_price = response.PreClosePx; //获取昨日收盘价
-                var bond_highest = (1.1 * bond_lastday_price).toFixed(2); //涨停
-                var bond_lowest = (0.9 * bond_lastday_price).toFixed(2); //跌停
+                var bond_cur_price = decimal(response.TradePrice); //获取最新价
+                var bond_lastday_price = decimal(response.PreClosePx); //获取昨日收盘价
+                var bond_highest = decimal(1.1 * bond_lastday_price); //涨停
+                var bond_lowest = decimal(0.9 * bond_lastday_price); //跌停
                 var sell_1ist = [response.SellPrice1, response.SellPrice2, response.SellPrice3, response.SellPrice4, response.SellPrice5]; //卖五
                 var buy_1ist = [response.BuyPrice1, response.BuyPrice2, response.BuyPrice3, response.BuyPrice4, response.BuyPrice5];  //买五
 
 
+
                 $('#bond_name').html(bond_name);
-                $('#bond_price tr:nth-child(1) td:nth-child(2)').html(bond_cur_price).addClass('decimal');
-                $('#bond_price tr:nth-child(2) td:nth-child(2)').html(bond_lastday_price).addClass('decimal');
-                $('#bond_price tr:nth-child(3) td:nth-child(2)').html(bond_highest).addClass('decimal');
-                $('#bond_price tr:nth-child(4) td:nth-child(2)').html(bond_lowest).addClass('decimal');
+                $('#bond_price tr:nth-child(1) td:nth-child(2)').html(bond_cur_price);
+                $('#bond_price tr:nth-child(2) td:nth-child(2)').html(bond_lastday_price);
+                $('#bond_price tr:nth-child(3) td:nth-child(2)').html(bond_highest);
+                $('#bond_price tr:nth-child(4) td:nth-child(2)').html(bond_lowest);
 
-                $('#top_sell tr:nth-child(1) td:nth-child(2)').html(sell_1ist[4]).addClass('decimal'); //卖五
-                $('#top_sell tr:nth-child(2) td:nth-child(2)').html(sell_1ist[3]).addClass('decimal'); //卖四
-                $('#top_sell tr:nth-child(3) td:nth-child(2)').html(sell_1ist[2]).addClass('decimal'); //卖三
-                $('#top_sell tr:nth-child(4) td:nth-child(2)').html(sell_1ist[1]).addClass('decimal'); //卖二
-                $('#top_sell tr:nth-child(5) td:nth-child(2)').html(sell_1ist[0]).addClass('decimal'); //卖一
+                $('#top_sell tr:nth-child(1) td:nth-child(2)').html(sell_1ist[4]); //卖五
+                $('#top_sell tr:nth-child(2) td:nth-child(2)').html(sell_1ist[3]); //卖四
+                $('#top_sell tr:nth-child(3) td:nth-child(2)').html(sell_1ist[2]); //卖三
+                $('#top_sell tr:nth-child(4) td:nth-child(2)').html(sell_1ist[1]); //卖二
+                $('#top_sell tr:nth-child(5) td:nth-child(2)').html(sell_1ist[0]); //卖一
 
-                $('#top_buy tr:nth-child(1) td:nth-child(2)').html(buy_1ist[0]).addClass('decimal'); //买一
-                $('#top_buy tr:nth-child(2) td:nth-child(2)').html(buy_1ist[1]).addClass('decimal'); //买二
-                $('#top_buy tr:nth-child(3) td:nth-child(2)').html(buy_1ist[2]).addClass('decimal'); //买三
-                $('#top_buy tr:nth-child(4) td:nth-child(2)').html(buy_1ist[3]).addClass('decimal'); //买四
-                $('#top_buy tr:nth-child(5) td:nth-child(2)').html(buy_1ist[4]).addClass('decimal'); //买五
+                $('#top_buy tr:nth-child(1) td:nth-child(2)').html(buy_1ist[0]); //买一
+                $('#top_buy tr:nth-child(2) td:nth-child(2)').html(buy_1ist[1]); //买二
+                $('#top_buy tr:nth-child(3) td:nth-child(2)').html(buy_1ist[2]); //买三
+                $('#top_buy tr:nth-child(4) td:nth-child(2)').html(buy_1ist[3]); //买四
+                $('#top_buy tr:nth-child(5) td:nth-child(2)').html(buy_1ist[4]); //买五
 
                 //根据价格设置显示颜色
                 var top_price = $('#bond_price tr td:nth-child(2),#top_buy tr td:nth-child(2), #top_sell tr td:nth-child(2)');
@@ -359,11 +360,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 });
             }
         }
-
-        $('.decimal').each(function () {
-            var value = decimal($(this).html());
-            $(this).html(value);
-        });
 
         //用户输入买入价格后提示最大可买入量
         $('#buy_price').blur(function () {
