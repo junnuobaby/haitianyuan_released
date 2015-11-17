@@ -11,6 +11,14 @@ $basic_info = $performance['data_user'];  //用户收益率等当前信息
 $perform_info = $performance['data_line']; //用户历史收益率数据
 $perform_avg = $performance['data_avg'];  //平均历史收益率数据
 $stock_value = floatval($basic_info['fund']) - floatval($basic_info['cash_all']);  //计算持有股票的市值
+$profit_rate = floatval($basic_info['profit_rate']);
+$profit_rank = floatval($basic_info['profit_rank']);
+$day_rate = floatval($basic_info['day_rate']);
+$day_rank = floatval($basic_info['day_rank']);
+$week_rate = floatval($basic_info['week_rate']);
+$week_rank = floatval($basic_info['week_rank']);
+$month_rate = floatval($basic_info['month_rate']);
+$month_rank = floatval($basic_info['month_rank']);
 ?>
 <body class="bg-gray">
 <div class="wrapper">
@@ -72,12 +80,6 @@ $stock_value = floatval($basic_info['fund']) - floatval($basic_info['cash_all'])
                                     </div>
                                     <div class="col-md-6"></div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-7">
-                                        <div id="bar_canvas"></div>
-                                    </div>
-                                    <div class="col-md-5"></div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -128,7 +130,6 @@ $stock_value = floatval($basic_info['fund']) - floatval($basic_info['cash_all'])
             {value:stock_value, name:'股票市值'}
         ];
         draw_pie(parts, parts_value); //绘制资金使用情况饼图
-
 
     });
 
