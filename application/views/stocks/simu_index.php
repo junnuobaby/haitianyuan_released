@@ -98,7 +98,7 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                 </div>
 
                                 <div class="warehouse">
-                                    <h4 class="blue-color margin_to_top ">我的持仓</h4>
+                                    <h4 class="blue-color">我的持仓</h4>
                                     <div class="table-responsive">
                                         <table class="table table-bordered">
                                             <thead>
