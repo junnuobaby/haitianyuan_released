@@ -42,7 +42,7 @@ $stock_value = floatval($basic_info['fund']) - floatval($basic_info['cash_all'])
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="control-label col-sm-4">可用现金：</label>
+                                                <label class="control-label col-sm-4 grey-color">可用现金：</label>
                                                 <div class="col-sm-8 align_left">
                                                     <div class="form-control-static">
                                                         <span href="#" class="formatted"><?php echo $basic_info['cash_use'];?></span>
@@ -50,7 +50,7 @@ $stock_value = floatval($basic_info['fund']) - floatval($basic_info['cash_all'])
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="control-label col-sm-4">冻结金额：</label>
+                                                <label class="control-label col-sm-4 grey-color">冻结金额：</label>
                                                 <div class="col-sm-8 align_left">
                                                     <div class="form-control-static">
                                                         <span href="#" class="formatted"><?php echo $basic_info['cash_freeze'];?></span>
@@ -58,7 +58,7 @@ $stock_value = floatval($basic_info['fund']) - floatval($basic_info['cash_all'])
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="control-label col-sm-4">股票市值：</label>
+                                                <label class="control-label col-sm-4 grey-color">股票市值：</label>
                                                 <div class="col-sm-8 align_left">
                                                     <div class="form-control-static">
                                                         <span href="#" class="formatted"><?php echo $stock_value;?></span>
