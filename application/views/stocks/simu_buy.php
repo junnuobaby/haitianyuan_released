@@ -253,7 +253,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         //响应上下键事件
         function navigate_list(event) {
             var cur = $('div.hint_list tr.hint_active');
-            alert(cur.length);
             var bond_code = $('#bond_code');
             switch (event.which) {
                 case 38:   //上键
@@ -267,6 +266,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                 case 40:   //下键
                     if (cur.length > 0) {
+                        alert(cur.length);
                         cur.removeClass('hint_active').next('tr').addClass('hint_active');
                     }
                     else {
