@@ -53,7 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <div class="col-sm-8">
                                                     <div class="input-group">
                                                         <input type="text" class="form-control" id="buy_price"
-                                                               name="buy_price" placeholder="小数点后保留两位">
+                                                               name="buy_price" placeholder="保留小数点后两位数字">
 
                                                         <div class="input-group-addon">元</div>
                                                     </div>
@@ -161,7 +161,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <ol class="ht_indent">
                                 <li>目前可买卖股票和债券。</li>
                                 <li>交易时间与沪深A股的开市时间一致。一般为周一至周五，上午09:30至11:30，下午13:00至15:00。</li>
-                                <li>交易价格均保留小数点后两位为有效数字。</li>
+                                <li>申报价格保留小数点后两位数字</li>
                                 <li>交易价格按照实盘价格成交，目前支持全部沪深A股，包括创业板。</li>
                                 <li>所有买卖均实行T+1制度，即当天买入的股票只能在第二个交易日卖出。</li>
                                 <li>买入卖出时，不收取印花税，超过一万收取交易金额的万分之三的手续费，手续费不足5元按5元收取。</li>
@@ -377,6 +377,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $('span.buy_price_alert').removeClass('hidden');
             }
             if(bond_price.length > 0 && !isNaN(bond_price)){
+                bond_price = decimal(bond_price);
                 var quantity_avail = parseInt(parseFloat(available_money) / (parseFloat(bond_price) * 100)); //计算当前可买入的最大股数
                 $('div.largest_quantity').removeClass('hidden');
                 $('#largest_quantity').html(quantity_avail);
@@ -392,9 +393,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         $('#buy').click(function () {
             var bond_code = $('#bond_code').val(); //证券代码
             var bond_name = $('#bond_name').html(); //证券名称
-            var bond_price = $('#buy_price').val(); //买入价格
+            var bond_price = decimal($('#buy_price').val()); //买入价格
             var bond_quantity = $('#buy_quantity').val(); //买入数量(以手为单位)
-            var info_str = '确定买入 ' + bond_quantity + ' 手' + bond_name + '?';
+            var info_str = '确定买入 ' + bond_quantity + '手' + bond_name + '?';
             var bond_quantities = parseInt(bond_quantity) * 100; //求买入的股数（买入数量*100）
 
             if (validate(bond_code, bond_price, bond_quantity)) {
