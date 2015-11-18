@@ -1,6 +1,6 @@
 <div>
     <div class="list-group">
-        <span href="#" class="list-group-item disabled">
+        <span class="list-group-item">
            排行榜
         </span>
         <a href="<?php echo base_url('/index.php/stock/index/web/2/1');?>" class="list-group-item <?php if($nav_mode == "simu_heros_1") echo "active"; ?>">总收益率排名</a>
