@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="zh-cn">
 <?php $this->load->view('./templates/head'); ?>
 <?php
-
+$hero_lists = $heros_list;  //获取排行榜前100数据
 ?>
 <body class="bg-gray">
 <div class="wrapper">
@@ -17,7 +17,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
             <div class="col-md-10 col-sm-10">
                 <div class="bg-white stocks_min_h  block-radius">
-
+                    <table class="table table-bordered table-condensed table-hover">
+                        <thead>
+                        <tr>
+                            <th>用户名</th>
+                            <th>总资产</th>
+                            <th>仓位</th>
+                            <th>总收益率</th>
+                            <th>日收益率</th>
+                            <th>周收益率</th>
+                            <th>月收益率</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php foreach ($hero_lists as $item):?>
+                        <tr>
+                            <td><?= $item['user_name'];?></td>
+                            <td><?= $item['fund'];?></td>
+                            <td><?= $item['position'];?></td>
+                            <td><?= $item['profit_rate'];?></td>
+                            <td><?= $item['day_rate'];?></td>
+                            <td><?= $item['week_rate'];?></td>
+                            <td><?= $item['month_rate'];?></td>
+                        </tr>
+                        <?php endforeach;?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
