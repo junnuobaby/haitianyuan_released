@@ -764,3 +764,6 @@ ul.simulate_tablist li a:hover{
 .rank_table{
     margin: 30px 20px;
 }
+tr.rank_thead th{
+    text-align: center;
+}
