@@ -791,14 +791,14 @@ tr.rank_thead th{
     background-color: #396D81;
     border-color: #315568;
 }
-/*.flow-sidebar.affix,*/
-/*.flow-sidebar.affix-top,*/
-/*.flow-sidebar.affix-bottom {*/
-    /*width: 185px;*/
-/*}*/
+.flow-sidebar.affix,
+.flow-sidebar.affix-top,
+.flow-sidebar.affix-bottom {
+    width: 185px;
+}
 .flow-sidebar.affix {
     position: fixed;
-    /*top: 80px;*/
+    top: 20px;
 }
 .flow-sidebar.affix-bottom {
     position: absolute;
