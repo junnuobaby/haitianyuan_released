@@ -776,11 +776,12 @@ tr.rank_tbody td.table_right{
 }
 .plaque{
     margin: 0 10px 15px 10px;
+    height: 70px;
 }
 .plaque span{
     font-size: 40px;
-    /*bottom: 0;*/
-    /*position: relative;*/
+    bottom: 0;
+    position: relative;
 }
 .plaque img{
     /*vertical-align: middle;*/
