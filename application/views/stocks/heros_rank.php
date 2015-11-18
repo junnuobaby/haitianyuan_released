@@ -20,7 +20,7 @@ if ($len <= 10) {
 } elseif ($len > 40) {
     $stage_1 = array_slice($hero_lists, 0, 10);
     $stage_2 = array_slice($hero_lists, 10, 30);
-    $stage_2 = array_slice($hero_lists, 40);
+    $stage_3 = array_slice($hero_lists, 40);
 }
 $ranking = 0;
 ?>
