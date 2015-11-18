@@ -65,10 +65,10 @@ $ranking = 0;
                                         <td class="table_left">
                                             <?php
                                             if(floatval($item['scope']) > 0){
-                                                echo "<span class='glyphicon glyphicon-chevron-up theme-color'></span>";
+                                                echo "<span class='glyphicon glyphicon-arrow-up theme-color'></span>";
                                             }
                                             elseif(floatval($item['scope']) < 0){
-                                                echo "<span class='glyphicon glyphicon-chevron-down green-color'></span>";
+                                                echo "<span class='glyphicon glyphicon-arrow-down green-color'></span>";
                                             }
                                             else{
                                                 echo "<span class='glyphicon glyphicon-option-horizontal blue-color'></span>";
