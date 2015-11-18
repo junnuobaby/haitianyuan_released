@@ -6,6 +6,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?php $this->load->view('./templates/head'); ?>
 <?php
 $hero_lists = $heros_list;  //获取排行榜前100数据
+$len = count($hero_lists);
+$stage_1 = array();   //宗师级
+$stage_2 = array();   //大师级
+$stage_3 = array();   //高手级
+if($len <= 10){
+    $stage_1 = $hero_lists;
+}
+elseif($len > 10 && $len <= 40){
+    $stage_1 = array_slice($hero_lists, 0, 10);
+    $stage_2 = array_slice($hero_lists, 10);
+}elseif($len > 40){
+    $stage_1 = array_slice($hero_lists, 0, 10);
+    $stage_2 = array_slice($hero_lists, 10, 30);
+    $stage_2 = array_slice($hero_lists, 40);
+}
 $ranking = 0;
 ?>
 <body class="bg-gray">
@@ -33,7 +48,7 @@ $ranking = 0;
                             </tr>
                             </thead>
                             <tbody>
-                            <?php foreach ($hero_lists as $item): ?>
+                            <?php foreach ($stage_1 as $item): ?>
                                 <?php $ranking += 1; ?>
                                 <?php if ($ranking <= 10): ?>
                                     <tr class="rank_tbody">
@@ -76,50 +91,7 @@ $ranking = 0;
                             </tr>
                             </thead>
                             <tbody>
-                            <?php foreach ($hero_lists as $item): ?>
-                                <?php $ranking += 1; ?>
-                                <?php if ($ranking > 10 && $ranking <= 40): ?>
-                                    <tr class="rank_tbody">
-                                        <td class="table_left"><?= $ranking; ?></td>
-                                        <td class="table_left"><?= $item['user_name']; ?></td>
-                                        <td class="formatted table_right"><?= $item['fund']; ?></td>
-                                        <td class="table_right"><?= number_format(floatval($item['position']) * 100, 2); ?>
-                                            %
-                                        </td>
-                                        <td class="render table_right"><?= number_format(floatval($item['profit_rate']) * 100, 2); ?>
-                                            %
-                                        </td>
-                                        <td class="render table_right"><?= number_format(floatval($item['day_rate']) * 100, 2); ?>
-                                            %
-                                        </td>
-                                        <td class="render table_right"><?= number_format(floatval($item['week_rate']) * 100, 2); ?>
-                                            %
-                                        </td>
-                                        <td class="render table_right"><?= number_format(floatval($item['month_rate']) * 100, 2); ?>
-                                            %
-                                        </td>
-                                    </tr>
-                                <?php endif; ?>
-                            <?php endforeach; ?>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="rank_table">
-                        <table class="table table-bordered table-hover">
-                            <thead>
-                            <tr class="rank_thead">
-                                <th>排名</th>
-                                <th>用户名</th>
-                                <th>总资产</th>
-                                <th>仓位</th>
-                                <th>总收益率</th>
-                                <th>日收益率</th>
-                                <th>周收益率</th>
-                                <th>月收益率</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <?php foreach ($hero_lists as $item): ?>
+                            <?php foreach ($stage_2 as $item): ?>
                                 <?php $ranking += 1; ?>
                                 <?php if ($ranking > 40 && $ranking <= 100): ?>
                                     <tr class="rank_tbody">
