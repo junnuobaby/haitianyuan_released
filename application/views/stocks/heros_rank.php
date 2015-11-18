@@ -35,7 +35,7 @@ $ranking = 0;
                             <tbody>
                             <?php foreach ($hero_lists as $item):?>
                                 <?php $ranking += 1;?>
-                                <tr style="text-align: right;">
+                                <tr class="rank_tbody">
                                     <td><?= $ranking;?></td>
                                     <td><?= $item['user_name'];?></td>
                                     <td class="formatted"><?= $item['fund'];?></td>

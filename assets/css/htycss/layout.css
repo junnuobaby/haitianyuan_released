@@ -767,3 +767,6 @@ ul.simulate_tablist li a:hover{
 tr.rank_thead th{
     text-align: center;
 }
+tr.rank_tbody td{
+    text-align: right;
+}
