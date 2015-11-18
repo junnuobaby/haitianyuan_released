@@ -62,7 +62,19 @@ $ranking = 0;
                                 <?php $ranking += 1; ?>
                                 <?php if ($ranking <= 10): ?>
                                     <tr class="rank_tbody">
-                                        <td class="table_left"><?= $ranking; ?></td>
+                                        <td class="table_left">
+                                            <?php
+                                            if(floatval($item['scope']) > 0){
+                                                echo "<span class='glyphicon glyphicon-chevron-up theme-color'></span>";
+                                            }
+                                            elseif(floatval($item['scope']) < 0){
+                                                echo "<span class='glyphicon glyphicon-chevron-down green-color'></span>";
+                                            }
+                                            else{
+                                                echo "<span class='glyphicon glyphicon-option-horizontal blue-color'></span>";
+                                            }
+                                            ?>
+                                            <?= $ranking; ?></td>
                                         <td class="table_left"><?= $item['user_name']; ?></td>
                                         <td class="formatted table_right"><?= $item['fund']; ?></td>
                                         <td class="table_right"><?= number_format(floatval($item['position']) * 100, 2); ?>
