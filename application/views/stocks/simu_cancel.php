@@ -143,11 +143,11 @@ $pages = $pre_list['pagination']; //获取分页
     function fillimage(stock_id, stock_name) {
         var modal_body = document.getElementById("graph_modal_body");
         var modal_title = document.getElementById("graph_modal_title");
-        var start_code = stock_id.toString().substr(0, 3);
+        var start_code = stock_id.toString().substr(0, 2);
         console.log(start_code);
-        if (start_code == '300' || start_code == '000') {
+        if (start_code == '30' || start_code == '00') {
             stock_id = 'sz' + stock_id;
-        } else if (start_code == '600') {
+        } else if (start_code == '60') {
             stock_id = 'sh' + stock_id;
         }
         else {
