@@ -138,7 +138,8 @@ $ranking = 0;
                                                 } else {
                                                     echo "<span class='glyphicon glyphicon-option-horizontal blue-color'></span>";
                                                 }
-                                                ?><?= $ranking; ?></td>
+                                                ?>
+                                                <?= $ranking; ?></td>
                                             <td class="table_left"><img width="20px" height="20px" src="<?php echo base_url('/uploads/' . $item['face_pic']); ?>"
                                                                         class="img-responsive inline_block" alt="..."> <?= $item['user_name']; ?></td>
                                             <td class="formatted table_right"><?= $item['fund']; ?></td>
@@ -202,8 +203,8 @@ $ranking = 0;
                                                     echo "<span class='glyphicon glyphicon-arrow-down green-color'></span>";
                                                 } else {
                                                     echo "<span class='glyphicon glyphicon-option-horizontal blue-color'></span>";
-                                                }
-                                                ?><?= $ranking; ?></td>
+                                                } ?>
+                                                <?= $ranking; ?></td>
                                             <td class="table_left"><img width="20px" height="20px" src="<?php echo base_url('/uploads/' . $item['face_pic']); ?>"
                                                                         class="img-responsive inline_block" alt="..."> <?= $item['user_name']; ?></td>
                                             <td class="formatted table_right"><?= $item['fund']; ?></td>
