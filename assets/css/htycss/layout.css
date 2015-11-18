@@ -791,7 +791,22 @@ tr.rank_thead th{
     background-color: #396D81;
     border-color: #315568;
 }
-#ranking_sidebar .affix{
-    position: static;
+.flow-sidebar.affix,
+.flow-sidebar.affix-top,
+.flow-sidebar.affix-bottom {
+    width: 185px;
 }
+.flow-sidebar.affix {
+    position: fixed;
+    top: 80px;
+}
+.flow-sidebar.affix-bottom {
+    position: absolute;
+}
+.flow-sidebar.affix-bottom,
+.flow-sidebar.affix {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
 
