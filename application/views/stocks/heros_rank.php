@@ -6,6 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?php $this->load->view('./templates/head'); ?>
 <?php
 $hero_lists = $heros_list;  //获取排行榜前100数据
+$ranking = 0;
 ?>
 <body class="bg-gray">
 <div class="wrapper">
@@ -21,6 +22,7 @@ $hero_lists = $heros_list;  //获取排行榜前100数据
                         <table class="table table-bordered table-condensed table-hover">
                             <thead>
                             <tr class="warning">
+                                <td>排名</td>
                                 <th>用户名</th>
                                 <th>总资产</th>
                                 <th>仓位</th>
@@ -32,7 +34,9 @@ $hero_lists = $heros_list;  //获取排行榜前100数据
                             </thead>
                             <tbody>
                             <?php foreach ($hero_lists as $item):?>
+                                <?php $ranking += 1;?>
                                 <tr>
+                                    <td><?= $ranking;?></td>
                                     <td><?= $item['user_name'];?></td>
                                     <td class="formatted"><?= $item['fund'];?></td>
                                     <td ><?= $item['position'];?></td>
