@@ -21,6 +21,7 @@ $pages = $done_list['pagination']; //获取分页
                     <div class="simulate_panel">
                         <div class="tab-content">
                             <h4 class="blue-color margin_to_top">今日成交</h4>
+
                             <div class="panel panel-default border_none">
                                 <div class="panel-body">
                                     <table class="table table-responsive table-hover table-bordered">
@@ -40,7 +41,10 @@ $pages = $done_list['pagination']; //获取分页
                                         <?php foreach ($done_records as $stock_item): ?>
                                             <tr>
                                                 <td><?php echo $stock_item['timestamp']; ?></td>
-                                                <td><?php echo $stock_item['SecurityID']; ?></td>
+                                                <td data-toggle="modal" data-target="#graphModal"
+                                                    onclick="fillimage('<?= $stock_item['SecurityID']; ?>', '<?= $stock_item['Symbol']; ?>')">
+                                                    <a href="#"
+                                                       class="hty_a"><?php echo $stock_item['SecurityID']; ?></a></td>
                                                 <td><?php echo $stock_item['Symbol']; ?></td>
                                                 <td><?php if ($stock_item['trade_type'] == '1') {
                                                         echo '买入';
@@ -51,13 +55,13 @@ $pages = $done_list['pagination']; //获取分页
                                                 <td class="formatted decimal"><?php echo $stock_item['Price']; ?></td>
                                                 <td class="formatted"><?php echo $stock_item['Price'] * $stock_item['Volume']; ?></td>
                                                 <td class="formatted decimal"><?php
-                                                    if($stock_item['trade_type'] == '1'){
+                                                    if ($stock_item['trade_type'] == '1') {
                                                         $trade_money = floatval($stock_item['Price'] * $stock_item['Volume']) * 0.0003;
-                                                    }elseif($stock_item['trade_type'] == '3'){
+                                                    } elseif ($stock_item['trade_type'] == '3') {
                                                         $trade_money = floatval($stock_item['Price'] * $stock_item['Volume']) * 0.0013;
                                                     }
                                                     if ($trade_money > 5) {
-                                                        echo  number_format($trade_money, 2);
+                                                        echo number_format($trade_money, 2);
                                                     } else {
                                                         echo '5.00';
                                                     }
@@ -80,11 +84,24 @@ $pages = $done_list['pagination']; //获取分页
     <?php $this->load->view('./templates/go-top'); ?>
 </div>
 <?php $this->load->view('./templates/footer'); ?>
+<div class="modal fade" id="graphModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title" id="graph_modal_title"></h3>
+            </div>
+            <div class="modal-body" id="graph_modal_body">
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 <script>
     $(document).ready(function () {
         $('.main_jumptron').css('margin-bottom', '0px');
-        $('.formatted').each(function(){
+        $('.formatted').each(function () {
             var value = format_num($(this).html());
             $(this).html(value);
         });
@@ -93,5 +110,27 @@ $pages = $done_list['pagination']; //获取分页
             $(this).html(value);
         });
     });
+    //从新浪获取分时图
+    function fillimage(stock_id, stock_name) {
+        var modal_body = document.getElementById("graph_modal_body");
+        var modal_title = document.getElementById("graph_modal_title");
+        var start_code = stock_id.toString().substr(0, 2);
+        console.log(start_code);
+        if (start_code == '30' || start_code == '00') {
+            stock_id = 'sz' + stock_id;
+        } else if (start_code == '60') {
+            stock_id = 'sh' + stock_id;
+        }
+        else {
+            modal_body.innerHTML = '暂无该数据';
+            return;
+        }
+        modal_body.innerHTML = "<h3>分时图</h3>";
+        modal_body.innerHTML += "<img src='http://image.sinajs.cn/newchart/min/n/" + stock_id + ".gif' />";
+        modal_body.innerHTML += "<hr/>";
+        modal_body.innerHTML += "<h3>K线图</h3>";
+        modal_body.innerHTML += "<img src='http://image.sinajs.cn/newchart/daily/n/" + stock_id + ".gif' />";
+        modal_title.innerHTML = "<h2>" + "<strong>" + stock_name + "</strong>" + "(" + stock_id + ")" + "</h2>"
+    }
 </script>
 </html>
