@@ -37,7 +37,7 @@ $ranking = 0;
                         <div class="col-md-4 col-md-offset-4" >
                             <div class="plaque">
                                 <img width="70px" height="70px" class="img-responsive inline_block" src="<?php echo base_url('/assets/images/zongshi.png'); ?>" alt="Logo加载中...">
-                                <h1 class="inline_block">宗师组</h1>
+                                <span >宗师组</span>
                             </div>
                         </div>
                         <table class="table table-bordered table-hover">
