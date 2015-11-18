@@ -774,3 +774,6 @@ tr.rank_tbody td.table_left{
 tr.rank_tbody td.table_right{
     text-align: right;
 }
+.plaque{
+    margin: 0 10px 15px 10px;
+}
