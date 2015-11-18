@@ -39,11 +39,11 @@ $ranking = 0;
                                     <td><?= $ranking;?></td>
                                     <td><?= $item['user_name'];?></td>
                                     <td class="formatted"><?= $item['fund'];?></td>
-                                    <td ><?= $item['position'];?></td>
-                                    <td class="decimal"><?= $item['profit_rate'];?></td>
-                                    <td class="decimal"><?= $item['day_rate'];?></td>
-                                    <td class="decimal"><?= $item['week_rate'];?></td>
-                                    <td class="decimal"><?= $item['month_rate'];?></td>
+                                    <td><?= number_format(floatval($item['position']) * 100, 2);?>%</td>
+                                    <td><?= number_format(floatval($item['profit_rate']) * 100, 2);?>%</td>
+                                    <td><?= number_format(floatval($item['day_rate']) * 100, 2);?>%</td>
+                                    <td><?= number_format(floatval($item['week_rate']) * 100, 2);?>%</td>
+                                    <td><?= number_format(floatval($item['month_rate']) * 100, 2);?>%</td>
                                 </tr>
                             <?php endforeach;?>
                             </tbody>
