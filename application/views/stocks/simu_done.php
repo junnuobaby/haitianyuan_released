@@ -51,9 +51,9 @@ $pages = $done_list['pagination']; //获取分页
                                                 <td class="formatted decimal"><?php echo $stock_item['Price']; ?></td>
                                                 <td class="formatted"><?php echo $stock_item['Price'] * $stock_item['Volume']; ?></td>
                                                 <td class="formatted decimal"><?php
-                                                    if($stock_item['trade_type'] == '0'){
+                                                    if($stock_item['trade_type'] == '1'){
                                                         $trade_money = floatval($stock_item['Price'] * $stock_item['Volume']) * 0.0003;
-                                                    }else{
+                                                    }elseif($stock_item['trade_type'] == '3'){
                                                         $trade_money = floatval($stock_item['Price'] * $stock_item['Volume']) * 0.0013;
                                                     }
                                                     if ($trade_money > 5) {
