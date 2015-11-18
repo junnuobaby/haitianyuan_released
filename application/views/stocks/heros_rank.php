@@ -15,12 +15,12 @@ $hero_lists = $heros_list;  //获取排行榜前100数据
             <div class="col-md-2">
                 <?php $this->load->view('./stocks/heros_rank_sidebar'); ?>
             </div>
-            <div class="col-md-10 col-sm-10">
-                <div class="bg-white stocks_min_h  block-radius">
+            <div class="col-md-10 col-sm-10 bg-white ">
+                <div class="stocks_min_h  block-radius">
                     <div class="rank_table">
                         <table class="table table-bordered table-condensed table-hover">
                             <thead>
-                            <tr>
+                            <tr class="warning">
                                 <th>用户名</th>
                                 <th>总资产</th>
                                 <th>仓位</th>
