@@ -1,6 +1,6 @@
 <div>
     <div class="list-group">
-        <a href="#" class="list-group-item active">
+        <a href="#" class="list-group-item disabled">
            排行榜
         </a>
         <a href="#" class="list-group-item">日收益率排名</a>
