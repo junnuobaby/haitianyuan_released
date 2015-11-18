@@ -784,6 +784,6 @@ tr.rank_thead th{
     position: relative;
 }
 .active_list_item{
-    color: rgb(57, 109, 129);
+    background-color: rgb(57, 109, 129);
 }
 
