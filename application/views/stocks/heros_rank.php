@@ -19,7 +19,7 @@ $ranking = 0;
             <div class="col-md-10 col-sm-10 bg-white ">
                 <div class="stocks_min_h  block-radius">
                     <div class="rank_table">
-                        <table class="table table-bordered table-condensed table-hover">
+                        <table class="table table-bordered table-hover">
                             <thead>
                             <tr class="rank_thead">
                                 <th>排名</th>
