@@ -12,10 +12,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <?php $this->load->view('./stocks/bonds_navbar'); ?>
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
-                <?php $this->load->view('./stocks/heros_list_sidebar'); ?>
+            <div class="col-md-2">
+                <?php $this->load->view('./stocks/heros_rank_sidebar'); ?>
             </div>
-            <div class="col-md-9 col-sm-9">
+            <div class="col-md-10 col-sm-10">
                 <div class="bg-white stocks_min_h  block-radius">
 
                 </div>
