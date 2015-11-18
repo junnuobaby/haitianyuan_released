@@ -783,4 +783,7 @@ tr.rank_thead th{
     top: 12px;
     position: relative;
 }
+.active_list_item{
+    color: #f4645f;
+}
 
