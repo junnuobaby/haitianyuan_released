@@ -112,7 +112,7 @@ $ranking = 0;
                             <tbody>
                             <?php foreach ($stage_2 as $item): ?>
                                 <?php $ranking += 1; ?>
-                                <?php if ($ranking > 40 && $ranking <= 100): ?>
+                                <?php if ($ranking > 10 && $ranking <= 40): ?>
                                     <tr class="rank_tbody">
                                         <td class="table_left"><?= $ranking; ?></td>
                                         <td class="table_left"><?= $item['user_name']; ?></td>
