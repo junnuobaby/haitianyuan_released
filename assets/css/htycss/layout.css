@@ -767,11 +767,11 @@ ul.simulate_tablist li a:hover{
 tr.rank_thead th{
     text-align: center;
 }
-tr.rank_tbody td.table_left{
+.table_left{
     text-align: left;
 
 }
-tr.rank_tbody td.table_right{
+.table_right{
     text-align: right;
 }
 .plaque{
