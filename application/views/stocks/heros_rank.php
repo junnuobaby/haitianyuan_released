@@ -40,8 +40,10 @@ $ranking = 0;
                             <div class="plaque">
                                 <img width="70px" height="70px" class="img-responsive inline_block"
                                      src="<?php echo base_url('/assets/images/zongshi.png'); ?>" alt="Logo加载中...">
+                                <img width="70px" height="70px" class="img-responsive inline_block"
+                                     src="<?php echo base_url('/assets/images/zongshilogo.png'); ?>" alt="Logo加载中...">
 
-                                <p class="inline_block">宗师组</p>
+<!--                                <p class="inline_block">宗师组</p>-->
                             </div>
                         </div>
                         <table class="table table-bordered table-condensed table-hover">
