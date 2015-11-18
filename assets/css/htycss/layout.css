@@ -794,7 +794,7 @@ tr.rank_thead th{
 .flow-sidebar.affix,
 .flow-sidebar.affix-top,
 .flow-sidebar.affix-bottom {
-    width: 185px;
+    width: 160px;
 }
 .flow-sidebar.affix {
     position: fixed;
