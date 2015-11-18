@@ -39,11 +39,9 @@ $ranking = 0;
                         <div class="col-md-8 col-md-offset-4">
                             <div class="plaque">
                                 <img width="70px" height="70px" class="img-responsive inline_block"
-                                     src="<?php echo base_url('/assets/images/zongshi.png'); ?>" alt="Logo加载中...">
+                                     src="<?php echo base_url('/assets/images/icon/chanshi.png'); ?>" alt="Logo加载中...">
                                 <img class="img-responsive inline_block"
-                                     src="<?php echo base_url('/assets/images/chanshilogo.png'); ?>" alt="Logo加载中...">
-
-<!--                                <p class="inline_block">宗师组</p>-->
+                                     src="<?php echo base_url('/assets/images/icon/chanshilogo.png'); ?>" alt="Logo加载中...">
                             </div>
                         </div>
                         <table class="table table-bordered table-condensed table-hover">
@@ -94,10 +92,9 @@ $ranking = 0;
                         <div class="col-md-8 col-md-offset-4">
                             <div class="plaque">
                                 <img width="70px" height="70px" class="img-responsive inline_block"
-                                     src="<?php echo base_url('/assets/images/dashi.png'); ?>" alt="Logo加载中...">
+                                     src="<?php echo base_url('/assets/images/icon/zongshi.png'); ?>" alt="Logo加载中...">
                                 <img class="img-responsive inline_block"
-                                     src="<?php echo base_url('/assets/images/zongshilogo.png'); ?>" alt="Logo加载中...">
-<!--                                <p class="inline_block">大师组</p>-->
+                                     src="<?php echo base_url('/assets/images/icon/zongshilogo.png'); ?>" alt="Logo加载中...">
                             </div>
                         </div>
                         <table class="table table-bordered table-condensed table-hover">
@@ -149,10 +146,9 @@ $ranking = 0;
                         <div class="col-md-8 col-md-offset-4">
                             <div class="plaque">
                                 <img width="70px" height="70px" class="img-responsive inline_block"
-                                     src="<?php echo base_url('/assets/images/gaoshou.png'); ?>" alt="Logo加载中...">
+                                     src="<?php echo base_url('/assets/images/icon/dashi.png'); ?>" alt="Logo加载中...">
                                 <img class="img-responsive inline_block"
-                                     src="<?php echo base_url('/assets/images/dashilogo.png'); ?>" alt="Logo加载中...">
-<!--                                <p class="inline_block">高手组</p>-->
+                                     src="<?php echo base_url('/assets/images/icon/dashilogo.png'); ?>" alt="Logo加载中...">
                             </div>
                         </div>
                         <table class="table table-bordered table-hover table-condensed">
