@@ -780,7 +780,7 @@ tr.rank_tbody td.table_right{
 }
 .plaque p{
     font-size: 40px;
-    bottom: 0;
+    top: 15px;
     position: relative;
 }
 .plaque img{
