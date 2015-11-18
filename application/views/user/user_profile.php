@@ -149,7 +149,7 @@ $user_address = explode('-', $basic_info['location']); //分割地址，得到�
                     <div class="panel-body master-profile-panel">
                         <!--上传头像-->
                         <div>
-                            <form action="<?php echo site_url("/modify_info/do_upload"); ?>"
+                            <form action="<?php echo site_url("/my_center/do_upload"); ?>"
                                   enctype="multipart/form-data"
                                   method="post" onsubmit="return checkCoords();">
                                 <p><strong>更换头像(图片文件宽高不得大于500)</strong></p>
