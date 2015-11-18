@@ -40,10 +40,10 @@ $ranking = 0;
                                     <td><?= $item['user_name'];?></td>
                                     <td class="formatted"><?= $item['fund'];?></td>
                                     <td><?= number_format(floatval($item['position']) * 100, 2);?>%</td>
-                                    <td><?= number_format(floatval($item['profit_rate']) * 100, 2);?>%</td>
-                                    <td><?= number_format(floatval($item['day_rate']) * 100, 2);?>%</td>
-                                    <td><?= number_format(floatval($item['week_rate']) * 100, 2);?>%</td>
-                                    <td><?= number_format(floatval($item['month_rate']) * 100, 2);?>%</td>
+                                    <td class="render"><?= number_format(floatval($item['profit_rate']) * 100, 2);?>%</td>
+                                    <td class="render"><?= number_format(floatval($item['day_rate']) * 100, 2);?>%</td>
+                                    <td class="render"><?= number_format(floatval($item['week_rate']) * 100, 2);?>%</td>
+                                    <td class="render"><?= number_format(floatval($item['month_rate']) * 100, 2);?>%</td>
                                 </tr>
                             <?php endforeach;?>
                             </tbody>
@@ -69,6 +69,15 @@ $ranking = 0;
         $('.decimal').each(function () {
             var value = decimal($(this).html());
             $(this).html(value);
+        });
+        //拥有.render类的元素，若大于0，设置为红色，若小于0，设置为绿色
+        $('.render').each(function () {
+            var value = $(this).html().indexOf('-');
+            if (value == -1) {
+                $(this).css('color', 'red');
+            } else {
+                $(this).css('color', 'green');
+            }
         });
     });
 </script>
