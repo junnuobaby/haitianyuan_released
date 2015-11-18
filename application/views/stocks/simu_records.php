@@ -57,13 +57,13 @@ $pages = $his_list['pagination']; //获取分页
                                                         echo "撤销";
                                                     }
                                                     ?></td>
-                                                <td class="formatted"><?php echo $stock_item['Volume']; ?></td>
-                                                <td class="formatted decimal"><?php if ($stock_item['trade_type'] == '4') {
+                                                <td class="formatted table_right"><?php echo $stock_item['Volume']; ?></td>
+                                                <td class="formatted decimal  table_right"><?php if ($stock_item['trade_type'] == '4') {
                                                         echo $stock_item['price_order'];
                                                     } else {
                                                         echo $stock_item['Price'];
                                                     } ?></td>
-                                                <td class="formatted"><?php if ($stock_item['trade_type'] == '4') {
+                                                <td class="formatted table_right"><?php if ($stock_item['trade_type'] == '4') {
                                                         echo $stock_item['price_order'] * $stock_item['Volume'];
                                                     } else {
                                                         echo $stock_item['Price'] * $stock_item['Volume'];
