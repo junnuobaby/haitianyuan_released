@@ -31,9 +31,9 @@ $pages = $his_list['pagination']; //获取分页
                                             <th>证券代码</th>
                                             <th>证券名称</th>
                                             <th>委托</th>
-                                            <th>委托数量</th>
-                                            <th>委托价格</th>
-                                            <th>委托金额</th>
+                                            <th>数量</th>
+                                            <th>价格</th>
+                                            <th>金额</th>
                                         </tr>
                                         </thead>
                                         <tbody>
