@@ -31,9 +31,9 @@ $pages = $his_list['pagination']; //获取分页
                                             <th>证券代码</th>
                                             <th>证券名称</th>
                                             <th>委托</th>
-                                            <th>数量</th>
-                                            <th>价格</th>
-                                            <th>金额</th>
+                                            <th>委托数量</th>
+                                            <th>委托价格</th>
+                                            <th>委托金额</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -57,13 +57,13 @@ $pages = $his_list['pagination']; //获取分页
                                                         echo "撤销";
                                                     }
                                                     ?></td>
-                                                <td class="formatted table_right"><?php echo $stock_item['Volume']; ?></td>
-                                                <td class="formatted decimal  table_right"><?php if ($stock_item['trade_type'] == '4') {
+                                                <td class="formatted"><?php echo $stock_item['Volume']; ?></td>
+                                                <td class="formatted decimal"><?php if ($stock_item['trade_type'] == '4') {
                                                         echo $stock_item['price_order'];
                                                     } else {
                                                         echo $stock_item['Price'];
                                                     } ?></td>
-                                                <td class="formatted table_right"><?php if ($stock_item['trade_type'] == '4') {
+                                                <td class="formatted"><?php if ($stock_item['trade_type'] == '4') {
                                                         echo $stock_item['price_order'] * $stock_item['Volume'];
                                                     } else {
                                                         echo $stock_item['Price'] * $stock_item['Volume'];
