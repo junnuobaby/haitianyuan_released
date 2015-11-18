@@ -22,6 +22,6 @@
     {
 /*        background-image: url("*/<?php //echo base_url('assets/images/jumptron_background.jpg'); ?>/*");*/
         background-image: url("<?php echo base_url('assets/images/b_1_1.png'); ?>");
-        height: 400px;
+        height: 420px;
     }
 </style>
