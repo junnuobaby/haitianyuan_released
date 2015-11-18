@@ -51,10 +51,10 @@ $ranking = 0;
                                 <th>用户名</th>
                                 <th>总资产</th>
                                 <th>仓位</th>
-                                <th>总收益率</th>
                                 <th>日收益率</th>
                                 <th>周收益率</th>
                                 <th>月收益率</th>
+                                <th>总收益率</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -68,9 +68,6 @@ $ranking = 0;
                                         <td class="table_right"><?= number_format(floatval($item['position']) * 100, 2); ?>
                                             %
                                         </td>
-                                        <td class="render table_right"><?= number_format(floatval($item['profit_rate']) * 100, 2); ?>
-                                            %
-                                        </td>
                                         <td class="render table_right"><?= number_format(floatval($item['day_rate']) * 100, 2); ?>
                                             %
                                         </td>
@@ -78,6 +75,9 @@ $ranking = 0;
                                             %
                                         </td>
                                         <td class="render table_right"><?= number_format(floatval($item['month_rate']) * 100, 2); ?>
+                                            %
+                                        </td>
+                                        <td class="render table_right"><?= number_format(floatval($item['profit_rate']) * 100, 2); ?>
                                             %
                                         </td>
                                     </tr>
