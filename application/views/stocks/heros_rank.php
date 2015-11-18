@@ -33,22 +33,121 @@ $ranking = 0;
                             </tr>
                             </thead>
                             <tbody>
-                            <?php foreach ($hero_lists as $item):?>
-                                <?php $ranking += 1;?>
-                                <tr class="rank_tbody">
-                                    <td class="table_left"><?= $ranking;?></td>
-                                    <td class="table_left"><?= $item['user_name'];?></td>
-                                    <td class="formatted table_right"><?= $item['fund'];?></td>
-                                    <td class="table_right"><?= number_format(floatval($item['position']) * 100, 2);?>%</td>
-                                    <td class="render table_right"><?= number_format(floatval($item['profit_rate']) * 100, 2);?>%</td>
-                                    <td class="render table_right"><?= number_format(floatval($item['day_rate']) * 100, 2);?>%</td>
-                                    <td class="render table_right"><?= number_format(floatval($item['week_rate']) * 100, 2);?>%</td>
-                                    <td class="render table_right"><?= number_format(floatval($item['month_rate']) * 100, 2);?>%</td>
-                                </tr>
-                            <?php endforeach;?>
+                            <?php foreach ($hero_lists as $item): ?>
+                                <?php $ranking += 1; ?>
+                                <?php if ($ranking <= 10): ?>
+                                    <tr class="rank_tbody">
+                                        <td class="table_left"><?= $ranking; ?></td>
+                                        <td class="table_left"><?= $item['user_name']; ?></td>
+                                        <td class="formatted table_right"><?= $item['fund']; ?></td>
+                                        <td class="table_right"><?= number_format(floatval($item['position']) * 100, 2); ?>
+                                            %
+                                        </td>
+                                        <td class="render table_right"><?= number_format(floatval($item['profit_rate']) * 100, 2); ?>
+                                            %
+                                        </td>
+                                        <td class="render table_right"><?= number_format(floatval($item['day_rate']) * 100, 2); ?>
+                                            %
+                                        </td>
+                                        <td class="render table_right"><?= number_format(floatval($item['week_rate']) * 100, 2); ?>
+                                            %
+                                        </td>
+                                        <td class="render table_right"><?= number_format(floatval($item['month_rate']) * 100, 2); ?>
+                                            %
+                                        </td>
+                                    </tr>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>
+                    <div class="rank_table">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                            <tr class="rank_thead">
+                                <th>排名</th>
+                                <th>用户名</th>
+                                <th>总资产</th>
+                                <th>仓位</th>
+                                <th>总收益率</th>
+                                <th>日收益率</th>
+                                <th>周收益率</th>
+                                <th>月收益率</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php foreach ($hero_lists as $item): ?>
+                                <?php $ranking += 1; ?>
+                                <?php if ($ranking > 10 && $ranking <= 40): ?>
+                                    <tr class="rank_tbody">
+                                        <td class="table_left"><?= $ranking; ?></td>
+                                        <td class="table_left"><?= $item['user_name']; ?></td>
+                                        <td class="formatted table_right"><?= $item['fund']; ?></td>
+                                        <td class="table_right"><?= number_format(floatval($item['position']) * 100, 2); ?>
+                                            %
+                                        </td>
+                                        <td class="render table_right"><?= number_format(floatval($item['profit_rate']) * 100, 2); ?>
+                                            %
+                                        </td>
+                                        <td class="render table_right"><?= number_format(floatval($item['day_rate']) * 100, 2); ?>
+                                            %
+                                        </td>
+                                        <td class="render table_right"><?= number_format(floatval($item['week_rate']) * 100, 2); ?>
+                                            %
+                                        </td>
+                                        <td class="render table_right"><?= number_format(floatval($item['month_rate']) * 100, 2); ?>
+                                            %
+                                        </td>
+                                    </tr>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="rank_table">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                            <tr class="rank_thead">
+                                <th>排名</th>
+                                <th>用户名</th>
+                                <th>总资产</th>
+                                <th>仓位</th>
+                                <th>总收益率</th>
+                                <th>日收益率</th>
+                                <th>周收益率</th>
+                                <th>月收益率</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php foreach ($hero_lists as $item): ?>
+                                <?php $ranking += 1; ?>
+                                <?php if ($ranking > 40 && $ranking <= 100): ?>
+                                    <tr class="rank_tbody">
+                                        <td class="table_left"><?= $ranking; ?></td>
+                                        <td class="table_left"><?= $item['user_name']; ?></td>
+                                        <td class="formatted table_right"><?= $item['fund']; ?></td>
+                                        <td class="table_right"><?= number_format(floatval($item['position']) * 100, 2); ?>
+                                            %
+                                        </td>
+                                        <td class="render table_right"><?= number_format(floatval($item['profit_rate']) * 100, 2); ?>
+                                            %
+                                        </td>
+                                        <td class="render table_right"><?= number_format(floatval($item['day_rate']) * 100, 2); ?>
+                                            %
+                                        </td>
+                                        <td class="render table_right"><?= number_format(floatval($item['week_rate']) * 100, 2); ?>
+                                            %
+                                        </td>
+                                        <td class="render table_right"><?= number_format(floatval($item['month_rate']) * 100, 2); ?>
+                                            %
+                                        </td>
+                                    </tr>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -62,7 +161,7 @@ $ranking = 0;
 <script>
     $(document).ready(function () {
         $('.main_jumptron').css('margin-bottom', '0px');
-        $('.formatted').each(function(){
+        $('.formatted').each(function () {
             var value = format_num($(this).html());
             $(this).html(value);
         });
