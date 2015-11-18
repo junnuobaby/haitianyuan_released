@@ -30,7 +30,7 @@ $ranking = 0;
     <div class="container">
         <div class="row">
             <div class="col-md-2">
-                <div id="ranking_sidebar" class="flow-sidebar" data-spy="affix" data-offset-top='90'>
+                <div id="ranking_sidebar" class="flow-sidebar" data-spy="affix" data-offset-top='80'>
                     <div class="list-group">
                         <a href="<?php echo base_url('/index.php/stock/index/web/2/1');?>" class="list-group-item <?php if($nav_mode == "simu_heros_1") echo "active"; ?>"><span class="glyphicon glyphicon-star"></span> 总收益率排名</a>
                         <a href="<?php echo base_url('/index.php/stock/index/web/2/2');?>" class="list-group-item <?php if($nav_mode == "simu_heros_2") echo "active"; ?>"><span class="glyphicon glyphicon-asterisk"></span> 日收益率排名</a>
