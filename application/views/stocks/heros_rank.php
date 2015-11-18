@@ -42,7 +42,7 @@ $ranking = 0;
                         </div>
                         <table class="table table-bordered table-hover">
                             <thead>
-                            <tr class="rank_thead">
+                            <tr class="rank_thead table_center">
                                 <th>排名</th>
                                 <th>用户名</th>
                                 <th>总资产</th>
@@ -92,7 +92,7 @@ $ranking = 0;
                         </div>
                         <table class="table table-bordered table-hover">
                             <thead>
-                            <tr class="rank_thead">
+                            <tr class="rank_thead table_center">
                                 <th>排名</th>
                                 <th>用户名</th>
                                 <th>总资产</th>
@@ -142,7 +142,7 @@ $ranking = 0;
                         </div>
                         <table class="table table-bordered table-hover">
                             <thead>
-                            <tr class="rank_thead">
+                            <tr class="rank_thead table_center">
                                 <th>排名</th>
                                 <th>用户名</th>
                                 <th>总资产</th>
