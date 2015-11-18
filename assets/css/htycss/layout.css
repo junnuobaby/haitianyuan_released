@@ -777,8 +777,11 @@ tr.rank_tbody td.table_right{
 .plaque{
     margin: 0 10px 15px 10px;
 }
-.plaque h1{
-    font-size: 40px;
-    bottom: 0;
-    position: relative;
+/*.plaque h1{*/
+    /*font-size: 40px;*/
+    /*bottom: 0;*/
+    /*position: relative;*/
+/*}*/
+.plaque img{
+    vertical-align: bottom;
 }
