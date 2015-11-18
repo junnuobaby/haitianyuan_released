@@ -21,8 +21,8 @@ $ranking = 0;
                     <div class="rank_table">
                         <table class="table table-bordered table-condensed table-hover">
                             <thead>
-                            <tr style="text-align: center;">
-                                <th>排名</th>
+                            <tr >
+                                <th style="text-align: center;">排名</th>
                                 <th>用户名</th>
                                 <th>总资产</th>
                                 <th>仓位</th>
