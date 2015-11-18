@@ -34,8 +34,10 @@ $ranking = 0;
                 <div class="stocks_min_h  block-radius">
                     <!--宗师级别-->
                     <div class="rank_table">
-                        <div class="plaque col-md-4 col-md-offset-4" >
-                            <img width="50px" height="50px" class="img-responsive" src="<?php echo base_url('/assets/images/zongshi.png'); ?>" alt="Logo加载中...">
+                        <div class="col-md-4 col-md-offset-4" >
+                            <div class="plaque">
+                                <img width="50px" height="50px" class="img-responsive" src="<?php echo base_url('/assets/images/zongshi.png'); ?>" alt="Logo加载中...">
+                            </div>
                         </div>
                         <table class="table table-bordered table-hover">
                             <thead>
