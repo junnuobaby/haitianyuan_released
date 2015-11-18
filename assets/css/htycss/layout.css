@@ -784,6 +784,14 @@ tr.rank_thead th{
     position: relative;
 }
 .active_list_item{
-    background-color: rgb(57, 109, 129);
+
+}
+#ranking_sidebar .list-group-item.active,
+#ranking_sidebar .list-group-item.active:focus,
+#ranking_sidebar .list-group-item.active:hover {
+    z-index: 2;
+    color: #FFF;
+    background-color: #396D81;
+    border-color: #315568;
 }
 
