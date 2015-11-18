@@ -793,7 +793,7 @@ tr.rank_thead th{
 }
 #ranking_sidebar{
     position: fixed;
-    top: 80px;
+    top: 50px;
     left: 300px;
 }
 
