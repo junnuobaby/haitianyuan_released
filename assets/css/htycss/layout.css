@@ -778,7 +778,7 @@ tr.rank_tbody td.table_right{
     margin: 0 10px 15px 10px;
     height: 70px;
 }
-.plaque span{
+.plaque p{
     font-size: 40px;
     bottom: 0;
     position: relative;
