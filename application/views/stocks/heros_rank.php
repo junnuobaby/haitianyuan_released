@@ -5,7 +5,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="zh-cn">
 <?php $this->load->view('./templates/head'); ?>
 <?php
-$hero_lists = $heros_list;  //获取排行榜前100数据
+//$hero_lists = $heros_list;  //获取排行榜前100数据
+$hero_lists = array_merge($heros_list, $heros_list, $heros_list, $heros_list, $heros_list, $heros_list, $heros_list,
+    $heros_list, $heros_list, $heros_list, $heros_list, $heros_list, $heros_list);  //获取排行榜前100数据
 $len = count($hero_lists);
 $stage_1 = array();   //宗师级
 $stage_2 = array();   //大师级
@@ -34,10 +36,12 @@ $ranking = 0;
                 <div class="stocks_min_h  block-radius">
                     <!--宗师级别-->
                     <div class="rank_table">
-                        <div class="col-md-4 col-md-offset-4" >
+                        <div class="col-md-4 col-md-offset-4">
                             <div class="plaque">
-                                <img width="70px" height="70px" class="img-responsive inline_block" src="<?php echo base_url('/assets/images/zongshi.png'); ?>" alt="Logo加载中...">
-                                <p class="inline_block" >宗师组</p>
+                                <img width="70px" height="70px" class="img-responsive inline_block"
+                                     src="<?php echo base_url('/assets/images/zongshi.png'); ?>" alt="Logo加载中...">
+
+                                <p class="inline_block">宗师组</p>
                             </div>
                         </div>
                         <table class="table table-bordered table-hover">
@@ -84,10 +88,12 @@ $ranking = 0;
                     </div>
                     <!--大师级别-->
                     <div class="rank_table">
-                        <div class="col-md-4 col-md-offset-4" >
+                        <div class="col-md-4 col-md-offset-4">
                             <div class="plaque">
-                                <img width="70px" height="70px" class="img-responsive inline_block" src="<?php echo base_url('/assets/images/dashi.png'); ?>" alt="Logo加载中...">
-                                <p class="inline_block" >大师组</p>
+                                <img width="70px" height="70px" class="img-responsive inline_block"
+                                     src="<?php echo base_url('/assets/images/dashi.png'); ?>" alt="Logo加载中...">
+
+                                <p class="inline_block">大师组</p>
                             </div>
                         </div>
                         <table class="table table-bordered table-hover">
@@ -134,10 +140,12 @@ $ranking = 0;
                     </div>
                     <!--高手级别-->
                     <div class="rank_table">
-                        <div class="col-md-4 col-md-offset-4" >
+                        <div class="col-md-4 col-md-offset-4">
                             <div class="plaque">
-                                <img width="70px" height="70px" class="img-responsive inline_block" src="<?php echo base_url('/assets/images/gaoshou.png'); ?>" alt="Logo加载中...">
-                                <p class="inline_block" >高手组</p>
+                                <img width="70px" height="70px" class="img-responsive inline_block"
+                                     src="<?php echo base_url('/assets/images/gaoshou.png'); ?>" alt="Logo加载中...">
+
+                                <p class="inline_block">高手组</p>
                             </div>
                         </div>
                         <table class="table table-bordered table-hover">
