@@ -791,9 +791,4 @@ tr.rank_thead th{
     background-color: #396D81;
     border-color: #315568;
 }
-#ranking_sidebar{
-    position: fixed;
-    top: 80px;
-    left: 300px;
-}
 
