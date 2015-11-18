@@ -1,4 +1,4 @@
-<!--模拟炒股，已成交的订单-->
+<!--排行榜-->
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
