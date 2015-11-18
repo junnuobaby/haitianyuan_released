@@ -54,7 +54,7 @@ $user_address = explode('-', $basic_info['location']); //分割地址，得到�
 
                                     <div class="form-group">
                                         <label for="master_profile_phone">手机号码</label>
-                                        <label id="master_profile_phone_error" style="color: red"></label>
+                                        <label id="master_profile_phone_error" class="theme-color"></label>
                                         <input type="text" class="form-control" id="mobile"
                                                name="mobile" onchange="display_phone_block(this)"
                                                data-old="<?php echo $basic_info['mobile']; ?>">
@@ -83,7 +83,7 @@ $user_address = explode('-', $basic_info['location']); //分割地址，得到�
                                 </form>
                                 <!--修改邮箱-->
                                 <form id="email_form" class="form-horizontal"
-                                      action="<?php echo site_url("/modify_info/modify_login_info"); ?>"
+                                      action="<?php echo site_url("/my_center/modify_login_info"); ?>"
                                       method="post">
                                     <input type="hidden" name="name" value="email">
 
@@ -106,7 +106,7 @@ $user_address = explode('-', $basic_info['location']); //分割地址，得到�
                             <!--修改登录密码-->
                             <div role="tabpanel" class="tab-pane" id="pwd_panel">
                                 <form id="pwd_form" class="form-horizontal"
-                                      action="<?php echo site_url("/modify_info/modify_login_info"); ?>"
+                                      action="<?php echo site_url("/my_center/modify_login_info"); ?>"
                                       method="post">
                                     <input type="hidden" name="name" value="password">
 
