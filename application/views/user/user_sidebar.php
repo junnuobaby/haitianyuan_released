@@ -47,23 +47,23 @@ $basic_info = array(
                 <h4><i class="glyphicon glyphicon-usd"></i> 会员</h4>
 
                 <div class="list-group">
-                    <a href="<?php echo base_url('index.php/'); ?>" class="list-group-item">我的理财师</a>
+                    <a href="<?php echo base_url('index.php/my_center/index/4/2'); ?>" class="list-group-item">我的理财师</a>
                 </div>
             </li>
             <li class="list-group-item ">
                 <h4><i class="glyphicon glyphicon-fire"></i> 华山论剑</h4>
 
                 <div class="list-group">
-                    <a href="#" class="list-group-item">模拟炒股</a>
-                    <a href="#" class="list-group-item">示范操作</a>
+                    <a href="<?php echo base_url('index.php/my_center/index/3/1'); ?>" class="list-group-item">模拟炒股</a>
+                    <a href="<?php echo base_url('index.php/my_center/index/3/2'); ?>" class="list-group-item">示范操作</a>
                 </div>
             </li>
             <li class="list-group-item ">
                 <h4><i class="glyphicon glyphicon-user"></i> 个人信息管理</h4>
 
                 <div class="list-group">
-                    <a href="#" class="list-group-item">我的钱包</a>
-                    <a href="<?php echo base_url('index.php/modify_info/index'); ?>" class="list-group-item">修改个人资料</a>
+                    <a href="<?php echo base_url('index.php/my_center/index/5/2'); ?>" class="list-group-item">我的钱包</a>
+                    <a href="<?php echo base_url('index.php/my_center/index/5/1'); ?>" class="list-group-item">修改个人资料</a>
                 </div>
             </li>
         </ul>
