@@ -777,3 +777,6 @@ tr.rank_tbody td.table_right{
 .plaque{
     margin: 0 10px 15px 10px;
 }
+.plaque h1{
+    padding: 14px 0 0 0;
+}
