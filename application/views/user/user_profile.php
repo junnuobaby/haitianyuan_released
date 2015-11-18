@@ -185,7 +185,7 @@ $user_address = explode('-', $basic_info['location']); //分割地址，得到�
                                 <td width="20%">用户名</td>
                                 <td width="80%"><a href="#" id="username" name="username"
                                                    data-type="text" data-pk="1"
-                                                   data-url="<?php echo site_url("modify_info/modify_basic_info") ?>"
+                                                   data-url="<?php echo site_url("my_center/modify_basic_info") ?>"
                                                    class="basic-info-a"
                                                    data-title="修改用户名"></a></td>
                             </tr>
@@ -193,7 +193,7 @@ $user_address = explode('-', $basic_info['location']); //分割地址，得到�
                                 <td width="20%">性别</td>
                                 <td width="80%"><a href="#" id="gender" name="gender" data-type="select"
                                                    data-pk="1"
-                                                   data-url="<?php echo site_url("modify_info/modify_basic_info") ?>"
+                                                   data-url="<?php echo site_url("my_center/modify_basic_info") ?>"
                                                    class="basic-info-a" data-title="选择性别"
                                                    data-emptytext="未设置"></a></td>
                             </tr>
@@ -202,7 +202,7 @@ $user_address = explode('-', $basic_info['location']); //分割地址，得到�
                                 <td width="20%">出生年月</td>
                                 <td width="80%"><a href="#" id="birthday" name="birthday"
                                                    data-type="combodate" class="basic-info-a" data-pk="1"
-                                                   data-url="<?php echo site_url("modify_info/modify_basic_info") ?>"
+                                                   data-url="<?php echo site_url("my_center/modify_basic_info") ?>"
                                                    data-title="设置出生年月"></a>
                                 </td>
                             </tr>
@@ -232,7 +232,7 @@ $user_address = explode('-', $basic_info['location']); //分割地址，得到�
                                 <td width="20%">机构</td>
                                 <td width="80%"><a href="#" id="institue" name="institue"
                                                    data-type="text" data-pk="1"
-                                                   data-url="<?php echo site_url("modify_info/modify_basic_info") ?>"
+                                                   data-url="<?php echo site_url("my_center/modify_basic_info") ?>"
                                                    class="basic-info-a"
                                                    data-title="修改所属机构"></a></td>
                             </tr>
@@ -241,7 +241,7 @@ $user_address = explode('-', $basic_info['location']); //分割地址，得到�
                                 <td width="80%"><a href="#" id="qualification"
                                                    name="qualification"
                                                    data-type="text" data-pk="1"
-                                                   data-url="<?php echo site_url("modify_info/modify_basic_info") ?>"
+                                                   data-url="<?php echo site_url("my_center/modify_basic_info") ?>"
                                                    class="basic-info-a"
                                                    data-title="修改资格证号码"></a></td>
                             </tr>
@@ -250,7 +250,7 @@ $user_address = explode('-', $basic_info['location']); //分割地址，得到�
                                 <td width="80%"><a href="#" id="signature"
                                                    name="signature"
                                                    data-type="textarea" data-pk="1" class="basic-info-a"
-                                                   data-url="<?php echo site_url("modify_info/modify_basic_info") ?>"
+                                                   data-url="<?php echo site_url("my_center/modify_basic_info") ?>"
                                                    data-title="编辑个人简介" data-emptytext="未填写"></a></td>
                             </tr>
                         </table>
@@ -292,14 +292,14 @@ $user_address = explode('-', $basic_info['location']); //分割地址，得到�
             var phone_num = $('#mobile').val();
             var code = $('#verification_code').val();
             var data = {name: 'mobile', value: phone_num, phone_code: code};
-            $.post('<?php echo base_url("index.php/modify_info/modify_login_info")?>', data, function (data, status) {
+            $.post('<?php echo base_url("index.php/my_center/modify_login_info")?>', data, function (data, status) {
                 $("#submit_phone_block").slideUp("slow");
             });
         });
         //点击确定修改邮箱
         $('#email_btn').click(function () {
             var email_num = $('#email').val();
-            $.post('<?php echo base_url("index.php/modify_info/modify_login_info")?>', {
+            $.post('<?php echo base_url("index.php/my_center/modify_login_info")?>', {
                 name: 'email',
                 value: email_num
             }, function (data, status) {
@@ -310,7 +310,7 @@ $user_address = explode('-', $basic_info['location']); //分割地址，得到�
             var sel_province = $('#sel_Province').val();
             var sel_city = $('#sel_City').val();
             var sel_county = $('#sel_County').val();
-            $.post('<?php echo base_url("index.php/modify_info/modify_basic_info")?>', {
+            $.post('<?php echo base_url("index.php/my_center/modify_basic_info")?>', {
                 name: 'location',
                 province: sel_province,
                 city: sel_city,
