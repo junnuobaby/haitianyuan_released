@@ -318,7 +318,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         //显示所选证券的实时数据信息
         function code_info_display(data) {
             if (data.status == '2') {
-                alert('本支股票已停牌');
+                alert('已停牌');
                 clearInterval(interval);
             }
             else {
