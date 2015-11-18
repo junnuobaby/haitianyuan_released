@@ -91,7 +91,7 @@ $ranking = 0;
                     <!--宗师级别-->
                     <?php if(count($stage_2) > 0):?>
                     <div class="rank_table">
-                        <div class="col-md-4 col-md-offset-4">
+                        <div class="col-md-8 col-md-offset-4">
                             <div class="plaque">
                                 <img width="70px" height="70px" class="img-responsive inline_block"
                                      src="<?php echo base_url('/assets/images/dashi.png'); ?>" alt="Logo加载中...">
@@ -146,7 +146,7 @@ $ranking = 0;
                     <!--大师级别-->
                     <?php if(count($stage_3) > 0):?>
                     <div class="rank_table">
-                        <div class="col-md-4 col-md-offset-4">
+                        <div class="col-md-8 col-md-offset-4">
                             <div class="plaque">
                                 <img width="70px" height="70px" class="img-responsive inline_block"
                                      src="<?php echo base_url('/assets/images/gaoshou.png'); ?>" alt="Logo加载中...">
