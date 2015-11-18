@@ -44,7 +44,7 @@ $ranking = 0;
                                 <p class="inline_block">宗师组</p>
                             </div>
                         </div>
-                        <table class="table table-bordered table-hover">
+                        <table class="table table-bordered table-condensed table-hover">
                             <thead>
                             <tr class="rank_thead">
                                 <th>排名</th>
@@ -96,7 +96,7 @@ $ranking = 0;
                                 <p class="inline_block">大师组</p>
                             </div>
                         </div>
-                        <table class="table table-bordered table-hover">
+                        <table class="table table-bordered table-condensed table-hover">
                             <thead>
                             <tr class="rank_thead">
                                 <th>排名</th>
@@ -148,7 +148,7 @@ $ranking = 0;
                                 <p class="inline_block">高手组</p>
                             </div>
                         </div>
-                        <table class="table table-bordered table-hover">
+                        <table class="table table-bordered table-hover table-condensed">
                             <thead>
                             <tr class="rank_thead">
                                 <th>排名</th>
