@@ -34,12 +34,12 @@ $hero_lists = $heros_list;  //获取排行榜前100数据
                             <?php foreach ($hero_lists as $item):?>
                                 <tr>
                                     <td><?= $item['user_name'];?></td>
-                                    <td><?= $item['fund'];?></td>
-                                    <td><?= $item['position'];?></td>
-                                    <td><?= $item['profit_rate'];?></td>
-                                    <td><?= $item['day_rate'];?></td>
-                                    <td><?= $item['week_rate'];?></td>
-                                    <td><?= $item['month_rate'];?></td>
+                                    <td class="formatted"><?= $item['fund'];?></td>
+                                    <td ><?= $item['position'];?></td>
+                                    <td class="decimal"><?= $item['profit_rate'];?></td>
+                                    <td class="decimal"><?= $item['day_rate'];?></td>
+                                    <td class="decimal"><?= $item['week_rate'];?></td>
+                                    <td class="decimal"><?= $item['month_rate'];?></td>
                                 </tr>
                             <?php endforeach;?>
                             </tbody>
