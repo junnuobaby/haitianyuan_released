@@ -139,7 +139,8 @@ $ranking = 0;
                                                     echo "<span class='glyphicon glyphicon-option-horizontal blue-color'></span>";
                                                 }
                                                 ?><?= $ranking; ?></td>
-                                            <td class="table_left"><?= $item['user_name']; ?></td>
+                                            <td class="table_left"><img width="20px" height="20px" src="<?php echo base_url('/uploads/' . $item['face_pic']); ?>"
+                                                                        class="img-responsive inline_block" alt="..."> <?= $item['user_name']; ?></td>
                                             <td class="formatted table_right"><?= $item['fund']; ?></td>
                                             <td class="table_right"><?= number_format(floatval($item['position']) * 100, 2); ?>
                                                 %
@@ -203,7 +204,8 @@ $ranking = 0;
                                                     echo "<span class='glyphicon glyphicon-option-horizontal blue-color'></span>";
                                                 }
                                                 ?><?= $ranking; ?></td>
-                                            <td class="table_left"><?= $item['user_name']; ?></td>
+                                            <td class="table_left"><img width="20px" height="20px" src="<?php echo base_url('/uploads/' . $item['face_pic']); ?>"
+                                                                        class="img-responsive inline_block" alt="..."> <?= $item['user_name']; ?></td>
                                             <td class="formatted table_right"><?= $item['fund']; ?></td>
                                             <td class="table_right"><?= number_format(floatval($item['position']) * 100, 2); ?>
                                                 %
