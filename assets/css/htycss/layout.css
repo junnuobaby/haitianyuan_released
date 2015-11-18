@@ -783,9 +783,6 @@ tr.rank_thead th{
     top: 12px;
     position: relative;
 }
-.active_list_item{
-
-}
 #ranking_sidebar .list-group-item.active,
 #ranking_sidebar .list-group-item.active:focus,
 #ranking_sidebar .list-group-item.active:hover {

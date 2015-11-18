@@ -87,6 +87,7 @@ $ranking = 0;
                         </table>
                     </div>
                     <!--大师级别-->
+                    <?php if($ranking > 10):?>
                     <div class="rank_table">
                         <div class="col-md-4 col-md-offset-4">
                             <div class="plaque">
@@ -138,7 +139,9 @@ $ranking = 0;
                             </tbody>
                         </table>
                     </div>
+                    <?php endif;?>
                     <!--高手级别-->
+                    <?php if($ranking > 40):?>
                     <div class="rank_table">
                         <div class="col-md-4 col-md-offset-4">
                             <div class="plaque">
@@ -190,7 +193,7 @@ $ranking = 0;
                             </tbody>
                         </table>
                     </div>
-
+                    <?php endif;?>
                 </div>
             </div>
         </div>
