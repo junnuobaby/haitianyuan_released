@@ -36,14 +36,14 @@ $ranking = 0;
                             <?php foreach ($hero_lists as $item):?>
                                 <?php $ranking += 1;?>
                                 <tr class="rank_tbody">
-                                    <td><?= $ranking;?></td>
-                                    <td><?= $item['user_name'];?></td>
-                                    <td class="formatted"><?= $item['fund'];?></td>
-                                    <td><?= number_format(floatval($item['position']) * 100, 2);?>%</td>
-                                    <td class="render"><?= number_format(floatval($item['profit_rate']) * 100, 2);?>%</td>
-                                    <td class="render"><?= number_format(floatval($item['day_rate']) * 100, 2);?>%</td>
-                                    <td class="render"><?= number_format(floatval($item['week_rate']) * 100, 2);?>%</td>
-                                    <td class="render"><?= number_format(floatval($item['month_rate']) * 100, 2);?>%</td>
+                                    <td class="table_left"><?= $ranking;?></td>
+                                    <td class="table_left"><?= $item['user_name'];?></td>
+                                    <td class="formatted table_right"><?= $item['fund'];?></td>
+                                    <td class="table_right"><?= number_format(floatval($item['position']) * 100, 2);?>%</td>
+                                    <td class="render table_right"><?= number_format(floatval($item['profit_rate']) * 100, 2);?>%</td>
+                                    <td class="render table_right"><?= number_format(floatval($item['day_rate']) * 100, 2);?>%</td>
+                                    <td class="render table_right"><?= number_format(floatval($item['week_rate']) * 100, 2);?>%</td>
+                                    <td class="render table_right"><?= number_format(floatval($item['month_rate']) * 100, 2);?>%</td>
                                 </tr>
                             <?php endforeach;?>
                             </tbody>
