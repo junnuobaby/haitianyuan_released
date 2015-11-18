@@ -761,3 +761,6 @@ ul.simulate_tablist li a:hover{
 #profit_table{
     margin: auto 50px;
 }
+.rank_table{
+    margin: 20px 50px;
+}
