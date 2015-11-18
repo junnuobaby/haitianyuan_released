@@ -34,7 +34,7 @@ $ranking = 0;
             </div>
             <div class="col-md-10 col-sm-10 bg-white ">
                 <div class="stocks_min_h  block-radius">
-                    <!--宗师级别-->
+                    <!--禅师级别-->
                     <div class="rank_table">
                         <div class="col-md-8 col-md-offset-4">
                             <div class="plaque">
@@ -88,15 +88,16 @@ $ranking = 0;
                             </tbody>
                         </table>
                     </div>
-                    <!--大师级别-->
+                    <!--宗师级别-->
                     <?php if(count($stage_2) > 0):?>
                     <div class="rank_table">
                         <div class="col-md-4 col-md-offset-4">
                             <div class="plaque">
                                 <img width="70px" height="70px" class="img-responsive inline_block"
                                      src="<?php echo base_url('/assets/images/dashi.png'); ?>" alt="Logo加载中...">
-
-                                <p class="inline_block">大师组</p>
+                                <img class="img-responsive inline_block"
+                                     src="<?php echo base_url('/assets/images/zongshilogo.png'); ?>" alt="Logo加载中...">
+<!--                                <p class="inline_block">大师组</p>-->
                             </div>
                         </div>
                         <table class="table table-bordered table-condensed table-hover">
@@ -142,15 +143,16 @@ $ranking = 0;
                         </table>
                     </div>
                     <?php endif;?>
-                    <!--高手级别-->
+                    <!--大师级别-->
                     <?php if(count($stage_3) > 0):?>
                     <div class="rank_table">
                         <div class="col-md-4 col-md-offset-4">
                             <div class="plaque">
                                 <img width="70px" height="70px" class="img-responsive inline_block"
                                      src="<?php echo base_url('/assets/images/gaoshou.png'); ?>" alt="Logo加载中...">
-
-                                <p class="inline_block">高手组</p>
+                                <img class="img-responsive inline_block"
+                                     src="<?php echo base_url('/assets/images/dashilogo.png'); ?>" alt="Logo加载中...">
+<!--                                <p class="inline_block">高手组</p>-->
                             </div>
                         </div>
                         <table class="table table-bordered table-hover table-condensed">
