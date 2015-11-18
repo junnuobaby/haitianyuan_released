@@ -36,8 +36,8 @@ $ranking = 0;
                     <div class="rank_table">
                         <div class="col-md-4 col-md-offset-4" >
                             <div class="plaque">
-                                <img width="50px" height="50px" src="<?php echo base_url('/assets/images/zongshi.png'); ?>" alt="Logo加载中...">
-                                <h2 class="inline_block">前10</h2>
+                                <img width="90px" height="90px" src="<?php echo base_url('/assets/images/zongshi.png'); ?>" alt="Logo加载中...">
+                                <h1 class="inline_block">前10</h1>
                             </div>
                         </div>
                         <table class="table table-bordered table-hover">
