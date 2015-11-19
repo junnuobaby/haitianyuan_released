@@ -30,7 +30,7 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                                         <h4 class="blue-color margin_to_top">我的资金</h4>
                                         <div class="table-responsive">
                                             <table class="table  basic_fund_info">
-                                                <tr class="table_right">
+                                                <tr>
                                                     <th>总资产</th>
                                                     <td id="my_asset"></td>
                                                 </tr>
