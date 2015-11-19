@@ -205,7 +205,7 @@ $user_address = explode('-', $basic_info['location']); //分割地址，得到�
                                 <td width="20%">居住地</td>
                                 <td width="80%">
                                     <!-- 居住地信息以form形式提交-->
-                                    <form id="pwd_form" class="form-horizontal">
+                                    <form id="pwd_form" class="form-horizontal" onsubmit="return false;">
                                         <input type="hidden" name="name" value="location">
 
                                         <div class="self_master_address">
