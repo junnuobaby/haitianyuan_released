@@ -9,6 +9,8 @@ $user_data = $user_info['data_user']; //获取用户资金数据
 $user_stocks = $user_info['data_stock']; //获取用户持仓数据
 $base_funds = $user_data['base_cash'];  //获取用户基本资金
 ?>
+<!--绘图文件-->
+<?php $this->load->view('./stocks/graph'); ?>
 <body class="bg-gray">
 <div class="wrapper">
     <?php $this->load->view('./stocks/bonds_navbar'); ?>
@@ -23,8 +25,8 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="home">
                                 <div>
+                                    <div id="pie_canvas"></div>
                                     <h4 class="blue-color margin_to_top">我的资金</h4>
-
                                     <div class="table-responsive">
                                         <table class="table table-bordered basic_fund_info">
                                             <thead>
@@ -254,6 +256,19 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                             $(tr_id).children('td:eq(8)').html(id_extent + '%');  //设置涨跌幅
                         }
                     }
+                    //绘制资金分布饼图
+                    var parts = ['可用现金', '冻结金额', '股票市值'];
+                    var cash_use = decimal(parseFloat("<?php echo $user_data['cash_use'];?>"));
+                    var cash_freeze = decimal(parseFloat("<?php echo $user_data['cash_freeze'];?>"));
+                    var stock_value = decimal(parseFloat(response.stock_value));
+                    var parts_value = [
+                        {value:cash_use, name:'可用现金'},
+                        {value:cash_freeze, name:'冻结金额'},
+                        {value:stock_value, name:'股票市值'}
+                    ];
+                    var pie_div_id = document.getElementById('pie_canvas');
+                    draw_pie(parts, parts_value, pie_div_id); //绘制资金使用情况饼图
+
                 }
             });
         }
