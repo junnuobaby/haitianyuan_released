@@ -120,7 +120,6 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
 </body>
 <script>
     var interval;
-    var first_stock_value;
     $(document).ready(function () {
         $('.main_jumptron').css('margin-bottom', '0px');
         //将数据显示格式化
@@ -155,7 +154,6 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                 method: 'get',
                 dataType: 'json',
                 success: function (response) {
-                    first_stock_value = parseFloat(response.stock_value);
                     $('#stock_value').html(format_num(response.stock_value));  //获取并设置股票市值
                     var cash_all = '<?php echo $user_data['cash_all']; ?>'; //获取总现金
                     var asset_all = parseFloat(cash_all) + parseFloat(response.stock_value);
@@ -215,7 +213,7 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                     var parts = ['可用现金', '冻结金额', '股票市值'];
                     var cash_use = decimal(parseFloat("<?php echo $user_data['cash_use'];?>"));
                     var cash_freeze = decimal(parseFloat("<?php echo $user_data['cash_freeze'];?>"));
-                    var stock_value = decimal(first_stock_value);
+                    var stock_value = decimal(parseFloat(response.stock_value));
                     var parts_value = [
                         {value:cash_use, name:'可用现金'},
                         {value:cash_freeze, name:'冻结金额'},
