@@ -161,7 +161,8 @@ $month_rank = floatval($basic_info['month_rank']);
             {value:cash_freeze, name:'冻结金额'},
             {value:stock_value, name:'股票市值'}
         ];
-        draw_pie(parts, parts_value); //绘制资金使用情况饼图
+        var pie_div_id = document.getElementById('pie_canvas');
+        draw_pie(parts, parts_value, pie_div_id); //绘制资金使用情况饼图
 
     });
 

@@ -99,7 +99,7 @@
 
     }
     //绘制饼图
-    function draw_pie(component, value){
+    function draw_pie(component, value, div_id){
         //路径配置
         require.config({
             paths: {
@@ -114,7 +114,7 @@
             ],
             function (ec) {
                 // 基于准备好的dom，初始化echarts图表
-                var myChart = ec.init(document.getElementById('pie_canvas'), 'macarons');
+                var myChart = ec.init(div_id, 'macarons');
                 option = {
                     title: {
                         text: '资产分布情况'
