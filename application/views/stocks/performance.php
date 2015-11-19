@@ -1,3 +1,4 @@
+<!--用户业绩（收益率曲线图和排名）-->
 <?php
 $basic_info = $performance['data_user'];  //用户收益率等当前信息
 $perform_info = $performance['data_line']; //用户历史收益率数据

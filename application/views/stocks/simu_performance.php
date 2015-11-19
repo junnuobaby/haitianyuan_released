@@ -1,4 +1,4 @@
-<!--模拟炒股，已成交的订单-->
+<!--模拟炒股中的业绩页面-->
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!--加载绘图程序-->
 <?php $this->load->view('./stocks/graph'); ?>
 <?php
-$data['performance'] = $performance;
+$data['performance'] = $performance;  //从服务器获取收益数据
 ?>
 <body class="bg-gray">
 <div class="wrapper">

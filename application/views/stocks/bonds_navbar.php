@@ -5,7 +5,7 @@
             <div class="col-sm-12 col-md-12">
                 <div>
                     <ul class="stocks_menu">
-                        <li><a class="white-color" href="<?php echo base_url('/index.php/index');?>" target="_blank">首页</a></li>
+                        <li><a class="white-color" href="<?php echo base_url('/index.php/index');?>">首页</a></li>
                         <li class="<?php if($nav_mode == "simu_index") echo "nav_current"; ?>"><a href="<?php echo base_url('/index.php/stock/index/web/1/1');?>">模拟投资</a></li>
                         <li class="<?php if($nav_mode == "simu_heros_1") echo "nav_current"; ?>"><a href="<?php echo base_url('/index.php/stock/index/web/2');?>">英雄榜</a></li>
                         <li class="<?php if($nav_mode == "simu_guides") echo "nav_current"; ?>"><a href="<?php echo base_url('/index.php/stock/index/web/3');?>">操作指南</a></li>
