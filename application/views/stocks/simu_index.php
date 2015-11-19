@@ -245,7 +245,7 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                 $(tr_id).children('td:eq(8)').css('color', 'red');
                             }
                             $(tr_id).children('td:eq(5)').html(trade_price);  //设置当前价
-                            var base_funds = parseFloat('<?php echo $user_info['base_cash']; ?>'); //获取基本总资金
+                            var base_funds = parseFloat('<?php echo $user_data['base_cash']; ?>'); //获取基本总资金
                             var float_pl = decimal((base_funds - asset_all)*100 / base_funds);
                             $(tr_id).children('td:eq(6)').html(format_num(base_funds - asset_all));   //设置浮动盈亏
                             $(tr_id).children('td:eq(7)').html(format_num(float_pl) + '%');   //设置盈亏比
