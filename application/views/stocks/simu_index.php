@@ -8,7 +8,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $user_data = $user_info['data_user']; //获取用户资金数据
 $user_stocks = $user_info['data_stock']; //获取用户持仓数据
 ?>
-<?php $this->load->view('./stocks/graph'); ?>
 <body class="bg-gray">
 <div class="wrapper">
     <?php $this->load->view('./stocks/bonds_navbar'); ?>
@@ -22,9 +21,9 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                     <div class="simulate_panel">
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="home">
-<!--                                <div id="pie_canvas"></div>-->
                                 <div>
                                     <h4 class="blue-color margin_to_top">我的资金</h4>
+
                                     <div class="table-responsive">
                                         <table class="table table-bordered basic_fund_info">
                                             <thead>
@@ -166,20 +165,6 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
 </body>
 <script>
     var interval;
-    //    $(document).ready(function () {
-//        var parts = ['可用现金', '冻结金额', '股票市值'];
-//        var cash_use = decimal(parseFloat("<?php //echo $basic_info['cash_use'];?>//"));
-//        var cash_freeze = decimal(parseFloat("<?php //echo $basic_info['cash_freeze'];?>//"));
-//        var stock_value = decimal(parseFloat("<?php //echo $stock_value;?>//"));
-//        var parts_value = [
-//            {value:cash_use, name:'可用现金'},
-//            {value:cash_freeze, name:'冻结金额'},
-//            {value:stock_value, name:'股票市值'}
-//        ];
-//        var pie_div_id = document.getElementById('pie_canvas');
-//        draw_pie(parts, parts_value, pie_div_id); //绘制资金使用情况饼图
-//
-//    });
     $(document).ready(function () {
         $('.main_jumptron').css('margin-bottom', '0px');
         //将数据显示格式化
@@ -215,7 +200,6 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                 success: function (response) {
                     $('#stock_value').html(format_num(response.stock_value));  //获取并设置股票市值
                     var cash_all = '<?php echo $user_data['cash_all']; ?>'; //获取总现金
-//                    var base_funds = '<?php //echo $user_info['base_cash']; ?>//'; //获取总现金
                     var asset_all = parseFloat(cash_all) + parseFloat(response.stock_value);
                     $('#my_asset').html(format_num(asset_all));  //设置总资产
                     var position = parseFloat(response.stock_value) * 100 / parseFloat(asset_all);
@@ -261,8 +245,7 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                 $(tr_id).children('td:eq(8)').css('color', 'red');
                             }
                             $(tr_id).children('td:eq(5)').html(trade_price);  //设置当前价
-                            var float_pl = decimal(parseFloat(asset_all) * 100/ parseFloat(base_funds));
-                            $(tr_id).children('td:eq(6)').html(format_num(float_pl));   //设置浮动盈亏
+                            $(tr_id).children('td:eq(6)').html(format_num(decimal(stock_info[key]['float_pl'])));   //设置浮动盈亏
                             $(tr_id).children('td:eq(7)').html(format_num(stock_info[key]['float_pl_rate']) + '%');   //设置盈亏比
                             $(tr_id).children('td:eq(8)').html(id_extent + '%');  //设置涨跌幅
                         }
@@ -295,5 +278,4 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
         modal_title.innerHTML = "<h2>" + "<strong>" + stock_name + "</strong>" + "(" + stock_id + ")" + "</h2>"
     }
 </script>
-
 </html>
