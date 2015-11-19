@@ -125,6 +125,8 @@
                         formatter: "{a} <br/>{d}%"
                     },
                     legend: {
+                        orient : 'vertical',
+                        x : 'right',
                         data:component
                     },
                     animation: false,
