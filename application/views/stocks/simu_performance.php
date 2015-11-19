@@ -144,6 +144,15 @@ $month_rank = floatval($basic_info['month_rank']);
             var value = format_num($(this).html());
             $(this).html(value);
         });
+        //拥有.render类的元素，若大于0，设置为红色，若小于0，设置为绿色
+        $('.render').each(function () {
+            var value = $(this).html().indexOf('-');
+            if (value == -1) {
+                $(this).css('color', 'red');
+            } else {
+                $(this).css('color', 'green');
+            }
+        });
         var user_rate = new Array();
         var avg_rate = new Array();
         var time_list = new Array();
