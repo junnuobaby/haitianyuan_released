@@ -149,7 +149,8 @@ $month_rank = floatval($basic_info['month_rank']);
         <?php $count += 1;?>
         <?php endforeach;?>
 
-        draw(user_rate, avg_rate, time_list);//绘制收益率曲线图
+        var div_id = document.getElementById('perform_canvas');
+        draw(user_rate, avg_rate, time_list, div_id);//绘制收益率曲线图
 
         var parts = ['可用现金', '冻结金额', '股票市值'];
         var cash_use = decimal(parseFloat("<?php echo $basic_info['cash_use'];?>"));

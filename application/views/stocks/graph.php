@@ -1,7 +1,8 @@
 <!--绘制收益率曲线图-->
 <script src="<?php echo base_url("assets/js/echarts/echarts.js"); ?>"></script>
 <script>
-    function draw(user_rate, avg_rate, time_list) {
+//    user_rate为用户收益率，avg_rate为平均收益率，div_id为容纳图形的容器Id
+    function draw(user_rate, avg_rate, time_list, div_id) {
         //路径配置
         require.config({
             paths: {
@@ -17,7 +18,7 @@
             ],
             function (ec) {
                 // 基于准备好的dom，初始化echarts图表
-                var myChart = ec.init(document.getElementById('perform_canvas'), 'macarons');
+                var myChart = ec.init(div_id, 'macarons');
 
                 option = {
                     title: {
