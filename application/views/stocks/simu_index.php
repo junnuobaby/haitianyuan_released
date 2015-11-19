@@ -215,7 +215,7 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                 success: function (response) {
                     $('#stock_value').html(format_num(response.stock_value));  //获取并设置股票市值
                     var cash_all = '<?php echo $user_data['cash_all']; ?>'; //获取总现金
-                    var base_funds = '<?php echo $user_info['base_cash']; ?>'; //获取总现金
+//                    var base_funds = '<?php //echo $user_info['base_cash']; ?>//'; //获取总现金
                     var asset_all = parseFloat(cash_all) + parseFloat(response.stock_value);
                     $('#my_asset').html(format_num(asset_all));  //设置总资产
                     var position = parseFloat(response.stock_value) * 100 / parseFloat(asset_all);
