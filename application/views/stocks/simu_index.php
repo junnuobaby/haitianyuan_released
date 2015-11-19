@@ -28,28 +28,54 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                                     <div id="pie_canvas"></div>
                                     <h4 class="blue-color margin_to_top">我的资金</h4>
                                     <div class="table-responsive">
-                                        <table class="table table-bordered basic_fund_info">
-                                            <thead>
+                                        <table  class="table table-bordered basic_fund_info">
                                             <tr>
                                                 <th>总资产</th>
-                                                <th>总现金</th>
-                                                <th>股票市值</th>
-                                                <th>仓位</th>
-                                                <th>浮动盈亏</th>
-                                                <th>盈亏率</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
                                                 <td id="my_asset"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>总现金</th>
                                                 <td class="formatted"><?php echo $user_data['cash_all']; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>股票市值</th>
                                                 <td id="stock_value"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>仓位</th>
                                                 <td id="my_position"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>浮动盈亏</th>
                                                 <td id="pl_value"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>盈亏率</th>
                                                 <td id="pl_rate"></td>
                                             </tr>
-                                            </tbody>
                                         </table>
+<!--                                        <table class="table table-bordered basic_fund_info">-->
+<!--                                            <thead>-->
+<!--                                            <tr>-->
+<!--                                                <th>总资产</th>-->
+<!--                                                <th>总现金</th>-->
+<!--                                                <th>股票市值</th>-->
+<!--                                                <th>仓位</th>-->
+<!--                                                <th>浮动盈亏</th>-->
+<!--                                                <th>盈亏率</th>-->
+<!--                                            </tr>-->
+<!--                                            </thead>-->
+<!--                                            <tbody>-->
+<!--                                            <tr>-->
+<!--                                                <td id="my_asset"></td>-->
+<!--                                                <td class="formatted">--><?php //echo $user_data['cash_all']; ?><!--</td>-->
+<!--                                                <td id="stock_value"></td>-->
+<!--                                                <td id="my_position"></td>-->
+<!--                                                <td id="pl_value"></td>-->
+<!--                                                <td id="pl_rate"></td>-->
+<!--                                            </tr>-->
+<!--                                            </tbody>-->
+<!--                                        </table>-->
                                     </div>
                                 </div>
                                 <div class="warehouse">
