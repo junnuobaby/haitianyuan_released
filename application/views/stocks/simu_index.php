@@ -205,9 +205,11 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                     $('#my_asset').html(format_num(asset_all));  //设置总资产
                     var position = parseFloat(response.stock_value) * 100 / parseFloat(asset_all);
                     $('#my_position').html(format_num(position) + '%'); //设置仓位
+                    var pl_value = $('#pl_value');
+                    var pl_rate = $('#pl_rate');
                     var base_funds = parseFloat('<?php echo $base_funds;?>');
-                    var pl_value = asset_all - base_funds;  //总盈亏额
-                    var pl_rate = decimal((pl_value *100) / base_funds);   //总盈亏率
+                    var user_value = asset_all - base_funds;  //总盈亏额
+                    var user_rate = decimal((user_value *100) / base_funds);   //总盈亏率
                     if (parseFloat(response.pl_value) > 0) {
                         pl_value.css('color', 'red');
                     } else {
@@ -218,8 +220,8 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                     } else {
                         pl_rate.css('color', 'green');
                     }
-                    pl_value.html(format_num(pl_value)); //获取并设置总盈亏金额
-                    pl_rate.html(pl_rate); //获取并设置总盈亏比
+                    pl_value.html(user_value); //获取并设置总盈亏金额
+                    pl_rate.html(user_rate); //获取并设置总盈亏比
                     var stock_info = response.stock_info;
                     for (key in stock_info) {
                         var tr_id = '#' + key;
