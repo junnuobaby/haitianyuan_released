@@ -215,7 +215,7 @@ $user_address = explode('-', $basic_info['location']); //分割地址，得到�
                                             <select id="sel_City" name="city"></select>
                                             <span>*</span> 县/区
                                             <select id="sel_County" name="county"></select>
-                                            <button type="button" id = "address_btn" class="btn btn-danger btn-xs self-btn-danger">
+                                            <button type="button" id="address_btn" class="btn btn-danger btn-xs self-btn-danger">
                                                 确定
                                             </button>
                                         </div>
@@ -297,12 +297,12 @@ $user_address = explode('-', $basic_info['location']); //分割地址，得到�
             var sel_city = $('#sel_City').val();
             var sel_county = $('#sel_County').val();
             $.post('<?php echo base_url("index.php/my_center/modify_basic_info")?>',{name : 'location',province :sel_province, city:sel_city, county:sel_county});
-            $.ajax({
-                url:'<?php echo base_url("index.php/my_center/modify_basic_info")?>',
-                data:{name : 'location',province :sel_province, city:sel_city, county:sel_county},
-                method: 'post',
-
-            });
+//            $.ajax({
+//                url:'<?php //echo base_url("index.php/my_center/modify_basic_info")?>//',
+//                data:{name : 'location',province :sel_province, city:sel_city, county:sel_county},
+//                method: 'post',
+//
+//            });
         });
     });
 
