@@ -52,53 +52,53 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                                         </table>
                                     </div>
                                 </div>
-                                <div>
-                                    <h4 class="blue-color margin_to_top">我的收益</h4>
-                                    <table class="table table-bordered">
-                                        <thead>
-                                        <tr>
-                                            <th>周期</th>
-                                            <th>本日收益率</th>
-                                            <th>本周收益率</th>
-                                            <th>本月收益率</th>
-                                            <th>总收益率</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td>
-                                                收益率
-                                            </td>
-                                            <td class="render">
-                                                <?php echo number_format(floatval($user_data['day_rate']) * 100, 2); ?>
-                                                %
-                                            </td>
-                                            <td class="render">
-                                                <?php echo number_format(floatval($user_data['week_rate']) * 100, 2); ?>
-                                                %
-                                            </td>
-                                            <td class="render">
-                                                <?php echo number_format(floatval($user_data['month_rate']) * 100, 2); ?>
-                                                %
-                                            </td>
-                                            <td class="render">
-                                                <?php echo number_format(floatval($user_data['profit_rate']) * 100, 2); ?>
-                                                %
-                                            </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>排名</td>
-                                            <td><?php echo $user_data['day_rank']; ?></td>
-                                            <td><?php echo $user_data['week_rank']; ?></td>
-                                            <td><?php echo $user_data['month_rank']; ?></td>
-                                            <td>
-                                                <?php echo $user_data['profit_rank']; ?>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+<!--                                <div>-->
+<!--                                    <h4 class="blue-color margin_to_top">我的收益</h4>-->
+<!--                                    <table class="table table-bordered">-->
+<!--                                        <thead>-->
+<!--                                        <tr>-->
+<!--                                            <th>周期</th>-->
+<!--                                            <th>本日收益率</th>-->
+<!--                                            <th>本周收益率</th>-->
+<!--                                            <th>本月收益率</th>-->
+<!--                                            <th>总收益率</th>-->
+<!--                                        </tr>-->
+<!--                                        </thead>-->
+<!--                                        <tbody>-->
+<!--                                        <tr>-->
+<!--                                            <td>-->
+<!--                                                收益率-->
+<!--                                            </td>-->
+<!--                                            <td class="render">-->
+<!--                                                --><?php //echo number_format(floatval($user_data['day_rate']) * 100, 2); ?>
+<!--                                                %-->
+<!--                                            </td>-->
+<!--                                            <td class="render">-->
+<!--                                                --><?php //echo number_format(floatval($user_data['week_rate']) * 100, 2); ?>
+<!--                                                %-->
+<!--                                            </td>-->
+<!--                                            <td class="render">-->
+<!--                                                --><?php //echo number_format(floatval($user_data['month_rate']) * 100, 2); ?>
+<!--                                                %-->
+<!--                                            </td>-->
+<!--                                            <td class="render">-->
+<!--                                                --><?php //echo number_format(floatval($user_data['profit_rate']) * 100, 2); ?>
+<!--                                                %-->
+<!--                                            </td>-->
+<!---->
+<!--                                        </tr>-->
+<!--                                        <tr>-->
+<!--                                            <td>排名</td>-->
+<!--                                            <td>--><?php //echo $user_data['day_rank']; ?><!--</td>-->
+<!--                                            <td>--><?php //echo $user_data['week_rank']; ?><!--</td>-->
+<!--                                            <td>--><?php //echo $user_data['month_rank']; ?><!--</td>-->
+<!--                                            <td>-->
+<!--                                                --><?php //echo $user_data['profit_rank']; ?>
+<!--                                            </td>-->
+<!--                                        </tr>-->
+<!--                                        </tbody>-->
+<!--                                    </table>-->
+<!--                                </div>-->
 
                                 <div class="warehouse">
                                     <h4 class="blue-color">我的持仓</h4>
