@@ -140,18 +140,7 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
     });
     $(document).ready(function () {
         load_dynamic_data();
-        //绘制资金分布饼图
-        var parts = ['可用现金', '冻结金额', '股票市值'];
-        var cash_use = decimal(parseFloat("<?php echo $user_data['cash_use'];?>"));
-        var cash_freeze = decimal(parseFloat("<?php echo $user_data['cash_freeze'];?>"));
-        var stock_value = decimal(first_stock_value);
-        var parts_value = [
-            {value:cash_use, name:'可用现金'},
-            {value:cash_freeze, name:'冻结金额'},
-            {value:stock_value, name:'股票市值'}
-        ];
-        var pie_div_id = document.getElementById('pie_canvas');
-        draw_pie(parts, parts_value, pie_div_id); //绘制资金使用情况饼图
+
         clearInterval(interval);
         interval = setInterval(load_dynamic_data, 8000); //每隔8s自动请求一次
         //请求动态加载数据
@@ -222,6 +211,18 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                             $(tr_id).children('td:eq(8)').html(id_extent + '%');  //设置涨跌幅
                         }
                     }
+                    //绘制资金分布饼图
+                    var parts = ['可用现金', '冻结金额', '股票市值'];
+                    var cash_use = decimal(parseFloat("<?php echo $user_data['cash_use'];?>"));
+                    var cash_freeze = decimal(parseFloat("<?php echo $user_data['cash_freeze'];?>"));
+                    var stock_value = decimal(first_stock_value);
+                    var parts_value = [
+                        {value:cash_use, name:'可用现金'},
+                        {value:cash_freeze, name:'冻结金额'},
+                        {value:stock_value, name:'股票市值'}
+                    ];
+                    var pie_div_id = document.getElementById('pie_canvas');
+                    draw_pie(parts, parts_value, pie_div_id); //绘制资金使用情况饼图
                 }
             });
         }
