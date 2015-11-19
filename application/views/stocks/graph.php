@@ -126,6 +126,7 @@
                     legend: {
                         data:component
                     },
+                    animation: false,
                     series : [
                         {
                             name:'资产分布',
