@@ -32,8 +32,8 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                                 <th>总现金</th>
                                                 <th>股票市值</th>
                                                 <th>仓位</th>
-                                                <th>总盈亏</th>
-                                                <th>总盈亏比</th>
+                                                <th>浮动盈亏</th>
+                                                <th>盈亏率</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -111,7 +111,7 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                                 <th>买入成本</th>
                                                 <th>当前价</th>
                                                 <th>浮动盈亏</th>
-                                                <th>盈亏比</th>
+                                                <th>盈亏率</th>
                                                 <th>今日涨跌幅</th>
                                             </tr>
                                             </thead>
