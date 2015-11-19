@@ -18,6 +18,7 @@
         </div>
     </div>
 </nav>
+<?php echo  $nav_mode;?>
 <style>
     nav.sub_navigation {
         background-image: url(<?php echo base_url('/assets/images/sub_nav_bg.png')?>);
