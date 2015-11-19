@@ -24,7 +24,7 @@ $pages = $his_list['pagination']; //获取分页
 
                             <div class="panel panel-default border_none">
                                 <div class="panel-body">
-                                    <table class="table table-striped table-bordered table-hover table-condensed">
+                                    <table class="table table-striped table-bordered table-hover">
                                         <thead>
                                         <tr>
                                             <th>时间</th>
