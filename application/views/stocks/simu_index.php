@@ -166,7 +166,8 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
 </body>
 <script>
     var interval;
-//    $(document).ready(function () {
+    var base_funds = "<?php echo $user_info['base_cash']?>";
+    //    $(document).ready(function () {
 //        var parts = ['可用现金', '冻结金额', '股票市值'];
 //        var cash_use = decimal(parseFloat("<?php //echo $basic_info['cash_use'];?>//"));
 //        var cash_freeze = decimal(parseFloat("<?php //echo $basic_info['cash_freeze'];?>//"));
@@ -260,7 +261,6 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                 $(tr_id).children('td:eq(8)').css('color', 'red');
                             }
                             $(tr_id).children('td:eq(5)').html(trade_price);  //设置当前价
-                            var base_funds = "<?php echo $user_info['base_cash']?>";
                             var float_pl = decimal(parseFloat(asset_all) * 100/ parseFloat(base_funds));
                             $(tr_id).children('td:eq(6)').html(format_num(float_pl));   //设置浮动盈亏
                             $(tr_id).children('td:eq(7)').html(format_num(stock_info[key]['float_pl_rate']) + '%');   //设置盈亏比
