@@ -52,54 +52,6 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                                         </table>
                                     </div>
                                 </div>
-<!--                                <div>-->
-<!--                                    <h4 class="blue-color margin_to_top">我的收益</h4>-->
-<!--                                    <table class="table table-bordered">-->
-<!--                                        <thead>-->
-<!--                                        <tr>-->
-<!--                                            <th>周期</th>-->
-<!--                                            <th>本日收益率</th>-->
-<!--                                            <th>本周收益率</th>-->
-<!--                                            <th>本月收益率</th>-->
-<!--                                            <th>总收益率</th>-->
-<!--                                        </tr>-->
-<!--                                        </thead>-->
-<!--                                        <tbody>-->
-<!--                                        <tr>-->
-<!--                                            <td>-->
-<!--                                                收益率-->
-<!--                                            </td>-->
-<!--                                            <td class="render">-->
-<!--                                                --><?php //echo number_format(floatval($user_data['day_rate']) * 100, 2); ?>
-<!--                                                %-->
-<!--                                            </td>-->
-<!--                                            <td class="render">-->
-<!--                                                --><?php //echo number_format(floatval($user_data['week_rate']) * 100, 2); ?>
-<!--                                                %-->
-<!--                                            </td>-->
-<!--                                            <td class="render">-->
-<!--                                                --><?php //echo number_format(floatval($user_data['month_rate']) * 100, 2); ?>
-<!--                                                %-->
-<!--                                            </td>-->
-<!--                                            <td class="render">-->
-<!--                                                --><?php //echo number_format(floatval($user_data['profit_rate']) * 100, 2); ?>
-<!--                                                %-->
-<!--                                            </td>-->
-<!---->
-<!--                                        </tr>-->
-<!--                                        <tr>-->
-<!--                                            <td>排名</td>-->
-<!--                                            <td>--><?php //echo $user_data['day_rank']; ?><!--</td>-->
-<!--                                            <td>--><?php //echo $user_data['week_rank']; ?><!--</td>-->
-<!--                                            <td>--><?php //echo $user_data['month_rank']; ?><!--</td>-->
-<!--                                            <td>-->
-<!--                                                --><?php //echo $user_data['profit_rank']; ?>
-<!--                                            </td>-->
-<!--                                        </tr>-->
-<!--                                        </tbody>-->
-<!--                                    </table>-->
-<!--                                </div>-->
-
                                 <div class="warehouse">
                                     <h4 class="blue-color">我的持仓</h4>
 
@@ -168,6 +120,7 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
 </body>
 <script>
     var interval;
+    var first_stock_value;
     $(document).ready(function () {
         $('.main_jumptron').css('margin-bottom', '0px');
         //将数据显示格式化
@@ -201,6 +154,7 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                 method: 'get',
                 dataType: 'json',
                 success: function (response) {
+                    first_stock_value = parseFloat(response.stock_value);
                     $('#stock_value').html(format_num(response.stock_value));  //获取并设置股票市值
                     var cash_all = '<?php echo $user_data['cash_all']; ?>'; //获取总现金
                     var asset_all = parseFloat(cash_all) + parseFloat(response.stock_value);
@@ -256,23 +210,26 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                             $(tr_id).children('td:eq(8)').html(id_extent + '%');  //设置涨跌幅
                         }
                     }
-                    //绘制资金分布饼图
-                    var parts = ['可用现金', '冻结金额', '股票市值'];
-                    var cash_use = decimal(parseFloat("<?php echo $user_data['cash_use'];?>"));
-                    var cash_freeze = decimal(parseFloat("<?php echo $user_data['cash_freeze'];?>"));
-                    var stock_value = decimal(parseFloat(response.stock_value));
-                    var parts_value = [
-                        {value:cash_use, name:'可用现金'},
-                        {value:cash_freeze, name:'冻结金额'},
-                        {value:stock_value, name:'股票市值'}
-                    ];
-                    var pie_div_id = document.getElementById('pie_canvas');
-                    draw_pie(parts, parts_value, pie_div_id); //绘制资金使用情况饼图
-
                 }
             });
         }
     });
+    $(document).ready(function () {
+        //绘制资金分布饼图
+        var parts = ['可用现金', '冻结金额', '股票市值'];
+        var cash_use = decimal(parseFloat("<?php echo $user_data['cash_use'];?>"));
+        var cash_freeze = decimal(parseFloat("<?php echo $user_data['cash_freeze'];?>"));
+        var stock_value = decimal(first_stock_value);
+        var parts_value = [
+            {value:cash_use, name:'可用现金'},
+            {value:cash_freeze, name:'冻结金额'},
+            {value:stock_value, name:'股票市值'}
+        ];
+        var pie_div_id = document.getElementById('pie_canvas');
+        draw_pie(parts, parts_value, pie_div_id); //绘制资金使用情况饼图
+
+    });
+
 
     //从新浪获取分时图
     function fillimage(stock_id, stock_name) {
