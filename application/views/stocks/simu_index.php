@@ -22,7 +22,7 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                     <div class="simulate_panel">
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="home">
-                                <div id="pie_canvas"></div>
+<!--                                <div id="pie_canvas"></div>-->
                                 <div>
                                     <h4 class="blue-color margin_to_top">我的资金</h4>
                                     <div class="table-responsive">
