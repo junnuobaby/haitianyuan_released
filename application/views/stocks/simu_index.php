@@ -226,12 +226,6 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
             });
         }
     });
-//    $(document).ready(function () {
-//
-//
-//    });
-
-
     //从新浪获取分时图
     function fillimage(stock_id, stock_name) {
         var modal_body = document.getElementById("graph_modal_body");

@@ -20,7 +20,7 @@
                 // 基于准备好的dom，初始化echarts图表
                 var myChart = ec.init(div_id, 'macarons');
 
-                option = {
+                var option = {
                     title: {
                         text: '收益率变化',
                         subtext: '日收益率'
@@ -115,7 +115,7 @@
             function (ec) {
                 // 基于准备好的dom，初始化echarts图表
                 var myChart = ec.init(div_id, 'macarons');
-                option = {
+                var option = {
                     title: {
                         text: '资产分布情况'
                     },
