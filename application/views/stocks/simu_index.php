@@ -25,58 +25,39 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="home">
                                 <div>
-                                    <div id="pie_canvas"></div>
-                                    <h4 class="blue-color margin_to_top">我的资金</h4>
-                                    <div class="table-responsive">
-                                        <table  class="table table-bordered basic_fund_info">
-                                            <tr>
-                                                <th>总资产</th>
-                                                <td id="my_asset"></td>
-                                            </tr>
-                                            <tr>
-                                                <th>总现金</th>
-                                                <td class="formatted"><?php echo $user_data['cash_all']; ?></td>
-                                            </tr>
-                                            <tr>
-                                                <th>股票市值</th>
-                                                <td id="stock_value"></td>
-                                            </tr>
-                                            <tr>
-                                                <th>仓位</th>
-                                                <td id="my_position"></td>
-                                            </tr>
-                                            <tr>
-                                                <th>浮动盈亏</th>
-                                                <td id="pl_value"></td>
-                                            </tr>
-                                            <tr>
-                                                <th>盈亏率</th>
-                                                <td id="pl_rate"></td>
-                                            </tr>
-                                        </table>
-<!--                                        <table class="table table-bordered basic_fund_info">-->
-<!--                                            <thead>-->
-<!--                                            <tr>-->
-<!--                                                <th>总资产</th>-->
-<!--                                                <th>总现金</th>-->
-<!--                                                <th>股票市值</th>-->
-<!--                                                <th>仓位</th>-->
-<!--                                                <th>浮动盈亏</th>-->
-<!--                                                <th>盈亏率</th>-->
-<!--                                            </tr>-->
-<!--                                            </thead>-->
-<!--                                            <tbody>-->
-<!--                                            <tr>-->
-<!--                                                <td id="my_asset"></td>-->
-<!--                                                <td class="formatted">--><?php //echo $user_data['cash_all']; ?><!--</td>-->
-<!--                                                <td id="stock_value"></td>-->
-<!--                                                <td id="my_position"></td>-->
-<!--                                                <td id="pl_value"></td>-->
-<!--                                                <td id="pl_rate"></td>-->
-<!--                                            </tr>-->
-<!--                                            </tbody>-->
-<!--                                        </table>-->
+                                    <div class="col-md-4">
+                                        <h4 class="blue-color margin_to_top">我的资金</h4>
+
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered basic_fund_info">
+                                                <tr>
+                                                    <th>总资产</th>
+                                                    <td id="my_asset"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>总现金</th>
+                                                    <td class="formatted"><?php echo $user_data['cash_all']; ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>股票市值</th>
+                                                    <td id="stock_value"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>仓位</th>
+                                                    <td id="my_position"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>浮动盈亏</th>
+                                                    <td id="pl_value"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>盈亏率</th>
+                                                    <td id="pl_rate"></td>
+                                                </tr>
+                                            </table>
+                                        </div>
                                     </div>
+                                    <div id="pie_canvas" class="col-md-8"></div>
                                 </div>
                                 <div class="warehouse">
                                     <h4 class="blue-color">我的持仓</h4>
@@ -190,7 +171,7 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                     var pl_rate = $('#pl_rate');
                     var base_funds = parseFloat('<?php echo $base_funds;?>');
                     var user_value = asset_all - base_funds;  //总盈亏额
-                    var user_rate = decimal((user_value *100) / base_funds);   //总盈亏率
+                    var user_rate = decimal((user_value * 100) / base_funds);   //总盈亏率
                     if (parseFloat(user_value) > 0) {
                         pl_value.css('color', 'red');
                     } else {
@@ -241,9 +222,9 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                     var cash_freeze = decimal(parseFloat("<?php echo $user_data['cash_freeze'];?>"));
                     var stock_value = decimal(parseFloat(response.stock_value));
                     var parts_value = [
-                        {value:cash_use, name:'可用现金'},
-                        {value:cash_freeze, name:'冻结金额'},
-                        {value:stock_value, name:'股票市值'}
+                        {value: cash_use, name: '可用现金'},
+                        {value: cash_freeze, name: '冻结金额'},
+                        {value: stock_value, name: '股票市值'}
                     ];
                     var pie_div_id = document.getElementById('pie_canvas');
                     draw_pie(parts, parts_value, pie_div_id); //绘制资金使用情况饼图
