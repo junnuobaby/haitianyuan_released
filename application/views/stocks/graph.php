@@ -126,7 +126,7 @@
                     },
                     legend: {
                         orient : 'vertical',
-                        x : 'right',
+                        x : 'left',
                         data:component
                     },
                     animation: false,
