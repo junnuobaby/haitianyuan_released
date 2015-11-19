@@ -117,7 +117,8 @@
                 var myChart = ec.init(div_id, 'macarons');
                 var option = {
                     title: {
-                        text: '资产分布情况'
+                        text: '资产分布情况',
+                        x:'center'
                     },
                     tooltip : {
                         trigger: 'item',
