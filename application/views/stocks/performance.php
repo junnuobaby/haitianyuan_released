@@ -32,9 +32,9 @@ $month_rank = floatval($basic_info['month_rank']);
                         </thead>
                         <tbody>
                         <tr>
-                            <td>
+                            <th>
                                 收益率
-                            </td>
+                            </th>
                             <td class="render">
                                 <?php echo $day_rate; ?>
                                 %
@@ -53,7 +53,7 @@ $month_rank = floatval($basic_info['month_rank']);
                             </td>
                         </tr>
                         <tr>
-                            <td>排名</td>
+                            <th>排名</th>
                             <td><?php echo $day_rank; ?></td>
                             <td><?php echo $week_rank; ?></td>
                             <td><?php echo $month_rank; ?></td>
