@@ -30,8 +30,8 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                             <tr>
                                                 <th>总资产</th>
                                                 <th>总现金</th>
-                                                <th>仓位</th>
                                                 <th>股票市值</th>
+                                                <th>仓位</th>
                                                 <th>总盈亏</th>
                                                 <th>总盈亏比</th>
                                             </tr>
@@ -40,8 +40,8 @@ $user_stocks = $user_info['data_stock']; //获取用户持仓数据
                                             <tr>
                                                 <td id="my_asset"></td>
                                                 <td class="formatted"><?php echo $user_data['cash_all']; ?></td>
-                                                <td id="my_position"></td>
                                                 <td id="stock_value"></td>
+                                                <td id="my_position"></td>
                                                 <td id="pl_value"></td>
                                                 <td id="pl_rate"></td>
                                             </tr>
