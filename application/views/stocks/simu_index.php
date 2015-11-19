@@ -25,7 +25,7 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="home">
                                 <div class="row">
-                                    <div id="pie_canvas" class="col-md-8" style="padding-top: 50px;"></div>
+                                    <div id="pie_canvas" class="col-md-8"></div>
                                     <div class="col-md-4">
                                         <h4 class="blue-color margin_to_top">我的资金</h4>
                                         <div class="table-responsive">

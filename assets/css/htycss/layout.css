@@ -757,6 +757,7 @@ ul.simulate_tablist li a:hover{
 }
 #pie_canvas{
     height: 300px;
+    padding-top: 50px;
 }
 #profit_table{
     margin: auto 50px;
