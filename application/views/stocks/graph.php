@@ -121,7 +121,7 @@
                     },
                     tooltip : {
                         trigger: 'item',
-                        formatter: "{a} <br/>{b} : {c} ({d}%)"
+                        formatter: "{a} <br/>{d}%"
                     },
                     legend: {
                         data:component
