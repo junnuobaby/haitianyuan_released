@@ -58,9 +58,9 @@ $ranking = 0;
                                 <th>用户名</th>
                                 <th>总资产</th>
                                 <th>仓位</th>
-                                <th>日收益率</th>
-                                <th>周收益率</th>
-                                <th>月收益率</th>
+                                <th>本日收益率</th>
+                                <th>本周收益率</th>
+                                <th>本月收益率</th>
                                 <th>总收益率</th>
                             </tr>
                             </thead>
