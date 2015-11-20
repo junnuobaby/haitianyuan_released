@@ -59,11 +59,11 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                                                 </tr>
                                                 <tr>
                                                     <th>浮动盈亏</th>
-                                                    <td id="fd_value" class="render"></td>
+                                                    <td id="fd_value"></td>
                                                 </tr>
                                                 <tr>
                                                     <th>浮动盈亏率</th>
-                                                    <td id="fd_rate" class="render"></td>
+                                                    <td id="fd_rate"></td>
                                                 </tr>
                                             </table>
                                         </div>
@@ -193,6 +193,13 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                         pl_rate.css('color', 'red');
                     } else {
                         pl_rate.css('color', 'green');
+                    }
+                    if(parseFloat(response.pl_value) < 0){
+                        fd_value.css('color', 'green');
+                        fd_rate.css('color', 'green');
+                    }else{
+                        fd_value.css('color', 'red');
+                        fd_rate.css('color', 'red');
                     }
                     pl_value.html(format_num(user_value)); //获取并设置总盈亏金额
                     pl_rate.html(user_rate + '%'); //获取并设置总盈亏比
