@@ -261,10 +261,14 @@ $sell_stocks = $sell_list; //获取手中持有的股票
 
                 for(var j= 0; j < sell_1ist.length; j++){
                     sell_1ist[j] = decimal(sell_1ist[j]);
+                    sell_volume[j] = format_num(sell_volume[j]);
+                    buy_1ist[j] = decimal(buy_1ist[j]);
+                    buy_volume[j] = format_num(buy_volume[j]);
+
                 }
-                for(var k= 0; k < sell_1ist.length; k++){
-                    buy_1ist[k] = decimal(buy_1ist[k]);
-                }
+//                for(var k= 0; k < sell_1ist.length; k++){
+//                    buy_1ist[k] = decimal(buy_1ist[k]);
+//                }
                 $('#bond_name').html(bond_name);
                 $('#bond_price tr:nth-child(1) td:nth-child(2)').html(bond_cur_price);
                 $('#bond_price tr:nth-child(2) td:nth-child(2)').html(bond_lastday_price);
