@@ -130,21 +130,26 @@ $sell_stocks = $sell_list; //获取手中持有的股票
                                             <tr>
                                                 <td>卖五：</td>
                                                 <td></td>
+                                                <td></td>
                                             </tr>
                                             <tr>
                                                 <td>卖四：</td>
+                                                <td></td>
                                                 <td></td>
                                             </tr>
                                             <tr>
                                                 <td>卖三：</td>
                                                 <td></td>
+                                                <td></td>
                                             </tr>
                                             <tr>
                                                 <td>卖二：</td>
                                                 <td></td>
+                                                <td></td>
                                             </tr>
                                             <tr>
                                                 <td>卖一：</td>
+                                                <td></td>
                                                 <td></td>
                                             </tr>
                                         </table>
@@ -152,21 +157,26 @@ $sell_stocks = $sell_list; //获取手中持有的股票
                                             <tr>
                                                 <td>买一：</td>
                                                 <td></td>
+                                                <td></td>
                                             </tr>
                                             <tr>
                                                 <td>买二：</td>
+                                                <td></td>
                                                 <td></td>
                                             </tr>
                                             <tr>
                                                 <td>买三：</td>
                                                 <td></td>
+                                                <td></td>
                                             </tr>
                                             <tr>
                                                 <td>买四：</td>
                                                 <td></td>
+                                                <td></td>
                                             </tr>
                                             <tr>
                                                 <td>买五：</td>
+                                                <td></td>
                                                 <td></td>
                                             </tr>
                                         </table>
