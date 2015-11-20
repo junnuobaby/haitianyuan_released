@@ -50,12 +50,20 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                                                     <td id="my_position"></td>
                                                 </tr>
                                                 <tr>
-                                                    <th>浮动盈亏</th>
+                                                    <th>总盈亏</th>
                                                     <td id="pl_value"></td>
                                                 </tr>
                                                 <tr>
-                                                    <th>盈亏率</th>
+                                                    <th>总盈亏率</th>
                                                     <td id="pl_rate"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>浮动盈亏</th>
+                                                    <td id="fd_value"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>浮动盈亏率</th>
+                                                    <td id="fd_rate"></td>
                                                 </tr>
                                             </table>
                                         </div>
@@ -171,6 +179,8 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                     $('#my_position').html(format_num(position) + '%'); //设置仓位
                     var pl_value = $('#pl_value');
                     var pl_rate = $('#pl_rate');
+                    var fd_value = $('#fd_value');
+                    var fd_rate = $('#fd_rate');
                     var base_funds = parseFloat('<?php echo $base_funds;?>');
                     var user_value = asset_all - base_funds;  //总盈亏额
                     var user_rate = decimal((user_value * 100) / base_funds);   //总盈亏率
@@ -186,6 +196,9 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                     }
                     pl_value.html(format_num(user_value)); //获取并设置总盈亏金额
                     pl_rate.html(user_rate + '%'); //获取并设置总盈亏比
+                    fd_value.html(format_num(response.pl_value)); //获取并设浮动盈亏金额
+                    fd_rate.html(response.pl_rate); //获取并设置浮动盈亏比
+
                     var stock_info = response.stock_info;
                     for (key in stock_info) {
                         var tr_id = '#' + key;
