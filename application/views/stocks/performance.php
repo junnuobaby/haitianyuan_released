@@ -18,8 +18,6 @@ $month_rank = floatval($basic_info['month_rank']);
         <div class="panel panel-default mas_min_height">
             <div class="panel-heading"><h4>历史成绩</h4></div>
             <div class="panel-body">
-                <div id="perform_canvas"></div>
-                <hr/>
                 <div id="profit_table">
                     <table class="table table-bordered">
                         <thead>
@@ -65,6 +63,8 @@ $month_rank = floatval($basic_info['month_rank']);
                         </tbody>
                     </table>
                 </div>
+                <hr/>
+                <div id="perform_canvas"></div>
             </div>
         </div>
     </div>
