@@ -339,8 +339,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 var bond_highest = decimal(1.1 * bond_lastday_price); //涨停
                 var bond_lowest = decimal(0.9 * bond_lastday_price); //跌停
                 var sell_1ist = [response.SellPrice1, response.SellPrice2, response.SellPrice3, response.SellPrice4, response.SellPrice5]; //卖五
-                var sell_volume = [response.SellVolume1, response.SellVolume2, response.SellVolume3, response.SellVolume4, response.SellVolume5]; //卖五
                 var buy_1ist = [response.BuyPrice1, response.BuyPrice2, response.BuyPrice3, response.BuyPrice4, response.BuyPrice5];  //买五
+                var sell_volume = [response.SellVolume1, response.SellVolume2, response.SellVolume3, response.SellVolume4, response.SellVolume5]; //卖五
                 var buy_volume = [response.BuyVolume1, response.BuyVolume2, response.BuyVolume3, response.BuyVolume4, response.BuyVolume5];  //买五
 
                 for (var j = 0; j < sell_1ist.length; j++) {

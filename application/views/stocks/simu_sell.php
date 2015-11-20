@@ -246,6 +246,8 @@ $sell_stocks = $sell_list; //获取手中持有的股票
                 var bond_lowest = decimal(0.9 * bond_lastday_price); //跌停
                 var sell_1ist = [response.SellPrice1, response.SellPrice2, response.SellPrice3, response.SellPrice4, response.SellPrice5]; //卖五
                 var buy_1ist = [response.BuyPrice1, response.BuyPrice2, response.BuyPrice3, response.BuyPrice4, response.BuyPrice5];  //买五
+                var sell_volume = [response.SellVolume1, response.SellVolume2, response.SellVolume3, response.SellVolume4, response.SellVolume5]; //卖五
+                var buy_volume = [response.BuyVolume1, response.BuyVolume2, response.BuyVolume3, response.BuyVolume4, response.BuyVolume5];  //买五
 
                 for(var j= 0; j < sell_1ist.length; j++){
                     sell_1ist[j] = decimal(sell_1ist[j]);
@@ -270,6 +272,19 @@ $sell_stocks = $sell_list; //获取手中持有的股票
                 $('#top_buy tr:nth-child(3) td:nth-child(2)').html(buy_1ist[2]); //买三
                 $('#top_buy tr:nth-child(4) td:nth-child(2)').html(buy_1ist[3]); //买四
                 $('#top_buy tr:nth-child(5) td:nth-child(2)').html(buy_1ist[4]); //买五
+
+                //设置买五和卖五的数量
+                $('#top_sell tr:nth-child(1) td:nth-child(3)').html(sell_volume[4]); //卖五
+                $('#top_sell tr:nth-child(2) td:nth-child(3)').html(sell_volume[3]); //卖四
+                $('#top_sell tr:nth-child(3) td:nth-child(3)').html(sell_volume[2]); //卖三
+                $('#top_sell tr:nth-child(4) td:nth-child(3)').html(sell_volume[1]); //卖二
+                $('#top_sell tr:nth-child(5) td:nth-child(3)').html(sell_volume[0]); //卖一
+
+                $('#top_buy tr:nth-child(1) td:nth-child(3)').html(buy_volume[0]); //买一
+                $('#top_buy tr:nth-child(2) td:nth-child(3)').html(buy_volume[1]); //买二
+                $('#top_buy tr:nth-child(3) td:nth-child(3)').html(buy_volume[2]); //买三
+                $('#top_buy tr:nth-child(4) td:nth-child(3)').html(buy_volume[3]); //买四
+                $('#top_buy tr:nth-child(5) td:nth-child(3)').html(buy_volume[4]); //买五
 
                 //根据价格设置显示颜色
                 var top_price = $('#bond_price tr td:nth-child(2),#top_buy tr td:nth-child(2), #top_sell tr td:nth-child(2)');
