@@ -59,11 +59,11 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                                                 </tr>
                                                 <tr>
                                                     <th>浮动盈亏</th>
-                                                    <td id="fd_value"></td>
+                                                    <td id="fd_value" class="render"></td>
                                                 </tr>
                                                 <tr>
                                                     <th>浮动盈亏率</th>
-                                                    <td id="fd_rate"></td>
+                                                    <td id="fd_rate" class="render"></td>
                                                 </tr>
                                             </table>
                                         </div>
