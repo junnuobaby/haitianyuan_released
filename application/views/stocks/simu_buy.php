@@ -114,21 +114,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <tr>
                                                 <td>卖五：</td>
                                                 <td></td>
+                                                <td></td>
                                             </tr>
                                             <tr>
                                                 <td>卖四：</td>
+                                                <td></td>
                                                 <td></td>
                                             </tr>
                                             <tr>
                                                 <td>卖三：</td>
                                                 <td></td>
+                                                <td></td>
                                             </tr>
                                             <tr>
                                                 <td>卖二：</td>
                                                 <td></td>
+                                                <td></td>
                                             </tr>
                                             <tr>
                                                 <td>卖一：</td>
+                                                <td></td>
                                                 <td></td>
                                             </tr>
                                         </table>
@@ -136,21 +141,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <tr>
                                                 <td>买一：</td>
                                                 <td></td>
+                                                <td></td>
                                             </tr>
                                             <tr>
                                                 <td>买二：</td>
+                                                <td></td>
                                                 <td></td>
                                             </tr>
                                             <tr>
                                                 <td>买三：</td>
                                                 <td></td>
+                                                <td></td>
                                             </tr>
                                             <tr>
                                                 <td>买四：</td>
                                                 <td></td>
+                                                <td></td>
                                             </tr>
                                             <tr>
                                                 <td>买五：</td>
+                                                <td></td>
                                                 <td></td>
                                             </tr>
                                         </table>
@@ -329,12 +339,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 var bond_highest = decimal(1.1 * bond_lastday_price); //涨停
                 var bond_lowest = decimal(0.9 * bond_lastday_price); //跌停
                 var sell_1ist = [response.SellPrice1, response.SellPrice2, response.SellPrice3, response.SellPrice4, response.SellPrice5]; //卖五
+                var sell_volume = [response.SellVolume1, response.SellVolume2, response.SellVolume3, response.SellVolume4, response.SellVolume5]; //卖五
                 var buy_1ist = [response.BuyPrice1, response.BuyPrice2, response.BuyPrice3, response.BuyPrice4, response.BuyPrice5];  //买五
+                var buy_volume = [response.BuyVolume1, response.BuyVolume2, response.BuyVolume3, response.BuyVolume4, response.BuyVolume5];  //买五
 
-                for(var j= 0; j < sell_1ist.length; j++){
+                for (var j = 0; j < sell_1ist.length; j++) {
                     sell_1ist[j] = decimal(sell_1ist[j]);
                 }
-                for(var k= 0; k < sell_1ist.length; k++){
+                for (var k = 0; k < sell_1ist.length; k++) {
                     buy_1ist[k] = decimal(buy_1ist[k]);
                 }
 
@@ -345,6 +357,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $('#bond_price tr:nth-child(3) td:nth-child(2)').html(bond_highest);
                 $('#bond_price tr:nth-child(4) td:nth-child(2)').html(bond_lowest);
 
+                //设置买五和卖五的价格
                 $('#top_sell tr:nth-child(1) td:nth-child(2)').html(sell_1ist[4]); //卖五
                 $('#top_sell tr:nth-child(2) td:nth-child(2)').html(sell_1ist[3]); //卖四
                 $('#top_sell tr:nth-child(3) td:nth-child(2)').html(sell_1ist[2]); //卖三
@@ -356,6 +369,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $('#top_buy tr:nth-child(3) td:nth-child(2)').html(buy_1ist[2]); //买三
                 $('#top_buy tr:nth-child(4) td:nth-child(2)').html(buy_1ist[3]); //买四
                 $('#top_buy tr:nth-child(5) td:nth-child(2)').html(buy_1ist[4]); //买五
+
+                //设置买五和卖五的数量
+                $('#top_sell tr:nth-child(1) td:nth-child(3)').html(sell_volume[4]); //卖五
+                $('#top_sell tr:nth-child(2) td:nth-child(3)').html(sell_volume[3]); //卖四
+                $('#top_sell tr:nth-child(3) td:nth-child(3)').html(sell_volume[2]); //卖三
+                $('#top_sell tr:nth-child(4) td:nth-child(3)').html(sell_volume[1]); //卖二
+                $('#top_sell tr:nth-child(5) td:nth-child(3)').html(sell_volume[0]); //卖一
+
+                $('#top_buy tr:nth-child(1) td:nth-child(3)').html(buy_volume[0]); //买一
+                $('#top_buy tr:nth-child(2) td:nth-child(3)').html(buy_volume[1]); //买二
+                $('#top_buy tr:nth-child(3) td:nth-child(3)').html(buy_volume[2]); //买三
+                $('#top_buy tr:nth-child(4) td:nth-child(3)').html(buy_volume[3]); //买四
+                $('#top_buy tr:nth-child(5) td:nth-child(3)').html(buy_volume[4]); //买五
+
 
                 //根据价格设置显示颜色
                 var top_price = $('#bond_price tr td:nth-child(2),#top_buy tr td:nth-child(2), #top_sell tr td:nth-child(2)');
@@ -373,11 +400,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         $('#buy_price').blur(function () {
             var bond_price = $.trim($(this).val());
             var available_money = "<?php echo $cash_use;?>";
-            if(isNaN(bond_price) || parseFloat(bond_price) <= 0){
+            if (isNaN(bond_price) || parseFloat(bond_price) <= 0) {
                 $('span.buy_price_alert').removeClass('hidden');
 
             }
-            if(bond_price.length > 0 && !isNaN(bond_price) && parseFloat(bond_price) > 0){
+            if (bond_price.length > 0 && !isNaN(bond_price) && parseFloat(bond_price) > 0) {
                 bond_price = decimal(bond_price);
                 var quantity_avail = parseInt(parseFloat(available_money) / (parseFloat(bond_price) * 100)); //计算当前可买入的最大股数
                 $('div.largest_quantity').removeClass('hidden');
@@ -436,7 +463,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     alert('请输入合法的买入价格');
                     return false;
                 }
-                if (($.trim(quantity).length < 1) || parseInt(quantity) < 1 || parseInt(quantity) > parseInt($('#largest_quantity').html()) ) {
+                if (($.trim(quantity).length < 1) || parseInt(quantity) < 1 || parseInt(quantity) > parseInt($('#largest_quantity').html())) {
                     alert('请输入合法的买入数量');
                     return false;
                 }
