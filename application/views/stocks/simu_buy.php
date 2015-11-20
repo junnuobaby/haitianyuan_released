@@ -343,13 +343,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 var sell_volume = [response.SellVolume1, response.SellVolume2, response.SellVolume3, response.SellVolume4, response.SellVolume5]; //卖五
                 var buy_volume = [response.BuyVolume1, response.BuyVolume2, response.BuyVolume3, response.BuyVolume4, response.BuyVolume5];  //买五
 
-                for (var j = 0; j < sell_1ist.length; j++) {
+                for(var j= 0; j < sell_1ist.length; j++){
                     sell_1ist[j] = decimal(sell_1ist[j]);
+                    sell_volume[j] = format_num(sell_volume[j]);
+                    buy_1ist[j] = decimal(buy_1ist[j]);
+                    buy_volume[j] = format_num(buy_volume[j]);
                 }
-                for (var k = 0; k < sell_1ist.length; k++) {
-                    buy_1ist[k] = decimal(buy_1ist[k]);
-                }
-
 
                 $('#bond_name').html(bond_name);
                 $('#bond_price tr:nth-child(1) td:nth-child(2)').html(bond_cur_price);
