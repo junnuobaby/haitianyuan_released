@@ -425,7 +425,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             var info_str = '确定买入' + bond_quantity + '手' + bond_name + '?';
             var bond_quantities = parseInt(bond_quantity) * 100; //求买入的股数（买入数量*100）
 
-            if (validate(bond_code, bond_price, bond_quantity)) {
+            if (validate(bond_code, bond_price, bond_quantity) && validate_charge(bond_quantities, bond_price, "<?php echo $cash_use;?>")) {
                 if (confirm(info_str)) {
                     $.ajax({
                         url: '<?php echo base_url("index.php/stock/buy_stock/web"); ?>',
@@ -466,7 +466,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     alert('请输入合法的买入数量');
                     return false;
                 }
+
+
                 return true;
+            }
+
+            //验证余额是否够支付预收手续费用
+            function validate_charge(buy_num, buy_price, avail_money){
+                var total = parseFloat(buy_num) * parseFloat(buy_price);
+                var charge_money;
+                if((total * 0.0003) > 5){
+                    charge_money = total * 0.0003;
+                }else{
+                    charge_money = 5;
+                }
+                return (charge_money + total) < parseFloat(avail_money);
             }
         });
     });
