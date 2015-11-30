@@ -45,7 +45,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                     <div class="form-group">
                                         <div class="col-md-6">
-
                                         </div>
                                     </div>
 

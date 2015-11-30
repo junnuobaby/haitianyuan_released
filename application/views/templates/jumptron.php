@@ -68,6 +68,7 @@
     function adjust_img() {
         $('.jumptron_img').each(function () {
             var jumptron_logo = $('div.jumptron_logo');
+            jumptron_logo.css('right','20%');
             jumptron_logo.css('top','10%');
             jumptron_logo.show();
             $('div.jinbang_num').show();
@@ -79,6 +80,7 @@
             else if(cur < 1200 && cur > 768){
                 $(this).height(300);
                 jumptron_logo.css('top','20%');
+                jumptron_logo.css('right','20%');
                 $('div.jinbang_num').hide();
             }
             else if(cur < 768){
