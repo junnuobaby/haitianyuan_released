@@ -51,8 +51,8 @@
                 人
             </p>
             <p>正在参与海天模拟炒股</p>
+            <hr/>
         </div>
-        <hr/>
         <div class="join-contest">
             <p><span class="take_in_num">555</span>人正在角逐金榜,<span class="take_in_num">1500</span>人正在角逐银榜</p>
             <p>
