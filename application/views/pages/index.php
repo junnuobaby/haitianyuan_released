@@ -5,8 +5,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="zh-cn">
 <?php $this->load->view('./templates/head'); ?>
 <?php
-$user = array('pos'=>'1','name'=> 'baby', 'fund'=>'1100000', 'profit'=>'10%');
-$jinbang = array($user,$user,$user,$user,$user,$user,$user,$user,$user,$user);
+$user = array('pos' => '1', 'name' => 'baby', 'fund' => '1100000', 'profit' => '10%');
+$jinbang = array($user, $user, $user, $user, $user, $user, $user, $user, $user, $user);
 ?>
 <body class="bg-gray">
 <div class="wrapper">
@@ -54,6 +54,7 @@ $jinbang = array($user,$user,$user,$user,$user,$user,$user,$user,$user,$user);
                 <div class="index-section-header txt_center">
                     <div class="header-div">
                         <span>推荐理财师</span>
+
                         <div class="help-line"></div>
                         <p>解答理财疑问，投资咨询，走势分析</p>
                     </div>
@@ -63,154 +64,27 @@ $jinbang = array($user,$user,$user,$user,$user,$user,$user,$user,$user,$user);
                         <div id="carousel-rmd-master" class="carousel slide" data-ride="carousel">
                             <!-- Wrapper for slides -->
                             <div class="carousel-inner" role="listbox">
-                                <div class="item active">
-                                    <div class="col-md-10 col-md-offset-1">
-                                        <div class="row">
-                                            <div class="col-md-2">
-                                                <a href="#" class="thumbnail">
-                                                    <img class="img-responsive avatar-radius"
-                                                         src="<?php echo base_url('assets/images/touxiang/1.jpg'); ?>"
-                                                         alt="...">
+                                <?php for ($external_count = 0; $external_count < 3; $external_count++): ?>
+                                    <div class="item <?php if ($external_count == 0) {
+                                        echo "active";
+                                    } ?>">
+                                        <div class="col-md-10 col-md-offset-1">
+                                            <div class="row">
+                                                <?php foreach ($master_info as $master): ?>
+                                                    <div class="col-md-2">
+                                                        <a href="<?php echo base_url('index.php/home/load_home/web/' . 'master' . '/' . $master['user_id'] . '/' . '1'); ?>"
+                                                           class="thumbnail">
+                                                            <img class="img-responsive avatar-radius"
+                                                                 src="<?php echo base_url('/uploads/' . $master['face_pic']); ?>"
+                                                                 alt="...">
 
-                                                    <div class="text-center">
-                                                        <h4 class="orange-color"><?php echo '君诺宝宝' ?></h4>
+                                                            <div class="text-center">
+                                                                <h4 class="orange-color"><?php echo $master['username']; ?></h4>
+                                                            </div>
+                                                        </a>
                                                     </div>
-                                                </a>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <a href="#" class="thumbnail">
-                                                    <img class="img-responsive"
-                                                         src="<?php echo base_url('assets/images/touxiang/2.jpg'); ?>"
-                                                         alt="...">
-
-                                                    <div class="text-center">
-                                                        <h4 class="orange-color"><?php echo 'Krischao' ?></h4>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <a href="#" class="thumbnail">
-                                                    <img class="img-responsive"
-                                                         src="<?php echo base_url('assets/images/touxiang/3.jpg'); ?>"
-                                                         alt="...">
-
-                                                    <div class="text-center">
-                                                        <h4 class="orange-color"><?php echo 'Lee' ?></h4>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <a href="#" class="thumbnail">
-                                                    <img class="img-responsive"
-                                                         src="<?php echo base_url('assets/images/touxiang/4.jpg'); ?>"
-                                                         alt="...">
-
-                                                    <div class="text-center">
-                                                        <h4 class="orange-color"><?php echo '开普勒' ?></h4>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <a href="#" class="thumbnail">
-                                                    <img class="img-responsive"
-                                                         src="<?php echo base_url('assets/images/touxiang/4.jpg'); ?>"
-                                                         alt="...">
-
-                                                    <div class="text-center">
-                                                        <h4 class="orange-color"><?php echo '开普勒' ?></h4>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <a href="#" class="thumbnail">
-                                                    <img class="img-responsive"
-                                                         src="<?php echo base_url('assets/images/touxiang/5.jpg'); ?>"
-                                                         alt="...">
-
-                                                    <div class="text-center">
-                                                        <h4 class="orange-color"><?php echo 'Tom' ?></h4>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="col-md-10 col-md-offset-1">
-                                        <div class="row">
-                                            <div class="col-md-2">
-                                                <a href="#" class="thumbnail">
-                                                    <img class="img-responsive avatar-radius"
-                                                         src="<?php echo base_url('assets/images/touxiang/6.jpg'); ?>"
-                                                         alt="...">
-
-                                                    <div class="text-center">
-                                                        <h4 class="orange-color"><?php echo '君诺宝宝' ?></h4>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <a href="#" class="thumbnail">
-                                                    <img class="img-responsive avatar-radius"
-                                                         src="<?php echo base_url('assets/images/touxiang/9.jpg'); ?>"
-                                                         alt="...">
-
-                                                    <div class="text-center">
-                                                        <h4 class="orange-color"><?php echo '君诺宝宝' ?></h4>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <a href="#" class="thumbnail">
-                                                    <img class="img-responsive"
-                                                         src="<?php echo base_url('assets/images/touxiang/7.jpg'); ?>"
-                                                         alt="...">
-
-                                                    <div class="text-center">
-                                                        <h4 class="orange-color"><?php echo 'Krischao' ?></h4>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <a href="#" class="thumbnail">
-                                                    <img class="img-responsive"
-                                                         src="<?php echo base_url('assets/images/touxiang/9.jpg'); ?>"
-                                                         alt="...">
-
-                                                    <div class="text-center">
-                                                        <h4 class="orange-color"><?php echo 'Lee' ?></h4>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <a href="#" class="thumbnail">
-                                                    <img class="img-responsive"
-                                                         src="<?php echo base_url('assets/images/touxiang/4.jpg'); ?>"
-                                                         alt="...">
-
-                                                    <div class="text-center">
-                                                        <h4 class="orange-color"><?php echo '开普勒' ?></h4>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <a href="#" class="thumbnail">
-                                                    <img class="img-responsive"
-                                                         src="<?php echo base_url('assets/images/touxiang/5.jpg'); ?>"
-                                                         alt="...">
-
-                                                    <div class="text-center">
-                                                        <h4 class="orange-color"><?php echo 'Tom' ?></h4>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-
+                                                <?php endforeach; ?>
+                                <?php endfor; ?>
                             </div>
                             <!-- Controls -->
                             <a class="left carousel-control" href="#carousel-rmd-master" role="button"
@@ -232,7 +106,9 @@ $jinbang = array($user,$user,$user,$user,$user,$user,$user,$user,$user,$user);
 
                         <div class="help-line"></div>
                         <p>模拟投资金榜排名优胜者，可获取巨额奖金，赶紧来加入群雄争霸赛吧！</p>
+
                         <p>所以用户均可免费参加海天银榜排名，银榜优胜者可直接角逐金榜排名。</p>
+
                         <p>只需购买一张金榜入场券，即可跳过银榜争夺赛，直接进入金榜排名赛赢取奖金。</p>
                     </div>
                 </div>
@@ -251,12 +127,12 @@ $jinbang = array($user,$user,$user,$user,$user,$user,$user,$user,$user,$user);
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <?php foreach($jinbang as $item):?>
+                                    <?php foreach ($jinbang as $item): ?>
                                         <tr>
-                                            <td><?php echo $item['pos'];?></td>
-                                            <td><?php echo $item['name'];?></td>
-                                            <td><?php echo $item['fund'];?></td>
-                                            <td><?php echo $item['profit'];?></td>
+                                            <td><?php echo $item['pos']; ?></td>
+                                            <td><?php echo $item['name']; ?></td>
+                                            <td><?php echo $item['fund']; ?></td>
+                                            <td><?php echo $item['profit']; ?></td>
                                         </tr>
                                     <?php endforeach; ?>
                                     </tbody>
