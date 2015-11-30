@@ -19,7 +19,7 @@
                 <span class="icon-bar"></span>
             </button>
         </div>
-        <nav class="collapse navbar-collapse pull-left" style="margin-top: 5px;">
+        <nav class="collapse navbar-collapse pull-left" >
             <ul class="nav navbar-nav top-menu">
                 <li><a href="<?php echo base_url('/index.php/index');?>">首页</a></li>
                 <li><a href="#">问答</a></li>
