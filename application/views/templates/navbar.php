@@ -20,7 +20,7 @@
             </button>
         </div>
         <nav class="collapse navbar-collapse pull-left" >
-            <ul class="nav navbar-nav top-menu" style="margin-top: 5px;">
+            <ul class="nav navbar-nav top-menu">
                 <li><a href="<?php echo base_url('/index.php/index');?>">首页</a></li>
                 <li><a href="#">问答</a></li>
                 <li><a href="<?php echo base_url('/index.php/stock/index/web/1/1');?>">华山论剑</a></li>
