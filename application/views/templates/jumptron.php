@@ -70,7 +70,7 @@
             var cur = $(window).width();
             $(this).width(cur);
             if(cur )
-            $('div.jumptron_logo').hide();
+//            $('div.jumptron_logo').hide();
 
         });
     }
