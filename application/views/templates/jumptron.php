@@ -67,11 +67,23 @@
 <script>
     function adjust_img() {
         $('.jumptron_img').each(function () {
+            var jumptron_logo = $('div.jumptron_logo');
+            jumptron_logo.css('top','10%');
+            jumptron_logo.show();
+            $('div.jinbang_num').show();
             var cur = $(window).width();
             $(this).width(cur);
-            if(cur )
-//            $('div.jumptron_logo').hide();
-
+            if(cur > 1200){
+                $(this).height(400);
+            }
+            else if(cur < 1200 && cur > 768){
+                $(this).height(300);
+                jumptron_logo.css('top','20%');
+                $('div.jinbang_num').hide();
+            }
+            else if(cur < 768){
+                jumptron_logo.hide();
+            }
         });
     }
     window.onload = function () {

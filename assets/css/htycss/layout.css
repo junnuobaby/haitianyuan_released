@@ -11,22 +11,15 @@
 
 .main_jumptron .jumptron_logo {
     position: absolute;
-    right: 500px;
-    top: 30px;
-    /*width: 360px;*/
-    /*height: 332px;*/
-    /*width: 30%;*/
-    /*height: 20%;*/
+    right: 25%;
+    top: 10%;
     color: #FFF;
     z-index: 99;
     border-radius: 4px;
     background-color: rgba(255, 255, 255, 0.3);
-}
+    padding: 30px 30px 30px 30px;
 
-.jinbang_num {
-    padding: 30px 40px 10px 40px;
 }
-
 .bang_num span {
     text-align: center;
     display: inline-block;
@@ -40,7 +33,6 @@
     box-sizing: border-box;
 }
 .join-contest {
-    padding: 10px 0;
     text-align: center;
 }
 .take_in_num {
