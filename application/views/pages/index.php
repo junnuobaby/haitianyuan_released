@@ -84,6 +84,9 @@ $jinbang = array($user, $user, $user, $user, $user, $user, $user, $user, $user, 
                                                         </a>
                                                     </div>
                                                 <?php endforeach; ?>
+                                            </div>
+                                        </div>
+                                    </div>
                                 <?php endfor; ?>
                             </div>
                             <!-- Controls -->
