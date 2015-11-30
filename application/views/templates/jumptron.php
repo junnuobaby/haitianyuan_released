@@ -69,6 +69,9 @@
         $('.jumptron_img').each(function () {
             var cur = $(window).width();
             $(this).width(cur);
+            if(cur )
+            $('div.jumptron_logo').hide();
+
         });
     }
     window.onload = function () {
