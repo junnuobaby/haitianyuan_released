@@ -69,7 +69,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <ul class="nav navbar-nav">
                                             <!--qq第三方登陆-->
                                             <li><a href="#">
-                                                    <img width="20px" height="20px" src="<?php echo base_url('/assets/images/qq.png'); ?>"
+                                                    <img width="50px" height="50px" src="<?php echo base_url('/assets/images/qq.png'); ?>"
                                                          alt="..." class="img-rounded narbar_li"></a></li>
                                             <!--微博第三方登陆-->
                                             <li><a href="#">
