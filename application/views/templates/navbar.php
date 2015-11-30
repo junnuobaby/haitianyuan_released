@@ -42,7 +42,7 @@
                 <li class="dropdown user-nav-dropdown user-img">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                        aria-haspopup="true" aria-expanded="false"><img class="img-responsive"
-                                                                       src="<?php echo site_url('/uploads/'.$basic_info['face_pic']); ?>" alt="我的头像"/></a>
+                                                                       src="<?php echo site_url('/uploads/'.$avatar); ?>" alt="我的头像"/></a>
                     <ul class="dropdown-menu avatar-dropdown-menu">
                         <li><a href="<?php echo base_url('index.php/home/load_home/web/' . $identity . '/' . $uuid . '/' . '1'); ?>"><span class="glyphicon glyphicon-home"></span> 我的主页</a></li>
                         <li><a href="<?php echo base_url('index.php/my_center/index'); ?>"><span class="glyphicon glyphicon-education"></span> 个人中心</a></li>
