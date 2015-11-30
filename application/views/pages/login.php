@@ -69,15 +69,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <ul class="nav navbar-nav">
                                             <!--qq第三方登陆-->
                                             <li><a href="#">
-                                                    <img width="50px" height="50px" src="<?php echo base_url('/assets/images/qq.png'); ?>"
+                                                    <img width="30px" height="30px" src="<?php echo base_url('/assets/images/qq.png'); ?>"
                                                          alt="..." class="img-rounded narbar_li"></a></li>
                                             <!--微博第三方登陆-->
                                             <li><a href="#">
-                                                    <img src="<?php echo base_url('/assets/images/weibo.png'); ?>"
+                                                    <img width="30px" height="30px" src="<?php echo base_url('/assets/images/weibo.png'); ?>"
                                                          alt="..." class="img-rounded narbar_li"></a></li>
                                             <!--微信第三方登陆-->
                                             <li><a href="#">
-                                                    <img src="<?php echo base_url('/assets/images/weixin.jpg'); ?>"
+                                                    <img width="30px" height="30px" src="<?php echo base_url('/assets/images/weixin.jpg'); ?>"
                                                          alt="..." class="img-rounded narbar_li"></a></li>
                                         </ul>
                                     </div>
