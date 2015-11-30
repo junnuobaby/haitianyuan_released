@@ -53,7 +53,7 @@
                 <li class="dropdown user-nav-dropdown user-msg">
                     <a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                         aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-envelope hz-icon"></span> 消息</a>
-                    <ul class="dropdown-menu msg-dropdown-menu" style="width: 50px">
+                    <ul class="dropdown-menu msg-dropdown-menu">
                         <li><a href="#"><span class="glyphicon glyphicon-question-sign"></span> 问答</a></li>
                         <li><a href="#"><span
                                     class="glyphicon glyphicon-bullhorn"></span> 通知</a></li>
