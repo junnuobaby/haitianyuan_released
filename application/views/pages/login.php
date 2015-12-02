@@ -102,6 +102,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="input-group">
                     <span class="input-group-addon"><span
                             class="glyphicon glyphicon-user"></span></span>
+                <input style="display:none">
                 <input type="text" class="form-control" id="nick_name"
                        name="nick_name" required autocomplete="off"
                        placeholder="请输入昵称">
