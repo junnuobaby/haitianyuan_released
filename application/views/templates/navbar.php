@@ -33,7 +33,7 @@
             <div class="navbar-form navbar-right navbar-login">
                 <a href="<?php echo base_url('/index.php/login') ?>" class="theme-color">
                     登陆</a>
-                <a href="<?php echo base_url('/index.php/login') ?>" class="theme-color">
+                <a href="<?php echo base_url('/index.php/register') ?>" class="theme-color">
                     注册</a>
             </div>
         <?php else: ?>
