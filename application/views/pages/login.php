@@ -212,7 +212,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 var phone_num = $('#user_mobile').val();
                 $.get("<?php  echo base_url('/index.php/register/is_exist/web/')?>" + '/' + phone_num,
                     function (data, status) {
-                        alert(data);
                         if (data == 'true') {
                             $('#user_mobile_error').html('(该号码已注册！)');
                         }
