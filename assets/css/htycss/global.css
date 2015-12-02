@@ -46,6 +46,7 @@ footer.page_footer a {
 }
 footer.page_footer p{
     margin-top: 10px;
+    margin-bottom: 0;
 }
 /*自定义的字体*/
 .self-font {
