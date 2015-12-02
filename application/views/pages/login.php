@@ -104,7 +104,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             class="glyphicon glyphicon-user"></span></span>
                 <input type="text" style="display:none">
                 <input type="text" class="form-control" id="nick_name"
-                       name="nick_name" required autocomplete="off"
+                       name="nick_name" required
                        placeholder="请输入昵称">
             </div>
             <p class="theme-color hidden nick_name_error" id="nick_name_error"></p>
