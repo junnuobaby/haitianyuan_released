@@ -307,16 +307,22 @@ caption.caption-yinbang{
     box-shadow: 0 0 3px #040404;
     padding: 20px 50px;
     transition: transform 0.5s ease 0s, visibility 0.5s ease 0s, z-index 0.5s ease 0s;
+    -moz-transition:transform 0.5s ease 0s, visibility 0.5s ease 0s, z-index 0.5s ease 0s;
+    -webkit-transition:transform 0.5s ease 0s, visibility 0.5s ease 0s, z-index 0.5s ease 0s;
 }
 .login-box.active {
     z-index: -1;
     visibility: hidden;
     transform: rotateY(90deg);
+    -moz-transform:rotateY(90deg);
+    -webkit-transform:rotateY(90deg);
 }
 .login-box.register {
-    transform: rotateY(90deg);
     z-index: -1;
     visibility: hidden;
+    transform: rotateY(90deg);
+    -moz-transform:rotateY(90deg);
+    -webkit-transform:rotateY(90deg);
 }
 
 .login-box.register.active {
@@ -324,6 +330,8 @@ caption.caption-yinbang{
     visibility: visible;
     display: block;
     transform: rotateY(0deg);
+    -moz-transform:rotateY(0deg);
+    -webkit-transform:rotateY(0deg);
     transition-delay: 0.5s;
 }
 .login-delay {
