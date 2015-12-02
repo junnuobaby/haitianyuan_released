@@ -77,7 +77,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         class="glyphicon glyphicon-hand-right"></span></a>
             </h1>
 
-            <?php echo form_open('register/load_info', 'class="form-horizontal login_form"', 'autocomplete="off"') ?>
+            <?php echo form_open('register/load_info', 'class="form-horizontal login_form"') ?>
             <div class="input-group">
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-earphone"></span>
@@ -111,6 +111,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="input-group">
                     <span class="input-group-addon"><span
                             class="glyphicon glyphicon-lock"></span></span>
+                <input type="password" style="display:none">
                 <input type="password" class="form-control" id="password"
                        name="password"
                        placeholder="密码 (不少于6位)">
