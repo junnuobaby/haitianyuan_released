@@ -97,6 +97,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <button id="send_code" type="button" class="btn self-btn-danger" disabled="disabled">获取验证码</button>
                 </div>
             </div>
+            <p class="theme-color hidden nick_name_error" id="ver_code_error"></p>
+
             <div class="input-group">
                     <span class="input-group-addon"><span
                             class="glyphicon glyphicon-user"></span></span>
@@ -173,6 +175,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         var user_mobile = $('#user_mobile');
         var nick_name = $('#nick_name');
         var password = $('#password');
+        var validate_code = $('#verification_code');
         //发送手机验证码
         send_code.click(function () {
             if (!count_down) {
@@ -199,12 +202,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 }
             }
         );
+        //检查验证码是否为6位纯数字
+        validate_code.blur(function () {
+            var value = $.trim(validate_code.val());
+            var legal = /^\d+$/.test(value);
+            if (value.length != 6 || !legal) {
+                $('#ver_code_error').removeClass('hidden').html('请输入6位验证码！');
+            }
+            else {
+                $('#ver_code_error').addClass('hidden');
+            }
+
+        });
         //检查昵称是否已存在
         nick_name.blur(
             function () {
-                var nick_name = $.trim($('#nick_name').val());
-                if (validate_nick_name(nick_name)) {
-                    $.get("<?php echo base_url('/index.php/register/is_exist/web/')?>" + '/' + nick_name,
+                var nick_name_value = $.trim($('#nick_name').val());
+                if (validate_nick_name(nick_name_value)) {
+                    $.get("<?php echo base_url('/index.php/register/is_exist/web/')?>" + '/' + nick_name_value,
                         function (data) {
                             if (data == 'true') {
                                 $('#user_mobile_error').removeClass('hidden').html('(该昵称已存在！)');
@@ -219,8 +234,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         //检查密码格式,长度6~32位
         password.blur(function () {
             var value = $.trim(password.val());
-            if (value.length < 6 || value.length > 32) {
-                $('#pwd_error').removeClass('hidden').html('(请输入6~32位密码！)');
+            var legal = /^\d+$/.test(value);
+            if (value.length < 6 || value.length > 32 || legal) {
+                $('#pwd_error').removeClass('hidden').html('(请输入6~32位密码,不能为纯数字！)');
             } else {
                 $('#pwd_error').addClass('hidden');
             }
@@ -228,8 +244,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     });
     //检查手机号码的合法性，长度为11位
     function validate_phone(value) {
-            re = /1[3458]{1}\d{9}$/;
-            legal = re.test(value);
+            var re = /1[3458]{1}\d{9}$/;
+            var legal = re.test(value);
             if (value.length != 11 || !legal) {
                 $('#user_mobile_error').removeClass('hidden').html('请输入11位有效手机号码！');
                 $('#send_code').attr("disabled", "disabled");
@@ -239,7 +255,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $('#user_mobile_error').addClass('hidden');
                 return true;
             }
-
     }
     //昵称格式验证，不能全为数字
     function validate_nick_name(value) {
