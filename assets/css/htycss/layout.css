@@ -295,9 +295,85 @@ caption.caption-yinbang{
 .btn-a-light:active {
     color: white;
 }
-.login_form {
-    padding-top: 4em;
+
+/*登录注册界面*/
+.login-box{
+    color: white;
+    position: absolute;
+    right: 22%;
+    top: 18%;
+    background-color: rgba(4,4,4,0.75) ;
+    width: 380px;
+    box-shadow: 0 0 3px #040404;
+    padding: 20px 50px;
+    transition: transform 0.5s ease 0s, visibility 0.5s ease 0s, z-index 0.5s ease 0s;
 }
+.login-box.active {
+    z-index: -1;
+    visibility: hidden;
+    transform: rotateY(90deg);
+}
+.login-box.register {
+    transform: rotateY(90deg);
+    z-index: -1;
+    visibility: hidden;
+}
+
+.login-box.register.active {
+    z-index: 11;
+    visibility: visible;
+    display: block;
+    transform: rotateY(0deg);
+    transition-delay: 0.5s;
+}
+.login-delay {
+    transition-delay: 0.5s;
+}
+.login-box a{
+    color: #fff;
+}
+.login-box a:active,.login-box a:focus,.login-box a:visited{
+    background-color: transparent !important;
+}
+.login-box .social-login ul li{
+    margin-left: 20px;
+}
+.login-form h1{
+    font-size: 22px;
+    margin-bottom: 30px;
+}
+.login-form h1 > a{
+    color:#FD9271;
+    font-size: 18px;
+}
+.login-form .input-group{
+    margin-top: 20px;
+}
+.pwd-help-info{
+    margin-top: 20px;
+}
+.login-form .input-group .form-control, .login-btn-div>button.btn{
+    height: 45px;
+}
+.login-form.register-form .input-group .form-control, .login-btn-div>button.btn{
+    height: 40px;
+}
+.login-btn-div>button.btn{
+    font-size: 16px;
+    transition: all 0.2s;
+}
+#send_code{
+    height: 40px;
+}
+.login-btn-div>button.btn:hover{
+    background-color: #fd7a65;
+    color: #fff;
+}
+.login-btn-div{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 /*理财师个人中心侧边栏*/
 .profile-sidebar {
     padding: 10px 0 10px 0;
