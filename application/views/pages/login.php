@@ -187,15 +187,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     }
     $(document).ready(function () {
         var user_mobile = $('#user_mobile');
-        //输入手机号时设置发送验证码按钮为不可用状态
-//        user_mobile.focus(function () {
-//            $('#send_code').attr("disabled", "disabled");
-//        });
-        user_mobile.blur(function () {
-            if (user_mobile.val().length == 11) {
-                $('#send_code').removeAttr('disabled');
-            }
-        });
         //发送手机验证码
         send_code.click(function () {
             if (!count_down) {
@@ -209,13 +200,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         //检查用户输入的手机号码是否已经被注册
         user_mobile.blur(
             function () {
-                var phone_num = $('#user_mobile').val();
-                $.get("<?php  echo base_url('/index.php/register/is_exist/web/')?>" + '/' + phone_num,
-                    function (data, status) {
-                        if (data == 'true') {
-                            $('#user_mobile_error').html('(该号码已注册！)');
-                        }
-                    });
+                var phone_num = $.trim($('#user_mobile').val());
+                if(phone_num.length == 11){
+                    $.get("<?php  echo base_url('/index.php/register/is_exist/web/')?>" + '/' + phone_num,
+                        function (data) {
+                            if (data == 'true') {
+                                $('#user_mobile_error').html('(该号码已注册！)');
+                            }
+                        });
+                    $('#send_code').removeAttr('disabled');
+                }
             }
         );
     });
