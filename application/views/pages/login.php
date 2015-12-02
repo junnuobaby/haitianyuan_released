@@ -111,7 +111,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="input-group">
                     <span class="input-group-addon"><span
                             class="glyphicon glyphicon-lock"></span></span>
-                <input type="text" class="form-control" id="password"
+                <input type="password" class="form-control" id="password"
                        name="password"
                        placeholder="密码 (不少于6位)">
             </div>
