@@ -112,7 +112,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <span class="input-group-addon"><span
                             class="glyphicon glyphicon-lock"></span></span>
                 <input type="password" class="form-control" id="password"
-                       name="password"
+                       name="password" autocomplete="off"
                        placeholder="密码 (不少于6位)">
             </div>
             <p class="theme-color hidden" id="pwd_error"></p>
