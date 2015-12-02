@@ -94,7 +94,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                            placeholder="验证码" required>
 
                     <div class="input-group-btn">
-                        <button id="send_code" class="btn self-btn-danger">获取验证码</button>
+                        <button id="send_code" type="button" class="btn self-btn-danger" disabled="disabled">获取验证码</button>
                     </div>
                 </div>
                 <div class="input-group">
@@ -188,9 +188,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     $(document).ready(function () {
         var user_mobile = $('#user_mobile');
         //输入手机号时设置发送验证码按钮为不可用状态
-        user_mobile.focus(function () {
-            $('#send_code').attr("disabled", "disabled");
-        });
+//        user_mobile.focus(function () {
+//            $('#send_code').attr("disabled", "disabled");
+//        });
         user_mobile.blur(function () {
             if (user_mobile.val().length == 11) {
                 $('#send_code').removeAttr('disabled');
