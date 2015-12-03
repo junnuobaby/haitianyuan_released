@@ -86,6 +86,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <span class="glyphicon glyphicon-earphone"></span>
                     </span>
                 <input type="tel" class="form-control" id="user_mobile" name="phone_number"
+                       value="<?php echo !$phone_error ? set_value('phone_number') : ''; ?>"
                        placeholder="<?php if($phone_error) echo $phone_error; else echo '手机号'?>">
             </div>
             <p class="theme-color hidden" id="user_mobile_error"></p>
@@ -94,6 +95,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <span class="input-group-addon"><span
                             class="glyphicon glyphicon-eye-open"></span></span>
                 <input type="text" class="form-control" id="verification_code" name="phone_code"
+                       value="<?php echo !$code_error ? set_value('phone_code') : ''; ?>"
                        placeholder="<?php if($code_error) echo $code_error; else echo '验证码'?>">
 
                 <div class="input-group-btn">
@@ -107,6 +109,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             class="glyphicon glyphicon-user"></span></span>
                 <input type="text" class="form-control" id="nick_name"
                        name="nick_name" required
+                       value="<?php echo !$nickname_error ? set_value('nick_name') : ''; ?>"
                        placeholder="<?php if($nickname_error) echo $nickname_error; else echo '请输入昵称'?>">
             </div>
             <p class="theme-color hidden nick_name_error" id="nick_name_error"></p>
