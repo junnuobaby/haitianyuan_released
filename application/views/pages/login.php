@@ -76,9 +76,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <a href="#" class="pull-right turn-btn turn-to-login">登陆 <span
                         class="glyphicon glyphicon-hand-right"></span></a>
             </h1>
-
+            <?php $phone_error = form_error('phone_number'); ?>
+            <?php $code_error = form_error('phone_code'); ?>
+            <?php $nickname_error = form_error('nick_name'); ?>
+            <?php $pwd_error = form_error('password'); ?>
             <?php echo form_open('register/load_info', 'class="form-horizontal login_form"') ?>
-            <div class="input-group">
+            <div class="input-group <?php echo $phone_error ? 'has-error' : ''; ?>">
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-earphone"></span>
                     </span>
@@ -87,7 +90,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
             <p class="theme-color hidden" id="user_mobile_error"></p>
 
-            <div class="input-group">
+            <div class="input-group <?php echo $code_error ? 'has-error' : ''; ?>">
                     <span class="input-group-addon"><span
                             class="glyphicon glyphicon-eye-open"></span></span>
                 <input type="text" class="form-control" id="verification_code" name="phone_code"
@@ -99,7 +102,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
             <p class="theme-color hidden nick_name_error" id="ver_code_error"></p>
 
-            <div class="input-group">
+            <div class="input-group <?php echo $nickname_error ? 'has-error' : ''; ?>">
                     <span class="input-group-addon"><span
                             class="glyphicon glyphicon-user"></span></span>
                 <input type="text" class="form-control" id="nick_name"
@@ -108,7 +111,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
             <p class="theme-color hidden nick_name_error" id="nick_name_error"></p>
 
-            <div class="input-group">
+            <div class="input-group <?php echo $pwd_error ? 'has-error' : ''; ?>">
                     <span class="input-group-addon"><span
                             class="glyphicon glyphicon-lock"></span></span>
                 <input type="password" style="display:none">
