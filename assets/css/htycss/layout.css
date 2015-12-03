@@ -294,7 +294,6 @@ caption.caption-yinbang{
 .btn-a-light:active {
     color: white;
 }
-
 /*登录注册界面*/
 .login-box{
     color: white;
@@ -386,7 +385,6 @@ caption.caption-yinbang{
     padding: 10px 0 10px 0;
     background-color: #f8f8f8;
 }
-
 .profile-userpic img {
     float: none;
     margin: 0 auto;
@@ -397,20 +395,16 @@ caption.caption-yinbang{
     -moz-border-radius: 50% !important;
     border-radius: 50% !important;
 }
-
 .profile-usermenu {
     margin-top: 10px;
 }
-
 .profile-usermenu ul li {
     padding: 0;
 }
-
 .profile-usermenu li h4 {
     color: #f4645f;
     border-bottom: 1px solid #ebebeb;
 }
-
 .profile-usermenu ul li a {
     color: #8d9cae;
     font-size: 14px;
@@ -418,32 +412,26 @@ caption.caption-yinbang{
     border: none;
     padding-left: 60px;
 }
-
 .profile-usermenu ul li i {
     margin-left: 8px;
     margin-right: 8px;
     font-size: 14px;
 }
-
 .profile-usermenu ul li a:hover {
     background-color: #f4645f;
     color: #ffffff;
 }
-
 .master-profile-panel .form-group {
     margin-left: 20px;
     width: 400px;
     margin-bottom: 20px;
 }
-
 a.basic-info-a {
     color: #f4645f;
 }
-
 .input-group-verification {
     width: 300px;
 }
-
 .avatar-upload {
     margin-right: 50px;
     padding: 4px 10px;
@@ -460,22 +448,18 @@ a.basic-info-a {
     *display: inline;
     *zoom: 1
 }
-
 a.avatar-upload:link {
     color: #ffffff;
 }
-
 a.avatar-upload:visited {
     color: #ffffff;
 }
-
 a.avatar-upload:hover {
     color: #ffffff;
     background: #a62b2b;
     border-color: #ccc;
     text-decoration: none
 }
-
 .avatar-upload input {
     position: absolute;
     font-size: 100px;
@@ -485,20 +469,16 @@ a.avatar-upload:hover {
     filter: alpha(opacity=0);
     cursor: pointer
 }
-
 #display_avatar_block {
     margin: 20px 20px;
 }
-
 #display_avatar_div {
     display: none;
 }
-
 #display_avatar_div button {
     margin-left: 20px;
     margin-bottom: 10px;
 }
-
 .self_master_address {
     color: #f4645f;
 }
@@ -511,7 +491,7 @@ a.avatar-upload:hover {
     font-size: 20px;
 }
 
-/*理财师个人主页页面样式*/
+/*理财师个人主页样式*/
 .master_homepage_jumptron {
     height: 380px;
     background-color: #e2e2e2;
@@ -533,7 +513,6 @@ a.avatar-upload:hover {
 .master_homepage_jumptron_div p.signature {
     font-size: 18px;
 }
-
 .master_homepage_jumptron_div a.btn {
     color: #f56857;
     background-color: #ffffff;
