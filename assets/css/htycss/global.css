@@ -12,6 +12,7 @@ body{
     overflow: -moz-scrollbars-vertical;
     font-family: "Helvetica Neue", Helvetica, Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
 }
+a,input,button{ outline:none; }
 a{
     color: black;
 }
@@ -19,7 +20,7 @@ a:hover{
     text-decoration: none;
     color: #FD7A65;
 }
-a:hover,a:active, a:focus, a:visited{
+a:hover, a:active, a:focus, a:visited{
     text-decoration: none;
     outline: none;
 }
