@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             class="glyphicon glyphicon-user"></span></span>
                 <input type="text" class="form-control" id="user_name_input"
                        name="user_name_input"
-                       placeholder="手机号/会员名/邮箱">
+                       placeholder="<?php if($username_error) echo $username_error; else echo '手机号/会员名/邮箱'?>">
             </div>
             <p class="theme-color hidden">请输入账号</p>
 
@@ -33,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             class="glyphicon glyphicon-lock"></span></span>
                 <input type="password" class="form-control" id="password_input"
                        name="password_input"
-                       placeholder="密码">
+                       placeholder="<?php if($password_error) echo $password_error; else echo '密码'?>">
             </div>
             <p class="theme-color hidden">请输入密码</p>
 
@@ -86,7 +86,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <span class="glyphicon glyphicon-earphone"></span>
                     </span>
                 <input type="tel" class="form-control" id="user_mobile" name="phone_number"
-                       placeholder="手机号">
+                       placeholder="<?php if($phone_error) echo $phone_error; else echo '手机号'?>">
             </div>
             <p class="theme-color hidden" id="user_mobile_error"></p>
 
@@ -94,7 +94,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <span class="input-group-addon"><span
                             class="glyphicon glyphicon-eye-open"></span></span>
                 <input type="text" class="form-control" id="verification_code" name="phone_code"
-                       placeholder="验证码" required>
+                       placeholder="<?php if($code_error) echo $code_error; else echo '验证码'?>">
 
                 <div class="input-group-btn">
                     <button id="send_code" type="button" class="btn self-btn-danger" disabled="disabled">获取验证码</button>
@@ -107,7 +107,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             class="glyphicon glyphicon-user"></span></span>
                 <input type="text" class="form-control" id="nick_name"
                        name="nick_name" required
-                       placeholder="请输入昵称">
+                       placeholder="<?php if($nickname_error) echo $nickname_error; else echo '请输入昵称'?>">
             </div>
             <p class="theme-color hidden nick_name_error" id="nick_name_error"></p>
 
@@ -226,10 +226,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     $.get("<?php echo base_url('/index.php/register/is_exist/web/')?>" + '/' + nick_name_value,
                         function (data) {
                             if (data == 'true') {
-                                $('#user_mobile_error').removeClass('hidden').html('(该昵称已存在！)');
+                                $('#nick_name_error').removeClass('hidden').html('(该昵称已存在！)');
                             }
                             else{
-                                $('#user_mobile_error').addClass('hidden');
+                                $('#nick_name_error').addClass('hidden');
                             }
                         });
                 }
