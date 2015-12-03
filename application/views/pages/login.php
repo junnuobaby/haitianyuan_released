@@ -117,7 +117,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <input type="password" style="display:none">
                 <input type="password" class="form-control" id="password"
                        name="password"
-                       placeholder="密码 (不少于6位)">
+                       placeholder="<?php if($pwd_error) echo $pwd_error; else echo '密码 (不少于6位)'?>">
             </div>
             <p class="theme-color hidden" id="pwd_error"></p>
 
