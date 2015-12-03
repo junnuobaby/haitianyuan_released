@@ -102,10 +102,16 @@ footer.page_footer p{
 
 /*网站的主题颜色*/
 .theme-color {
-    color: #f4645f;
+    color: #FD7A65;
 }
 .theme-bg-color {
     background-color: #f4645f;
+}
+.hover-color {
+    color: #FD7A65;
+}
+.orange-color{
+    color: #FD9271;
 }
 .self-btn-danger {
     background-color: #FD9271;

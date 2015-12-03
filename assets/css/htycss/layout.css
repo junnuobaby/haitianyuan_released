@@ -51,8 +51,7 @@ a.take_in:hover, a.take_in:active, a.take_in:visited {
     color: white;
 }
 a.take_in:hover{
-    -moz-transform:scale(1.1,1.1);
-    -webkit-transform:scale(1.1,1.1);
+    background-color: #FD7A65;
 }
 .index-thumbnail {
     height: 400px;
