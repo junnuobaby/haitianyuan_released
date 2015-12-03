@@ -240,7 +240,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             var value = $.trim(password.val());
             var legal = /^\d+$/.test(value);
             if (value.length < 6 || value.length > 32 || legal) {
-                $('#pwd_error').removeClass('hidden').html('(请输入6~32位密码,不能为纯数字！)');
+                $('#pwd_error').removeClass('hidden').html('(请输入6~32位密码,必须为数字与字母的组合！)');
             } else {
                 $('#pwd_error').addClass('hidden');
             }
@@ -264,6 +264,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     function validate_nick_name(value) {
         if (/^\d+$/.test(value)) {
             $('#nick_name_error').removeClass('hidden').html('(昵称不能为纯数字！)');
+            return false;
+        }
+        if(value.length < 1){
+            $('#nick_name_error').removeClass('hidden').html('(昵称不能为空！)');
             return false;
         }
         else {
