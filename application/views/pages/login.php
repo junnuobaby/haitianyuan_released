@@ -6,13 +6,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 <div class="wrapper">
     <?php $this->load->view('./templates/navbar'); ?><!--海天登陆-->
-    <div class="login-box <?php if($nav_mode == 'register') {
-        echo 'register';
-    } ?>">
+    <div class="login-box <?php if($nav_mode == 'register') {echo 'register';} ?>">
         <div class="login-form ">
-            <h1>登陆海天 <a href="#" class="pull-right turn-to-regist turn-btn">注册
-                    <span class="glyphicon glyphicon-hand-right"></span></a>
-            </h1><?php $username_error = form_error('user_name_input'); ?>
+            <h1>登陆海天 <a href="#" class="pull-right turn-to-regist turn-btn">注册<span class="glyphicon glyphicon-hand-right"></span></a></h1>
+            <?php $username_error = form_error('user_name_input'); ?>
             <?php $password_error = form_error('password_input'); ?>
             <?php echo form_open('login/login', 'class="form-horizontal login_form"'); ?>
             <div class="input-group <?php echo $username_error ? 'has-error' : ''; ?>">
@@ -47,24 +44,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="social-login">
             <ul class="nav navbar-nav txt-center">
                 <!--qq第三方登陆-->
-                <li><a href="#" class="white-color">
-                        <img width="20px" height="20px" src="<?php echo base_url('/assets/images/qq.png'); ?>" alt="..." class="img-rounded narbar_li"> qq登陆</a>
-                </li>
+                <li><a href="#" class="white-color"><img width="20px" height="20px" src="<?php echo base_url('/assets/images/qq.png'); ?>" alt="..." class="img-rounded narbar_li"> qq登陆</a></li>
                 <!--微博第三方登陆-->
-                <li><a href="#" class="white-color">
-                        <img width="20px" height="20px" src="<?php echo base_url('/assets/images/weibo.png'); ?>" alt="..." class="img-rounded narbar_li"> 微博登陆</a>
-                </li>
+                <li><a href="#" class="white-color"><img width="20px" height="20px" src="<?php echo base_url('/assets/images/weibo.png'); ?>" alt="..." class="img-rounded narbar_li"> 微博登陆</a></li>
             </ul>
         </div>
     </div>
     <!--  海天注册-->
-    <div class="login-box <?php if($nav_mode == 'login') {
-        echo 'register';
-    } ?>">
+    <div class="login-box <?php if($nav_mode == 'login') {echo 'register';}?>">
         <div class="login-form register-form">
-            <h1>注册账户
-                <a href="#" class="pull-right turn-btn turn-to-login">登陆<span class="glyphicon glyphicon-hand-right"></span></a>
-            </h1><?php $phone_error = form_error('phone_number'); ?>
+            <h1>注册账户<a href="#" class="pull-right turn-btn turn-to-login">登陆 <span class="glyphicon glyphicon-hand-right"></span></a></h1>
+            <?php $phone_error = form_error('phone_number'); ?>
             <?php $code_error = form_error('phone_code'); ?>
             <?php $nickname_error = form_error('nick_name'); ?>
             <?php $pwd_error = form_error('password'); ?>
@@ -103,17 +93,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="social-login">
             <ul class="nav navbar-nav txt-center">
                 <!--qq第三方登陆-->
-                <li>
-                    <a href="#" class="white-color">
-                        <img width="20px" height="20px" src="<?php echo base_url('/assets/images/qq.png'); ?>" alt="..." class="img-rounded narbar_li"> qq登陆
-                    </a>
-                </li>
+                <li><a href="#" class="white-color"><img width="20px" height="20px" src="<?php echo base_url('/assets/images/qq.png'); ?>" alt="..." class="img-rounded narbar_li"> qq登陆</a></li>
                 <!--微博第三方登陆-->
-                <li>
-                    <a href="#" class="white-color">
-                        <img width="20px" height="20px" src="<?php echo base_url('/assets/images/weibo.png'); ?>" alt="..." class="img-rounded narbar_li"> 微博登陆
-                    </a>
-                </li>
+                <li><a href="#" class="white-color"><img width="20px" height="20px" src="<?php echo base_url('/assets/images/weibo.png'); ?>" alt="..." class="img-rounded narbar_li"> 微博登陆</a></li>
             </ul>
         </div>
     </div>
@@ -214,7 +196,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $('#ver_code_error').addClass('hidden');
             }
         });
-        validate_code.onfocus(function () {
+        validate_code.focus(function () {
             $('#ver_code_error').addClass('hidden');
         });
 
@@ -309,7 +291,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 cur_page.removeClass('login-delay');
             }
             login_box.toggleClass('active');
-
         });
     });
 </script>
