@@ -1,11 +1,13 @@
-<!--登陆--><?php
+<!--z注册登陆-->
+<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="zh-cn">
 <?php $this->load->view('./templates/head'); ?>
 <body>
 <div class="wrapper">
-    <?php $this->load->view('./templates/navbar'); ?><!--海天登陆-->
+    <?php $this->load->view('./templates/navbar'); ?>
+    <!--海天登陆-->
     <div class="login-box <?php if($nav_mode == 'register') {echo 'register';} ?>">
         <div class="login-form ">
             <h1>登陆海天 <a href="#" class="pull-right turn-to-regist turn-btn">注册<span class="glyphicon glyphicon-hand-right"></span></a></h1>
@@ -50,7 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </ul>
         </div>
     </div>
-    <!--  海天注册-->
+    <!--海天注册-->
     <div class="login-box <?php if($nav_mode == 'login') {echo 'register';}?>">
         <div class="login-form register-form">
             <h1>注册账户<a href="#" class="pull-right turn-btn turn-to-login">登陆 <span class="glyphicon glyphicon-hand-right"></span></a></h1>
