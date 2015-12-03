@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!--海天登陆-->
     <div class="login-box <?php if($nav_mode == 'register') {echo 'register';} ?>">
         <div class="login-form ">
-            <h1>登陆海天 <a href="#" class="pull-right turn-to-regist turn-btn">注册<span class="glyphicon glyphicon-hand-right"></span></a></h1>
+            <h1>登陆海天 <a href="#" class="pull-right turn-to-regist turn-btn">注册 <span class="glyphicon glyphicon-hand-right"></span></a></h1>
             <?php $username_error = form_error('user_name_input'); ?>
             <?php $password_error = form_error('password_input'); ?>
             <?php echo form_open('login/login', 'class="form-horizontal login_form"'); ?>
