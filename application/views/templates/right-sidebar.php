@@ -1,5 +1,5 @@
 <?php
-//手工生成一个热点新闻标题数组
+//热点新闻标题数组
 $hot_topic_list = array(
     '获利盘出逃致A股回落 环保股将迎走强契机',
     '一支大牛股的启航，低吸点就在这个位置',
@@ -16,13 +16,13 @@ $hot_topic_list = array(
 <!-- 左侧边栏-->
 <div class="col-md-4 col-sm-4 side-bar">
     <div class="widget">
-        <a href="<?php echo base_url("index.php/index/authentication"); ?>"><img
-                src="<?php echo base_url('/assets/images/img_sidebar.png'); ?>" class="img-responsive" alt="Logo加载中..."></a>
+        <a href="<?php echo base_url("index.php/index/authentication"); ?>">
+            <img src="<?php echo base_url('/assets/images/img_sidebar.png'); ?>" class="img-responsive" alt="Logo加载中...">
+        </a>
     </div>
     <div class="widget hot-topics">
         <!-- 显示当日推荐的热门观点-->
         <h4 class="title theme-color">热门观点</h4>
-
         <div class="content">
             <ul>
                 <?php foreach ($hot_topic_list as $hot_topic): ?>
@@ -32,9 +32,8 @@ $hot_topic_list = array(
         </div>
     </div>
     <div class="widget hot-topics">
-        <!-- 显示当日推荐的热门问题-->
+        <!--显示当日推荐的热门问题-->
         <h4 class="title theme-color">热门问题</h4>
-
         <div class="content">
             <ul>
                 <?php foreach ($hot_topic_list as $hot_topic): ?>
@@ -47,8 +46,7 @@ $hot_topic_list = array(
         <h4 class="title theme-color">下载</h4>
 
         <div class="content">
-            <a href="#" class="btn btn-block btn-danger self-btn-danger btn-block btn-lg"
-               style="color: white;">ios客户端下载</a>
+            <a href="#" class="btn btn-block self-btn-danger btn-block btn-lg white-color">ios客户端下载</a>
         </div>
     </div>
 </div>
