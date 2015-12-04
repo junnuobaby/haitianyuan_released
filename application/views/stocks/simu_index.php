@@ -314,7 +314,7 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                         }
                     }
                     //绘制资金分布饼图
-                    var parts = ['可用现金', '冻结金额', '股票市值'];
+                    var parts = ['可用现金', '债券市值', '股票市值'];
                     var cash_use = decimal(parseFloat("<?php echo $user_data['cash_use'];?>"));
                     var cash_freeze = decimal(parseFloat("<?php echo $user_data['cash_freeze'];?>"));
                     var stock_value = decimal(parseFloat(response.stock_value));  //股票市值
