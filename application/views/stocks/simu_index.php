@@ -183,15 +183,18 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
 
         /**
          * 局部变量
+         * base_funds - 初始资金
+         * cash_all - 总现金
          * stock_info - 存有持仓股票信息的数组
          * bond_info - 存有持仓债券信息的数组
          * stock_value - 股票市值
          * bond_value - 债券市值
-         * fpl_value - 浮动盈亏金额
-         * fpl_rate - 获浮动盈亏比
-         * cash_all - 总现金
          * asset_all - 总资产（总现金+股票市值+债券市值）
          * position - 仓位 （（股票市值+债券市值）/ 总资产）
+         * fpl_value - 浮动盈亏金额
+         * fpl_rate - 获浮动盈亏率
+         * tpl_value - 总盈亏金额
+         * tpl_rate - 总盈亏率
          */
         function load_dynamic_data() {
             var key;
@@ -200,48 +203,27 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                 method: 'get',
                 dataType: 'json',
                 success: function (response) {
+                    var base_funds = parseFloat('<?php echo $base_funds;?>');
+                    var cash_all = parseFloat('<?php echo $user_data['cash_all']; ?>');
                     var stock_info = response.stock_info;
                     var bond_info = response.bond_info;
                     var stock_value = parseFloat(response.stock_value);
                     var bond_value = parseFloat(response.bond_value);
-                    var fpl_value = parseFloat(response.pl_value);
-                    var fpl_rate = parseFloat(response.pl_rate);
-                    var cash_all = parseFloat('<?php echo $user_data['cash_all']; ?>');
                     var asset_all = parseFloat(cash_all + stock_value + bond_value);
                     var position = parseFloat(stock_value + bond_value) * 100 / asset_all;
-                    $('#stock_value').html(format_num(stock_value));  //获取并设置股票市值
-                    $('#bond_value').html(format_num(bond_value));  //获取并设置债券市值
-                    $('#my_asset').html(format_num(asset_all));  //设置总资产
-                    $('#my_position').html(format_num(position) + '%'); //设置仓位
-                    var pl_value = $('#pl_value');
-                    var pl_rate = $('#pl_rate');
-                    var fd_value = $('#fd_value');
-                    var fd_rate = $('#fd_rate');
-                    var base_funds = parseFloat('<?php echo $base_funds;?>');
-                    var user_value = asset_all - base_funds;  //总盈亏额
-                    var user_rate = decimal((user_value * 100) / base_funds);   //总盈亏率
-//                    pl_value.css('color', (parseFloat(user_value) > 0) ? 'red' : 'green');
-                    if (parseFloat(user_value) > 0) {
-                        pl_value.css('color', 'red');
-                    } else {
-                        pl_value.css('color', 'green');
-                    }
-                    if (parseFloat(user_rate) > 0) {
-                        pl_rate.css('color', 'red');
-                    } else {
-                        pl_rate.css('color', 'green');
-                    }
-                    if (parseFloat(response.pl_value) < 0) {
-                        fd_value.css('color', 'green');
-                        fd_rate.css('color', 'green');
-                    } else {
-                        fd_value.css('color', 'red');
-                        fd_rate.css('color', 'red');
-                    }
-                    pl_value.html(format_num(user_value)); //获取并设置总盈亏金额
-                    pl_rate.html(user_rate + '%'); //获取并设置总盈亏比
-                    fd_value.html(format_num(fpl_value)); //获取并设浮动盈亏金额
-                    fd_rate.html(fpl_rate); //获取并设置浮动盈亏比
+                    var fpl_value = parseFloat(response.pl_value);
+                    var fpl_rate = parseFloat(response.pl_rate);
+                    var tpl_value = asset_all - base_funds;
+                    var tpl_rate = decimal((tpl_value * 100) / base_funds);
+
+                    $('#stock_value').html(format_num(stock_value));
+                    $('#bond_value').html(format_num(bond_value));
+                    $('#my_asset').html(format_num(asset_all));
+                    $('#my_position').html(format_num(position) + '%');
+                    $('#pl_value').html(format_num(tpl_value)).css('color', (parseFloat(tpl_value) > 0) ? 'red' : 'green');
+                    $('#pl_rate').html(tpl_rate + '%').css('color', (parseFloat(tpl_rate) > 0) ? 'red' : 'green');
+                    $('#fd_value').html(format_num(fpl_value)).css('color', (parseFloat(fpl_value) > 0) ? 'red' : 'green');
+                    $('#fd_rate').html(fpl_rate).css('color', (parseFloat(fpl_rate) > 0) ? 'red' : 'green');
 
                     for (key in stock_info) {
                         var tr_id = '#' + key;
