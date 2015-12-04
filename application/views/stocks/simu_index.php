@@ -255,8 +255,8 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                             id_extent = decimal(parseFloat(bond_info[key]['id_extent']) * 100);  //获取涨跌幅，保留小数点后两位
 
                             $(tr_id).children('td:eq(8)').html(trade_price);  //设置当前价
-                            $(tr_id).children('td:eq(9)').html(format_num(decimal(bond_info[key]['float_pl']))).css('color', (parseFloat(stock_info[key]['float_pl']) > 0) ? 'red' : 'green');   //设置浮动盈亏
-                            $(tr_id).children('td:eq(10)').html(format_num(bond_info[key]['float_pl_rate']) + '%').css('color', (parseFloat(stock_info[key]['float_pl_rate']) > 0) ? 'red' : 'green');   //设置盈亏比
+                            $(tr_id).children('td:eq(9)').html(format_num(decimal(bond_info[key]['float_pl']))).css('color', (parseFloat(bond_info[key]['float_pl']) > 0) ? 'red' : 'green');   //设置浮动盈亏
+                            $(tr_id).children('td:eq(10)').html(format_num(bond_info[key]['float_pl_rate']) + '%').css('color', (parseFloat(bond_info[key]['float_pl_rate']) > 0) ? 'red' : 'green');   //设置盈亏比
                             $(tr_id).children('td:eq(11)').html(id_extent + '%').css('color', (parseFloat(id_extent) > 0) ? 'red' : 'green');  //设置涨跌幅
                             $('#completed_cost').html(format_num(parseFloat($(tr_id).data('interest')) + parseFloat(trade_price)));  //设置全价
                         }
