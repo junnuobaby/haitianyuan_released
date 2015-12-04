@@ -50,6 +50,9 @@
 a.take_in:hover, a.take_in:active, a.take_in:visited {
     color: white;
 }
+a.take_in:hover{
+    background-color: #FD7A65;
+}
 .index-thumbnail {
     height: 400px;
 }
