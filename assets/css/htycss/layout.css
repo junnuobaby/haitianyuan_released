@@ -580,12 +580,12 @@ a.avatar-upload:hover {
 }
 
 .master_homepage_jumptron_div a.btn {
-    color: #FD9271
-    background-color: #ffffff;
+    color: #FD9271;
     font-weight: 600;
     border: 1px solid #FD9271;
     position: relative;
     margin-top: 10px;
+    background-color: #fff;
 }
 
 .master_homepage_jumptron_div a.btn.vip-link {
