@@ -134,10 +134,9 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
             </div>
         </div>
     </div>
-    <!--悬停go-top按钮-->
-    <?php $this->load->view('./templates/go-top'); ?>
-    <?php $this->load->view('./templates/footer'); ?>
 </div>
+<?php $this->load->view('./templates/go-top'); ?>
+<?php $this->load->view('./templates/footer'); ?>
 <div class="modal fade" id="graphModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
