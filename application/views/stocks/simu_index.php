@@ -91,8 +91,8 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                                             <table class="table table-bordered">
                                                 <thead>
                                                 <tr>
-                                                    <th>债券代码</th>
-                                                    <th>债券名称</th>
+                                                    <th>代码</th>
+                                                    <th>简称</th>
                                                     <th>总量</th>
                                                     <th>可卖量</th>
                                                     <th>买入成本</th>
@@ -101,7 +101,7 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                                                     <th>盈亏率</th>
                                                     <th>涨跌幅</th>
                                                     <th>全价</th>
-                                                    <th>距付息日（天）</th>
+                                                    <th>距付息日</th>
                                                     <th>到期时间</th>
                                                 </tr>
                                                 </thead>
