@@ -208,6 +208,7 @@ $sell_stocks = $sell_list; //获取手中持有的股票
 </body>
 <script>
     var interval;
+    var is_bond = false;
     $(document).ready(function () {
         $('.main_jumptron').css('margin-bottom', '0px');
     });
@@ -222,7 +223,11 @@ $sell_stocks = $sell_list; //获取手中持有的股票
             $('div.largest_quantity').removeClass('hidden');
             //显示买入该股票价格
             $('#buy_in_price').html(selected_cost);
-            $('#largest_quantity').html(Math.round(parseInt(max_volume) / 100));
+            if(is_bond){
+                $('#largest_quantity').html(Math.round(parseInt(max_volume) / 10));
+            }else{
+                $('#largest_quantity').html(Math.round(parseInt(max_volume) / 100));
+            }
             selected_code_info(selected_code);
             clearInterval(interval);
             interval = setInterval(function () {
@@ -249,6 +254,7 @@ $sell_stocks = $sell_list; //获取手中持有的股票
             }
             else {
                 var response = data.st_info;
+                is_bond = response.is_bond;
                 var bond_name = response.Symbol; //ajax获取证券名称
                 var bond_cur_price = decimal(response.TradePrice); //获取最新价
                 var bond_lastday_price = decimal(response.PreClosePx); //获取昨日收盘价
@@ -315,7 +321,12 @@ $sell_stocks = $sell_list; //获取手中持有的股票
             var bond_name = $('#bond_code').children('option:selected').data('name'); //证券名称
             var bond_price = $('#buy_price').val(); //卖出价格
             var bond_quantity = $('#buy_quantity').val(); //卖出数量
-            var bond_quantities = parseInt(bond_quantity) * 100; //求卖出的股数（卖出手数*100）
+            var bond_quantities; //求卖出的股数（卖出手数*100）
+            if(is_bond){
+                bond_quantities = parseInt(bond_quantity) * 10;
+            }else{
+                bond_quantities = parseInt(bond_quantity) * 100;
+            }
             var info_str = '确定卖出' + bond_quantity + '手' + bond_name + '?';
 
             if (confirm(info_str)) {
