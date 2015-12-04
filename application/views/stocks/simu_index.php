@@ -1,6 +1,11 @@
-<!--华山论剑首页，模拟炒股首页--><!--我的持仓下面，股票当前价，浮动盈亏，盈亏率，今日涨跌幅是动态获取和变化的--><!--总资产是总现金与所持证券的市值之和--><?php
+<!--华山论剑首页，模拟炒股首页-->
+<!--我的股票下面，股票当前价，股票市值，浮动盈亏，盈亏率，今日涨跌幅是动态获取和变化的-->
+<!--我的债券下面，债券当前价，债券市值，浮动盈亏，盈亏率，今日涨跌幅，全价是动态获取和变化的-->
+<!--总资产是总现金与所持证券的市值之和-->
+<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html lang="zh-cn">
 <?php $this->load->view('./templates/head'); ?>
 <?php
@@ -8,7 +13,9 @@ $user_data = $user_info['data_user']; //获取用户资金数据
 $user_stocks = $user_info['data_stock']; //获取用户持仓股票数据
 $user_bonds = $user_info['data_bond']; //获取用户持仓债券数据
 $base_funds = $user_data['base_cash'];  //获取用户基本资金
-?><!--绘图文件--><?php $this->load->view('./stocks/graph'); ?>
+?>
+<!--绘图文件-->
+<?php $this->load->view('./stocks/graph'); ?>
 <body class="bg-gray">
 <div class="wrapper">
     <?php $this->load->view('./stocks/bonds_navbar'); ?>
@@ -28,54 +35,22 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                                         <h4 class="theme-color container_to_top">我的资金</h4>
                                         <div class="table-responsive">
                                             <table class="table  basic_fund_info">
-                                                <tr>
-                                                    <th>总资产</th>
-                                                    <td id="my_asset" class="formatted"></td>
-                                                </tr>
-                                                <tr>
-                                                    <th>总现金</th>
-                                                    <td class="formatted"><?php echo $user_data['cash_all']; ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <th>可用现金</th>
-                                                    <td class="formatted"><?php echo $user_data['cash_use']; ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <th>股票市值</th>
-                                                    <td id="stock_value"></td>
-                                                </tr>
-                                                <tr>
-                                                    <th>债券市值</th>
-                                                    <td id="bond_value"></td>
-                                                </tr>
-                                                <tr>
-                                                    <th>仓位</th>
-                                                    <td id="my_position"></td>
-                                                </tr>
-                                                <tr>
-                                                    <th>总盈亏</th>
-                                                    <td id="pl_value"></td>
-                                                </tr>
-                                                <tr>
-                                                    <th>总盈亏率</th>
-                                                    <td id="pl_rate"></td>
-                                                </tr>
-                                                <tr>
-                                                    <th>浮动盈亏</th>
-                                                    <td id="fd_value"></td>
-                                                </tr>
-                                                <tr>
-                                                    <th>浮动盈亏率</th>
-                                                    <td id="fd_rate"></td>
-                                                </tr>
+                                                <tr><th>总资产</th><td id="my_asset" class="formatted"></td></tr>
+                                                <tr><th>总现金</th><td class="formatted"><?php echo $user_data['cash_all']; ?></td></tr>
+                                                <tr><th>可用现金</th><td class="formatted"><?php echo $user_data['cash_use']; ?></td></tr>
+                                                <tr><th>股票市值</th><td id="stock_value"></td></tr>
+                                                <tr><th>债券市值</th><td id="bond_value"></td></tr>
+                                                <tr><th>仓位</th><td id="my_position"></td></tr>
+                                                <tr><th>总盈亏</th><td id="pl_value"></td></tr>
+                                                <tr><th>总盈亏率</th><td id="pl_rate"></td></tr>
+                                                <tr><th>浮动盈亏</th><td id="fd_value"></td></tr>
+                                                <tr><th>浮动盈亏率</th><td id="fd_rate"></td></tr>
                                             </table>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="warehouse">
-                                    <h4 class="theme-color">我的股票
-                                        <small>(行情每8s刷新)</small>
-                                    </h4>
+                                    <h4 class="theme-color">我的股票<small>(行情每8s刷新)</small></h4>
                                     <div class="table-responsive">
                                         <table class="table table-bordered">
                                             <thead>
@@ -105,14 +80,13 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                                                     <td></td>
                                                     <td></td>
                                                     <td></td>
-                                                </tr><?php endforeach; ?>
+                                                </tr>
+                                            <?php endforeach; ?>
                                             </tbody>
                                         </table>
                                     </div>
                                     <div class="warehouse">
-                                        <h4 class="theme-color">我的债券
-                                            <small>(行情每8s刷新)</small>
-                                        </h4>
+                                        <h4 class="theme-color">我的债券<small>(行情每8s刷新)</small></h4>
                                         <div class="table-responsive">
                                             <table class="table table-bordered">
                                                 <thead>
@@ -146,7 +120,8 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                                                         <td></td>
                                                         <td></td>
                                                         <td></td>
-                                                    </tr><?php endforeach; ?>
+                                                    </tr>
+                                                <?php endforeach; ?>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -159,15 +134,15 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
             </div>
         </div>
     </div>
-    <!--悬停go-top按钮--><?php $this->load->view('./templates/go-top'); ?>
-</div><?php $this->load->view('./templates/footer'); ?>
-
+    <!--悬停go-top按钮-->
+    <?php $this->load->view('./templates/go-top'); ?>
+    <?php $this->load->view('./templates/footer'); ?>
+</div>
 <div class="modal fade" id="graphModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-                </button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h3 class="modal-title" id="graph_modal_title"></h3>
             </div>
             <div class="modal-body" id="graph_modal_body"></div>
@@ -176,15 +151,16 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
 </div>
 </body>
 <script>
-    var interval;
+    /**
+     * 格式化显示数据
+     * 给数字渲染颜色
+     */
     $(document).ready(function () {
         $('.main_jumptron').css('margin-bottom', '0px');
-        //将数据显示格式化
         $('.formatted').each(function () {
             var value = format_num($(this).html());
             $(this).html(value);
         });
-        //拥有.render类的元素，若大于0，设置为红色，若小于0，设置为绿色
         $('.render').each(function () {
             var value = $(this).html().indexOf('-');
             if (value == -1) {
@@ -194,30 +170,35 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
             }
         });
     });
+
+    /**
+     * 全局变量
+     * interval - setInterval返回的ID值
+     */
+    var interval;
     $(document).ready(function () {
         load_dynamic_data();
         clearInterval(interval);
-        interval = setInterval(load_dynamic_data, 8000); //每隔8s自动请求一次
-        //请求动态加载数据
+        interval = setInterval(load_dynamic_data, 8000);
+
+        /**
+         * ajax加载动态数据
+         */
         function load_dynamic_data() {
-            var xhr;
             var key;
-            if (xhr) {
-                xhr.abort();
-            }
-            xhr = $.ajax({
+            $.ajax({
                 url: '<?php echo base_url("index.php/stock/get_dynamic_info/web"); ?>',
                 method: 'get',
                 dataType: 'json',
                 success: function (response) {
                     var stock_info = response.stock_info; //股票信息
                     var bond_info = response.bond_info; //债券信息
-                    $('#stock_value').html(format_num(response.stock_value));  //获取并设置股票市值
-                    $('#bond_value').html(format_num(response.bond_value));  //获取并设置股票市值
                     var cash_all = '<?php echo $user_data['cash_all']; ?>'; //获取总现金
                     var asset_all = parseFloat(cash_all) + parseFloat(response.stock_value) + parseFloat(response.bond_value);
-                    $('#my_asset').html(format_num(asset_all));  //设置总资产
                     var position = parseFloat(response.stock_value) * 100 / parseFloat(asset_all);
+                    $('#stock_value').html(format_num(response.stock_value));  //获取并设置股票市值
+                    $('#bond_value').html(format_num(response.bond_value));  //获取并设置债券市值
+                    $('#my_asset').html(format_num(asset_all));  //设置总资产
                     $('#my_position').html(format_num(position) + '%'); //设置仓位
                     var pl_value = $('#pl_value');
                     var pl_rate = $('#pl_rate');
