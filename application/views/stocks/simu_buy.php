@@ -192,7 +192,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </body>
 <script>
     var interval;
-    var is_bond;
+    var is_bond = true;
     $(document).ready(function () {
         $('.main_jumptron').css('margin-bottom', '0px');
         $('.formatted').each(function () {
