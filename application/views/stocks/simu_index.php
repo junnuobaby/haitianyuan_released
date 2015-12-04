@@ -194,6 +194,7 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
          * fpl_rate - 获浮动盈亏率
          * tpl_value - 总盈亏金额
          * tpl_rate - 总盈亏率
+         * 单支证券变量
          * key - 证券代码
          * tr_id - 行ID
          * trade_price - 当前价
@@ -235,27 +236,27 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                                 $(this).html('--');
                             });
                         } else {
-                            trade_price = decimal(stock_info[key]['TradePrice']);  //获取当前价，保留小数点后两位
-                            id_extent = decimal(parseFloat(stock_info[key]['id_extent']) * 100);  //获取涨跌幅，保留小数点后两位
-                            if (parseFloat(stock_info[key]['float_pl']) < 0) {
-                                $(tr_id).children('td:eq(6)').css('color', 'green');
-                            } else if (parseFloat(stock_info[key]['float_pl']) >= 0) {
-                                $(tr_id).children('td:eq(6)').css('color', 'red');
-                            }
-                            if (parseFloat(stock_info[key]['float_pl_rate']) < 0) {
-                                $(tr_id).children('td:eq(7)').css('color', 'green');
-                            } else if (parseFloat(stock_info[key]['float_pl_rate']) >= 0) {
-                                $(tr_id).children('td:eq(7)').css('color', 'red');
-                            }
-                            if (id_extent < 0) {
-                                $(tr_id).children('td:eq(8)').css('color', 'green');
-                            } else if (id_extent >= 0) {
-                                $(tr_id).children('td:eq(8)').css('color', 'red');
-                            }
-                            $(tr_id).children('td:eq(5)').html(trade_price);  //设置当前价
-                            $(tr_id).children('td:eq(6)').html(format_num(decimal(stock_info[key]['float_pl'])));   //设置浮动盈亏
-                            $(tr_id).children('td:eq(7)').html(format_num(stock_info[key]['float_pl_rate']) + '%');   //设置盈亏比
-                            $(tr_id).children('td:eq(8)').html(id_extent + '%');  //设置涨跌幅
+                            trade_price = decimal(stock_info[key]['TradePrice']);
+                            id_extent = decimal(parseFloat(stock_info[key]['id_extent']) * 100);
+//                            if (parseFloat(stock_info[key]['float_pl']) < 0) {
+//                                $(tr_id).children('td:eq(6)').css('color', 'green');
+//                            } else if (parseFloat(stock_info[key]['float_pl']) >= 0) {
+//                                $(tr_id).children('td:eq(6)').css('color', 'red');
+//                            }
+//                            if (parseFloat(stock_info[key]['float_pl_rate']) < 0) {
+//                                $(tr_id).children('td:eq(7)').css('color', 'green');
+//                            } else if (parseFloat(stock_info[key]['float_pl_rate']) >= 0) {
+//                                $(tr_id).children('td:eq(7)').css('color', 'red');
+//                            }
+//                            if (id_extent < 0) {
+//                                $(tr_id).children('td:eq(8)').css('color', 'green');
+//                            } else if (id_extent >= 0) {
+//                                $(tr_id).children('td:eq(8)').css('color', 'red');
+//                            }
+                            $(tr_id).children('td:eq(5)').html(trade_price);
+                            $(tr_id).children('td:eq(6)').html(format_num(decimal(stock_info[key]['float_pl']))).css('color', (parseFloat(stock_info[key]['float_pl']) > 0) ? 'red' : 'green');  //设置浮动盈亏
+                            $(tr_id).children('td:eq(7)').html(format_num(stock_info[key]['float_pl_rate']) + '%').css('color', (parseFloat(stock_info[key]['float_pl_rate']) > 0) ? 'red' : 'green');   //设置盈亏比
+                            $(tr_id).children('td:eq(8)').html(id_extent + '%').css('color', (parseFloat(id_extent) > 0) ? 'red' : 'green');
                         }
                     }
                     for (key in bond_info) {
@@ -308,7 +309,12 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
             });
         }
     });
-    //从新浪获取分时图
+
+    /**
+     * 用新浪接口获取分时图
+     * stock_id - 股票代码
+     * stock_name - 股票名称
+     */
     function fillimage(stock_id, stock_name) {
         var modal_body = document.getElementById("graph_modal_body");
         var modal_title = document.getElementById("graph_modal_title");
@@ -318,8 +324,7 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
             stock_id = 'sz' + stock_id;
         } else if (start_code == '60') {
             stock_id = 'sh' + stock_id;
-        }
-        else {
+        } else {
             modal_body.innerHTML = '暂无该数据';
             return;
         }
