@@ -125,7 +125,7 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                                                     <th>现价</th>
                                                     <th>浮动盈亏</th>
                                                     <th>盈亏率</th>
-                                                    <th>今日涨跌幅</th>
+                                                    <th>涨跌幅</th>
                                                     <th>全价</th>
                                                     <th>距付息日（天）</th>
                                                     <th>到期时间</th>
@@ -308,7 +308,7 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                             $(tr_id).children('td:eq(6)').html(format_num(decimal(bond_info[key]['float_pl'])));   //设置浮动盈亏
                             $(tr_id).children('td:eq(7)').html(format_num(bond_info[key]['float_pl_rate']) + '%');   //设置盈亏比
                             $(tr_id).children('td:eq(8)').html(id_extent + '%');  //设置涨跌幅
-                            $(tr_id).children('td:eq(9)').html(parseFloat($(tr_id).data('interest')) + parseFloat(trade_price));  //设置全价
+                            $(tr_id).children('td:eq(9)').html(format_num(parseFloat($(tr_id).data('interest')) + parseFloat(trade_price)));  //设置全价
                             $(tr_id).children('td:eq(10)').html(parseFloat($(tr_id).data('dayleft')));  //设置距付息日天数
                             $(tr_id).children('td:eq(11)').html(parseFloat($(tr_id).data('expire')));  //设置到期时间
                         }
