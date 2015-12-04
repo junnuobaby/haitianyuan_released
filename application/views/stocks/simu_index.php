@@ -41,7 +41,7 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                                                 <tr><th>股票市值</th><td id="stock_value"></td></tr>
                                                 <tr><th>债券市值</th><td id="bond_value"></td></tr>
                                                 <tr><th>仓位</th><td id="my_position"></td></tr>
-                                                <tr><th>总盈亏</th><td id="pl_value" class="render"></td></tr>
+                                                <tr><th>总盈亏</th><td id="pl_value"></td></tr>
                                                 <tr><th>总盈亏率</th><td id="pl_rate"></td></tr>
                                                 <tr><th>浮动盈亏</th><td id="fd_value"></td></tr>
                                                 <tr><th>浮动盈亏率</th><td id="fd_rate"></td></tr>
@@ -163,7 +163,6 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
         });
         $('.render').each(function () {
             var value = $(this).html().indexOf('-');
-            alert(value);
             if (value == -1) {
                 $(this).css('color', 'red');
             } else {
@@ -183,7 +182,16 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
         interval = setInterval(load_dynamic_data, 8000);
 
         /**
-         * ajax加载动态数据
+         * 局部变量
+         * stock_info - 存有持仓股票信息的数组
+         * bond_info - 存有持仓债券信息的数组
+         * stock_value - 股票市值
+         * bond_value - 债券市值
+         * fpl_value - 浮动盈亏金额
+         * fpl_rate - 获浮动盈亏比
+         * cash_all - 总现金
+         * asset_all - 总资产（总现金+股票市值+债券市值）
+         * position - 仓位 （（股票市值+债券市值）/ 总资产）
          */
         function load_dynamic_data() {
             var key;
@@ -192,13 +200,17 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                 method: 'get',
                 dataType: 'json',
                 success: function (response) {
-                    var stock_info = response.stock_info; //股票信息
-                    var bond_info = response.bond_info; //债券信息
-                    var cash_all = '<?php echo $user_data['cash_all']; ?>'; //获取总现金
-                    var asset_all = parseFloat(cash_all) + parseFloat(response.stock_value) + parseFloat(response.bond_value);
-                    var position = parseFloat(response.stock_value) * 100 / parseFloat(asset_all);
-                    $('#stock_value').html(format_num(response.stock_value));  //获取并设置股票市值
-                    $('#bond_value').html(format_num(response.bond_value));  //获取并设置债券市值
+                    var stock_info = response.stock_info;
+                    var bond_info = response.bond_info;
+                    var stock_value = decimal(parseFloat(response.stock_value));
+                    var bond_value = decimal(parseFloat(response.bond_value));
+                    var fpl_value = parseFloat(response.pl_value);
+                    var fpl_rate = parseFloat(response.pl_rate);
+                    var cash_all = parseFloat('<?php echo $user_data['cash_all']; ?>');
+                    var asset_all = cash_all + stock_value + bond_value;
+                    var position = (stock_value + bond_value) * 100 / asset_all;
+                    $('#stock_value').html(format_num(stock_value));  //获取并设置股票市值
+                    $('#bond_value').html(format_num(bond_value));  //获取并设置债券市值
                     $('#my_asset').html(format_num(asset_all));  //设置总资产
                     $('#my_position').html(format_num(position) + '%'); //设置仓位
                     var pl_value = $('#pl_value');
@@ -208,27 +220,28 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                     var base_funds = parseFloat('<?php echo $base_funds;?>');
                     var user_value = asset_all - base_funds;  //总盈亏额
                     var user_rate = decimal((user_value * 100) / base_funds);   //总盈亏率
+                    pl_value.css('color', (parseFloat(user_value) > 0) ? 'red' : 'green');
 //                    if (parseFloat(user_value) > 0) {
 //                        pl_value.css('color', 'red');
 //                    } else {
 //                        pl_value.css('color', 'green');
 //                    }
-//                    if (parseFloat(user_rate) > 0) {
-//                        pl_rate.css('color', 'red');
-//                    } else {
-//                        pl_rate.css('color', 'green');
-//                    }
-//                    if (parseFloat(response.pl_value) < 0) {
-//                        fd_value.css('color', 'green');
-//                        fd_rate.css('color', 'green');
-//                    } else {
-//                        fd_value.css('color', 'red');
-//                        fd_rate.css('color', 'red');
-//                    }
+                    if (parseFloat(user_rate) > 0) {
+                        pl_rate.css('color', 'red');
+                    } else {
+                        pl_rate.css('color', 'green');
+                    }
+                    if (parseFloat(response.pl_value) < 0) {
+                        fd_value.css('color', 'green');
+                        fd_rate.css('color', 'green');
+                    } else {
+                        fd_value.css('color', 'red');
+                        fd_rate.css('color', 'red');
+                    }
                     pl_value.html(format_num(user_value)); //获取并设置总盈亏金额
                     pl_rate.html(user_rate + '%'); //获取并设置总盈亏比
-                    fd_value.html(format_num(response.pl_value)); //获取并设浮动盈亏金额
-                    fd_rate.html(response.pl_rate); //获取并设置浮动盈亏比
+                    fd_value.html(format_num(fpl_value)); //获取并设浮动盈亏金额
+                    fd_rate.html(fpl_rate); //获取并设置浮动盈亏比
 
                     for (key in stock_info) {
                         var tr_id = '#' + key;
@@ -299,8 +312,6 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                     var parts = ['可用现金', '债券市值', '股票市值', '冻结资金'];
                     var cash_use = decimal(parseFloat("<?php echo $user_data['cash_use'];?>"));
                     var cash_freeze = decimal(parseFloat("<?php echo $user_data['cash_freeze'];?>"));
-                    var stock_value = decimal(parseFloat(response.stock_value));  //股票市值
-                    var bond_value = decimal(parseFloat(response.bond_value)); //债券市值
                     var parts_value = [
                         {value: cash_use, name: '可用现金'},
                         {value: bond_value, name: '债券市值'},
