@@ -129,9 +129,7 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                                             <tbody>
                                             <?php foreach ($user_bonds as $stock_item): ?>
                                                 <tr id="<?php echo $stock_item['SecurityID']; ?>" data-interest="<?php echo $stock_item['interest'];?>">
-                                                    <td data-toggle="modal" data-target="#graphModal" onclick="fillimage('<?= $stock_item['SecurityID']; ?>', '<?= $stock_item['Symbol']; ?>')">
-                                                        <a href="#" class="hty_a"><?php echo $stock_item['SecurityID']; ?></a>
-                                                    </td>
+                                                    <td><?php echo $stock_item['SecurityID']; ?></td>
                                                     <td><?php echo $stock_item['Symbol']; ?></td>
                                                     <td class="formatted"><?php echo $stock_item['Volume_All']; ?></td>
                                                     <td class="formatted"><?php echo intval($stock_item['Volume_All']) - intval($stock_item['Ban_Volume']) - intval($stock_item['Order_Volume']); ?></td>
