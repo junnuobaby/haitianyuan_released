@@ -217,7 +217,7 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                     $('#stock_value').html(format_num(response.stock_value));  //获取并设置股票市值
                     $('#bond_value').html(format_num(response.bond_value));  //获取并设置股票市值
                     var cash_all = '<?php echo $user_data['cash_all']; ?>'; //获取总现金
-                    var asset_all = parseFloat(cash_all) + parseFloat(response.stock_value);
+                    var asset_all = parseFloat(cash_all) + parseFloat(response.stock_value) + parseFloat(response.bond_value);
                     $('#my_asset').html(format_num(asset_all));  //设置总资产
                     var position = parseFloat(response.stock_value) * 100 / parseFloat(asset_all);
                     $('#my_position').html(format_num(position) + '%'); //设置仓位
