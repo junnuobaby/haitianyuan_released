@@ -192,6 +192,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </body>
 <script>
     var interval;
+    var is_bond;
     $(document).ready(function () {
         $('.main_jumptron').css('margin-bottom', '0px');
         $('.formatted').each(function () {
@@ -272,11 +273,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         $('div.hint_list tr:last').addClass('hint_active');
                     }
                     break;
-
                 case 40:   //下键
                     if (cur.length > 0) {
                         cur.removeClass('hint_active').next('tr').addClass('hint_active');
-
                     }
                     else {
                         $('div.hint_list tr:nth-child(2)').addClass('hint_active');
@@ -334,6 +333,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             else {
                 var response = data.st_info;
                 var bond_name = response.Symbol; //ajax获取证券名称
+                is_bond = response.is_bond; //判断是否为债券
                 var bond_cur_price = decimal(response.TradePrice); //获取最新价
                 var bond_lastday_price = decimal(response.PreClosePx); //获取昨日收盘价
                 var bond_highest = decimal(1.1 * bond_lastday_price); //涨停
@@ -405,7 +405,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
             if (bond_price.length > 0 && !isNaN(bond_price) && parseFloat(bond_price) > 0) {
                 bond_price = decimal(bond_price);
-                var quantity_avail = parseInt(parseFloat(available_money) / (parseFloat(bond_price) * 100)); //计算当前可买入的最大股数
+                var quantity_avail;
+                if(is_bond){
+                    quantity_avail = parseInt(parseFloat(available_money) / (parseFloat(bond_price) * 10)); //计算当前可买入的债券最大手数
+                }else{
+                    quantity_avail = parseInt(parseFloat(available_money) / (parseFloat(bond_price) * 100)); //计算当前可买入的股票最大手数
+                }
                 $('div.largest_quantity').removeClass('hidden');
                 $('#largest_quantity').html(quantity_avail);
             }
@@ -423,7 +428,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             var bond_price = decimal($('#buy_price').val()); //买入价格
             var bond_quantity = $('#buy_quantity').val(); //买入数量(以手为单位)
             var info_str = '确定买入' + bond_quantity + '手' + bond_name + '?';
-            var bond_quantities = parseInt(bond_quantity) * 100; //求买入的股数（买入数量*100）
+            var bond_quantities; //求买入的股数（买入数量*100）
+            if(is_bond){
+                bond_quantities = parseInt(bond_quantity) * 10;
+            }else{
+                bond_quantities = parseInt(bond_quantity) * 100;
+            }
+
 
             if (validate(bond_code, bond_price, bond_quantity) && validate_charge(bond_quantities, bond_price, "<?php echo $cash_use;?>")) {
                 if (confirm(info_str)) {
@@ -466,8 +477,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     alert('请输入合法的买入数量');
                     return false;
                 }
-
-
                 return true;
             }
 
