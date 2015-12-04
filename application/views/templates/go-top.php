@@ -13,7 +13,7 @@
     $(document).ready(function(){
         $('ul.fixed-bar li').hover(function(){
             $(this).children(':eq(0)').hide();
-            $(this).css('background-color', '#f4645f').children(':eq(1)').show().css('display', 'block');
+            $(this).css('background-color', '#FD9271').children(':eq(1)').show().css('display', 'block');
         }, function () {
             $(this).children(':eq(1)').hide();
             $(this).css('background-color', '#fff').children(':eq(0)').show().css('display', 'block');
