@@ -96,26 +96,26 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                                                     <th>总量</th>
                                                     <th>可卖量</th>
                                                     <th>买入成本</th>
+                                                    <th>全价</th>
+                                                    <th>距付息日</th>
+                                                    <th>到期时间</th>
                                                     <th>现价</th>
                                                     <th>浮动盈亏</th>
                                                     <th>盈亏率</th>
                                                     <th>涨跌幅</th>
-                                                    <th>全价</th>
-                                                    <th>距付息日</th>
-                                                    <th>到期时间</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
                                                 <?php foreach ($user_bonds as $stock_item): ?>
-                                                    <tr id="<?php echo $stock_item['SecurityID']; ?>" data-interest="<?php echo $stock_item['interest']; ?>" data-dayleft="<?php echo $stock_item['day_left']; ?>" data-expire="<?php echo $stock_item['profit_end']; ?>">
+                                                    <tr id="<?php echo $stock_item['SecurityID']; ?>" data-interest="<?php echo $stock_item['interest']; ?>">
                                                         <td><?php echo $stock_item['SecurityID']; ?></td>
                                                         <td><?php echo $stock_item['Symbol']; ?></td>
                                                         <td class="formatted"><?php echo intval($stock_item['Volume_All']); ?></td>
                                                         <td class="formatted"><?php echo intval($stock_item['Volume_All']) - intval($stock_item['Ban_Volume']) - intval($stock_item['Order_Volume']); ?></td>
                                                         <td><?php echo number_format(floatval($stock_item['BuyCost']), 2); ?></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
+                                                        <td id="completed_cost"></td>
+                                                        <td><?php echo intval($stock_item['day_left']); ?></td>
+                                                        <td><?php echo $stock_item['profit_end']; ?></td>
                                                         <td></td>
                                                         <td></td>
                                                         <td></td>
@@ -247,35 +247,18 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                     for (key in bond_info) {
                         tr_id = '#' + key;
                         if (bond_info[key].length == 0) {
-                            $(tr_id).children('td:eq(5)').html('--');  //设置当前价
-                            $(tr_id).children('td:eq(6)').html('--');   //设置浮动盈亏
-                            $(tr_id).children('td:eq(7)').html('--');   //设置盈亏比
-                            $(tr_id).children('td:eq(8)').html('--');  //设置涨跌幅
+                            $(tr_id).children('td:gt(7)').each(function () {
+                                $(this).html('--');
+                            });
                         } else {
                             trade_price = decimal(bond_info[key]['TradePrice']);  //获取当前价，保留小数点后两位
                             id_extent = decimal(parseFloat(bond_info[key]['id_extent']) * 100);  //获取涨跌幅，保留小数点后两位
-                            if (parseFloat(bond_info[key]['float_pl']) < 0) {
-                                $(tr_id).children('td:eq(6)').css('color', 'green');
-                            } else if (parseFloat(bond_info[key]['float_pl']) >= 0) {
-                                $(tr_id).children('td:eq(6)').css('color', 'red');
-                            }
-                            if (parseFloat(bond_info[key]['float_pl_rate']) < 0) {
-                                $(tr_id).children('td:eq(7)').css('color', 'green');
-                            } else if (parseFloat(bond_info[key]['float_pl_rate']) >= 0) {
-                                $(tr_id).children('td:eq(7)').css('color', 'red');
-                            }
-                            if (id_extent < 0) {
-                                $(tr_id).children('td:eq(8)').css('color', 'green');
-                            } else if (id_extent >= 0) {
-                                $(tr_id).children('td:eq(8)').css('color', 'red');
-                            }
-                            $(tr_id).children('td:eq(5)').html(trade_price);  //设置当前价
-                            $(tr_id).children('td:eq(6)').html(format_num(decimal(bond_info[key]['float_pl'])));   //设置浮动盈亏
-                            $(tr_id).children('td:eq(7)').html(format_num(bond_info[key]['float_pl_rate']) + '%');   //设置盈亏比
-                            $(tr_id).children('td:eq(8)').html(id_extent + '%');  //设置涨跌幅
-                            $(tr_id).children('td:eq(9)').html(format_num(parseFloat($(tr_id).data('interest')) + parseFloat(trade_price)));  //设置全价
-                            $(tr_id).children('td:eq(10)').html(parseFloat($(tr_id).data('dayleft')));  //设置距付息日天数
-                            $(tr_id).children('td:eq(11)').html(parseFloat($(tr_id).data('expire')));  //设置到期时间
+
+                            $(tr_id).children('td:eq(8)').html(trade_price);  //设置当前价
+                            $(tr_id).children('td:eq(9)').html(format_num(decimal(bond_info[key]['float_pl']))).css('color', (parseFloat(stock_info[key]['float_pl']) > 0) ? 'red' : 'green');   //设置浮动盈亏
+                            $(tr_id).children('td:eq(10)').html(format_num(bond_info[key]['float_pl_rate']) + '%').css('color', (parseFloat(stock_info[key]['float_pl_rate']) > 0) ? 'red' : 'green');   //设置盈亏比
+                            $(tr_id).children('td:eq(11)').html(id_extent + '%').css('color', (parseFloat(id_extent) > 0) ? 'red' : 'green');  //设置涨跌幅
+                            $('#completed_cost').html(format_num(parseFloat($(tr_id).data('interest')) + parseFloat(trade_price)));  //设置全价
                         }
                     }
                     //绘制资金分布饼图
