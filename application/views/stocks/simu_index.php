@@ -47,6 +47,10 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                                                     <td id="stock_value"></td>
                                                 </tr>
                                                 <tr>
+                                                    <th>债券市值</th>
+                                                    <td id="bond_value"></td>
+                                                </tr>
+                                                <tr>
                                                     <th>仓位</th>
                                                     <td id="my_position"></td>
                                                 </tr>
@@ -212,6 +216,7 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                     var stock_info = response.stock_info; //股票信息
                     var bond_info = response.bond_info; //债券信息
                     $('#stock_value').html(format_num(response.stock_value));  //获取并设置股票市值
+                    $('#bond_value').html(format_num(response.bond_value));  //获取并设置股票市值
                     var cash_all = '<?php echo $user_data['cash_all']; ?>'; //获取总现金
                     var asset_all = parseFloat(cash_all) + parseFloat(response.stock_value);
                     $('#my_asset').html(format_num(asset_all));  //设置总资产
