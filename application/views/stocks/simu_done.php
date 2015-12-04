@@ -53,11 +53,11 @@ $pages = $done_list['pagination']; //获取分页
                                                 <td class="formatted decimal"><?php echo $stock_item['price_deal']; ?></td>
                                                 <td class="formatted"><?php echo $stock_item['fund_deal']; ?></td>
                                                 <td class="formatted"><?php echo $stock_item['price_full']; ?></td>
-                                                <td class="formatted decimal"><?php echo $stock_item['fee'];?></td>
-                                                <td class="formatted decimal"><?php echo $stock_item['tax'];?></td>
-                                                <td class="formatted decimal"><?php echo $stock_item['other_fee'];?></td>
-                                                <td class="formatted decimal"><?php echo $stock_item['hap_fund'];?></td>
-                                                <td class="formatted decimal"><?php echo $stock_item['remain_fund'];?></td>
+                                                <td class="formatted"><?php echo $stock_item['fee'];?></td>
+                                                <td class="formatted"><?php echo $stock_item['tax'];?></td>
+                                                <td class="formatted"><?php echo $stock_item['other_fee'];?></td>
+                                                <td class="formatted"><?php echo $stock_item['hap_fund'];?></td>
+                                                <td class="formatted"><?php echo $stock_item['remain_fund'];?></td>
                                                 <td><?php echo $stock_item['tip'];?></td>
                                             </tr>
                                         <?php endforeach; ?>
