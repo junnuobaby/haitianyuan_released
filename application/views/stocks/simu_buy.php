@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="bg-white stocks_min_h  block-radius">
                     <div class="simulate_panel">
                         <div class="tab-content">
-                            <h4 class="theme-color margin_to_top">买入证券</h4>
+                            <h4 class="theme-color container_to_top">买入证券</h4>
 
                             <div class="alert alert-info hidden" role="alert">买入委托已经成功提交。您可以点击“撤单”来查看或撤销买入委托。</div>
                             <div class="panel panel-default">
@@ -167,7 +167,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     </div>
                                 </div>
                             </div>
-                            <h4 class="theme-color margin_to_top">模拟交易说明：</h4>
+                            <h4 class="theme-color container_to_top">模拟交易说明：</h4>
                             <ol class="ht_indent">
                                 <li>申报价格保留小数点后两位数字</li>
                                 <li>交易时间与沪深A股的开市时间一致。一般为周一至周五，上午09:30至11:30，下午13:00至15:00。</li>

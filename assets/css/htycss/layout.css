@@ -1051,12 +1051,6 @@ ul.simulate_tablist li a:hover{
     color: white;
     text-shadow: 1px 1px 0.8em #000;
 }
-.margin_to_top{
-    margin-top: 30px;
-}
-.margin_to_bottom{
-    margin-bottom: 30px;
-}
 .buy_stock_btn{
     float: right;
 }

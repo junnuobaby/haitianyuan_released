@@ -28,7 +28,7 @@ $user_address = explode('-', $basic_info['location']); //分割地址，得到�
 ?>
 <div class="wrapper">
     <?php $this->load->view('./templates/navbar'); ?>
-    <div class="container margin_to_top">
+    <div class="container container_to_top">
         <div class="row">
             <div class="col-sm-3 col-md-3 ">
                 <?php $this->load->view('./user/user_sidebar'); ?>

@@ -79,6 +79,9 @@ a.btn.bg-theme:hover,button.btn.bg-theme:hover{
 .container_to_top{
     margin-top: 30px;
 }
+.margin_to_bottom{
+    margin-bottom: 30px;
+}
 .mas_min_height{
     min-height: 1000px;
 }

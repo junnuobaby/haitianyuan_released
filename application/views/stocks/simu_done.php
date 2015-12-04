@@ -20,7 +20,7 @@ $pages = $done_list['pagination']; //获取分页
                 <div class="bg-white stocks_min_h  block-radius">
                     <div class="simulate_panel">
                         <div class="tab-content">
-                            <h4 class="theme-color margin_to_top">成交记录</h4>
+                            <h4 class="theme-color container_to_top">成交记录</h4>
 
                             <div class="panel panel-default border_none">
                                 <div class="panel-body">
