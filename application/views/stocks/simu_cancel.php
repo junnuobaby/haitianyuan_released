@@ -36,6 +36,7 @@ $pages = $pre_list['pagination']; //获取分页
                                         <th>印花税</th>
                                         <th>其他杂费</th>
                                         <th>发生金额</th>
+                                        <th>现金余额</th>
                                         <th>下单时间</th>
                                         <th>备注</th>
                                         <th>撤单</th>
@@ -62,9 +63,12 @@ $pages = $pre_list['pagination']; //获取分页
                                             <td class="formatted"><?php echo $stock_item['tax']; ?></td>
                                             <td class="formatted"><?php echo $stock_item['other_fee']; ?></td>
                                             <td class="formatted"><?php echo $stock_item['hap_fund']; ?></td>
+                                            <td class="formatted"><?php echo $stock_item['remain_fund']; ?></td>
                                             <td class="formatted"><?php echo $stock_item['timestamp']; ?></td>
                                             <td><?php echo $stock_item['tip']; ?></td>
-                                            <td><a href="#" class="theme-color cancel_btn" data-id="<?php echo $stock_item['pre_id']; ?>">撤单</a></td>
+                                            <td>
+                                                <a href="#" class="theme-color cancel_btn" data-id="<?php echo $stock_item['pre_id']; ?>">撤单</a>
+                                            </td>
                                         </tr><?php endforeach; ?>
                                     </tbody>
                                 </table>
