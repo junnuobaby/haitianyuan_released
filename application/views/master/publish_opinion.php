@@ -57,7 +57,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     </div>
                                 </div>
                                 <div class="publish_btn">
-                                    <button type="submit" class="btn bg-theme btn-danger" id="publish_btn">发表观点
+                                    <button type="submit" class="btn bg-theme " id="publish_btn">发表观点
                                     </button>
                                 </div>
 

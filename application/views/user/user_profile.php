@@ -134,7 +134,7 @@ $user_address = explode('-', $basic_info['location']); //分割地址，得到�
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-offset-4 col-sm-8 col-md-8 col-md-offset-4">
-                                            <button type="submit" class="btn btn-danger bg-theme">修改密码</button>
+                                            <button type="submit" class="btn  bg-theme">修改密码</button>
                                             <span id="pwd_error_msg" class="self_master_address"></span>
                                         </div>
                                     </div>
@@ -221,7 +221,7 @@ $user_address = explode('-', $basic_info['location']); //分割地址，得到�
                                             <span>*</span> 县/区
                                             <select id="sel_County" name="county"></select>
                                             <button type="button" id="address_btn"
-                                                    class="btn btn-danger btn-xs bg-theme">
+                                                    class="btn  btn-xs bg-theme">
                                                 确定
                                             </button>
                                         </div>

@@ -100,7 +100,7 @@ $sell_stocks = $sell_list; //获取手中持有的股票
                                                     <span class="theme-color">(1手 = 100股)</span>
                                                 </div>
                                             </div>
-                                            <a class="btn btn-danger bg-theme buy_stock_btn" id="buy">卖出
+                                            <a class="btn  bg-theme buy_stock_btn" id="buy">卖出
                                             </a>
                                         </form>
                                     </div>

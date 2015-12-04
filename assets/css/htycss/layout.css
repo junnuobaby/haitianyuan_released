@@ -69,71 +69,6 @@ a.take_in:hover{
 .register_input {
     padding-bottom: 0.5em;
 }
-/*页脚*/
-footer.page_footer {
-    font-size: 13px;
-    color: #555555;
-    padding-top: 20px;
-    height: 80px;
-    background-color: #d9d9d9;
-    z-index: 1000;
-}
-footer.page_footer span {
-    margin: 0.5em;
-}
-footer.page_footer a {
-    color: #555555;
-}
-footer.page_footer p{
-    margin-top: 10px;
-    margin-bottom: 0;
-}
-/*反馈，回到顶部*/
-.fixed-bar {
-    position: fixed;
-    right: 1%;
-    bottom: 1%;
-    z-index: 10000;
-    margin: 0;
-    padding: 0;
-}
-.fixed-bar li{
-    margin: 0;
-    padding: 0;
-    height: 52px;
-    width: 50px;
-    background-color: white;
-    border: 1px solid #dddddd;
-    list-style: none;
-    transition: all 0.5s ease 0s;
-}
-.fixed-bar li:hover{
-    border-color:#FD7A65;
-    cursor: pointer;
-}
-.fixed-bar li.go-top{
-    margin-top: -1px;
-}
-.fixed-bar li.go-top a:hover,a:active, a:focus, a:visited{
-    text-decoration: none;
-    outline: none;
-}
-.fixed-bar li .hz-icon{
-    width: 100%;
-    height: 100%;
-    line-height: 50px;
-    text-align: center;
-    display: block;
-    color: #999;
-    font-size: 25px;
-}
-.fixed-bar .fixed-bar-text{
-    line-height: 1.2em;
-    display: none;
-    color: #fff;
-    padding: 7px 10px;
-    font-size: 14px;
-}
 /*顶部导航*/
 .header {
     background: #FFF none repeat scroll 0% 0%;
@@ -467,7 +402,7 @@ caption.caption-yinbang{
     padding: 0;
 }
 .profile-usermenu li h4 {
-    color: #FD7A65;
+    color: #f4645f;
     border-bottom: 1px solid #ebebeb;
 }
 .profile-usermenu ul li a {
@@ -483,7 +418,7 @@ caption.caption-yinbang{
     font-size: 14px;
 }
 .profile-usermenu ul li a:hover {
-    background-color: #FD7A65;
+    background-color: #f4645f;
     color: #ffffff;
 }
 .master-profile-panel .form-group {
@@ -492,7 +427,7 @@ caption.caption-yinbang{
     margin-bottom: 20px;
 }
 a.basic-info-a {
-    color: #FD7A65;
+    color: #f4645f;
 }
 .input-group-verification {
     width: 300px;
@@ -505,7 +440,7 @@ a.basic-info-a {
     position: relative;
     cursor: pointer;
     color: #ffffff;
-    background: #FD7A65;
+    background: #f4645f;
     border: 1px solid #ddd;
     border-radius: 4px;
     overflow: hidden;
@@ -545,7 +480,7 @@ a.avatar-upload:hover {
     margin-bottom: 10px;
 }
 .self_master_address {
-    color: #FD7A65;
+    color: #f4645f;
 }
 /*联系我们页面样式*/
 #contact_us h1 {
@@ -621,7 +556,7 @@ a.avatar-upload:hover {
 
 #vip_price h1.slogan {
     margin: 100px auto 150px auto;
-    color: #FD7A65;
+    color: #f4645f;
     font-size: 50px;
     text-shadow: 3px 3px 5px #cccccc;
 }
@@ -629,8 +564,8 @@ a.avatar-upload:hover {
 #vip_price div.box {
     height: 400px;
     width: 280px;
-    background-color: #FD7A65;
-    border: solid 5px #FD7A65;
+    background-color: #f4645f;
+    border: solid 5px #f4645f;
     border-radius: 5px;
     box-shadow: 2px 2px 3px #aaaaaa;
 }
@@ -680,7 +615,7 @@ a.avatar-upload:hover {
     padding-left: 30px;
     padding-right: 30px;
     width: 200px;
-    background-color: #FD7A65;
+    background-color: #f4645f;
     border-radius: 50px;
     color: white;
     font-size: 20px;
@@ -695,7 +630,7 @@ a.avatar-upload:hover {
 }
 
 #vip_price .box ul.features i {
-    color: #FD7A65;
+    color: #f4645f;
     margin-right: 10px;
 }
 
@@ -901,7 +836,7 @@ div.master_view section {
 }
 
 .view_footer .edit_view{
-    color: #FD7A65;
+    color: #f4645f;
     float: right;
     margin-right: 10px;
 }
@@ -917,7 +852,7 @@ div.master_view section {
     padding: 6px 12px;
     margin-left: -1px;
     line-height: 1.42857143;
-    color: #FD7A65;
+    color: #f4645f;
     text-decoration: none;
     background-color: #fff;
     border: 1px solid #ddd;
@@ -1006,7 +941,7 @@ div.master_view section {
     text-decoration: none;
 }
 .nav_current{
-    border-bottom: 2px solid #FD7A65;
+    border-bottom: 2px solid #f4645f;
     margin-bottom: -2px;
 }
 .stocks_min_h{
