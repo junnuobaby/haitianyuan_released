@@ -57,9 +57,9 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                                             <tr>
                                                 <th>股票代码</th>
                                                 <th>股票名称</th>
-                                                <th>总股数(股)</th>
-                                                <th>可卖数量(股)</th>
-                                                <th>买入成本</th>
+                                                <th>总股数</th>
+                                                <th>可卖数量</th>
+                                                <th>成本价</th>
                                                 <th>当前价</th>
                                                 <th>浮动盈亏</th>
                                                 <th>盈亏率</th>
