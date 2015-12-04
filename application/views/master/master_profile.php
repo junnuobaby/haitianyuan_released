@@ -159,7 +159,7 @@ $user_address = explode('-', $basic_info['location']); //分割地址，得到�
                                 <div id="display_avatar_div">
                                     <div class="row">
                                         <!--预览图-->
-                                        <div class="col-md-5">
+                                        <div class="col-md-7">
                                             <div id="display_avatar_block">
                                                 <img id='master-profile-avatar-display'
                                                      name='master-profile-avatar-display' alt="..." src="">
