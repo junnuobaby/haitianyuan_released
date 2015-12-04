@@ -21,7 +21,7 @@ $pages = $pre_list['pagination']; //获取分页
                         <h4 class="theme-color container_to_top">委托单</h4>
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <table class="table  table-responsive table-hover">
+                                <table class="table table-bordered table-responsive table-hover">
                                     <thead>
                                     <tr>
                                         <th>订单号</th>
