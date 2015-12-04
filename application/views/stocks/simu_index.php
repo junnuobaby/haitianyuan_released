@@ -220,12 +220,7 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                     var base_funds = parseFloat('<?php echo $base_funds;?>');
                     var user_value = asset_all - base_funds;  //总盈亏额
                     var user_rate = decimal((user_value * 100) / base_funds);   //总盈亏率
-//                    pl_value.css('color', (parseFloat(user_value) > 0) ? 'red' : 'green');
-                    if (parseFloat(user_value) > 0) {
-                        pl_value.css('color', 'red');
-                    } else {
-                        pl_value.css('color', 'green');
-                    }
+                    $('#pl_value').html(format_num(user_value)).css('color', (parseFloat(user_value) > 0) ? 'red' : 'green');
                     if (parseFloat(user_rate) > 0) {
                         pl_rate.css('color', 'red');
                     } else {
@@ -238,7 +233,7 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                         fd_value.css('color', 'red');
                         fd_rate.css('color', 'red');
                     }
-                    pl_value.html(format_num(user_value)); //获取并设置总盈亏金额
+//                    pl_value.html(format_num(user_value)); //获取并设置总盈亏金额
                     pl_rate.html(user_rate + '%'); //获取并设置总盈亏比
                     fd_value.html(format_num(fpl_value)); //获取并设浮动盈亏金额
                     fd_rate.html(fpl_rate); //获取并设置浮动盈亏比
