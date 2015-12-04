@@ -95,9 +95,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="social-login">
             <ul class="nav navbar-nav txt-center">
                 <!--qq第三方登陆-->
-                <li><a href="#" class="white-color"><img width="20px" height="20px" src="<?php echo base_url('/assets/images/qq.png'); ?>" alt="..." class="img-rounded narbar_li"> qq登陆</a></li>
+                <li><a href="#" class="white-color"><img width="20px" height="20px" src="<?php echo base_url('/assets/images/component/qq.png'); ?>" alt="..." class="img-rounded narbar_li"> qq登陆</a></li>
                 <!--微博第三方登陆-->
-                <li><a href="#" class="white-color"><img width="20px" height="20px" src="<?php echo base_url('/assets/images/weibo.png'); ?>" alt="..." class="img-rounded narbar_li"> 微博登陆</a></li>
+                <li><a href="#" class="white-color"><img width="20px" height="20px" src="<?php echo base_url('/assets/images/component/weibo.png'); ?>" alt="..." class="img-rounded narbar_li"> 微博登陆</a></li>
             </ul>
         </div>
     </div>

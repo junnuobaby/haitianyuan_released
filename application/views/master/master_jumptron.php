@@ -24,9 +24,9 @@ $current_user = $this->session->userdata('username');
                 <!--根据是否在线显示不同的状态，当前默认为在线-->
                 <div class="online_status">
                     <?php if ($online_state == false): ?>
-                        <img class="img-responsive" src="<?php echo base_url('/assets/images/offline.png'); ?>">
+                        <img class="img-responsive" src="<?php echo base_url('/assets/images/component/offline.png'); ?>">
                     <?php else: ?>
-                        <img class="img-responsive" src="<?php echo base_url('/assets/images/online.png'); ?>">
+                        <img class="img-responsive" src="<?php echo base_url('/assets/images/component/online.png'); ?>">
                     <?php endif; ?>
                 </div>
                 <div>

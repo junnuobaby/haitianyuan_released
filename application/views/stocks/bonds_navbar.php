@@ -20,7 +20,7 @@
 </nav>
 <style>
     nav.sub_navigation {
-        background-image: url(<?php echo base_url('/assets/images/sub_nav_bg.png')?>);
+        background-image: url(<?php echo base_url('/assets/images/back/3.png')?>);
     }
 </style>
 

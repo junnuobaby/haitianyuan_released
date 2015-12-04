@@ -144,7 +144,7 @@ $jinbang = array($user, $user, $user, $user, $user, $user, $user, $user, $user, 
                         </div>
                         <div class="col-md-2">
                             <div style="margin-top: 100px;margin-left: 25px;">
-                                <img src="<?php echo base_url('assets/images/logo/logo_6.png'); ?>"/>
+                                <img src="<?php echo base_url('assets/images/logo/logo_1.png'); ?>"/>
 
                             </div>
                         </div>
