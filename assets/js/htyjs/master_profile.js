@@ -167,11 +167,11 @@ function read_avatar() {
         var img = document.getElementById('master-profile-avatar-display');
         var avatar_width = img.width;
         var avatar_height = img.height;
-        if (avatar_width > 500) {
+        if (avatar_width > 1000) {
             alert("您上传的文件过宽，不得超过500px，请重新选择");
             return false;
         }
-        if (avatar_height > 500) {
+        if (avatar_height > 1000) {
             alert("您上传的文件过高，不得超过500px，请重新选择");
             return false;
         }
