@@ -1,7 +1,4 @@
-<!--华山论剑首页，模拟炒股首页-->
-<!--我的持仓下面，股票当前价，浮动盈亏，盈亏率，今日涨跌幅是动态获取和变化的-->
-<!--总资产是总现金与所持证券的市值之和-->
-<?php
+<!--华山论剑首页，模拟炒股首页--><!--我的持仓下面，股票当前价，浮动盈亏，盈亏率，今日涨跌幅是动态获取和变化的--><!--总资产是总现金与所持证券的市值之和--><?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="zh-cn">
@@ -11,9 +8,7 @@ $user_data = $user_info['data_user']; //获取用户资金数据
 $user_stocks = $user_info['data_stock']; //获取用户持仓股票数据
 $user_bonds = $user_info['data_bond']; //获取用户持仓债券数据
 $base_funds = $user_data['base_cash'];  //获取用户基本资金
-?>
-<!--绘图文件-->
-<?php $this->load->view('./stocks/graph'); ?>
+?><!--绘图文件--><?php $this->load->view('./stocks/graph'); ?>
 <body class="bg-gray">
 <div class="wrapper">
     <?php $this->load->view('./stocks/bonds_navbar'); ?>
@@ -78,7 +73,9 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                                     </div>
                                 </div>
                                 <div class="warehouse">
-                                    <h4 class="theme-color">我的持仓<small>(行情每8s刷新)</small></h4>
+                                    <h4 class="theme-color">我的股票
+                                        <small>(行情每8s刷新)</small>
+                                    </h4>
                                     <div class="table-responsive">
                                         <table class="table table-bordered">
                                             <thead>
@@ -97,10 +94,8 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                                             <tbody>
                                             <?php foreach ($user_stocks as $stock_item): ?>
                                                 <tr id="<?php echo $stock_item['SecurityID']; ?>">
-                                                    <td data-toggle="modal" data-target="#graphModal"
-                                                        onclick="fillimage('<?= $stock_item['SecurityID']; ?>', '<?= $stock_item['Symbol']; ?>')">
-                                                        <a href="#"
-                                                           class="hty_a"><?php echo $stock_item['SecurityID']; ?></a>
+                                                    <td data-toggle="modal" data-target="#graphModal" onclick="fillimage('<?= $stock_item['SecurityID']; ?>', '<?= $stock_item['Symbol']; ?>')">
+                                                        <a href="#" class="hty_a"><?php echo $stock_item['SecurityID']; ?></a>
                                                     </td>
                                                     <td><?php echo $stock_item['Symbol']; ?></td>
                                                     <td class="formatted"><?php echo $stock_item['Volume_All']; ?></td>
@@ -110,48 +105,51 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                                                     <td></td>
                                                     <td></td>
                                                     <td></td>
-                                                </tr>
-                                            <?php endforeach; ?>
+                                                </tr><?php endforeach; ?>
                                             </tbody>
                                         </table>
                                     </div>
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered">
-                                            <thead>
-                                            <tr>
-                                                <th>债券代码</th>
-                                                <th>债券名称</th>
-                                                <th>总量</th>
-                                                <th>可卖量</th>
-                                                <th>买入成本</th>
-                                                <th>现价</th>
-                                                <th>浮动盈亏</th>
-                                                <th>盈亏率</th>
-                                                <th>今日涨跌幅</th>
-                                                <th>全价</th>
-                                                <th>距付息日（天）</th>
-                                                <th>到期时间</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <?php foreach ($user_bonds as $stock_item): ?>
-                                                <tr id="<?php echo $stock_item['SecurityID']; ?>" data-interest="<?php echo $stock_item['interest'];?>" data-dayleft="<?php echo $stock_item['day_left'];?>" data-expire="<?php echo $stock_item['profit_end'];?>">
-                                                    <td><?php echo $stock_item['SecurityID']; ?></td>
-                                                    <td><?php echo $stock_item['Symbol']; ?></td>
-                                                    <td class="formatted"><?php echo $stock_item['Volume_All']; ?></td>
-                                                    <td class="formatted"><?php echo intval($stock_item['Volume_All']) - intval($stock_item['Ban_Volume']) - intval($stock_item['Order_Volume']); ?></td>
-                                                    <td><?php echo number_format(floatval($stock_item['BuyCost']), 2); ?></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
+                                    <div class="warehouse">
+                                        <h4 class="theme-color">我的债券
+                                            <small>(行情每8s刷新)</small>
+                                        </h4>
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                <tr>
+                                                    <th>债券代码</th>
+                                                    <th>债券名称</th>
+                                                    <th>总量</th>
+                                                    <th>可卖量</th>
+                                                    <th>买入成本</th>
+                                                    <th>现价</th>
+                                                    <th>浮动盈亏</th>
+                                                    <th>盈亏率</th>
+                                                    <th>今日涨跌幅</th>
+                                                    <th>全价</th>
+                                                    <th>距付息日（天）</th>
+                                                    <th>到期时间</th>
                                                 </tr>
-                                            <?php endforeach; ?>
-                                            </tbody>
-                                        </table>
+                                                </thead>
+                                                <tbody>
+                                                <?php foreach ($user_bonds as $stock_item): ?>
+                                                    <tr id="<?php echo $stock_item['SecurityID']; ?>" data-interest="<?php echo $stock_item['interest']; ?>" data-dayleft="<?php echo $stock_item['day_left']; ?>" data-expire="<?php echo $stock_item['profit_end']; ?>">
+                                                        <td><?php echo $stock_item['SecurityID']; ?></td>
+                                                        <td><?php echo $stock_item['Symbol']; ?></td>
+                                                        <td class="formatted"><?php echo $stock_item['Volume_All']; ?></td>
+                                                        <td class="formatted"><?php echo intval($stock_item['Volume_All']) - intval($stock_item['Ban_Volume']) - intval($stock_item['Order_Volume']); ?></td>
+                                                        <td><?php echo number_format(floatval($stock_item['BuyCost']), 2); ?></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr><?php endforeach; ?>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -161,21 +159,18 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
             </div>
         </div>
     </div>
-    <!--悬停go-top按钮-->
-    <?php $this->load->view('./templates/go-top'); ?>
-</div>
-<?php $this->load->view('./templates/footer'); ?>
+    <!--悬停go-top按钮--><?php $this->load->view('./templates/go-top'); ?>
+</div><?php $this->load->view('./templates/footer'); ?>
 
 <div class="modal fade" id="graphModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                        aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
                 <h3 class="modal-title" id="graph_modal_title"></h3>
             </div>
-            <div class="modal-body" id="graph_modal_body">
-            </div>
+            <div class="modal-body" id="graph_modal_body"></div>
         </div>
     </div>
 </div>
@@ -241,10 +236,10 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                     } else {
                         pl_rate.css('color', 'green');
                     }
-                    if(parseFloat(response.pl_value) < 0){
+                    if (parseFloat(response.pl_value) < 0) {
                         fd_value.css('color', 'green');
                         fd_rate.css('color', 'green');
-                    }else{
+                    } else {
                         fd_value.css('color', 'red');
                         fd_rate.css('color', 'red');
                     }
@@ -319,7 +314,7 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                         }
                     }
                     //绘制资金分布饼图
-                    var parts = ['可用现金', '债券市值', '股票市值','冻结资金'];
+                    var parts = ['可用现金', '债券市值', '股票市值', '冻结资金'];
                     var cash_use = decimal(parseFloat("<?php echo $user_data['cash_use'];?>"));
                     var cash_freeze = decimal(parseFloat("<?php echo $user_data['cash_freeze'];?>"));
                     var stock_value = decimal(parseFloat(response.stock_value));  //股票市值
