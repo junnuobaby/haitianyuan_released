@@ -1,5 +1,4 @@
 <!--华山论剑首页，模拟炒股首页-->
-<!--我的资金下面，除总现金外其它都是动态获取和变化的-->
 <!--我的持仓下面，股票当前价，浮动盈亏，盈亏率，今日涨跌幅是动态获取和变化的-->
 <!--总资产是总现金与所持证券的市值之和-->
 <?php
@@ -36,7 +35,7 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                                             <table class="table  basic_fund_info">
                                                 <tr>
                                                     <th>总资产</th>
-                                                    <td id="my_asset"></td>
+                                                    <td id="my_asset" class="formatted"></td>
                                                 </tr>
                                                 <tr>
                                                     <th>总现金</th>
