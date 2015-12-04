@@ -73,10 +73,8 @@ $sell_stocks = $sell_list; //获取手中持有的股票
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <div class="form-group">
                                                 <label for="buy_price" class="col-sm-4 control-label">卖出价格:</label>
-
                                                 <div class="col-sm-8">
                                                     <div class="input-group">
                                                         <input type="text" class="form-control" id="buy_price"
@@ -84,20 +82,18 @@ $sell_stocks = $sell_list; //获取手中持有的股票
 
                                                         <div class="input-group-addon">元</div>
                                                     </div>
-
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="buy_quantity" class="col-sm-4 control-label">卖出数量:</label>
-
                                                 <div class="col-sm-8">
                                                     <div class="input-group">
                                                         <input type="text" class="form-control" id="buy_quantity"
                                                                name="buy_quantity">
-
                                                         <div class="input-group-addon">手</div>
                                                     </div>
-                                                    <span class="theme-color">(1手 = 100股)</span>
+                                                    <span class="theme-color">(股票1手 = 100股)</span>
+                                                    <div class="theme-color">(债券1手 = 10张)</div>
                                                 </div>
                                             </div>
                                             <a class="btn  bg-theme buy_stock_btn" id="buy">卖出
