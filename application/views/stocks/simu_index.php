@@ -91,8 +91,8 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                                             <table class="table table-bordered">
                                                 <thead>
                                                 <tr>
-                                                    <th>代码</th>
-                                                    <th>名称</th>
+                                                    <th>债券代码</th>
+                                                    <th>债券名称</th>
                                                     <th>总量</th>
                                                     <th>可卖量</th>
                                                     <th>买入成本</th>
@@ -101,7 +101,7 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                                                     <th>盈亏率</th>
                                                     <th>涨跌幅</th>
                                                     <th>全价</th>
-                                                    <th>距付息日</th>
+                                                    <th>距付息日（天）</th>
                                                     <th>到期时间</th>
                                                 </tr>
                                                 </thead>
@@ -238,7 +238,21 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                         } else {
                             trade_price = decimal(stock_info[key]['TradePrice']);
                             id_extent = decimal(parseFloat(stock_info[key]['id_extent']) * 100);
-
+//                            if (parseFloat(stock_info[key]['float_pl']) < 0) {
+//                                $(tr_id).children('td:eq(6)').css('color', 'green');
+//                            } else if (parseFloat(stock_info[key]['float_pl']) >= 0) {
+//                                $(tr_id).children('td:eq(6)').css('color', 'red');
+//                            }
+//                            if (parseFloat(stock_info[key]['float_pl_rate']) < 0) {
+//                                $(tr_id).children('td:eq(7)').css('color', 'green');
+//                            } else if (parseFloat(stock_info[key]['float_pl_rate']) >= 0) {
+//                                $(tr_id).children('td:eq(7)').css('color', 'red');
+//                            }
+//                            if (id_extent < 0) {
+//                                $(tr_id).children('td:eq(8)').css('color', 'green');
+//                            } else if (id_extent >= 0) {
+//                                $(tr_id).children('td:eq(8)').css('color', 'red');
+//                            }
                             $(tr_id).children('td:eq(5)').html(trade_price);
                             $(tr_id).children('td:eq(6)').html(format_num(decimal(stock_info[key]['float_pl']))).css('color', (parseFloat(stock_info[key]['float_pl']) > 0) ? 'red' : 'green');  //设置浮动盈亏
                             $(tr_id).children('td:eq(7)').html(format_num(stock_info[key]['float_pl_rate']) + '%').css('color', (parseFloat(stock_info[key]['float_pl_rate']) > 0) ? 'red' : 'green');   //设置盈亏比
@@ -247,10 +261,11 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                     }
                     for (key in bond_info) {
                         tr_id = '#' + key;
-                        if (stock_info[key].length == 0) {
-                            $(tr_id).children('td:gt(4)').each(function () {
-                                $(this).html('--');
-                            });
+                        if (bond_info[key].length == 0) {
+                            $(tr_id).children('td:eq(5)').html('--');  //设置当前价
+                            $(tr_id).children('td:eq(6)').html('--');   //设置浮动盈亏
+                            $(tr_id).children('td:eq(7)').html('--');   //设置盈亏比
+                            $(tr_id).children('td:eq(8)').html('--');  //设置涨跌幅
                         } else {
                             trade_price = decimal(bond_info[key]['TradePrice']);  //获取当前价，保留小数点后两位
                             id_extent = decimal(parseFloat(bond_info[key]['id_extent']) * 100);  //获取涨跌幅，保留小数点后两位
