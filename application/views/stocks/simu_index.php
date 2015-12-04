@@ -135,7 +135,7 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                                             </thead>
                                             <tbody>
                                             <?php foreach ($user_bonds as $stock_item): ?>
-                                                <tr id="<?php echo $stock_item['SecurityID']; ?>" data-interest="<?php echo $stock_item['interest'];?>" data-left="<?php echo $stock_item['day_left'];?>" data-expire="<?php echo $stock_item['expire_day'];?>">
+                                                <tr id="<?php echo $stock_item['SecurityID']; ?>" data-interest="<?php echo $stock_item['interest'];?>" data-left="<?php echo $stock_item['day_left'];?>" data-expire="<?php echo $stock_item['profit_end'];?>">
                                                     <td><?php echo $stock_item['SecurityID']; ?></td>
                                                     <td><?php echo $stock_item['Symbol']; ?></td>
                                                     <td class="formatted"><?php echo $stock_item['Volume_All']; ?></td>
