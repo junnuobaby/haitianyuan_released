@@ -19,7 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </ul>
             </div>
             <div class="col-md-7">
-                <img src="<?php echo base_url('/assets/images/component/map.jpg'); ?>" class="img-rounded img-responsive">
+                <img src="<?php echo base_url('/assets/images/thumbnail/map.jpg'); ?>" class="img-rounded img-responsive">
             </div>
         </div>
     </div>

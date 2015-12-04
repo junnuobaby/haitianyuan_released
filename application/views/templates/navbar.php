@@ -9,7 +9,7 @@
     <div class="container">
         <div class="navbar-header">
             <a class="navbar-brand" href="<?php echo base_url('/index.php/index');?>">
-                <img src="<?php echo base_url('assets/images/logo/logo_0.png'); ?>"/>
+                <img src="<?php echo base_url('assets/images/icon/logo_0.png'); ?>"/>
             </a>
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                     data-target="#bs-example-navbar-collapse-1" aria-expanded="false">

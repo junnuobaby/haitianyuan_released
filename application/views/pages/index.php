@@ -19,7 +19,7 @@ $jinbang = array($user, $user, $user, $user, $user, $user, $user, $user, $user, 
                     <div class="col-md-4">
                         <a href="#" class="index-info-box">
                             <h3>什么是海天理财师？</h3>
-                            <img width="300px" src="<?php echo base_url('assets/images/logo/logo_2.png'); ?>"/>
+                            <img width="300px" src="<?php echo base_url('assets/images/thumbnail/index_1.png'); ?>"/>
 
                             <div class="info-box-img info-box-img-1">
                             </div>
@@ -32,7 +32,7 @@ $jinbang = array($user, $user, $user, $user, $user, $user, $user, $user, $user, 
                             <span>2.参加银榜比赛，优胜者免费进入金榜</span>
 
                             <div class="info-box-img info-box-img-2">
-                                <img height="120px" src="<?php echo base_url('assets/images/logo/logo_3.png'); ?>"/>
+                                <img height="120px" src="<?php echo base_url('assets/images/thumbnail/index_2.png'); ?>"/>
                             </div>
                         </a>
                     </div>
@@ -42,7 +42,7 @@ $jinbang = array($user, $user, $user, $user, $user, $user, $user, $user, $user, 
                             <span>无限次提问，查看理财师观点</span>
 
                             <div class="info-box-img info-box-img-3">
-                                <img width="160px" src="<?php echo base_url('assets/images/logo/logo_4.png'); ?>"/>
+                                <img width="160px" src="<?php echo base_url('assets/images/thumbnail/index_3.png'); ?>"/>
                             </div>
                         </a>
                     </div>
@@ -144,7 +144,7 @@ $jinbang = array($user, $user, $user, $user, $user, $user, $user, $user, $user, 
                         </div>
                         <div class="col-md-2">
                             <div style="margin-top: 100px;margin-left: 25px;">
-                                <img src="<?php echo base_url('assets/images/logo/logo_1.png'); ?>"/>
+                                <img src="<?php echo base_url('assets/images/thumbnail/index_vs.png'); ?>"/>
 
                             </div>
                         </div>

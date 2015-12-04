@@ -17,7 +17,7 @@ $hot_topic_list = array(
 <div class="col-md-4 col-sm-4 side-bar">
     <div class="widget">
         <a href="<?php echo base_url("index.php/index/authentication"); ?>">
-            <img src="<?php echo base_url('/assets/images/component/1.png'); ?>" class="img-responsive" alt="Logo加载中...">
+            <img src="<?php echo base_url('/assets/images/thumbnail/cartoon_1.png'); ?>" class="img-responsive" alt="Logo加载中...">
         </a>
     </div>
     <div class="widget hot-topics">
