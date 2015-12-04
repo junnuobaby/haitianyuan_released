@@ -41,7 +41,7 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                                                 <tr><th>股票市值</th><td id="stock_value"></td></tr>
                                                 <tr><th>债券市值</th><td id="bond_value"></td></tr>
                                                 <tr><th>仓位</th><td id="my_position"></td></tr>
-                                                <tr><th>总盈亏</th><td id="pl_value"></td></tr>
+                                                <tr><th>总盈亏</th><td id="pl_value" class="render"></td></tr>
                                                 <tr><th>总盈亏率</th><td id="pl_rate"></td></tr>
                                                 <tr><th>浮动盈亏</th><td id="fd_value"></td></tr>
                                                 <tr><th>浮动盈亏率</th><td id="fd_rate"></td></tr>
@@ -207,11 +207,11 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                     var base_funds = parseFloat('<?php echo $base_funds;?>');
                     var user_value = asset_all - base_funds;  //总盈亏额
                     var user_rate = decimal((user_value * 100) / base_funds);   //总盈亏率
-                    if (parseFloat(user_value) > 0) {
-                        pl_value.css('color', 'red');
-                    } else {
-                        pl_value.css('color', 'green');
-                    }
+//                    if (parseFloat(user_value) > 0) {
+//                        pl_value.css('color', 'red');
+//                    } else {
+//                        pl_value.css('color', 'green');
+//                    }
                     if (parseFloat(user_rate) > 0) {
                         pl_rate.css('color', 'red');
                     } else {
