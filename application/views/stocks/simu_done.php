@@ -16,7 +16,7 @@ $pages = $done_list['pagination']; //获取分页
             <?php $this->load->view('./stocks/simu_menu'); ?>
         </div>
         <div class="row">
-            <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
+<!--            <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">-->
                 <div class="bg-white stocks_min_h  block-radius">
                     <div class="simulate_panel">
                         <div class="tab-content">
@@ -76,7 +76,7 @@ $pages = $done_list['pagination']; //获取分页
                         </div>
                     </div>
                 </div>
-            </div>
+<!--            </div>-->
         </div>
     </div>
 
