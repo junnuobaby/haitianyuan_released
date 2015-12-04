@@ -1,4 +1,4 @@
-<!--模拟炒股，撤销委托单-->
+<!--模拟炒股，委托单-->
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>

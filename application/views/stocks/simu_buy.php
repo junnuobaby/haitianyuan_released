@@ -17,7 +17,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="simulate_panel">
                         <div class="tab-content">
                             <h4 class="theme-color container_to_top">买入证券</h4>
-
                             <div class="alert alert-info hidden" role="alert">买入委托已经成功提交。您可以点击“撤单”来查看或撤销买入委托。</div>
                             <div class="panel panel-default">
                                 <div class="panel-body">
@@ -82,7 +81,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                                         <div class="input-group-addon">手</div>
                                                     </div>
-                                                    <span class="theme-color">(1手 = 100股)</span>
+                                                    <span class="theme-color">(股票1手 = 100股)</span>
+                                                    <span class="theme-color">(债券1手 = 10张)</span>
                                                 </div>
                                             </div>
                                             <a class="btn  bg-theme buy_stock_btn" id="buy">买入</a>
