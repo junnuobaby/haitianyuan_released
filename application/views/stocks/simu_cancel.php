@@ -27,56 +27,43 @@ $pages = $pre_list['pagination']; //获取分页
                                     <table class="table  table-responsive table-hover">
                                         <thead>
                                         <tr>
-                                            <th>时间</th>
+                                            <th>订单号</th>
+                                            <th>操作</th>
                                             <th>证券代码</th>
                                             <th>证券名称</th>
-                                            <th>委托方向</th>
-                                            <th>数量（股）</th>
-                                            <th>委托价格</th>
-                                            <th>委托金额</th>
-                                            <th>预收费用</th>
-                                            <th>动作</th>
+                                            <th>挂单数量</th>
+                                            <th>挂单价格</th>
+                                            <th>挂单全价</th>
+                                            <th>挂单金额</th>
+                                            <th>手续费</th>
+                                            <th>印花税</th>
+                                            <th>其他杂费</th>
+                                            <th>发生金额</th>
+                                            <th>现金余额</th>
+                                            <th>下单时间</th>
+                                            <th>备注</th>
+                                            <th>撤单</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         <?php foreach ($records as $stock_item): ?>
                                             <tr class="done_record">
-                                                <!--时间-->
-                                                <td><?php echo $stock_item['timestamp']; ?></td>
-                                                <!--证券代码-->
-                                                <td data-toggle="modal" data-target="#graphModal"
-                                                    onclick="fillimage('<?= $stock_item['SecurityID']; ?>', '<?= $stock_item['Symbol']; ?>')">
-                                                    <a href="#"
-                                                       class="hty_a"><?php echo $stock_item['SecurityID']; ?></a></td>
-                                                <!--证券名称-->
+                                                <td><?php echo $stock_item['pre_id']; ?></td>
+                                                <td><?php if ($stock_item['trade_type'] == '0') {echo '买入';} else if($stock_item['trade_type'] == '2'){echo "卖出";} ?></td>
+                                                <td data-toggle="modal" data-target="#graphModal" onclick="fillimage('<?= $stock_item['SecurityID']; ?>', '<?= $stock_item['Symbol']; ?>')"><a href="#" class="hty_a"><?php echo $stock_item['SecurityID']; ?></a></td>
                                                 <td><?php echo $stock_item['Symbol']; ?></td>
-                                                <!--委托方向-->
-                                                <td><?php if ($stock_item['trade_type'] == '0') {
-                                                        echo '买入';
-                                                    } else {
-                                                        echo "卖出";
-                                                    } ?></td>
-                                                <!--委托数量-->
                                                 <td class="formatted"><?php echo $stock_item['Volume']; ?></td>
-                                                <!--委托价格-->
-                                                <td class="formatted"><?php echo $stock_item['Price']; ?></td>
-                                                <!--委托金额-->
-                                                <td class="formatted"><?php echo $stock_item['Price'] * $stock_item['Volume']; ?></td>
-                                                <!--预收交易费用（不超过1万统一收5元，超过10000按万三标准收取）-->
-                                                <td class="formatted"><?php
-                                                    if ($stock_item['trade_type'] == '0') {
-                                                        $trade_money = floatval($stock_item['Price'] * $stock_item['Volume']) * 0.0003;
-                                                    } else {
-                                                        $trade_money = floatval($stock_item['Price'] * $stock_item['Volume']) * 0.0013;
-                                                    }
-                                                    if ($trade_money > 5) {
-                                                        echo number_format($trade_money, 2);
-                                                    } else {
-                                                        echo '5.00';
-                                                    }
-                                                    ?></td>
-                                                <td><a href="#" class="theme-color cancel_btn"
-                                                       data-id="<?php echo $stock_item['pre_id']; ?>">撤单</a></td>
+                                                <td class="formatted"><?php echo $stock_item['price_order']; ?></td>
+                                                <td class="formatted"><?php echo $stock_item['price_full']; ?></td>
+                                                <td class="formatted"><?php echo $stock_item['fund_deal']; ?></td>
+                                                <td class="formatted"><?php echo $stock_item['fee']; ?></td>
+                                                <td class="formatted"><?php echo $stock_item['tax']; ?></td>
+                                                <td class="formatted"><?php echo $stock_item['other_fee']; ?></td>
+                                                <td class="formatted"><?php echo $stock_item['hap_fund']; ?></td>
+                                                <td class="formatted"><?php echo $stock_item['remain_fund']; ?></td>
+                                                <td class="formatted"><?php echo $stock_item['timestamp']; ?></td>
+                                                <td class="formatted"><?php echo $stock_item['tip']; ?></td>
+                                                <td><a href="#" class="theme-color cancel_btn" data-id="<?php echo $stock_item['pre_id']; ?>">撤单</a></td>
                                             </tr>
                                         <?php endforeach; ?>
                                         </tbody>
