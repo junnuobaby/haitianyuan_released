@@ -163,6 +163,7 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
         });
         $('.render').each(function () {
             var value = $(this).html().indexOf('-');
+            alert(value);
             if (value == -1) {
                 $(this).css('color', 'red');
             } else {
