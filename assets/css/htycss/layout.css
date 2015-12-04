@@ -108,7 +108,7 @@ footer.page_footer p{
     transition: all 0.5s ease 0s;
 }
 .fixed-bar li:hover{
-    border-color:#f4645f;
+    border-color:#FD7A65;
     cursor: pointer;
 }
 .fixed-bar li.go-top{
@@ -467,7 +467,7 @@ caption.caption-yinbang{
     padding: 0;
 }
 .profile-usermenu li h4 {
-    color: #f4645f;
+    color: #FD7A65;
     border-bottom: 1px solid #ebebeb;
 }
 .profile-usermenu ul li a {
@@ -483,7 +483,7 @@ caption.caption-yinbang{
     font-size: 14px;
 }
 .profile-usermenu ul li a:hover {
-    background-color: #f4645f;
+    background-color: #FD7A65;
     color: #ffffff;
 }
 .master-profile-panel .form-group {
@@ -492,7 +492,7 @@ caption.caption-yinbang{
     margin-bottom: 20px;
 }
 a.basic-info-a {
-    color: #f4645f;
+    color: #FD7A65;
 }
 .input-group-verification {
     width: 300px;
@@ -505,7 +505,7 @@ a.basic-info-a {
     position: relative;
     cursor: pointer;
     color: #ffffff;
-    background: #f4645f;
+    background: #FD7A65;
     border: 1px solid #ddd;
     border-radius: 4px;
     overflow: hidden;
@@ -545,7 +545,7 @@ a.avatar-upload:hover {
     margin-bottom: 10px;
 }
 .self_master_address {
-    color: #f4645f;
+    color: #FD7A65;
 }
 /*联系我们页面样式*/
 #contact_us h1 {
@@ -621,7 +621,7 @@ a.avatar-upload:hover {
 
 #vip_price h1.slogan {
     margin: 100px auto 150px auto;
-    color: #f4645f;
+    color: #FD7A65;
     font-size: 50px;
     text-shadow: 3px 3px 5px #cccccc;
 }
@@ -629,8 +629,8 @@ a.avatar-upload:hover {
 #vip_price div.box {
     height: 400px;
     width: 280px;
-    background-color: #f4645f;
-    border: solid 5px #f4645f;
+    background-color: #FD7A65;
+    border: solid 5px #FD7A65;
     border-radius: 5px;
     box-shadow: 2px 2px 3px #aaaaaa;
 }
@@ -680,7 +680,7 @@ a.avatar-upload:hover {
     padding-left: 30px;
     padding-right: 30px;
     width: 200px;
-    background-color: #f4645f;
+    background-color: #FD7A65;
     border-radius: 50px;
     color: white;
     font-size: 20px;
@@ -695,7 +695,7 @@ a.avatar-upload:hover {
 }
 
 #vip_price .box ul.features i {
-    color: #f4645f;
+    color: #FD7A65;
     margin-right: 10px;
 }
 
@@ -901,7 +901,7 @@ div.master_view section {
 }
 
 .view_footer .edit_view{
-    color: #f4645f;
+    color: #FD7A65;
     float: right;
     margin-right: 10px;
 }
@@ -917,7 +917,7 @@ div.master_view section {
     padding: 6px 12px;
     margin-left: -1px;
     line-height: 1.42857143;
-    color: #f4645f;
+    color: #FD7A65;
     text-decoration: none;
     background-color: #fff;
     border: 1px solid #ddd;
@@ -1006,7 +1006,7 @@ div.master_view section {
     text-decoration: none;
 }
 .nav_current{
-    border-bottom: 2px solid #f4645f;
+    border-bottom: 2px solid #FD7A65;
     margin-bottom: -2px;
 }
 .stocks_min_h{
