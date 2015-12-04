@@ -135,7 +135,7 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                                             </thead>
                                             <tbody>
                                             <?php foreach ($user_bonds as $stock_item): ?>
-                                                <tr id="<?php echo $stock_item['SecurityID']; ?>" data-interest="<?php echo $stock_item['interest'];?>" data-left="<?php echo $stock_item['day_left'];?>" data-expire="<?php echo $stock_item['profit_end'];?>">
+                                                <tr id="<?php echo $stock_item['SecurityID']; ?>" data-interest="<?php echo $stock_item['interest'];?>" data-dayleft="<?php echo $stock_item['day_left'];?>" data-expire="<?php echo $stock_item['profit_end'];?>">
                                                     <td><?php echo $stock_item['SecurityID']; ?></td>
                                                     <td><?php echo $stock_item['Symbol']; ?></td>
                                                     <td class="formatted"><?php echo $stock_item['Volume_All']; ?></td>
@@ -201,7 +201,6 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
     });
     $(document).ready(function () {
         load_dynamic_data();
-
         clearInterval(interval);
         interval = setInterval(load_dynamic_data, 8000); //每隔8s自动请求一次
         //请求动态加载数据
@@ -315,7 +314,7 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                             $(tr_id).children('td:eq(7)').html(format_num(bond_info[key]['float_pl_rate']) + '%');   //设置盈亏比
                             $(tr_id).children('td:eq(8)').html(id_extent + '%');  //设置涨跌幅
                             $(tr_id).children('td:eq(9)').html(parseFloat($(tr_id).data('interest')) + parseFloat(trade_price));  //设置全价
-                            $(tr_id).children('td:eq(10)').html(parseFloat($(tr_id).data('left'));  //设置距付息日天数
+                            $(tr_id).children('td:eq(10)').html(parseFloat($(tr_id).data('dayleft'));  //设置距付息日天数
                             $(tr_id).children('td:eq(11)').html(parseFloat($(tr_id).data('expire'));  //设置到期时间
                         }
                     }
