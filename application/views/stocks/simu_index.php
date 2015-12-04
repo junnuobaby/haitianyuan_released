@@ -42,6 +42,10 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                                                     <td class="formatted"><?php echo $user_data['cash_all']; ?></td>
                                                 </tr>
                                                 <tr>
+                                                    <th>可用现金</th>
+                                                    <td class="formatted"><?php echo $user_data['cash_use']; ?></td>
+                                                </tr>
+                                                <tr>
                                                     <th>股票市值</th>
                                                     <td id="stock_value"></td>
                                                 </tr>
