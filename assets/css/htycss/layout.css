@@ -536,9 +536,6 @@ a.avatar-upload:hover {
 }
 #display_avatar_block {
     margin: 20px 20px;
-    /*border: 1px solid #e1e1e1;*/
-}
-#master-profile-avatar-display{
     border: 1px solid #e1e1e1;
 }
 #display_avatar_div {
