@@ -238,21 +238,6 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                         } else {
                             trade_price = decimal(stock_info[key]['TradePrice']);
                             id_extent = decimal(parseFloat(stock_info[key]['id_extent']) * 100);
-//                            if (parseFloat(stock_info[key]['float_pl']) < 0) {
-//                                $(tr_id).children('td:eq(6)').css('color', 'green');
-//                            } else if (parseFloat(stock_info[key]['float_pl']) >= 0) {
-//                                $(tr_id).children('td:eq(6)').css('color', 'red');
-//                            }
-//                            if (parseFloat(stock_info[key]['float_pl_rate']) < 0) {
-//                                $(tr_id).children('td:eq(7)').css('color', 'green');
-//                            } else if (parseFloat(stock_info[key]['float_pl_rate']) >= 0) {
-//                                $(tr_id).children('td:eq(7)').css('color', 'red');
-//                            }
-//                            if (id_extent < 0) {
-//                                $(tr_id).children('td:eq(8)').css('color', 'green');
-//                            } else if (id_extent >= 0) {
-//                                $(tr_id).children('td:eq(8)').css('color', 'red');
-//                            }
                             $(tr_id).children('td:eq(5)').html(trade_price);
                             $(tr_id).children('td:eq(6)').html(format_num(decimal(stock_info[key]['float_pl']))).css('color', (parseFloat(stock_info[key]['float_pl']) > 0) ? 'red' : 'green');  //设置浮动盈亏
                             $(tr_id).children('td:eq(7)').html(format_num(stock_info[key]['float_pl_rate']) + '%').css('color', (parseFloat(stock_info[key]['float_pl_rate']) > 0) ? 'red' : 'green');   //设置盈亏比
