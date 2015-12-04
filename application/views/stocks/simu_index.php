@@ -110,7 +110,7 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                                                     <tr id="<?php echo $stock_item['SecurityID']; ?>" data-interest="<?php echo $stock_item['interest']; ?>" data-dayleft="<?php echo $stock_item['day_left']; ?>" data-expire="<?php echo $stock_item['profit_end']; ?>">
                                                         <td><?php echo $stock_item['SecurityID']; ?></td>
                                                         <td><?php echo $stock_item['Symbol']; ?></td>
-                                                        <td class="formatted"><?php echo $stock_item['Volume_All']; ?></td>
+                                                        <td class="formatted"><?php echo intval($stock_item['Volume_All']); ?></td>
                                                         <td class="formatted"><?php echo intval($stock_item['Volume_All']) - intval($stock_item['Ban_Volume']) - intval($stock_item['Order_Volume']); ?></td>
                                                         <td><?php echo number_format(floatval($stock_item['BuyCost']), 2); ?></td>
                                                         <td></td>
