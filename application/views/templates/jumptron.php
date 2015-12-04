@@ -12,18 +12,18 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
-                    <img class="jumptron_img" src="<?php echo base_url('assets/images/jumptron/1.png'); ?>" alt="...">
+                    <img class="jumptron_img" src="<?php echo base_url('assets/images/back/index_jmp_1.png'); ?>" alt="...">
 
                     <div class="carousel-caption">
                     </div>
                 </div>
                 <div class="item">
-                    <img class="jumptron_img" src="<?php echo base_url('assets/images/jumptron/2.png'); ?>" alt="...">
+                    <img class="jumptron_img" src="<?php echo base_url('assets/images/back/index_jmp_2.png'); ?>" alt="...">
                     <div class="carousel-caption">
                     </div>
                 </div>
                 <div class="item">
-                    <img class="jumptron_img" src="<?php echo base_url('assets/images/jumptron/3.png'); ?>" alt="...">
+                    <img class="jumptron_img" src="<?php echo base_url('assets/images/back/index_jmp_3.png'); ?>" alt="...">
                     <div class="carousel-caption">
                     </div>
                 </div>

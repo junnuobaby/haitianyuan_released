@@ -109,7 +109,7 @@ $current_user = $this->session->userdata('username');
 </div>
 <script>
     $(document).ready(function () {
-        $('.master_homepage_jumptron').css('background-image', 'url("<?php echo base_url('assets/images/back/2.jpg'); ?>")');
+        $('.master_homepage_jumptron').css('background-image', 'url("<?php echo base_url('assets/images/back/homepage_jmp.jpg'); ?>")');
         /* 让提问的模态框居中 */
         function centerModals() {
             $('.modal').each(function (i) {
