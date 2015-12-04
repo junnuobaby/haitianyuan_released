@@ -25,7 +25,7 @@ $pages = $done['pagination'];
                         <li role="presentation"><a href="<?php echo base_url('index.php/my_center/index/1/1'); ?>">未解决 </a>
                         </li>
                         <li role="presentation"  class="active"><a href="#qa_done" aria-controls="profile" role="tab" data-toggle="tab">已解决
-                                <span class="badge theme-bg-color"><?php echo $qa_num ?></span></a>
+                                <span class="badge bg-theme"><?php echo $qa_num ?></span></a>
                         </li>
                     </ul>
 

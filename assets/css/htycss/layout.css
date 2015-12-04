@@ -69,6 +69,25 @@ a.take_in:hover{
 .register_input {
     padding-bottom: 0.5em;
 }
+/*页脚*/
+footer.page_footer {
+    font-size: 13px;
+    color: #555555;
+    padding-top: 20px;
+    height: 80px;
+    background-color: #d9d9d9;
+    z-index: 1000;
+}
+footer.page_footer span {
+    margin: 0.5em;
+}
+footer.page_footer a {
+    color: #555555;
+}
+footer.page_footer p{
+    margin-top: 10px;
+    margin-bottom: 0;
+}
 /*反馈，回到顶部*/
 .fixed-bar {
     position: fixed;

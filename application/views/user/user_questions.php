@@ -24,7 +24,7 @@ $pages = $undo['pagination'];
                     <ul class="nav nav-tabs" role="tablist">
                         <li role="presentation" class="active"><a href="#qa_undo_list" role="tab"
                                                                   data-toggle="tab">未解决 <span
-                                    class="badge theme-bg-color"><?php echo $qu_num ?></span></a>
+                                    class="badge bg-theme"><?php echo $qu_num ?></span></a>
                         </li>
                         <li role="presentation"><a href="<?php echo base_url('index.php/my_center/index/1/2'); ?>">已解决</a>
                         </li>

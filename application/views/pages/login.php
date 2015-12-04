@@ -37,7 +37,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="row">
                 <div class="col-md-12">
                     <div class="login-btn-div">
-                        <button type="submit" class="btn btn-block theme-bg-color">登陆</button>
+                        <button type="submit" class="btn btn-block bg-theme">登陆</button>
                     </div>
                 </div>
             </div>
@@ -69,7 +69,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="input-group <?php echo $code_error ? 'has-error' : ''; ?>">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-eye-open"></span></span>
                 <input type="text" class="form-control" id="verification_code" name="phone_code" value="<?php echo !$code_error ? set_value('phone_code') : ''; ?>" placeholder="<?php if($code_error) echo $code_error; else echo '验证码' ?>">
-                <div class="input-group-btn"><button id="send_code" type="button" class="btn theme-bg-color" disabled="disabled">获取验证码</button></div>
+                <div class="input-group-btn"><button id="send_code" type="button" class="btn bg-theme" disabled="disabled">获取验证码</button></div>
             </div>
             <p class="theme-color hidden nick_name_error" id="ver_code_error"></p>
             <div class="input-group <?php echo $nickname_error ? 'has-error' : ''; ?>">
@@ -86,7 +86,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="row pwd-help-info">
                 <div class="col-md-12">
                     <div class="login-btn-div">
-                        <button type="submit" class="btn btn-block theme-bg-color">注册</button>
+                        <button type="submit" class="btn btn-block bg-theme">注册</button>
                     </div>
                 </div>
             </div>

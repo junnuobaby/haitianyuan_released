@@ -73,7 +73,6 @@ $master_id = $info['host_id'];
     <!--悬停go-top按钮-->
     <?php $this->load->view('./templates/go-top'); ?>
 </div>
-
 <?php $this->load->view('./templates/footer'); ?>
 </body>
 

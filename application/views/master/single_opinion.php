@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body class="bg-gray">
 <div class="wrapper">
     <?php $this->load->view('./templates/navbar'); ?>
-    <div class="sop_header theme-bg-color">
+    <div class="sop_header bg-theme">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-sm-12">
@@ -41,7 +41,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     echo '免费';
                                 }; ?></span>
                             <button class="btn btn-success glyphicon glyphicon-thumbs-down"> <?php echo '0';?> 太水了</button>
-                            <button class="btn btn-danger theme-bg-color glyphicon glyphicon-thumbs-up"> <?php echo '0';?> 赞一个</button>
+                            <button class="btn btn-danger bg-theme glyphicon glyphicon-thumbs-up"> <?php echo '0';?> 赞一个</button>
                         </footer>
                     </article>
                 </div>

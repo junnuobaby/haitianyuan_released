@@ -17,14 +17,14 @@ a{
     color: #040404;
     outline: medium none !important;
 }
-button.btn.theme-bg-color,a.theme-bg-color{
+button.btn.bg-theme,a.bg-theme{
     color: white;
 }
 a:hover{
     text-decoration: none;
     color:#FD9271;
 }
-a.btn.theme-bg-color:hover,button.btn.theme-bg-color:hover{
+a.btn.bg-theme:hover,button.btn.bg-theme:hover{
     color:white;
     background-color: #FD7A65;
 }
@@ -39,25 +39,6 @@ a.btn.theme-bg-color:hover,button.btn.theme-bg-color:hover{
 }
 .inline_block{
     display: inline-block;
-}
-/*页脚*/
-footer.page_footer {
-    font-size: 13px;
-    color: #555555;
-    padding-top: 20px;
-    height: 80px;
-    background-color: #d9d9d9;
-    z-index: 1000;
-}
-footer.page_footer span {
-    margin: 0.5em;
-}
-footer.page_footer a {
-    color: #555555;
-}
-footer.page_footer p{
-    margin-top: 10px;
-    margin-bottom: 0;
 }
 /*网站的主题颜色*/
 .theme-color {
@@ -79,7 +60,7 @@ footer.page_footer p{
     color: white;
 }
 /*背景色*/
-.theme-bg-color {
+.bg-theme {
     background-color: #FD9271;
 }
 .bg-green{

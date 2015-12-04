@@ -28,7 +28,7 @@ $pages = $undo['pagination'];
                         </li>
                         <li role="presentation" id="answered_btn_li"><a
                                 href="<?php echo base_url('index.php/my_center/index/1/2'); ?>" id="answered_btn">已解决
-                                <span class="badge theme-bg-color" id="answered_num"></span></a>
+                                <span class="badge bg-theme" id="answered_num"></span></a>
                         </li>
 
                     </ul>

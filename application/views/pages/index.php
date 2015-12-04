@@ -180,6 +180,7 @@ $jinbang = array($user, $user, $user, $user, $user, $user, $user, $user, $user, 
         </section>
     </div>
 </div>
+<?php $this->load->view('./templates/go-top'); ?>
 <?php $this->load->view('./templates/footer'); ?>
 </body>
 </html>
