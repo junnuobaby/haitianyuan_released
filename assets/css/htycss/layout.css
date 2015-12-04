@@ -69,6 +69,71 @@ a.take_in:hover{
 .register_input {
     padding-bottom: 0.5em;
 }
+/*页脚样式*/
+footer.page_footer {
+    font-size: 13px;
+    color: #555555;
+    padding-top: 20px;
+    height: 80px;
+    background-color: #d9d9d9;
+    z-index: 1000;
+}
+footer.page_footer span {
+    margin: 0.5em;
+}
+footer.page_footer a {
+    color: #555555;
+}
+footer.page_footer p {
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+/*反馈,回到顶部*/
+.fixed-bar{
+    position: fixed;
+    right: 1%;
+    bottom: 1%;
+    z-index: 10000;
+    margin: 0;
+    padding: 0;
+}
+.fixed-bar li{
+    margin: 0;
+    padding: 0;
+    height: 52px;
+    width: 50px;
+    background-color: white;
+    border: 1px solid #dddddd;
+    list-style: none;
+    transition: all 0.5s ease 0s;
+}
+.fixed-bar li:hover{
+    border-color:#FD7A65;
+    cursor: pointer;
+}
+.fixed-bar li.go-top{
+    margin-top: -1px;
+}
+.fixed-bar li.go-top a:hover,a:active, a:focus, a:visited{
+    text-decoration: none;
+    outline: none;
+}
+.fixed-bar li .hz-icon{
+    width: 100%;
+    height: 100%;
+    line-height: 50px;
+    text-align: center;
+    display: block;
+    color: #999;
+    font-size: 25px;
+}
+.fixed-bar .fixed-bar-text{
+    line-height: 1.2em;
+    display: none;
+    color: #fff;
+    padding: 7px 10px;
+    font-size: 14px;
+}
 /*顶部导航*/
 .header {
     background: #FFF none repeat scroll 0% 0%;
