@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
                 <div class="bg-white stocks_min_h  block-radius">
                     <article class="simulate_panel">
-                        <h3 class="txt_center margin_to_bottom">模拟炒股操作指南</h3>
+                        <h3 class="text-center margin_to_bottom">模拟炒股操作指南</h3>
                         <section>
                             <h5>一、买入股票</h5>
                             <p>输入股票代码或名称（如600000 浦发银行），输入你要买入的价格，如果不输入默认为当前该股价格，最后输入需要买入的数量（数量必须是100的倍数，且不能超过自己帐户的可买数量）。

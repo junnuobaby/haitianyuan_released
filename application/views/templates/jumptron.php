@@ -43,7 +43,7 @@
 
     <div class="jumptron_logo">
         <div class="jinbang_num">
-            <p id="jinbang_num" class="bang_num inline_div">
+            <p id="jinbang_num" class="bang_num inline_block">
                 <span>2</span>
                 <span>0</span>
                 <span>5</span>
@@ -56,7 +56,7 @@
         <div class="join-contest">
             <p><span class="take_in_num">555</span>人正在角逐金榜,<span class="take_in_num">1500</span>人正在角逐银榜</p>
             <p>
-                <a href="#" class="inline_div take_in">
+                <a href="#" class="inline_block take_in">
                     <span class="glyphicon glyphicon-hand-right"></span> 马上参加
                 </a>
             </p>

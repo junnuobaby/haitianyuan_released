@@ -44,9 +44,9 @@ $ranking = 0;
                     <div class="rank_table">
                         <div class="col-md-8 col-md-offset-4">
                             <div class="plaque">
-                                <img width="70px" height="70px" class="img-responsive inline_block"
+                                <img width="70px" height="70px" class="img-responsive "
                                      src="<?php echo base_url('/assets/images/icon/chanshi.png'); ?>" alt="Logo加载中...">
-                                <img class="img-responsive inline_block"
+                                <img class="img-responsive "
                                      src="<?php echo base_url('/assets/images/icon/chanshilogo.png'); ?>"
                                      alt="Logo加载中...">
                             </div>
@@ -76,13 +76,13 @@ $ranking = 0;
                                             } elseif (floatval($item['scope']) < 0) {
                                                 echo "<span class='glyphicon glyphicon-arrow-down green-color'></span>";
                                             } else {
-                                                echo "<span class='glyphicon glyphicon-option-horizontal blue-color'></span>";
+                                                echo "<span class='glyphicon glyphicon-option-horizontal theme-color'></span>";
                                             }
                                             ?>
                                             <?= $ranking; ?></td>
                                         <td class="table_left">
                                             <img width="20px" height="20px" src="<?php echo base_url('/uploads/' . $item['face_pic']); ?>"
-                                                class="img-responsive inline_block" alt="..."> <?= $item['user_name']; ?></td>
+                                                class="img-responsive " alt="..."> <?= $item['user_name']; ?></td>
                                         <td class="formatted table_right"><?= $item['fund']; ?></td>
                                         <td class="table_right"><?= number_format(floatval($item['position']) * 100, 2); ?>
                                             %
@@ -110,10 +110,10 @@ $ranking = 0;
                         <div class="rank_table">
                             <div class="col-md-8 col-md-offset-4">
                                 <div class="plaque">
-                                    <img width="70px" height="70px" class="img-responsive inline_block"
+                                    <img width="70px" height="70px" class="img-responsive "
                                          src="<?php echo base_url('/assets/images/icon/zongshi.png'); ?>"
                                          alt="Logo加载中...">
-                                    <img class="img-responsive inline_block"
+                                    <img class="img-responsive "
                                          src="<?php echo base_url('/assets/images/icon/zongshilogo.png'); ?>"
                                          alt="Logo加载中...">
                                 </div>
@@ -142,12 +142,12 @@ $ranking = 0;
                                                 } elseif (floatval($item['scope']) < 0) {
                                                     echo "<span class='glyphicon glyphicon-arrow-down green-color'></span>";
                                                 } else {
-                                                    echo "<span class='glyphicon glyphicon-option-horizontal blue-color'></span>";
+                                                    echo "<span class='glyphicon glyphicon-option-horizontal theme-color'></span>";
                                                 }
                                                 ?>
                                                 <?= $ranking; ?></td>
                                             <td class="table_left"><img width="20px" height="20px" src="<?php echo base_url('/uploads/' . $item['face_pic']); ?>"
-                                                                        class="img-responsive inline_block" alt="..."> <?= $item['user_name']; ?></td>
+                                                                        class="img-responsive " alt="..."> <?= $item['user_name']; ?></td>
                                             <td class="formatted table_right"><?= $item['fund']; ?></td>
                                             <td class="table_right"><?= number_format(floatval($item['position']) * 100, 2); ?>
                                                 %
@@ -176,10 +176,10 @@ $ranking = 0;
                         <div class="rank_table">
                             <div class="col-md-8 col-md-offset-4">
                                 <div class="plaque">
-                                    <img width="70px" height="70px" class="img-responsive inline_block"
+                                    <img width="70px" height="70px" class="img-responsive "
                                          src="<?php echo base_url('/assets/images/icon/dashi.png'); ?>"
                                          alt="Logo加载中...">
-                                    <img class="img-responsive inline_block"
+                                    <img class="img-responsive "
                                          src="<?php echo base_url('/assets/images/icon/dashilogo.png'); ?>"
                                          alt="Logo加载中...">
                                 </div>
@@ -208,11 +208,11 @@ $ranking = 0;
                                                 } elseif (floatval($item['scope']) < 0) {
                                                     echo "<span class='glyphicon glyphicon-arrow-down green-color'></span>";
                                                 } else {
-                                                    echo "<span class='glyphicon glyphicon-option-horizontal blue-color'></span>";
+                                                    echo "<span class='glyphicon glyphicon-option-horizontal theme-color'></span>";
                                                 } ?>
                                                 <?= $ranking; ?></td>
                                             <td class="table_left"><img width="20px" height="20px" src="<?php echo base_url('/uploads/' . $item['face_pic']); ?>"
-                                                                        class="img-responsive inline_block" alt="..."> <?= $item['user_name']; ?></td>
+                                                                        class="img-responsive " alt="..."> <?= $item['user_name']; ?></td>
                                             <td class="formatted table_right"><?= $item['fund']; ?></td>
                                             <td class="table_right"><?= number_format(floatval($item['position']) * 100, 2); ?>
                                                 %

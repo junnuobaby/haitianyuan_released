@@ -38,7 +38,7 @@ $master_id = $info['host_id'];
                         <?php foreach ($qa_list as $qa_item): ?>
                             <div class="q_a">
                                 <article>
-                                    <h4 class="q_a_question inline_block">
+                                    <h4 class="q_a_question ">
                                         <span class="q_a_span">问</span>
                                         <a href="#"><?php echo $qa_item['qu_content']; ?> </a></h4>
 
@@ -63,7 +63,7 @@ $master_id = $info['host_id'];
                             </div>
                             <hr class="q_a_hr"/>
                         <?php endforeach; ?>
-                        <div class="txt_center"><p class="pages"><?php echo $pages ?></p></div>
+                        <div class="text-center"><p class="pages"><?php echo $pages ?></p></div>
                     </div>
                 </div>
             </div>

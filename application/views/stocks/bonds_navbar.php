@@ -1,5 +1,5 @@
 <!--华山论剑导航栏-->
-<nav class="bg-white txt_center sub_navigation">
+<nav class="bg-white text-center sub_navigation">
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-md-12">

@@ -44,7 +44,7 @@ $pages = $undo['pagination'];
                                 </div>
                                 <hr class="qu_hr"/>
                             <?php endforeach; ?>
-                            <div class="txt_center"><p class="pages"><?php echo $pages ?></p></div>
+                            <div class="text-center"><p class="pages"><?php echo $pages ?></p></div>
                         </div>
                     </div>
                 </div>

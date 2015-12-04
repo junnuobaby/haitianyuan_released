@@ -24,7 +24,7 @@ $pages = $undo['pagination'];
                     <ul class="nav nav-tabs" role="tablist">
                         <li role="presentation" class="active" id="answer_btn_li"><a href="#qa_undo_list" role="tab"
                                                                                      data-toggle="tab">待回答 <span
-                                    class="badge green-bg-color"><?php echo $qu_num ?></span></a>
+                                    class="badge bg-green"><?php echo $qu_num ?></span></a>
                         </li>
                         <li role="presentation" id="answered_btn_li"><a
                                 href="<?php echo base_url('index.php/my_center/index/1/2'); ?>" id="answered_btn">已解决
@@ -83,7 +83,7 @@ $pages = $undo['pagination'];
                                         <hr class="qu_hr"/>
                                     </div><!---->
                                 <?php endforeach; ?>
-                                <div class="txt_center" style="height: 100px;"><p class="pages"><?php echo $pages ?></p></div>
+                                <div class="text-center" style="height: 100px;"><p class="pages"><?php echo $pages ?></p></div>
                             <?php endif; ?>
                         </div>
                     </div>

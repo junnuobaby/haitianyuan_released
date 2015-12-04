@@ -90,7 +90,7 @@ $current_user = $this->session->userdata('username');
                 </div>
             </div>
             <div class="modal-footer">
-                <div class="question_label inline_block">
+                <div class="question_label ">
                     <label for="kword">标签</label>
                     <select id="kword" name="op_kwords">
                         <option>A股</option>

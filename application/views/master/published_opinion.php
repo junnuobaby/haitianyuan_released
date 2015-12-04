@@ -37,7 +37,7 @@ $view_num = $op['count']; // 已发表的观点数
                                 <div class="master_view">
                                     <article>
                                         <header>
-                                            <h4 class="inline_div"><a
+                                            <h4 class="inline_block"><a
                                                     href="<?php echo base_url('index.php/home/get_detail/web/' .'op'. '/' . $view_item['op_id']);?>"
                                                     target="_blank"> <?php echo $view_item['op_title']; ?></a></h4>
                                             <div class="qu_time">
@@ -71,7 +71,7 @@ $view_num = $op['count']; // 已发表的观点数
                                 </div>
                                 <hr/>
                             <?php endforeach; ?>
-                            <div class="txt_center"><p class="pages"><?php echo $pages ?></p></div>
+                            <div class="text-center"><p class="pages"><?php echo $pages ?></p></div>
                         </div>
                     <?php endif; ?>
                 </div>

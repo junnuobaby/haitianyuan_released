@@ -32,7 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                 <p class="help-block">建议使用二代身份证</p>
                             </div>
-                            <button type="submit" class="btn btn-danger btn-block self-btn-danger">认证</button>
+                            <button type="submit" class="btn btn-danger btn-block theme-bg-color">认证</button>
                         </form>
                     </div>
                 </div>

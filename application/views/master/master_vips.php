@@ -113,7 +113,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             for(var i= 0; i< qa_list.length; i++){
                 content += '<div class="q_a qu_margin">' +
                     '<article>' +
-                    '<h4 class="q_a_question inline_block">' +
+                    '<h4 class="q_a_question ">' +
                     '<span class="q_a_span">问</span>' +
                     '<a href="#">' + qa_list[i]['qu_content'] + '</a></h4>' +
                     '<span class="qu_time">【' + qa_list[i]['qu_timestamp'] + '】</span>' +
@@ -152,7 +152,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             for(var i= 0; i< qa_list.length; i++){
                 content += '<div class="q_a qu_margin">' +
                     '<article>' +
-                    '<h4 class="q_a_question inline_block">' +
+                    '<h4 class="q_a_question ">' +
                     '<span class="q_a_span">问</span>' +
                     '<a href="#">' + qa_list[i]['qu_content'] + '</a></h4>' +
                     '<span class="qu_time">【' + qa_list[i]['qu_timestamp'] + '】</span>' +

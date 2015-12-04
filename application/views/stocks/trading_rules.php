@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
                 <div class="bg-white stocks_min_h  block-radius">
                     <article class="simulate_panel">
-                        <h3 class="txt_center margin_to_bottom">模拟炒股交易规则</h3>
+                        <h3 class="text-center margin_to_bottom">模拟炒股交易规则</h3>
                         <section>
                             <h5>一、模拟炒股用户必须是海天的注册用户</h5>
                             <div>
