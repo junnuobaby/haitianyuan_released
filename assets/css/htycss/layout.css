@@ -51,7 +51,7 @@ a.take_in:hover, a.take_in:active, a.take_in:visited {
     color: white;
 }
 a.take_in:hover{
-    background-color: #FD7A65;
+    background-color: #FD9271;
 }
 .index-thumbnail {
     height: 400px;
@@ -210,7 +210,7 @@ a.index-info-box {
 }
 
 a.index-info-box:hover span {
-    color: #FD7A65;
+    color: #FD9271;
 }
 
 .index-info-box span {
@@ -372,7 +372,7 @@ caption.caption-yinbang{
     height: 40px;
 }
 .login-btn-div>button.btn:hover{
-    background-color: #fd7a65;
+    background-color: #FD9271;
     color: #fff;
 }
 .login-btn-div{
@@ -402,7 +402,7 @@ caption.caption-yinbang{
     padding: 0;
 }
 .profile-usermenu li h4 {
-    color: #f4645f;
+    color: #FD9271;
     border-bottom: 1px solid #ebebeb;
 }
 .profile-usermenu ul li a {
@@ -418,7 +418,7 @@ caption.caption-yinbang{
     font-size: 14px;
 }
 .profile-usermenu ul li a:hover {
-    background-color: #f4645f;
+    background-color: #FD9271;
     color: #ffffff;
 }
 .master-profile-panel .form-group {
@@ -427,7 +427,7 @@ caption.caption-yinbang{
     margin-bottom: 20px;
 }
 a.basic-info-a {
-    color: #f4645f;
+    color: #FD9271;
 }
 .input-group-verification {
     width: 300px;
@@ -440,7 +440,7 @@ a.basic-info-a {
     position: relative;
     cursor: pointer;
     color: #ffffff;
-    background: #f4645f;
+    background: #FD9271;
     border: 1px solid #ddd;
     border-radius: 4px;
     overflow: hidden;
@@ -456,7 +456,7 @@ a.avatar-upload:visited {
 }
 a.avatar-upload:hover {
     color: #ffffff;
-    background: #a62b2b;
+    background: #FD7A65;
     border-color: #ccc;
     text-decoration: none
 }
@@ -480,18 +480,18 @@ a.avatar-upload:hover {
     margin-bottom: 10px;
 }
 .self_master_address {
-    color: #f4645f;
+    color: #FD9271;
 }
 /*联系我们页面样式*/
 #contact_us h1 {
-    color: #c1837b;
+    color: #FD9271;
 }
 
 #contact_us li {
     font-size: 20px;
 }
 
-/*理财师个人主页样式*/
+/*理财师个人主页页面样式*/
 .master_homepage_jumptron {
     height: 380px;
     background-color: #e2e2e2;
@@ -513,11 +513,12 @@ a.avatar-upload:hover {
 .master_homepage_jumptron_div p.signature {
     font-size: 18px;
 }
+
 .master_homepage_jumptron_div a.btn {
-    color: #f56857;
+    color: #FD9271
     background-color: #ffffff;
     font-weight: 600;
-    border: 1px solid #f1362f;
+    border: 1px solid #FD9271;
     position: relative;
     margin-top: 10px;
 }
@@ -556,7 +557,7 @@ a.avatar-upload:hover {
 
 #vip_price h1.slogan {
     margin: 100px auto 150px auto;
-    color: #f4645f;
+    color: #FD9271;
     font-size: 50px;
     text-shadow: 3px 3px 5px #cccccc;
 }
@@ -564,8 +565,8 @@ a.avatar-upload:hover {
 #vip_price div.box {
     height: 400px;
     width: 280px;
-    background-color: #f4645f;
-    border: solid 5px #f4645f;
+    background-color: #FD9271;
+    border: solid 5px #FD9271;
     border-radius: 5px;
     box-shadow: 2px 2px 3px #aaaaaa;
 }
@@ -615,7 +616,7 @@ a.avatar-upload:hover {
     padding-left: 30px;
     padding-right: 30px;
     width: 200px;
-    background-color: #f4645f;
+    background-color: #FD9271;
     border-radius: 50px;
     color: white;
     font-size: 20px;
@@ -630,7 +631,7 @@ a.avatar-upload:hover {
 }
 
 #vip_price .box ul.features i {
-    color: #f4645f;
+    color: #FD9271;
     margin-right: 10px;
 }
 
@@ -666,8 +667,8 @@ a.avatar-upload:hover {
 }
 
 .q_a_span {
-    border: 1px solid #96cc75;
-    background-color: #96cc75;
+    border: 1px solid #96CC75;
+    background-color: #96CC75;
     padding: 4px;
     color: white;
     font-size: 16px;
@@ -754,7 +755,7 @@ div.master_view section {
 }
 
 .qu_btn {
-    background: #a0d56d;
+    background: #96CC75;
     font-size: 14px;
     color: #fff;
     text-align: center;
@@ -769,7 +770,7 @@ div.master_view section {
 }
 
 .qu_time .questioner {
-    color: #428bca;
+    color: #59b0ff;
     margin-left: 5px;
 }
 
@@ -836,7 +837,7 @@ div.master_view section {
 }
 
 .view_footer .edit_view{
-    color: #f4645f;
+    color: #FD9271;
     float: right;
     margin-right: 10px;
 }
@@ -852,7 +853,7 @@ div.master_view section {
     padding: 6px 12px;
     margin-left: -1px;
     line-height: 1.42857143;
-    color: #f4645f;
+    color: #FD9271;
     text-decoration: none;
     background-color: #fff;
     border: 1px solid #ddd;
@@ -941,7 +942,7 @@ div.master_view section {
     text-decoration: none;
 }
 .nav_current{
-    border-bottom: 2px solid #f4645f;
+    border-bottom: 2px solid #FD9271;
     margin-bottom: -2px;
 }
 .stocks_min_h{
