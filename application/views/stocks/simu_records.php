@@ -1,6 +1,8 @@
-<!--模拟炒股，已成交的订单--><?php
+<!--模拟炒股，已成交的订单-->
+<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html lang="zh-cn">
 <?php $this->load->view('./templates/head'); ?>
 <?php
@@ -84,9 +86,10 @@ $pages = $his_list['pagination']; //获取分页
             </div>
         </div>
     </div>
-
-    <!--悬停go-top按钮--><?php $this->load->view('./templates/go-top'); ?>
-</div><?php $this->load->view('./templates/footer'); ?>
+    <!--悬停go-top按钮-->
+    <?php $this->load->view('./templates/go-top'); ?>
+    <?php $this->load->view('./templates/footer'); ?>
+</div>
 </body>
 <script>
     $(document).ready(function () {
