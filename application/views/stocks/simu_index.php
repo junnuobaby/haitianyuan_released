@@ -220,12 +220,12 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                     var base_funds = parseFloat('<?php echo $base_funds;?>');
                     var user_value = asset_all - base_funds;  //总盈亏额
                     var user_rate = decimal((user_value * 100) / base_funds);   //总盈亏率
-                    pl_value.css('color', (parseFloat(user_value) > 0) ? 'red' : 'green');
-//                    if (parseFloat(user_value) > 0) {
-//                        pl_value.css('color', 'red');
-//                    } else {
-//                        pl_value.css('color', 'green');
-//                    }
+//                    pl_value.css('color', (parseFloat(user_value) > 0) ? 'red' : 'green');
+                    if (parseFloat(user_value) > 0) {
+                        pl_value.css('color', 'red');
+                    } else {
+                        pl_value.css('color', 'green');
+                    }
                     if (parseFloat(user_rate) > 0) {
                         pl_rate.css('color', 'red');
                     } else {
