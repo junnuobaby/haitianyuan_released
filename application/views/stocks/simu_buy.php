@@ -82,7 +82,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                         <div class="input-group-addon">手</div>
                                                     </div>
                                                     <span class="theme-color">(股票1手 = 100股)</span>
-                                                    <span class="theme-color">(债券1手 = 10张)</span>
+                                                    <div class="theme-color">(债券1手 = 10张)</div>
                                                 </div>
                                             </div>
                                             <a class="btn  bg-theme buy_stock_btn" id="buy">买入</a>
