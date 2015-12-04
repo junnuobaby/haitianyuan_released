@@ -195,9 +195,12 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
          * fpl_rate - 获浮动盈亏率
          * tpl_value - 总盈亏金额
          * tpl_rate - 总盈亏率
+         * key - 证券代码
+         * tr_id - 行ID
+         * trade_price - 当前价
+         * id_extent - 涨跌幅
          */
         function load_dynamic_data() {
-            var key;
             $.ajax({
                 url: '<?php echo base_url("index.php/stock/get_dynamic_info/web"); ?>',
                 method: 'get',
@@ -215,6 +218,7 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                     var fpl_rate = parseFloat(response.pl_rate);
                     var tpl_value = asset_all - base_funds;
                     var tpl_rate = decimal((tpl_value * 100) / base_funds);
+                    var key,tr_id,trade_price,id_extent;
 
                     $('#stock_value').html(format_num(stock_value));
                     $('#bond_value').html(format_num(bond_value));
@@ -226,15 +230,14 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                     $('#fd_rate').html(fpl_rate).css('color', (parseFloat(fpl_rate) > 0) ? 'red' : 'green');
 
                     for (key in stock_info) {
-                        var tr_id = '#' + key;
+                        tr_id = '#' + key;
                         if (stock_info[key].length == 0) {
-                            $(tr_id).children('td:eq(5)').html('--');  //设置当前价
-                            $(tr_id).children('td:eq(6)').html('--');   //设置浮动盈亏
-                            $(tr_id).children('td:eq(7)').html('--');   //设置盈亏比
-                            $(tr_id).children('td:eq(8)').html('--');  //设置涨跌幅
+                            $(tr_id).children('td:gt(4)').each(function () {
+                                $(this).html('--');
+                            });
                         } else {
-                            var trade_price = decimal(stock_info[key]['TradePrice']);  //获取当前价，保留小数点后两位
-                            var id_extent = decimal(parseFloat(stock_info[key]['id_extent']) * 100);  //获取涨跌幅，保留小数点后两位
+                            trade_price = decimal(stock_info[key]['TradePrice']);  //获取当前价，保留小数点后两位
+                            id_extent = decimal(parseFloat(stock_info[key]['id_extent']) * 100);  //获取涨跌幅，保留小数点后两位
                             if (parseFloat(stock_info[key]['float_pl']) < 0) {
                                 $(tr_id).children('td:eq(6)').css('color', 'green');
                             } else if (parseFloat(stock_info[key]['float_pl']) >= 0) {
