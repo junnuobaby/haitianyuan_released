@@ -58,7 +58,7 @@ $pages = $done_list['pagination']; //获取分页
                                                 <td class="formatted decimal"><?php echo $stock_item['other_fee'];?></td>
                                                 <td class="formatted decimal"><?php echo $stock_item['hap_fund'];?></td>
                                                 <td class="formatted decimal"><?php echo $stock_item['remain_fund'];?></td>
-                                                <td class="formatted decimal"><?php echo $stock_item['tip'];?></td>
+                                                <td><?php echo $stock_item['tip'];?></td>
                                             </tr>
                                         <?php endforeach; ?>
                                         </tbody>
