@@ -387,9 +387,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 var top_price = $('#bond_price tr td:nth-child(2),#top_buy tr td:nth-child(2), #top_sell tr td:nth-child(2)');
                 top_price.each(function () {
                     if (parseFloat($(this).html()) > parseFloat(bond_lastday_price)) {
-                        $(this).addClass('theme-color');
+                        $(this).addClass('red');
                     } else {
-                        $(this).addClass('green-color');
+                        $(this).addClass('green');
                     }
                 });
             }

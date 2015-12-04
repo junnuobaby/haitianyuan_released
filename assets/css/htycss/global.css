@@ -59,6 +59,12 @@ a.btn.bg-theme:hover,button.btn.bg-theme:hover{
 .white-color{
     color: white;
 }
+.red{
+    color: red;
+}
+.green{
+    color: green;
+}
 /*背景色*/
 .bg-theme {
     background-color: #FD9271;
