@@ -316,7 +316,7 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                         }
                     }
                     //绘制资金分布饼图
-                    var parts = ['可用现金', '债券市值', '股票市值'];
+                    var parts = ['可用现金', '债券市值', '股票市值','冻结资金'];
                     var cash_use = decimal(parseFloat("<?php echo $user_data['cash_use'];?>"));
                     var cash_freeze = decimal(parseFloat("<?php echo $user_data['cash_freeze'];?>"));
                     var stock_value = decimal(parseFloat(response.stock_value));  //股票市值
@@ -324,7 +324,8 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                     var parts_value = [
                         {value: cash_use, name: '可用现金'},
                         {value: bond_value, name: '债券市值'},
-                        {value: stock_value, name: '股票市值'}
+                        {value: stock_value, name: '股票市值'},
+                        {value: cash_freeze, name: '冻结资金'}
                     ];
                     var pie_div_id = document.getElementById('pie_canvas');
                     draw_pie(parts, parts_value, pie_div_id); //绘制资金使用情况饼图
