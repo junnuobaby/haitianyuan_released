@@ -97,10 +97,10 @@ $base_funds = $user_data['base_cash'];
                                                     <td class="formatted"><?php echo intval($stock_item['Volume_All']); ?></td>
                                                     <td class="formatted"><?php echo $sell_avail;?></td>
                                                     <td><?php echo number_format(floatval($stock_item['BuyCost']), 2); ?></td>
-                                                    <td id="stock_present_price"></td>
-                                                    <td id="stock_pl_value"></td>
-                                                    <td id="stock_pl_rate"></td>
-                                                    <td id="stock_extend"></td>
+                                                    <td class="stock_present_price"></td>
+                                                    <td class="stock_pl_value"></td>
+                                                    <td class="stock_pl_rate"></td>
+                                                    <td class="stock_extend"></td>
                                                 </tr>
                                             <?php endforeach; ?>
                                             </tbody>
@@ -133,13 +133,13 @@ $base_funds = $user_data['base_cash'];
                                                         <td><?php echo $stock_item['SecurityID']; ?></td>
                                                         <td><?php echo $stock_item['Symbol']; ?></td>
                                                         <td><?php echo number_format(floatval($stock_item['BuyCost']), 2); ?></td>
-                                                        <td id="bond_present_price"></td>
-                                                        <td id="completed_cost"></td>
+                                                        <td class="bond_present_price"></td>
+                                                        <td class="completed_cost"></td>
                                                         <td class="formatted"><?php echo intval($stock_item['Volume_All']); ?></td>
                                                         <td class="formatted"><?php echo $sell_avail; ?></td>
-                                                        <td id="bond_pl_value"></td>
-                                                        <td id="bond_pl_rate"></td>
-                                                        <td id="bond_extend"></td>
+                                                        <td class="bond_pl_value"></td>
+                                                        <td class="bond_pl_rate"></td>
+                                                        <td class="bond_extend"></td>
                                                         <td><?php echo intval($stock_item['day_left']); ?></td>
                                                         <td><?php echo $stock_item['profit_end']; ?></td>
                                                     </tr>
@@ -252,19 +252,19 @@ $base_funds = $user_data['base_cash'];
                         tr_id = '#' + key;
                         trade_price = decimal(stock_info[key]['TradePrice']);
                         id_extent = decimal(parseFloat(stock_info[key]['id_extent']) * 100);
-                        $('#stock_present_price').html(trade_price);
-                        $('#stock_pl_value').html(format_num(decimal(stock_info[key]['float_pl']))).css('color', (parseFloat(stock_info[key]['float_pl']) > 0) ? 'red' : 'green');
-                        $('#stock_pl_rate').html(format_num(stock_info[key]['float_pl_rate']) + '%').css('color', (parseFloat(stock_info[key]['float_pl_rate']) > 0) ? 'red' : 'green');
-                        $('#stock_extend').html(id_extent + '%').css('color', (parseFloat(id_extent) > 0) ? 'red' : 'green');}
+                        $(tr_id).children('td.stock_present_price').html(trade_price);
+                        $(tr_id).children('td.stock_pl_value').html(format_num(decimal(stock_info[key]['float_pl']))).css('color', (parseFloat(stock_info[key]['float_pl']) > 0) ? 'red' : 'green');
+                        $(tr_id).children('td.stock_pl_rate').html(format_num(stock_info[key]['float_pl_rate']) + '%').css('color', (parseFloat(stock_info[key]['float_pl_rate']) > 0) ? 'red' : 'green');
+                        $(tr_id).children('td.stock_extend').html(id_extent + '%').css('color', (parseFloat(id_extent) > 0) ? 'red' : 'green');}
                     for (key in bond_info) {
                         tr_id = '#' + key;
                         trade_price = decimal(bond_info[key]['TradePrice']);
                         id_extent = decimal(parseFloat(bond_info[key]['id_extent']) * 100);
-                        $('#bond_present_price').html(trade_price);
-                        $('#bond_pl_value').html(format_num(decimal(bond_info[key]['float_pl']))).css('color', (parseFloat(bond_info[key]['float_pl']) > 0) ? 'red' : 'green');
-                        $('#bond_pl_rate').html(format_num(bond_info[key]['float_pl_rate']) + '%').css('color', (parseFloat(bond_info[key]['float_pl_rate']) > 0) ? 'red' : 'green');
-                        $('#bond_extend').html(id_extent + '%').css('color', (parseFloat(id_extent) > 0) ? 'red' : 'green');
-                        $('#completed_cost').html(format_num(parseFloat($(tr_id).data('interest')) + parseFloat(trade_price)));
+                        $(tr_id).children('td.bond_present_price').html(trade_price);
+                        $(tr_id).children('td.bond_pl_value').html(format_num(decimal(bond_info[key]['float_pl']))).css('color', (parseFloat(bond_info[key]['float_pl']) > 0) ? 'red' : 'green');
+                        $(tr_id).children('td.bond_pl_rate').html(format_num(bond_info[key]['float_pl_rate']) + '%').css('color', (parseFloat(bond_info[key]['float_pl_rate']) > 0) ? 'red' : 'green');
+                        $(tr_id).children('td.bond_extend').html(id_extent + '%').css('color', (parseFloat(id_extent) > 0) ? 'red' : 'green');
+                        $(tr_id).children('td.completed_cost').html(format_num(parseFloat($(tr_id).data('interest')) + parseFloat(trade_price)));
                     }
                     /**
                      * 绘制资金分布饼图
