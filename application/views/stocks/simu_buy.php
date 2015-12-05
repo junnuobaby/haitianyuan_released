@@ -1,7 +1,8 @@
-<!--模拟炒股，买入股票-->
+<!--买入-->
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html lang="zh-cn">
 <?php $this->load->view('./templates/head'); ?>
 <body class="bg-gray">

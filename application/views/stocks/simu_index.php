@@ -97,10 +97,10 @@ $base_funds = $user_data['base_cash'];
                                                     <td class="formatted"><?php echo intval($stock_item['Volume_All']); ?></td>
                                                     <td class="formatted"><?php echo $sell_avail;?></td>
                                                     <td><?php echo number_format(floatval($stock_item['BuyCost']), 2); ?></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
+                                                    <td id="stock_present_price"></td>
+                                                    <td id="stock_pl_value"></td>
+                                                    <td id="stock_pl_rate"></td>
+                                                    <td id="stock_extend"></td>
                                                 </tr>
                                             <?php endforeach; ?>
                                             </tbody>
@@ -111,20 +111,6 @@ $base_funds = $user_data['base_cash'];
                                         <div class="table-responsive">
                                             <table class="table table-bordered">
                                                 <thead>
-<!--                                                <tr>-->
-<!--                                                    <th>代码</th>-->
-<!--                                                    <th>简称</th>-->
-<!--                                                    <th>持仓</th>-->
-<!--                                                    <th>可卖</th>-->
-<!--                                                    <th>成本</th>-->
-<!--                                                    <th>全价</th>-->
-<!--                                                    <th>距付息</th>-->
-<!--                                                    <th>到期时间</th>-->
-<!--                                                    <th>现价</th>-->
-<!--                                                    <th>浮动盈亏</th>-->
-<!--                                                    <th>盈亏率</th>-->
-<!--                                                    <th>涨跌幅</th>-->
-<!--                                                </tr>-->
                                                 <tr>
                                                     <th>代码</th>
                                                     <th>简称</th>
@@ -147,7 +133,7 @@ $base_funds = $user_data['base_cash'];
                                                         <td><?php echo $stock_item['SecurityID']; ?></td>
                                                         <td><?php echo $stock_item['Symbol']; ?></td>
                                                         <td><?php echo number_format(floatval($stock_item['BuyCost']), 2); ?></td>
-                                                        <td id="present_price"></td>
+                                                        <td id="bond_present_price"></td>
                                                         <td id="completed_cost"></td>
                                                         <td class="formatted"><?php echo intval($stock_item['Volume_All']); ?></td>
                                                         <td class="formatted"><?php echo $sell_avail; ?></td>
@@ -264,25 +250,17 @@ $base_funds = $user_data['base_cash'];
 
                     for (key in stock_info) {
                         tr_id = '#' + key;
-                        if (stock_info[key].length == 0) {
-                            $(tr_id).children('td:gt(4)').each(function () {
-                                $(this).html('--');
-                            });
-                        } else {
-                            trade_price = decimal(stock_info[key]['TradePrice']);
-                            id_extent = decimal(parseFloat(stock_info[key]['id_extent']) * 100);
-                            $(tr_id).children('td:eq(5)').html(trade_price);
-                            $(tr_id).children('td:eq(6)').html(format_num(decimal(stock_info[key]['float_pl']))).css('color', (parseFloat(stock_info[key]['float_pl']) > 0) ? 'red' : 'green');
-                            $(tr_id).children('td:eq(7)').html(format_num(stock_info[key]['float_pl_rate']) + '%').css('color', (parseFloat(stock_info[key]['float_pl_rate']) > 0) ? 'red' : 'green');
-                            $(tr_id).children('td:eq(8)').html(id_extent + '%').css('color', (parseFloat(id_extent) > 0) ? 'red' : 'green');
-                        }
-                    }
-                    for (key in bond_info)
-                    {
+                        trade_price = decimal(stock_info[key]['TradePrice']);
+                        id_extent = decimal(parseFloat(stock_info[key]['id_extent']) * 100);
+                        $('#stock_present_price').html(trade_price);
+                        $('#stock_pl_value').html(format_num(decimal(stock_info[key]['float_pl']))).css('color', (parseFloat(stock_info[key]['float_pl']) > 0) ? 'red' : 'green');
+                        $('#stock_pl_rate').html(format_num(stock_info[key]['float_pl_rate']) + '%').css('color', (parseFloat(stock_info[key]['float_pl_rate']) > 0) ? 'red' : 'green');
+                        $('#stock_extend').html(id_extent + '%').css('color', (parseFloat(id_extent) > 0) ? 'red' : 'green');}
+                    for (key in bond_info) {
                         tr_id = '#' + key;
                         trade_price = decimal(bond_info[key]['TradePrice']);
                         id_extent = decimal(parseFloat(bond_info[key]['id_extent']) * 100);
-                        $('#present_price').html(trade_price);
+                        $('#bond_present_price').html(trade_price);
                         $('#bond_pl_value').html(format_num(decimal(bond_info[key]['float_pl']))).css('color', (parseFloat(bond_info[key]['float_pl']) > 0) ? 'red' : 'green');
                         $('#bond_pl_rate').html(format_num(bond_info[key]['float_pl_rate']) + '%').css('color', (parseFloat(bond_info[key]['float_pl_rate']) > 0) ? 'red' : 'green');
                         $('#bond_extend').html(id_extent + '%').css('color', (parseFloat(id_extent) > 0) ? 'red' : 'green');
@@ -294,13 +272,13 @@ $base_funds = $user_data['base_cash'];
                     var parts = ['可用现金', '债券市值', '股票市值', '冻结资金'];
                     var cash_use = decimal(parseFloat("<?php echo $user_data['cash_use'];?>"));
                     var cash_freeze = decimal(parseFloat("<?php echo $user_data['cash_freeze'];?>"));
+                    var pie_div_id = document.getElementById('pie_canvas');
                     var parts_value = [
                         {value: cash_use, name: '可用现金'},
                         {value: bond_value, name: '债券市值'},
                         {value: stock_value, name: '股票市值'},
                         {value: cash_freeze, name: '冻结资金'}
                     ];
-                    var pie_div_id = document.getElementById('pie_canvas');
                     draw_pie(parts, parts_value, pie_div_id);
                 }
             });
