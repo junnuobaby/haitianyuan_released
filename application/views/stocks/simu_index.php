@@ -279,6 +279,7 @@ $base_funds = $user_data['base_cash'];
                     }
                     for (key in bond_info)
                     {
+                        tr_id = '#' + key;
                         trade_price = decimal(bond_info[key]['TradePrice']);
                         id_extent = decimal(parseFloat(bond_info[key]['id_extent']) * 100);
                         $('#present_price').html(trade_price);
