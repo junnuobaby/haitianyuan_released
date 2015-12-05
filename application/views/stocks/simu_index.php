@@ -88,13 +88,14 @@ $base_funds = $user_data['base_cash'];
                                             </thead>
                                             <tbody>
                                             <?php foreach ($user_stocks as $stock_item): ?>
+                                                <?php $sell_avail = intval($stock_item['Volume_All']) - intval($stock_item['Ban_Volume']) - intval($stock_item['Order_Volume']);?>
                                                 <tr id="<?php echo $stock_item['SecurityID']; ?>">
                                                     <td data-toggle="modal" data-target="#graphModal" onclick="fillimage('<?= $stock_item['SecurityID']; ?>', '<?= $stock_item['Symbol']; ?>')">
                                                         <a href="#"><?php echo $stock_item['SecurityID']; ?></a>
                                                     </td>
                                                     <td><?php echo $stock_item['Symbol']; ?></td>
                                                     <td class="formatted"><?php echo intval($stock_item['Volume_All']); ?></td>
-                                                    <td class="formatted"><?php echo intval($stock_item['Volume_All']) - intval($stock_item['Ban_Volume']) - intval($stock_item['Order_Volume']); ?></td>
+                                                    <td class="formatted"><?php echo $sell_avail;?></td>
                                                     <td><?php echo number_format(floatval($stock_item['BuyCost']), 2); ?></td>
                                                     <td></td>
                                                     <td></td>
@@ -127,11 +128,12 @@ $base_funds = $user_data['base_cash'];
                                                 </thead>
                                                 <tbody>
                                                 <?php foreach ($user_bonds as $stock_item): ?>
+                                                    <?php $sell_avail = intval($stock_item['Volume_All']) - intval($stock_item['Ban_Volume']) - intval($stock_item['Order_Volume']);?>
                                                     <tr id="<?php echo $stock_item['SecurityID']; ?>" data-interest="<?php echo $stock_item['interest']; ?>">
                                                         <td><?php echo $stock_item['SecurityID']; ?></td>
                                                         <td><?php echo $stock_item['Symbol']; ?></td>
                                                         <td class="formatted"><?php echo intval($stock_item['Volume_All']); ?></td>
-                                                        <td class="formatted"><?php echo intval($stock_item['Volume_All']) - intval($stock_item['Ban_Volume']) - intval($stock_item['Order_Volume']); ?></td>
+                                                        <td class="formatted"><?php echo $sell_avail; ?></td>
                                                         <td><?php echo number_format(floatval($stock_item['BuyCost']), 2); ?></td>
                                                         <td id="completed_cost"></td>
                                                         <td><?php echo intval($stock_item['day_left']); ?></td>
