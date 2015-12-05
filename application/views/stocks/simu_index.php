@@ -286,7 +286,6 @@ $base_funds = $user_data['base_cash'];
                         $('#bond_pl_value').html(format_num(decimal(bond_info[key]['float_pl']))).css('color', (parseFloat(bond_info[key]['float_pl']) > 0) ? 'red' : 'green');
                         $('#bond_pl_rate').html(format_num(bond_info[key]['float_pl_rate']) + '%').css('color', (parseFloat(bond_info[key]['float_pl_rate']) > 0) ? 'red' : 'green');
                         $('#bond_extend').html(id_extent + '%').css('color', (parseFloat(id_extent) > 0) ? 'red' : 'green');
-                        alert($(tr_id).data('interest'));
                         $('#completed_cost').html(format_num(parseFloat($(tr_id).data('interest')) + parseFloat(trade_price)));
                     }
                     /**
