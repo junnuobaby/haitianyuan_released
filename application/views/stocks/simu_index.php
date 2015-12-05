@@ -7,15 +7,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <!DOCTYPE html>
 <html lang="zh-cn">
-<?php $this->load->view('./templates/head'); ?>
 <?php
-$user_data = $user_info['data_user']; //获取用户资金数据
-$user_stocks = $user_info['data_stock']; //获取用户持仓股票数据
-$user_bonds = $user_info['data_bond']; //获取用户持仓债券数据
-$base_funds = $user_data['base_cash'];  //获取用户基本资金
+/**
+ * user_data - dict - 用户资金数据
+ *             key:
+ *                cash_all - 总现金
+ *                cash_use - 可用现金
+ *                cash_freeze - 冻结资金
+ * user_stocks - dict - 用户股票持仓
+ * user_bonds - dict - 用户债券持仓
+ *             key:
+ *                SecurityID - 代码
+ *                Symbol - 名称
+ *                Volume_All -
+ *                Ban_Volume - 不可卖出数量
+ *                Order_Volume - ？
+ *                BuyCost - 买入成本
+ *                day_letf - 距付息日（天）- (*仅债券有该字段)
+ *                expire-day - 到期时间 - (*仅债券有该字段)
+ *                interest - ？ - (*仅债券有该字段)
+ * base_funds - number - 用户起始资金
+ */
+$user_data = $user_info['data_user'];
+$user_stocks = $user_info['data_stock'];
+$user_bonds = $user_info['data_bond'];
+$base_funds = $user_data['base_cash'];
 ?>
 <!--绘图文件-->
 <?php $this->load->view('./stocks/graph'); ?>
+<?php $this->load->view('./templates/head'); ?>
 <body class="bg-gray">
 <div class="wrapper">
     <?php $this->load->view('./stocks/bonds_navbar'); ?>
@@ -55,10 +75,10 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                                         <table class="table table-bordered">
                                             <thead>
                                             <tr>
-                                                <th>股票代码</th>
-                                                <th>股票名称</th>
-                                                <th>总股数</th>
-                                                <th>可卖量</th>
+                                                <th>代码</th>
+                                                <th>名称</th>
+                                                <th>持仓</th>
+                                                <th>可卖</th>
                                                 <th>成本价</th>
                                                 <th>当前价</th>
                                                 <th>浮动盈亏</th>
@@ -93,8 +113,8 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
                                                 <tr>
                                                     <th>代码</th>
                                                     <th>简称</th>
-                                                    <th>总量</th>
-                                                    <th>可卖量</th>
+                                                    <th>持仓</th>
+                                                    <th>可卖</th>
                                                     <th>买入成本</th>
                                                     <th>全价</th>
                                                     <th>距付息日</th>
@@ -173,33 +193,30 @@ $base_funds = $user_data['base_cash'];  //获取用户基本资金
     /**
      * 全局变量
      * interval - setInterval返回的ID值
+     * 局部变量
+     * base_funds - 初始资金
+     * cash_all - 总现金
+     * stock_info - 存有持仓股票信息的数组
+     * bond_info - 存有持仓债券信息的数组
+     * stock_value - 股票市值
+     * bond_value - 债券市值
+     * asset_all - 总资产（总现金+股票市值+债券市值）
+     * position - 仓位 （（股票市值+债券市值）/ 总资产）
+     * fpl_value - 浮动盈亏金额
+     * fpl_rate - 获浮动盈亏率
+     * tpl_value - 总盈亏金额
+     * tpl_rate - 总盈亏率
+     * 单支证券变量
+     * key - 证券代码
+     * tr_id - 行ID
+     * trade_price - 当前价
+     * id_extent - 涨跌幅
      */
     var interval;
     $(document).ready(function () {
         load_dynamic_data();
         clearInterval(interval);
         interval = setInterval(load_dynamic_data, 8000);
-
-        /**
-         * 局部变量
-         * base_funds - 初始资金
-         * cash_all - 总现金
-         * stock_info - 存有持仓股票信息的数组
-         * bond_info - 存有持仓债券信息的数组
-         * stock_value - 股票市值
-         * bond_value - 债券市值
-         * asset_all - 总资产（总现金+股票市值+债券市值）
-         * position - 仓位 （（股票市值+债券市值）/ 总资产）
-         * fpl_value - 浮动盈亏金额
-         * fpl_rate - 获浮动盈亏率
-         * tpl_value - 总盈亏金额
-         * tpl_rate - 总盈亏率
-         * 单支证券变量
-         * key - 证券代码
-         * tr_id - 行ID
-         * trade_price - 当前价
-         * id_extent - 涨跌幅
-         */
         function load_dynamic_data() {
             $.ajax({
                 url: '<?php echo base_url("index.php/stock/get_dynamic_info/web"); ?>',
