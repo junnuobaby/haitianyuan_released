@@ -80,7 +80,7 @@ $base_funds = $user_data['base_cash'];
                                                 <th>持仓</th>
                                                 <th>可卖</th>
                                                 <th>成本</th>
-                                                <th>先价</th>
+                                                <th>现价</th>
                                                 <th>浮动盈亏</th>
                                                 <th>盈亏率</th>
                                                 <th>涨跌幅</th>
