@@ -80,7 +80,7 @@ $base_funds = $user_data['base_cash'];
                                                 <th>持仓</th>
                                                 <th>可卖</th>
                                                 <th>成本</th>
-                                                <th>当前价</th>
+                                                <th>先价</th>
                                                 <th>浮动盈亏</th>
                                                 <th>盈亏率</th>
                                                 <th>涨跌幅</th>
@@ -261,7 +261,8 @@ $base_funds = $user_data['base_cash'];
                             $(tr_id).children('td:eq(8)').html(id_extent + '%').css('color', (parseFloat(id_extent) > 0) ? 'red' : 'green');
                         }
                     }
-                    for (key in bond_info) {
+                    for (key in bond_info)
+                    {
                         tr_id = '#' + key;
                         if (bond_info[key].length == 0) {
                             $(tr_id).children('td:gt(7)').each(function () {
