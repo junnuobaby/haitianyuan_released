@@ -90,7 +90,7 @@ $base_funds = $user_data['base_cash'];
                                             <?php foreach ($user_stocks as $stock_item): ?>
                                                 <tr id="<?php echo $stock_item['SecurityID']; ?>">
                                                     <td data-toggle="modal" data-target="#graphModal" onclick="fillimage('<?= $stock_item['SecurityID']; ?>', '<?= $stock_item['Symbol']; ?>')">
-                                                        <a href="#" class="blue-color"><?php echo $stock_item['SecurityID']; ?></a>
+                                                        <a><?php echo $stock_item['SecurityID']; ?></a>
                                                     </td>
                                                     <td><?php echo $stock_item['Symbol']; ?></td>
                                                     <td class="formatted"><?php echo intval($stock_item['Volume_All']); ?></td>
