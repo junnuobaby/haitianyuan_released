@@ -133,11 +133,11 @@ $base_funds = $user_data['base_cash'];
                                                     <th>全价</th>
                                                     <th>持仓</th>
                                                     <th>可卖</th>
-                                                    <th>距付息</th>
-                                                    <th>到期时间</th>
                                                     <th>浮动盈亏</th>
                                                     <th>盈亏率</th>
                                                     <th>涨跌幅</th>
+                                                    <th>距付息</th>
+                                                    <th>到期时间</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
