@@ -90,7 +90,7 @@ $base_funds = $user_data['base_cash'];
                                             <?php foreach ($user_stocks as $stock_item): ?>
                                                 <tr id="<?php echo $stock_item['SecurityID']; ?>">
                                                     <td data-toggle="modal" data-target="#graphModal" onclick="fillimage('<?= $stock_item['SecurityID']; ?>', '<?= $stock_item['Symbol']; ?>')">
-                                                        <a href="#" class="hty_a"><?php echo $stock_item['SecurityID']; ?></a>
+                                                        <a href="#" class="blue-color"><?php echo $stock_item['SecurityID']; ?></a>
                                                     </td>
                                                     <td><?php echo $stock_item['Symbol']; ?></td>
                                                     <td class="formatted"><?php echo intval($stock_item['Volume_All']); ?></td>
@@ -270,7 +270,6 @@ $base_funds = $user_data['base_cash'];
                         } else {
                             trade_price = decimal(bond_info[key]['TradePrice']);  //获取当前价，保留小数点后两位
                             id_extent = decimal(parseFloat(bond_info[key]['id_extent']) * 100);  //获取涨跌幅，保留小数点后两位
-
                             $(tr_id).children('td:eq(8)').html(trade_price);  //设置当前价
                             $(tr_id).children('td:eq(9)').html(format_num(decimal(bond_info[key]['float_pl']))).css('color', (parseFloat(bond_info[key]['float_pl']) > 0) ? 'red' : 'green');   //设置浮动盈亏
                             $(tr_id).children('td:eq(10)').html(format_num(bond_info[key]['float_pl_rate']) + '%').css('color', (parseFloat(bond_info[key]['float_pl_rate']) > 0) ? 'red' : 'green');   //设置盈亏比
@@ -278,7 +277,9 @@ $base_funds = $user_data['base_cash'];
                             $('#completed_cost').html(format_num(parseFloat($(tr_id).data('interest')) + parseFloat(trade_price)));  //设置全价
                         }
                     }
-                    //绘制资金分布饼图
+                    /**
+                     * 绘制资金分布饼图
+                     */
                     var parts = ['可用现金', '债券市值', '股票市值', '冻结资金'];
                     var cash_use = decimal(parseFloat("<?php echo $user_data['cash_use'];?>"));
                     var cash_freeze = decimal(parseFloat("<?php echo $user_data['cash_freeze'];?>"));
@@ -289,7 +290,7 @@ $base_funds = $user_data['base_cash'];
                         {value: cash_freeze, name: '冻结资金'}
                     ];
                     var pie_div_id = document.getElementById('pie_canvas');
-                    draw_pie(parts, parts_value, pie_div_id); //绘制资金使用情况饼图
+                    draw_pie(parts, parts_value, pie_div_id);
                 }
             });
         }
