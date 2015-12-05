@@ -22,39 +22,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <div class="col-md-5">
-                                        <form class="form-horizontal" onkeydown="if(event.keyCode==13)return false;"
-                                              autocomplete="off">
+                                        <form class="form-horizontal" onkeydown="if(event.keyCode==13)return false;" autocomplete="off">
                                             <div class="form-group">
                                                 <label class="col-sm-4 control-label">可用现金:</label>
-
                                                 <div class="col-sm-8">
                                                     <div class="input-group">
-                                                        <span
-                                                            class="form-control warning_bg_color formatted"><?php echo $cash_use; ?></span>
-
+                                                        <span class="form-control warning_bg_color formatted"><?php echo $cash_use; ?></span>
                                                         <div class="input-group-addon">元</div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="bond_code" class="col-sm-4 control-label">证券代码:</label>
-
                                                 <div class="col-sm-8 bond_code_div">
-                                                    <input type="text" class="form-control" id="bond_code"
-                                                           autocomplete="off" name="bond_code" placeholder="代码 / 名称">
-
+                                                    <input type="text" class="form-control" id="bond_code" autocomplete="off" name="bond_code" placeholder="代码 / 名称">
                                                     <div class="hint_list"></div>
                                                 </div>
                                             </div>
-
                                             <div class="form-group">
                                                 <label for="buy_price" class="col-sm-4 control-label">买入价格:</label>
-
                                                 <div class="col-sm-8">
                                                     <div class="input-group">
-                                                        <input type="text" class="form-control" id="buy_price"
-                                                               name="buy_price" placeholder="保留小数点后两位">
-
+                                                        <input type="text" class="form-control" id="buy_price" name="buy_price" placeholder="保留小数点后两位">
                                                         <div class="input-group-addon">元</div>
                                                     </div>
                                                     <span class="theme-color hidden buy_price_alert">请输入正确的买入价格</span>
@@ -62,24 +51,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             </div>
                                             <div class="form-group hidden largest_quantity">
                                                 <label class="col-sm-4 control-label">大约可买入:</label>
-
                                                 <div class="col-sm-8">
                                                     <div class="input-group">
-                                                        <span class="form-control warning_bg_color"
-                                                              id="largest_quantity"></span>
-
+                                                        <span class="form-control warning_bg_color" id="largest_quantity"></span>
                                                         <div class="input-group-addon">手</div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="buy_quantity" class="col-sm-4 control-label">买入数量:</label>
-
                                                 <div class="col-sm-8">
                                                     <div class="input-group">
-                                                        <input type="text" class="form-control" id="buy_quantity"
-                                                               name="buy_quantity">
-
+                                                        <input type="text" class="form-control" id="buy_quantity" name="buy_quantity">
                                                         <div class="input-group-addon">手</div>
                                                     </div>
                                                     <span class="theme-color">(股票1手 = 100股)</span>
@@ -92,78 +75,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <div class="col-md-3 col-md-offset-1">
                                         <h4 id="bond_name" class="theme-color"></h4>
                                         <table class="table" id="bond_price">
-                                            <tr>
-                                                <td>最新：</td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>昨收：</td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>涨停：</td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>跌停：</td>
-                                                <td></td>
-                                            </tr>
+                                            <tr><td>最新：</td><td></td></tr>
+                                            <tr><td>昨收：</td><td></td></tr>
+                                            <tr><td>涨停：</td><td></td></tr>
+                                            <tr><td>跌停：</td><td></td></tr>
                                         </table>
                                     </div>
                                     <div class="col-md-3">
                                         <table class="table table-condensed" id="top_sell">
-                                            <tr>
-                                                <td>卖五：</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>卖四：</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>卖三：</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>卖二：</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>卖一：</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
+                                            <tr><td>卖五：</td><td></td><td></td></tr>
+                                            <tr><td>卖四：</td><td></td><td></td></tr>
+                                            <tr><td>卖三：</td><td></td><td></td></tr>
+                                            <tr><td>卖二：</td><td></td><td></td></tr>
+                                            <tr><td>卖一：</td><td></td><td></td></tr>
                                         </table>
                                         <table class="table table-condensed" id="top_buy">
-                                            <tr>
-                                                <td>买一：</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>买二：</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>买三：</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>买四：</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>买五：</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
+                                            <tr><td>买一：</td><td></td><td></td></tr>
+                                            <tr><td>买二：</td><td></td><td></td></tr>
+                                            <tr><td>买三：</td><td></td><td></td></tr>
+                                            <tr><td>买四：</td><td></td><td></td></tr>
+                                            <tr><td>买五：</td><td></td><td></td></tr>
                                         </table>
                                     </div>
                                 </div>
@@ -186,9 +117,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
         </div>
     </div>
-    <!--悬停go-top按钮-->
-    <?php $this->load->view('./templates/go-top'); ?>
 </div>
+<?php $this->load->view('./templates/go-top'); ?>
 <?php $this->load->view('./templates/footer'); ?>
 </body>
 <script>
