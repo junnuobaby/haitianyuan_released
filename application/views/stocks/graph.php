@@ -1,25 +1,25 @@
 <!--绘制收益率曲线图-->
 <script src="<?php echo base_url("assets/js/echarts/echarts.js"); ?>"></script>
 <script>
-//    user_rate为用户收益率，avg_rate为平均收益率，div_id为容纳图形的容器Id
+    /**
+     * user_rate - 用户收益率
+     * avg_rate - 平均收益率
+     * div_id - 容纳图形的容器Id
+     */
     function draw(user_rate, avg_rate, time_list, div_id) {
-        //路径配置
         require.config({
             paths: {
                 echarts: '<?php echo base_url("assets/js/echarts"); ?>'
             }
         });
-        //使用
         require(
             [
                 'echarts',
-                'echarts/chart/line', // 加载折线图
-                'echarts/chart/bar'   // 加载柱状图
+                'echarts/chart/line',
+                'echarts/chart/bar'
             ],
             function (ec) {
-                // 基于准备好的dom，初始化echarts图表
                 var myChart = ec.init(div_id, 'macarons');
-
                 var option = {
                     title: {
                         text: '收益率变化',
@@ -93,27 +93,27 @@
                         }
                     ]
                 };
-                // 为echarts对象加载数据
                 myChart.setOption(option);
             });
-
     }
-    //绘制饼图
+    /**
+     * 绘制饼图
+     * component - 图标条目名称
+     * value - 条目值
+     * div_id - 容器ID
+     */
     function draw_pie(component, value, div_id){
-        //路径配置
         require.config({
             paths: {
                 echarts: '<?php echo base_url("assets/js/echarts"); ?>'
             }
         });
-        //使用
         require(
             [
                 'echarts',
-                'echarts/chart/pie', // 加载饼状图
+                'echarts/chart/pie'
             ],
             function (ec) {
-                // 基于准备好的dom，初始化echarts图表
                 var myChart = ec.init(div_id, 'macarons');
                 var option = {
                     title: {
@@ -140,7 +140,6 @@
                         }
                     ]
                 };
-                // 为echarts对象加载数据
                 myChart.setOption(option);
             });
     }
