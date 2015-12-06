@@ -127,8 +127,16 @@ $pages = $pre_list['pagination']; //获取分页
             </div>
             <table class="table table-bordered table-responsive">
                 <tr>
-                    <td>备注</td>
-                    <td>备哈哈哈</td>
+                    <th>编号</th>
+                    <td>201500263747477474</td>
+                </tr>
+                <tr>
+                    <th>名称</th>
+                    <td>平安银行</td>
+                </tr>
+                <tr>
+                    <th>代码</th>
+                    <td>000001</td>
                 </tr>
             </table>
         </div>
