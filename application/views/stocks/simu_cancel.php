@@ -188,7 +188,7 @@ $pages = $pre_list['pagination']; //获取分页
     }
 
     //填充每条委托单的详情
-    var detail_lists;
+    var detail_lists = [];
     <?php
     $count = 0;
     foreach($records as $stock_item) {
