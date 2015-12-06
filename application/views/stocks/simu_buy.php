@@ -285,41 +285,24 @@
                 bond_price_cnt += '<tr><td>昨收：</td><td>' + bond_lastday_price + '</td></tr>';
                 bond_price_cnt += '<tr><td>涨停：</td><td>'+ bond_highest +'</td></tr>';
                 bond_price_cnt += '<tr><td>跌停：</td><td>' + bond_lowest + '</td></tr>';
-
                 $('#bond_name').html(bond_name);
                 $('#bond_price').html(bond_price_cnt);
-//                $('#bond_price tr:nth-child(1) td:nth-child(2)').html(bond_cur_price);
-//                $('#bond_price tr:nth-child(2) td:nth-child(2)').html(bond_lastday_price);
-//                $('#bond_price tr:nth-child(3) td:nth-child(2)').html(bond_highest);
-//                $('#bond_price tr:nth-child(4) td:nth-child(2)').html(bond_lowest);
 
 
-                //设置买五和卖五的价格
-                $('#top_sell tr:nth-child(1) td:nth-child(2)').html(sell_1ist[4]); //卖五
-                $('#top_sell tr:nth-child(2) td:nth-child(2)').html(sell_1ist[3]); //卖四
-                $('#top_sell tr:nth-child(3) td:nth-child(2)').html(sell_1ist[2]); //卖三
-                $('#top_sell tr:nth-child(4) td:nth-child(2)').html(sell_1ist[1]); //卖二
-                $('#top_sell tr:nth-child(5) td:nth-child(2)').html(sell_1ist[0]); //卖一
-
-                $('#top_buy tr:nth-child(1) td:nth-child(2)').html(buy_1ist[0]); //买一
-                $('#top_buy tr:nth-child(2) td:nth-child(2)').html(buy_1ist[1]); //买二
-                $('#top_buy tr:nth-child(3) td:nth-child(2)').html(buy_1ist[2]); //买三
-                $('#top_buy tr:nth-child(4) td:nth-child(2)').html(buy_1ist[3]); //买四
-                $('#top_buy tr:nth-child(5) td:nth-child(2)').html(buy_1ist[4]); //买五
-
-                //设置买五和卖五的数量
-                $('#top_sell tr:nth-child(1) td:nth-child(3)').html(sell_volume[4]); //卖五
-                $('#top_sell tr:nth-child(2) td:nth-child(3)').html(sell_volume[3]); //卖四
-                $('#top_sell tr:nth-child(3) td:nth-child(3)').html(sell_volume[2]); //卖三
-                $('#top_sell tr:nth-child(4) td:nth-child(3)').html(sell_volume[1]); //卖二
-                $('#top_sell tr:nth-child(5) td:nth-child(3)').html(sell_volume[0]); //卖一
-
-                $('#top_buy tr:nth-child(1) td:nth-child(3)').html(buy_volume[0]); //买一
-                $('#top_buy tr:nth-child(2) td:nth-child(3)').html(buy_volume[1]); //买二
-                $('#top_buy tr:nth-child(3) td:nth-child(3)').html(buy_volume[2]); //买三
-                $('#top_buy tr:nth-child(4) td:nth-child(3)').html(buy_volume[3]); //买四
-                $('#top_buy tr:nth-child(5) td:nth-child(3)').html(buy_volume[4]); //买五
-
+                //设置卖五的价格和数量
+                var top_sell_cnt = '<tr><td>卖五：</td><td>' + sell_1ist[4] + '</td><td>' + sell_volume[4] + '</td></tr>';
+                top_sell_cnt += '<tr><td>卖四：</td><td>' + sell_1ist[3] + '</td><td>' + sell_volume[3] + '</td></tr>';
+                top_sell_cnt += '<tr><td>卖三：</td><td>' + sell_1ist[2] + '</td><td>' + sell_volume[2] + '</td></tr>';
+                top_sell_cnt += '<tr><td>卖二：</td><td>' + sell_1ist[1] + '</td><td>' + sell_volume[1] + '</td></tr>';
+                top_sell_cnt += '<tr><td>卖一：</td><td>' + sell_1ist[0] + '</td><td>' + sell_volume[0] + '</td></tr>';
+                $('#top_sell').html(top_sell_cnt);
+                //设置买五的价格和数量
+                var top_buy_cnt = '<tr><td>买一：</td><td>' + buy_1ist[0] + '</td><td>' + buy_volume[0] + '</td></tr>';
+                top_buy_cnt += '<tr><td>买二：</td><td>' + buy_1ist[1] + '</td><td>' + buy_volume[1] + '</td></tr>';
+                top_buy_cnt += '<tr><td>买三：</td><td>' + buy_1ist[2] + '</td><td>' + buy_volume[2] + '</td></tr>';
+                top_buy_cnt += '<tr><td>买四：</td><td>' + buy_1ist[3] + '</td><td>' + buy_volume[3] + '</td></tr>';
+                top_buy_cnt += '<tr><td>买五：</td><td>' + buy_1ist[4] + '</td><td>' + buy_volume[4] + '</td></tr>';
+                $('#top_buy').html(top_buy_cnt);
 
                 //根据价格设置显示颜色
                 var top_price = $('#bond_price tr td:nth-child(2),#top_buy tr td:nth-child(2), #top_sell tr td:nth-child(2)');
