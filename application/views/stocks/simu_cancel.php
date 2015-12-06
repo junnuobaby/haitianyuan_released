@@ -1,5 +1,5 @@
 <!--模拟炒股，委托单-->
-<?phpdefined('BASEPATH') OR exit('No direct script access allowed');?>
+<?php defined('BASEPATH') OR exit('No direct script access allowed');?>
 <!DOCTYPE html>
 <html lang="zh-cn">
 <?php
@@ -104,9 +104,7 @@ $pages = $pre_list['pagination']; //获取分页
             <div>
         </div>
     </div>
-
-    <!--悬停go-top按钮--><?php $this->load->view('./templates/go-top'); ?>
-</div><?php $this->load->view('./templates/footer'); ?>
+</div>
 <div class="modal fade" id="graphModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -119,6 +117,8 @@ $pages = $pre_list['pagination']; //获取分页
         </div>
     </div>
 </div>
+<?php $this->load->view('./templates/go-top'); ?>
+<?php $this->load->view('./templates/footer'); ?>
 </body>
 <script>
     $(document).ready(function () {
