@@ -1,7 +1,5 @@
 <!--买入-->
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <!DOCTYPE html>
 <html lang="zh-cn">
 <?php $this->load->view('./templates/head'); ?>
@@ -122,6 +120,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?php $this->load->view('./templates/footer'); ?>
 </body>
 <script>
+    /**
+     * 全局变量
+     * interval - setInterval返回的ID值
+     * is_bond - 选中的证券是否为债券，默认为股票
+     */
     var interval;
     var is_bond = false;
     $(document).ready(function () {
@@ -135,14 +138,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         var xhr;
         var code_input = $('#bond_code');
         var hint_list = $('div.hint_list');
-        code_input.keyup(get_hint_list);//响应按键操作并使用AJAX请求获取匹配结果
-        code_input.keydown(navigate_list);//实现导航功能，添加向上和向下箭头键以及enter键选择列表项的功能
+        // 响应按键操作并使用AJAX请求获取匹配结果
+        code_input.keyup(get_hint_list);
+        // 实现导航功能，添加向上和向下箭头键以及enter键选择列表项的功能
+        code_input.keydown(navigate_list);
         hint_list.delegate('tr', 'mouseover mouseout click', mouse_list);
 
-        //获取提示
+        // 获取自动补全的代码列表
         function get_hint_list(event) {
             var code_input_val = $.trim($(this).val());
-            //如果输入框为空或者按了ESC键，则不显示提示框
             if (code_input_val == '' || event.which == 27) {
                 hint_list.empty().hide();
             }
@@ -179,7 +183,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
         }
 
-        // 显示提示列表
+        // 生成并显示提示列表
         function show_hint_list(data) {
             var response = data.st_code;
             var content = '<table class="table table-responsive table-condensed">' +
@@ -196,7 +200,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             var cur = $('div.hint_list tr.hint_active');
             var bond_code = $('#bond_code');
             switch (event.which) {
-                case 38:   //上键
+                case 38:  //上键
                     if (cur.length > 0) {
                         cur.removeClass('hint_active').prev('tr').addClass('hint_active');
                     }
@@ -204,7 +208,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         $('div.hint_list tr:last').addClass('hint_active');
                     }
                     break;
-                case 40:   //下键
+                case 40:  //下键
                     if (cur.length > 0) {
                         cur.removeClass('hint_active').next('tr').addClass('hint_active');
                     }
@@ -230,17 +234,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 cur.removeClass('hint_active');
             }
             $(this).toggleClass('hint_active');
-
             if (event.type == 'click') {
                 bond_code.val($(this).children('td:first').html());
                 $('div.hint_list').empty().hide();
                 bond_code.focus();
                 selected_code_info(bond_code.val());
                 clearInterval(interval);
-                interval = setInterval(function () {
-                    selected_code_info(bond_code.val())
-                }, 8000); //每隔8s自动请求一次
-
+                interval = setInterval(function () {selected_code_info(bond_code.val())}, 8000); //每隔8s自动请求一次
             }
         }
 
@@ -281,11 +281,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     buy_volume[j] = format_num(buy_volume[j]);
                 }
 
+                var bond_price_cnt = '<tr><td>最新：</td><td>' + bond_cur_price + '</td></tr>';
+                bond_price_cnt += '<tr><td>昨收：</td><td>' + bond_lastday_price + '</td></tr>';
+                bond_price_cnt += '<tr><td>涨停：</td><td>'+ bond_highest +'</td></tr>';
+                bond_price_cnt += '<tr><td>跌停：</td><td>' + bond_lowest + '</td></tr>';
+
                 $('#bond_name').html(bond_name);
-                $('#bond_price tr:nth-child(1) td:nth-child(2)').html(bond_cur_price);
-                $('#bond_price tr:nth-child(2) td:nth-child(2)').html(bond_lastday_price);
-                $('#bond_price tr:nth-child(3) td:nth-child(2)').html(bond_highest);
-                $('#bond_price tr:nth-child(4) td:nth-child(2)').html(bond_lowest);
+                $('#bond_price').html(bond_price_cnt);
+//                $('#bond_price tr:nth-child(1) td:nth-child(2)').html(bond_cur_price);
+//                $('#bond_price tr:nth-child(2) td:nth-child(2)').html(bond_lastday_price);
+//                $('#bond_price tr:nth-child(3) td:nth-child(2)').html(bond_highest);
+//                $('#bond_price tr:nth-child(4) td:nth-child(2)').html(bond_lowest);
+
 
                 //设置买五和卖五的价格
                 $('#top_sell tr:nth-child(1) td:nth-child(2)').html(sell_1ist[4]); //卖五
