@@ -217,6 +217,7 @@ $pages = $pre_list['pagination']; //获取分页
         detail_content += '<tr><th>手续费</th><td>' + detail_lists[index]['fee'] + '</td></tr>';
         detail_content += '<tr><th>印花税</th><td>' + detail_lists[index]['tax'] + '</td></tr>';
         detail_content += '<tr><th>其他杂费</th><td>' + detail_lists[index]['other_fee'] + '</td></tr>';
+        detail_content += '<tr><th>备注</th><td>' + detail_lists[index]['tip'] + '</td></tr>';
         $('#detail_modal_cnt').html(detail_content);
         $('#detailModal').modal('show');
     });
