@@ -205,7 +205,7 @@ $pages = $pre_list['pagination']; //获取分页
         var index = $(this).data('index');
         var detail_content = '<table class="table table-bordered table-responsive">';
         detail_content += '<tr><th>订单编号</th><td>' + detail_lists[index]['pre_id'] + '</td></tr>';
-        detail_content += '<tr><th>操作</th><td>' + detail_lists[index]['trade_type'] == 0 ? "买入" : "卖出" + '</td></tr>';
+        detail_content += '<tr><th>操作</th><td>' + (detail_lists[index]['trade_type'] == 0 ? "买入" : "卖出") + '</td></tr>';
         detail_content += '<tr><th>代码</th><td>' + detail_lists[index]['SecurityID'] + '</td></tr>';
         detail_content += '<tr><th>名称</th><td>' + detail_lists[index]['Symbol'] + '</td></tr>';
         detail_content += '<tr><th>委托数量</th><td>' + detail_lists[index]['Volume'] + '</td></tr>';
