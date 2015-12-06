@@ -64,6 +64,7 @@ $pages = $pre_list['pagination']; //获取分页
                                         </tr>
                                         </thead>
                                         <tbody>
+                                        <?php $count_num = 0; ?>
                                         <?php foreach ($records as $stock_item): ?>
                                             <tr class="done_record">
     <!--                                            <td>--><?php //echo $stock_item['pre_id']; ?><!--</td>-->
@@ -88,11 +89,13 @@ $pages = $pre_list['pagination']; //获取分页
 <!--                                                <td class="formatted">--><?php //echo $stock_item['remain_fund']; ?><!--</td>-->
                                             <!--                                                <td>--><?php //echo $stock_item['tip']; ?><!--</td>-->
                                             <td><?php echo $stock_item['timestamp']; ?></td>
-                                                <td data-toggle="modal" data-target="#detailModal"><a href="#" class="theme-color">查看</a></td>
+                                                <td data-index="<?php echo $count_num; ?>" class="order_detail"><a href="#" class="theme-color">查看</a></td>
                                                 <td>
                                                     <a href="#" class="theme-color cancel_btn" data-id="<?php echo $stock_item['pre_id']; ?>">撤单</a>
                                                 </td>
-                                            </tr><?php endforeach; ?>
+                                            </tr>
+                                            <?php $count_num++; ?>
+                                        <?php endforeach; ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -125,20 +128,10 @@ $pages = $pre_list['pagination']; //获取分页
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
-            <table class="table table-bordered table-responsive">
-                <tr>
-                    <th>编号</th>
-                    <td>201500263747477474</td>
-                </tr>
-                <tr>
-                    <th>名称</th>
-                    <td>平安银行</td>
-                </tr>
-                <tr>
-                    <th>代码</th>
-                    <td>000001</td>
-                </tr>
-            </table>
+            <div>
+
+            </div>
+
         </div>
     </div>
 </div>
@@ -196,5 +189,26 @@ $pages = $pre_list['pagination']; //获取分页
         modal_body.innerHTML += "<img src='http://image.sinajs.cn/newchart/daily/n/" + stock_id + ".gif' />";
         modal_title.innerHTML = "<h2>" + "<strong>" + stock_name + "</strong>" + "(" + stock_id + ")" + "</h2>"
     }
+
+    //填充每条委托单的详情
+    var detail_lists;
+    <?php
+    $count = 0;
+    foreach($records as $stock_item) {
+        echo "var detail_list = new Object();";
+        foreach($stock_item as $key => $value) {
+            echo "detail_list['" . $key . "'] = " . $value;
+        }
+        echo "detail_lists[" . $count . "] = detail_list;";
+        $count += 1;
+    }
+    ?>
+    $('.order_detail').bind('click', function fill_order_detail(){
+        var detail_content = '<table class="table table-bordered table-responsive">';
+
+
+
+    });
+
 </script>
 </html>
