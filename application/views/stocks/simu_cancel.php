@@ -57,9 +57,9 @@ $pages = $pre_list['pagination']; //获取分页
 <!--                                            <th>其他杂费</th>-->
 <!--                                            <th>发生金额</th>-->
 <!--                                            <th>现金余额</th>-->
+                                            <!--                                            <th>备注</th>-->
                                             <th>委托时间</th>
                                             <th>详情</th>
-<!--                                            <th>备注</th>-->
                                             <th>撤单</th>
                                         </tr>
                                         </thead>
@@ -86,9 +86,9 @@ $pages = $pre_list['pagination']; //获取分页
 <!--                                                <td class="formatted">--><?php //echo $stock_item['other_fee']; ?><!--</td>-->
 <!--                                                <td class="formatted">--><?php //echo $stock_item['hap_fund']; ?><!--</td>-->
 <!--                                                <td class="formatted">--><?php //echo $stock_item['remain_fund']; ?><!--</td>-->
-                                                <td><?php echo $stock_item['timestamp']; ?></td>
-                                                <td><a href="#">查看</a></td>
-<!--                                                <td>--><?php //echo $stock_item['tip']; ?><!--</td>-->
+                                            <!--                                                <td>--><?php //echo $stock_item['tip']; ?><!--</td>-->
+                                            <td><?php echo $stock_item['timestamp']; ?></td>
+                                                <td data-toggle="modal" data-target="#detailModal"><a href="#">查看</a></td>
                                                 <td>
                                                     <a href="#" class="theme-color cancel_btn" data-id="<?php echo $stock_item['pre_id']; ?>">撤单</a>
                                                 </td>
@@ -106,6 +106,18 @@ $pages = $pre_list['pagination']; //获取分页
     </div>
 </div>
 <div class="modal fade" id="graphModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h3 class="modal-title" id="graph_modal_title"></h3>
+            </div>
+            <div class="modal-body" id="graph_modal_body"></div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -147,7 +159,6 @@ $pages = $pre_list['pagination']; //获取分页
                     }
                 });
             }
-
         });
     });
     //从新浪获取分时图
