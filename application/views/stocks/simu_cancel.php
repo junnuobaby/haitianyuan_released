@@ -209,7 +209,7 @@ $pages = $pre_list['pagination']; //获取分页
         detail_content += '<tr><th>代码</th><td>' + detail_lists[index]['SecurityID'] + '</td></tr>';
         detail_content += '<tr><th>名称</th><td>' + detail_lists[index]['Symbol'] + '</td></tr>';
         $('#detail_modal_cnt').html(detail_content);
-
+        $('#detailModal').modal('show')
 
     });
 
