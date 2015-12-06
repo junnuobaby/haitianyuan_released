@@ -73,10 +73,10 @@
                                     <div class="col-md-3 col-md-offset-1">
                                         <h4 id="bond_name" class="theme-color"></h4>
                                         <table class="table" id="bond_price">
-<!--                                            <tr><td>最新：</td><td></td></tr>-->
-<!--                                            <tr><td>昨收：</td><td></td></tr>-->
-<!--                                            <tr><td>涨停：</td><td></td></tr>-->
-<!--                                            <tr><td>跌停：</td><td></td></tr>-->
+                                            <tr><td>最新：</td></tr>
+                                            <tr><td>昨收：</td></tr>
+                                            <tr><td>涨停：</td></tr>
+                                            <tr><td>跌停：</td></tr>
                                         </table>
                                     </div>
                                     <div class="col-md-3">
