@@ -59,7 +59,8 @@ $pages = $pre_list['pagination']; //获取分页
 <!--                                            <th>现金余额</th>-->
                                             <th>委托时间</th>
                                             <th>备注</th>
-                                            <th>撤单</th>
+                                            <th>详情</th>
+<!--                                            <th>撤单</th>-->
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -86,7 +87,8 @@ $pages = $pre_list['pagination']; //获取分页
 <!--                                                <td class="formatted">--><?php //echo $stock_item['hap_fund']; ?><!--</td>-->
 <!--                                                <td class="formatted">--><?php //echo $stock_item['remain_fund']; ?><!--</td>-->
                                                 <td><?php echo $stock_item['timestamp']; ?></td>
-                                                <td><?php echo $stock_item['tip']; ?></td>
+                                                <td><a href="#">查看</a></td>
+<!--                                                <td>--><?php //echo $stock_item['tip']; ?><!--</td>-->
                                                 <td>
                                                     <a href="#" class="theme-color cancel_btn" data-id="<?php echo $stock_item['pre_id']; ?>">撤单</a>
                                                 </td>
