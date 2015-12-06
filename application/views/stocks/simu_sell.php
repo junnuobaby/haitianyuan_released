@@ -1,11 +1,12 @@
-<!--模拟炒股，卖出股票-->
+<!--卖出-->
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="zh-cn">
 <?php $this->load->view('./templates/head'); ?>
 <?php
-$sell_stocks = $sell_list; //获取手中持有的股票
+//获取持有的证券列表
+$sell_stocks = $sell_list;
 ?>
 <body class="bg-gray">
 <div class="wrapper">
@@ -20,7 +21,6 @@ $sell_stocks = $sell_list; //获取手中持有的股票
                     <div class="simulate_panel">
                         <div class="tab-content">
                             <h4 class="theme-color container_to_top">卖出证券</h4>
-
                             <div class="alert alert-info hidden" role="alert">卖出委托已经成功提交。您可以点击“撤单”来查看或撤销买入委托。</div>
                             <div class="panel panel-default">
                                 <div class="panel-body">
@@ -29,7 +29,6 @@ $sell_stocks = $sell_list; //获取手中持有的股票
                                               autocomplete="off">
                                             <div class="form-group">
                                                 <label for="bond_code" class="col-sm-4 control-label">证券代码:</label>
-
                                                 <div class="col-sm-8 bond_code_div">
                                                     <select class="form-control" id="bond_code">
                                                         <option></option>
@@ -52,7 +51,6 @@ $sell_stocks = $sell_list; //获取手中持有的股票
                                             </div>
                                             <div class="form-group hidden largest_quantity">
                                                 <label class="col-sm-4 control-label">买入价:</label>
-
                                                 <div class="col-sm-8">
                                                     <div class="input-group">
                                                         <span class="form-control warning_bg_color"
@@ -63,12 +61,10 @@ $sell_stocks = $sell_list; //获取手中持有的股票
                                             </div>
                                             <div class="form-group hidden largest_quantity">
                                                 <label class="col-sm-4 control-label">最多可卖出:</label>
-
                                                 <div class="col-sm-8">
                                                     <div class="input-group">
                                                         <span class="form-control warning_bg_color"
                                                               id="largest_quantity"></span>
-
                                                         <div class="input-group-addon">手</div>
                                                     </div>
                                                 </div>
@@ -77,9 +73,7 @@ $sell_stocks = $sell_list; //获取手中持有的股票
                                                 <label for="buy_price" class="col-sm-4 control-label">卖出价格:</label>
                                                 <div class="col-sm-8">
                                                     <div class="input-group">
-                                                        <input type="text" class="form-control" id="buy_price"
-                                                               name="buy_price">
-
+                                                        <input type="text" class="form-control" id="buy_price" name="buy_price">
                                                         <div class="input-group-addon">元</div>
                                                     </div>
                                                 </div>
@@ -88,93 +82,39 @@ $sell_stocks = $sell_list; //获取手中持有的股票
                                                 <label for="buy_quantity" class="col-sm-4 control-label">卖出数量:</label>
                                                 <div class="col-sm-8">
                                                     <div class="input-group">
-                                                        <input type="text" class="form-control" id="buy_quantity"
-                                                               name="buy_quantity">
+                                                        <input type="text" class="form-control" id="buy_quantity" name="buy_quantity">
                                                         <div class="input-group-addon">手</div>
                                                     </div>
                                                     <span class="theme-color">(股票1手 = 100股)</span>
                                                     <div class="theme-color">(债券1手 = 10张)</div>
                                                 </div>
                                             </div>
-                                            <a class="btn  bg-theme buy_stock_btn" id="buy">卖出
-                                            </a>
+                                            <a class="btn  bg-theme buy_stock_btn" id="buy">卖出</a>
                                         </form>
                                     </div>
                                     <div class="col-md-3 col-md-offset-1">
                                         <h4 id="bond_name" class="theme-color"></h4>
                                         <table class="table" id="bond_price">
-                                            <tr>
-                                                <td>最新：</td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>昨收：</td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>涨停：</td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>跌停：</td>
-                                                <td></td>
-                                            </tr>
+                                            <tr><td>最新：</td></tr>
+                                            <tr><td>昨收：</td></tr>
+                                            <tr><td>涨停：</td></tr>
+                                            <tr><td>跌停：</td></tr>
                                         </table>
                                     </div>
                                     <div class="col-md-3">
                                         <table class="table table-condensed" id="top_sell">
-                                            <tr>
-                                                <td>卖五：</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>卖四：</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>卖三：</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>卖二：</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>卖一：</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
+                                            <tr><td>卖五：</td></tr>
+                                            <tr><td>卖四：</td></tr>
+                                            <tr><td>卖三：</td></tr>
+                                            <tr><td>卖二：</td></tr>
+                                            <tr><td>卖一：</td></tr>
                                         </table>
                                         <table class="table table-condensed" id="top_buy">
-                                            <tr>
-                                                <td>买一：</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>买二：</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>买三：</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>买四：</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>买五：</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
+                                            <tr><td>买一：</td></tr>
+                                            <tr><td>买二：</td></tr>
+                                            <tr><td>买三：</td></tr>
+                                            <tr><td>买四：</td></tr>
+                                            <tr><td>买五：</td></tr>
                                         </table>
                                     </div>
                                 </div>
@@ -197,9 +137,8 @@ $sell_stocks = $sell_list; //获取手中持有的股票
             </div>
         </div>
     </div>
-    <!--悬停go-top按钮-->
-    <?php $this->load->view('./templates/go-top'); ?>
 </div>
+<?php $this->load->view('./templates/go-top'); ?>
 <?php $this->load->view('./templates/footer'); ?>
 </body>
 <script>
@@ -226,10 +165,8 @@ $sell_stocks = $sell_list; //获取手中持有的股票
             }
             selected_code_info(selected_code);
             clearInterval(interval);
-            interval = setInterval(function () {
-                selected_code_info(selected_code)
-            }, 8000); //每隔8s自动请求一次
-        });
+            interval = setInterval(function () {selected_code_info(selected_code)}, 8000); //每隔8s自动请求一次
+            });
 
         //ajax向后台请求要卖出股票的最新信息
         function selected_code_info(code) {
@@ -268,36 +205,28 @@ $sell_stocks = $sell_list; //获取手中持有的股票
                     buy_volume[j] = format_num(buy_volume[j]);
                 }
 
+                var bond_price_cnt = '<tr><td>最新：</td><td>' + bond_cur_price + '</td></tr>';
+                bond_price_cnt += '<tr><td>昨收：</td><td>' + bond_lastday_price + '</td></tr>';
+                bond_price_cnt += '<tr><td>涨停：</td><td>'+ bond_highest +'</td></tr>';
+                bond_price_cnt += '<tr><td>跌停：</td><td>' + bond_lowest + '</td></tr>';
                 $('#bond_name').html(bond_name);
-                $('#bond_price tr:nth-child(1) td:nth-child(2)').html(bond_cur_price);
-                $('#bond_price tr:nth-child(2) td:nth-child(2)').html(bond_lastday_price);
-                $('#bond_price tr:nth-child(3) td:nth-child(2)').html(bond_highest);
-                $('#bond_price tr:nth-child(4) td:nth-child(2)').html(bond_lowest);
+                $('#bond_price').html(bond_price_cnt);
 
-                $('#top_sell tr:nth-child(1) td:nth-child(2)').html(sell_1ist[4]); //卖五
-                $('#top_sell tr:nth-child(2) td:nth-child(2)').html(sell_1ist[3]); //卖四
-                $('#top_sell tr:nth-child(3) td:nth-child(2)').html(sell_1ist[2]); //卖三
-                $('#top_sell tr:nth-child(4) td:nth-child(2)').html(sell_1ist[1]); //卖二
-                $('#top_sell tr:nth-child(5) td:nth-child(2)').html(sell_1ist[0]); //卖一
 
-                $('#top_buy tr:nth-child(1) td:nth-child(2)').html(buy_1ist[0]); //买一
-                $('#top_buy tr:nth-child(2) td:nth-child(2)').html(buy_1ist[1]); //买二
-                $('#top_buy tr:nth-child(3) td:nth-child(2)').html(buy_1ist[2]); //买三
-                $('#top_buy tr:nth-child(4) td:nth-child(2)').html(buy_1ist[3]); //买四
-                $('#top_buy tr:nth-child(5) td:nth-child(2)').html(buy_1ist[4]); //买五
-
-                //设置买五和卖五的数量
-                $('#top_sell tr:nth-child(1) td:nth-child(3)').html(sell_volume[4]); //卖五
-                $('#top_sell tr:nth-child(2) td:nth-child(3)').html(sell_volume[3]); //卖四
-                $('#top_sell tr:nth-child(3) td:nth-child(3)').html(sell_volume[2]); //卖三
-                $('#top_sell tr:nth-child(4) td:nth-child(3)').html(sell_volume[1]); //卖二
-                $('#top_sell tr:nth-child(5) td:nth-child(3)').html(sell_volume[0]); //卖一
-
-                $('#top_buy tr:nth-child(1) td:nth-child(3)').html(buy_volume[0]); //买一
-                $('#top_buy tr:nth-child(2) td:nth-child(3)').html(buy_volume[1]); //买二
-                $('#top_buy tr:nth-child(3) td:nth-child(3)').html(buy_volume[2]); //买三
-                $('#top_buy tr:nth-child(4) td:nth-child(3)').html(buy_volume[3]); //买四
-                $('#top_buy tr:nth-child(5) td:nth-child(3)').html(buy_volume[4]); //买五
+                //设置卖五的价格和数量
+                var top_sell_cnt = '<tr><td>卖五：</td><td>' + sell_1ist[4] + '</td><td>' + sell_volume[4] + '</td></tr>';
+                top_sell_cnt += '<tr><td>卖四：</td><td>' + sell_1ist[3] + '</td><td>' + sell_volume[3] + '</td></tr>';
+                top_sell_cnt += '<tr><td>卖三：</td><td>' + sell_1ist[2] + '</td><td>' + sell_volume[2] + '</td></tr>';
+                top_sell_cnt += '<tr><td>卖二：</td><td>' + sell_1ist[1] + '</td><td>' + sell_volume[1] + '</td></tr>';
+                top_sell_cnt += '<tr><td>卖一：</td><td>' + sell_1ist[0] + '</td><td>' + sell_volume[0] + '</td></tr>';
+                $('#top_sell').html(top_sell_cnt);
+                //设置买五的价格和数量
+                var top_buy_cnt = '<tr><td>买一：</td><td>' + buy_1ist[0] + '</td><td>' + buy_volume[0] + '</td></tr>';
+                top_buy_cnt += '<tr><td>买二：</td><td>' + buy_1ist[1] + '</td><td>' + buy_volume[1] + '</td></tr>';
+                top_buy_cnt += '<tr><td>买三：</td><td>' + buy_1ist[2] + '</td><td>' + buy_volume[2] + '</td></tr>';
+                top_buy_cnt += '<tr><td>买四：</td><td>' + buy_1ist[3] + '</td><td>' + buy_volume[3] + '</td></tr>';
+                top_buy_cnt += '<tr><td>买五：</td><td>' + buy_1ist[4] + '</td><td>' + buy_volume[4] + '</td></tr>';
+                $('#top_buy').html(top_buy_cnt);
 
                 //根据价格设置显示颜色
                 var top_price = $('#bond_price tr td:nth-child(2),#top_buy tr td:nth-child(2), #top_sell tr td:nth-child(2)');
@@ -311,7 +240,7 @@ $sell_stocks = $sell_list; //获取手中持有的股票
             }
         }
 
-        //点击卖出按钮，传给服务器股票信息
+        //卖出按钮事件
         $('#buy').click(function () {
             var bond_code = $('#bond_code').children('option:selected').data('code'); //证券代码
             var bond_name = $('#bond_code').children('option:selected').data('name'); //证券名称
@@ -324,7 +253,6 @@ $sell_stocks = $sell_list; //获取手中持有的股票
                 bond_quantities = parseInt(bond_quantity) * 100;
             }
             var info_str = '确定卖出' + bond_quantity + '手' + bond_name + '?';
-
             if (confirm(info_str)) {
                 $.ajax({
                     url: '<?php echo base_url("index.php/stock/sell_stock/web"); ?>',
@@ -349,9 +277,7 @@ $sell_stocks = $sell_list; //获取手中持有的股票
                     }
                 });
             }
-
         });
-
     });
 </script>
 </html>
