@@ -195,11 +195,11 @@ $pages = $pre_list['pagination']; //获取分页
     <?php
     $count = 0;
     foreach($records as $stock_item) {
-        echo "var detail_list = new Object();";
+        echo "var detail_list = new Object();\n";
         foreach($stock_item as $key => $value) {
-            echo "detail_list['" . $key . "'] = " . $value;
+            echo "detail_list['" . $key . "'] = '" . $value . "'\n";
         }
-        echo "detail_lists[" . $count . "] = detail_list;";
+        echo "detail_lists[" . $count . "] = detail_list;\n";
         $count += 1;
     }
     ?>
