@@ -202,7 +202,7 @@ $pages = $pre_list['pagination']; //获取分页
     ?>
 
     $('.order_detail').bind('click', function fill_order_detail(){
-        var detail_index = $(this).data('index');
+        var index = $(this).data('index');
         var detail_content = '<table class="table table-bordered table-responsive">';
         detail_content += '<tr><th>订单编号</th><td>' + detail_lists[index]['pre_id'] + '</td></tr>';
         detail_content += '<tr><th>操作</th><td>' + detail_lists[index]['trade_type'] + '</td></tr>';
