@@ -128,10 +128,7 @@ $pages = $pre_list['pagination']; //获取分页
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
-            <div>
-
-            </div>
-
+            <div id="detail_modal_cnt"></div>
         </div>
     </div>
 </div>
@@ -203,9 +200,15 @@ $pages = $pre_list['pagination']; //获取分页
         $count += 1;
     }
     ?>
-    $('.order_detail').bind('click', function fill_order_detail(){
-        var detail_content = '<table class="table table-bordered table-responsive">';
 
+    $('.order_detail').bind('click', function fill_order_detail(){
+        var detail_index = $(this).data('index');
+        var detail_content = '<table class="table table-bordered table-responsive">';
+        detail_content += '<tr><th>订单编号</th><td>' + detail_lists[index]['pre_id'] + '</td></tr>';
+        detail_content += '<tr><th>操作</th><td>' + detail_lists[index]['trade_type'] + '</td></tr>';
+        detail_content += '<tr><th>代码</th><td>' + detail_lists[index]['SecurityID'] + '</td></tr>';
+        detail_content += '<tr><th>名称</th><td>' + detail_lists[index]['Symbol'] + '</td></tr>';
+        $('#detail_modal_cnt').html(detail_content);
 
 
     });
