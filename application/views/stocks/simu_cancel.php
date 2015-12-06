@@ -87,6 +87,7 @@ $pages = $pre_list['pagination']; //获取分页
 <!--                                                <td class="formatted">--><?php //echo $stock_item['hap_fund']; ?><!--</td>-->
 <!--                                                <td class="formatted">--><?php //echo $stock_item['remain_fund']; ?><!--</td>-->
                                                 <td><?php echo $stock_item['timestamp']; ?></td>
+                                                <td><a href="#">查看</a></td>
 <!--                                                <td>--><?php //echo $stock_item['tip']; ?><!--</td>-->
                                                 <td>
                                                     <a href="#" class="theme-color cancel_btn" data-id="<?php echo $stock_item['pre_id']; ?>">撤单</a>
