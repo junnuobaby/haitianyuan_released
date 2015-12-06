@@ -81,18 +81,18 @@
                                     </div>
                                     <div class="col-md-3">
                                         <table class="table table-condensed" id="top_sell">
-                                            <tr><td>卖五：</td><td></td><td></td></tr>
-                                            <tr><td>卖四：</td><td></td><td></td></tr>
-                                            <tr><td>卖三：</td><td></td><td></td></tr>
-                                            <tr><td>卖二：</td><td></td><td></td></tr>
-                                            <tr><td>卖一：</td><td></td><td></td></tr>
+                                            <tr><td>卖五：</td></tr>
+                                            <tr><td>卖四：</td></tr>
+                                            <tr><td>卖三：</td></tr>
+                                            <tr><td>卖二：</td></tr>
+                                            <tr><td>卖一：</td></tr>
                                         </table>
                                         <table class="table table-condensed" id="top_buy">
-                                            <tr><td>买一：</td><td></td><td></td></tr>
-                                            <tr><td>买二：</td><td></td><td></td></tr>
-                                            <tr><td>买三：</td><td></td><td></td></tr>
-                                            <tr><td>买四：</td><td></td><td></td></tr>
-                                            <tr><td>买五：</td><td></td><td></td></tr>
+                                            <tr><td>买一：</td></tr>
+                                            <tr><td>买二：</td></tr>
+                                            <tr><td>买三：</td></tr>
+                                            <tr><td>买四：</td></tr>
+                                            <tr><td>买五：</td></tr>
                                         </table>
                                     </div>
                                 </div>
@@ -304,7 +304,7 @@
                 top_buy_cnt += '<tr><td>买五：</td><td>' + buy_1ist[4] + '</td><td>' + buy_volume[4] + '</td></tr>';
                 $('#top_buy').html(top_buy_cnt);
 
-                //根据价格设置显示颜色
+                //设置价格显示颜色
                 var top_price = $('#bond_price tr td:nth-child(2),#top_buy tr td:nth-child(2), #top_sell tr td:nth-child(2)');
                 top_price.each(function () {
                     if (parseFloat($(this).html()) > parseFloat(bond_lastday_price)) {
@@ -322,16 +322,18 @@
             var available_money = "<?php echo $cash_use;?>";
             if (isNaN(bond_price) || parseFloat(bond_price) <= 0) {
                 $('span.buy_price_alert').removeClass('hidden');
-
             }
             if (bond_price.length > 0 && !isNaN(bond_price) && parseFloat(bond_price) > 0) {
                 bond_price = decimal(bond_price);
-                var quantity_avail;
-                if(is_bond){
-                    quantity_avail = parseInt(parseFloat(available_money) / (parseFloat(bond_price) * 10)); //计算当前可买入的债券最大手数
-                }else{
-                    quantity_avail = parseInt(parseFloat(available_money) / (parseFloat(bond_price) * 100)); //计算当前可买入的股票最大手数
-                }
+                available_money = parseFloat(available_money);
+                var quantity_avail = (is_bond) ? parseInt(available_money / (bond_price * 10)) : parseInt(available_money / (bond_price * 100));
+//                if(is_bond){
+//                    //计算当前可买入的债券最大手数
+//                    quantity_avail = parseInt(available_money / (bond_price * 10));
+//                }else{
+//                    //计算当前可买入的股票最大手数
+//                    quantity_avail = parseInt(available_money / (bond_price * 100));
+//                }
                 $('div.largest_quantity').removeClass('hidden');
                 $('#largest_quantity').html(quantity_avail);
             }
