@@ -316,6 +316,7 @@
             }
         }
 
+        //用户输入买入价格后提示最大可买入量
         $('#buy_price').bind({
             blur: function () {
                 var bond_price = $.trim($(this).val());
@@ -337,40 +338,14 @@
             }
         });
 
-        //用户输入买入价格后提示最大可买入量
-//        $('#buy_price').blur(function () {
-//            var bond_price = $.trim($(this).val());
-//            var available_money = "<?php //echo $cash_use;?>//";
-//            if (isNaN(bond_price) || parseFloat(bond_price) <= 0) {
-//                $('span.buy_price_alert').removeClass('hidden');
-//            }
-//            if (bond_price.length > 0 && !isNaN(bond_price) && parseFloat(bond_price) > 0) {
-//                bond_price = decimal(bond_price);
-//                available_money = parseFloat(available_money);
-//                var quantity_avail = (is_bond) ? parseInt(available_money / (bond_price * 10)) : parseInt(available_money / (bond_price * 100));
-//                $('div.largest_quantity').removeClass('hidden');
-//                $('#largest_quantity').html(quantity_avail);
-//            }
-//        });
-//        $('#buy_price').focus(function () {
-//            $('span.buy_price_alert').addClass('hidden');
-//            $('div.largest_quantity').addClass('hidden');
-//        });
-
-        //点击买入按钮，将买入股票信息
+        //买入按钮事件
         $('#buy').click(function () {
             var bond_code = $('#bond_code').val(); //证券代码
             var bond_name = $('#bond_name').html(); //证券名称
             var bond_price = decimal($('#buy_price').val()); //买入价格
             var bond_quantity = $('#buy_quantity').val(); //买入数量(以手为单位)
             var info_str = '确定买入' + bond_quantity + '手' + bond_name + '?';
-            var bond_quantities; //求买入的股数（买入数量*100）
-            if(is_bond){
-                bond_quantities = parseInt(bond_quantity) * 10;
-            }else{
-                bond_quantities = parseInt(bond_quantity) * 100;
-            }
-
+            var bond_quantities = (is_bond) ? parseInt(bond_quantity) * 10 : parseInt(bond_quantity) * 100; //买入股数
 
             if (validate(bond_code, bond_price, bond_quantity) && validate_charge(bond_quantities, bond_price, "<?php echo $cash_use;?>")) {
                 if (confirm(info_str)) {
