@@ -157,7 +157,7 @@ $sell_stocks = $sell_list;
             //显示最大可卖出数量
             $('div.largest_quantity').removeClass('hidden');
             //显示买入该股票价格
-            $('#buy_in_price').html(selected_cost);
+            $('#buy_in_price').html(decimal(selected_cost));
             if(is_bond){
                 $('#largest_quantity').html(Math.round(parseInt(max_volume) / 10));
             }else{
