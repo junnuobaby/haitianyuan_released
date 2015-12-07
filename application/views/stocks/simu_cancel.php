@@ -44,20 +44,12 @@ $pages = $pre_list['pagination']; //获取分页
                                     <table class="table table-bordered table-hover table-striped ">
                                         <thead>
                                         <tr>
-    <!--                                        <th>编号</th>-->
                                             <th>代码</th>
                                             <th>名称</th>
                                             <th>操作</th>
                                             <th>委托数量</th>
                                             <th>委托价格</th>
-<!--                                            <th>挂单全价</th>-->
                                             <th>金额</th>
-<!--                                            <th>手续费</th>-->
-<!--                                            <th>印花税</th>-->
-<!--                                            <th>其他杂费</th>-->
-<!--                                            <th>发生金额</th>-->
-<!--                                            <th>现金余额</th>-->
-                                            <!--                                            <th>备注</th>-->
                                             <th>委托时间</th>
                                             <th>详情</th>
                                             <th>撤单</th>
@@ -67,8 +59,6 @@ $pages = $pre_list['pagination']; //获取分页
                                         <?php $count_num = 0; ?>
                                         <?php foreach ($records as $stock_item): ?>
                                             <tr class="done_record">
-    <!--                                            <td>--><?php //echo $stock_item['pre_id']; ?><!--</td>-->
-
                                                 <td data-toggle="modal" data-target="#graphModal" onclick="fillimage('<?= $stock_item['SecurityID']; ?>', '<?= $stock_item['Symbol']; ?>')">
                                                     <a href="#" class="hty_a"><?php echo $stock_item['SecurityID']; ?></a>
                                                 </td>
@@ -80,14 +70,7 @@ $pages = $pre_list['pagination']; //获取分页
                                                 } ?></td>
                                                 <td class="formatted"><?php echo $stock_item['Volume']; ?></td>
                                                 <td class="formatted"><?php echo $stock_item['price_order']; ?></td>
-<!--                                                <td class="formatted">--><?php //echo $stock_item['price_full']; ?><!--</td>-->
                                                 <td class="formatted"><?php echo $stock_item['fund_deal']; ?></td>
-<!--                                                <td class="formatted">--><?php //echo $stock_item['fee']; ?><!--</td>-->
-<!--                                                <td class="formatted">--><?php //echo $stock_item['tax']; ?><!--</td>-->
-<!--                                                <td class="formatted">--><?php //echo $stock_item['other_fee']; ?><!--</td>-->
-<!--                                                <td class="formatted">--><?php //echo $stock_item['hap_fund']; ?><!--</td>-->
-<!--                                                <td class="formatted">--><?php //echo $stock_item['remain_fund']; ?><!--</td>-->
-                                            <!--                                                <td>--><?php //echo $stock_item['tip']; ?><!--</td>-->
                                             <td><?php echo $stock_item['timestamp']; ?></td>
                                                 <td data-index="<?php echo $count_num; ?>" class="order_detail"><a href="#" class="theme-color">查看</a></td>
                                                 <td>

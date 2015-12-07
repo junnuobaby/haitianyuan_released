@@ -21,11 +21,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *                Symbol - 名称
  *                Volume_All -
  *                Ban_Volume - 不可卖出数量
- *                Order_Volume - ？
+ *                Order_Volume - 冻结数量
  *                BuyCost - 买入成本
  *                day_letf - 距付息日（天）- (*仅债券有该字段)
  *                expire-day - 到期时间 - (*仅债券有该字段)
- *                interest - ？ - (*仅债券有该字段)
+ *                interest - 债券利息 - (*仅债券有该字段)
  * base_funds - number - 用户起始资金
  */
 $user_data = $user_info['data_user'];

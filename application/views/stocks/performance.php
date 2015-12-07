@@ -85,9 +85,9 @@ $month_rank = floatval($basic_info['month_rank']);
                 $(this).css('color', 'green');
             }
         });
-        var user_rate = new Array();
-        var avg_rate = new Array();
-        var time_list = new Array();
+        var user_rate = [];
+        var avg_rate = [];
+        var time_list = [];
         <?php $count = 0;?>
         <?php foreach($perform_info as $item):?>
         <?php $day_rate = round(floatval($item['day_rate'])*100, 2);?>
