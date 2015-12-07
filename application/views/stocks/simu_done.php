@@ -167,14 +167,14 @@ $pages = $done_list['pagination'];
         detail_content += '<tr><th>类型</th><td>' + (detail_lists[index]['trade_type'] == 1 ? "买入" : "卖出") + '</td></tr>';
         detail_content += '<tr><th>委托价</th><td>' + format_num(detail_lists[index]['price_order']) + '</td></tr>';
         detail_content += '<tr><th>成交价</th><td>' + format_num(detail_lists[index]['price_deal']) + '</td></tr>';
+        detail_content += '<tr><th>成交全价</th><td>' + format_num(detail_lists[index]['price_full']) + '</td></tr>';
         detail_content += '<tr><th>成交量</th><td>' + format_num(detail_lists[index]['Volume']) + '</td></tr>';
         detail_content += '<tr><th>成交金额</th><td>' + format_num(detail_lists[index]['fund_deal']) + '</td></tr>';
-        detail_content += '<tr><th>成交全价</th><td>' + format_num(detail_lists[index]['price_full']) + '</td></tr>';
-        detail_content += '<tr><th>发生金额</th><td>' + format_num(detail_lists[index]['hap_fund']) + '</td></tr>';
-        detail_content += '<tr><th>现金余额</th><td>' + format_num(detail_lists[index]['remain_fund']) + '</td></tr>';
         detail_content += '<tr><th>手续费</th><td>' + format_num(detail_lists[index]['fee']) + '</td></tr>';
         detail_content += '<tr><th>印花税</th><td>' + format_num(detail_lists[index]['tax']) + '</td></tr>';
         detail_content += '<tr><th>其他杂费</th><td>' + format_num(detail_lists[index]['other_fee']) + '</td></tr>';
+        detail_content += '<tr><th>发生金额</th><td>' + format_num(detail_lists[index]['hap_fund']) + '</td></tr>';
+        detail_content += '<tr><th>现金余额</th><td>' + format_num(detail_lists[index]['remain_fund']) + '</td></tr>';
         detail_content += '<tr><th>备注</th><td>' + detail_lists[index]['tip'] + '</td></tr>';
 
         $('#detail_modal_cnt').html(detail_content);
