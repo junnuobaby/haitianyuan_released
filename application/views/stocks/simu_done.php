@@ -35,12 +35,13 @@ $pages = $done_list['pagination'];
                                                 <th>名称</th>
                                                 <th>类型</th>
                                                 <th>委托价</th>
-                                                <th>成交价格</th>
+                                                <th>成交价</th>
                                                 <th>成交量</th>
     <!--                                            <th>成交金额</th>-->
     <!--                                            <th>成交全价</th>-->
                                                 <th>手续费</th>
                                                 <th>印花税</th>
+                                                <th>详细</th>
     <!--                                            <th>其他杂费</th>-->
     <!--                                            <th>发生金额</th>-->
     <!--                                            <th>现金余额</th>-->
@@ -61,6 +62,7 @@ $pages = $done_list['pagination'];
     <!--                                                <td class="formatted">--><?php //echo $stock_item['price_full']; ?><!--</td>-->
                                                     <td class="formatted"><?php echo $stock_item['fee'];?></td>
                                                     <td class="formatted"><?php echo $stock_item['tax'];?></td>
+                                                    <td><a href="#">查看</a></td>
     <!--                                                <td class="formatted">--><?php //echo $stock_item['other_fee'];?><!--</td>-->
     <!--                                                <td class="formatted">--><?php //echo $stock_item['hap_fund'];?><!--</td>-->
     <!--                                                <td class="formatted">--><?php //echo $stock_item['remain_fund'];?><!--</td>-->
