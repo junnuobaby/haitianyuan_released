@@ -38,7 +38,7 @@ $pages = $his_list['pagination'];
                                             <th>价格</th>
                                             <th>数量</th>
 <!--                                            <th>挂单全价</th>-->
-<!--                                            <th>挂单金额</th>-->
+                                            <th>金额</th>
 <!--                                            <th>手续费</th>-->
 <!--                                            <th>印花税</th>-->
 <!--                                            <th>其他杂费</th>-->
@@ -73,7 +73,7 @@ $pages = $his_list['pagination'];
                                             <td class="formatted decimal"><?php echo $stock_item['price_order'];?></td>
                                             <td class="formatted"><?php echo $stock_item['Volume']; ?></td>
 <!--                                                <td class="formatted">--><?php //echo $stock_item['price_full'];?><!--</td>-->
-<!--                                                <td class="formatted">--><?php //echo $stock_item['fund_deal'];?><!--</td>-->
+                                                <td class="formatted"><?php echo $stock_item['fund_deal'];?></td>
 <!--                                                <td class="formatted">--><?php //echo $stock_item['fee'];?><!--</td>-->
 <!--                                                <td class="formatted">--><?php //echo $stock_item['tax'];?><!--</td>-->
 <!--                                                <td class="formatted">--><?php //echo $stock_item['other_fee'];?><!--</td>-->
