@@ -49,6 +49,7 @@ $pages = $done_list['pagination'];
                                             </tr>
                                             </thead>
                                             <tbody>
+                                            <?php $count_num = 0; ?>
                                             <?php foreach ($done_records as $stock_item): ?>
                                                 <tr>
                                                     <td><?php echo $stock_item['timestamp']; ?></td>
@@ -62,12 +63,13 @@ $pages = $done_list['pagination'];
     <!--                                                <td class="formatted">--><?php //echo $stock_item['price_full']; ?><!--</td>-->
                                                     <td class="formatted"><?php echo $stock_item['fee'];?></td>
                                                     <td class="formatted"><?php echo $stock_item['tax'];?></td>
-                                                    <td><a href="#">查看</a></td>
+                                                    <td data-index="<?php echo $count_num; ?>" class="order_detail"><a href="#" class="theme-color">查看</a></td>
     <!--                                                <td class="formatted">--><?php //echo $stock_item['other_fee'];?><!--</td>-->
     <!--                                                <td class="formatted">--><?php //echo $stock_item['hap_fund'];?><!--</td>-->
     <!--                                                <td class="formatted">--><?php //echo $stock_item['remain_fund'];?><!--</td>-->
     <!--                                                <td>--><?php //echo $stock_item['tip'];?><!--</td>-->
                                                 </tr>
+                                                <?php $count_num++; ?>
                                             <?php endforeach; ?>
                                             </tbody>
                                         </table>
@@ -91,6 +93,18 @@ $pages = $done_list['pagination'];
                 <h3 class="modal-title" id="graph_modal_title"></h3>
             </div>
             <div class="modal-body" id="graph_modal_body"></div>
+        </div>
+    </div>
+</div>
+<!--显示每天成交记录详情的模态框-->
+<div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4>订单详情</h4>
+            </div>
+            <div id="detail_modal_cnt"></div>
         </div>
     </div>
 </div>
@@ -129,5 +143,43 @@ $pages = $done_list['pagination'];
         modal_body.innerHTML += "<img src='http://image.sinajs.cn/newchart/daily/n/" + stock_id + ".gif' />";
         modal_title.innerHTML = "<h2>" + "<strong>" + stock_name + "</strong>" + "(" + stock_id + ")" + "</h2>"
     }
+
+    //填充每条委托单的详情
+    var detail_lists = [];
+    <?php
+    $count = 0;
+    foreach($done_records as $stock_item) {
+        echo "var detail_list = new Object();\n";
+        foreach($stock_item as $key => $value) {
+            echo "detail_list['" . $key . "'] = '" . $value . "'\n";
+        }
+        echo "detail_lists[" . $count . "] = detail_list;\n";
+        $count += 1;
+    }
+    ?>
+
+    $('.order_detail').bind('click', function fill_order_detail(){
+        var index = $(this).data('index');
+        var detail_content = '<table class="table table-bordered table-responsive">';
+        detail_content += '<tr><th>成交时间</th><td>' + detail_lists[index]['timestamp'] + '</td></tr>';
+        detail_content += '<tr><th>代码</th><td>' + detail_lists[index]['SecurityID'] + '</td></tr>';
+        detail_content += '<tr><th>名称</th><td>' + detail_lists[index]['Symbol'] + '</td></tr>';
+        detail_content += '<tr><th>类型</th><td>' + (detail_lists[index]['trade_type'] == 1 ? "买入" : "卖出") + '</td></tr>';
+        detail_content += '<tr><th>委托价</th><td>' + format_num(detail_lists[index]['price_order']) + '</td></tr>';
+        detail_content += '<tr><th>成交价</th><td>' + format_num(detail_lists[index]['price_deal']) + '</td></tr>';
+        detail_content += '<tr><th>成交量</th><td>' + format_num(detail_lists[index]['Volume']) + '</td></tr>';
+        detail_content += '<tr><th>成交金额</th><td>' + format_num(detail_lists[index]['fund_deal']) + '</td></tr>';
+        detail_content += '<tr><th>成交全价</th><td>' + format_num(detail_lists[index]['price_full']) + '</td></tr>';
+        detail_content += '<tr><th>发生金额</th><td>' + format_num(detail_lists[index]['hap_fund']) + '</td></tr>';
+        detail_content += '<tr><th>现金余额</th><td>' + format_num(detail_lists[index]['remain_fund']) + '</td></tr>';
+        detail_content += '<tr><th>手续费</th><td>' + format_num(detail_lists[index]['fee']) + '</td></tr>';
+        detail_content += '<tr><th>印花税</th><td>' + format_num(detail_lists[index]['tax']) + '</td></tr>';
+        detail_content += '<tr><th>其他杂费</th><td>' + format_num(detail_lists[index]['other_fee']) + '</td></tr>';
+        detail_content += '<tr><th>备注</th><td>' + detail_lists[index]['tip'] + '</td></tr>';
+
+        $('#detail_modal_cnt').html(detail_content);
+        $('#detailModal').modal('show');
+    });
+
 </script>
 </html>
