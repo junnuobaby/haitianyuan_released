@@ -60,9 +60,9 @@ $base_funds = $user_data['base_cash'];
                                                 <tr><th>可用现金</th><td class="formatted"><?php echo $user_data['cash_use']; ?></td></tr>
                                                 <tr><th>股票市值</th><td id="stock_value"></td></tr>
                                                 <tr><th>债券市值</th><td id="bond_value"></td></tr>
-                                                <tr><th>仓位</th><td id="my_position"></td>0</tr>
-                                                <tr><th>总盈亏</th><td id="pl_value"></td>0</tr>
-                                                <tr><th>总盈亏率</th><td id="pl_rate"></td>0</tr>
+                                                <tr><th>仓位</th><td id="my_position">0</td></tr>
+                                                <tr><th>总盈亏</th><td id="pl_value">0</td></tr>
+                                                <tr><th>总盈亏率</th><td id="pl_rate">0</td></tr>
                                                 <tr><th>浮动盈亏</th><td id="fd_value"></td></tr>
                                                 <tr><th>浮动盈亏率</th><td id="fd_rate"></td></tr>
                                             </table>
