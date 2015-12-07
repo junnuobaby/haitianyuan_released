@@ -110,6 +110,7 @@ $pages = $pre_list['pagination']; //获取分页
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <p>订单详情</p>
             </div>
             <div id="detail_modal_cnt"></div>
         </div>
