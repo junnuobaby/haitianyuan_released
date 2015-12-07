@@ -161,10 +161,10 @@ $pages = $done_list['pagination'];
     $('.order_detail').bind('click', function fill_order_detail(){
         var index = $(this).data('index');
         var detail_content = '<table class="table table-bordered table-responsive">';
-        detail_content += '<tr><th>成交时间</th><td>' + detail_lists[index]['timestamp'] + '</td></tr>';
+        detail_content += '<tr><th>成交日期</th><td>' + detail_lists[index]['timestamp'] + '</td></tr>';
+        detail_content += '<tr><th>操作</th><td>' + (detail_lists[index]['trade_type'] == 1 ? "买入" : "卖出") + '</td></tr>';
         detail_content += '<tr><th>代码</th><td>' + detail_lists[index]['SecurityID'] + '</td></tr>';
         detail_content += '<tr><th>名称</th><td>' + detail_lists[index]['Symbol'] + '</td></tr>';
-        detail_content += '<tr><th>类型</th><td>' + (detail_lists[index]['trade_type'] == 1 ? "买入" : "卖出") + '</td></tr>';
         detail_content += '<tr><th>委托价</th><td>' + format_num(detail_lists[index]['price_order']) + '</td></tr>';
         detail_content += '<tr><th>成交价</th><td>' + format_num(detail_lists[index]['price_deal']) + '</td></tr>';
         detail_content += '<tr><th>成交全价</th><td>' + format_num(detail_lists[index]['price_full']) + '</td></tr>';
