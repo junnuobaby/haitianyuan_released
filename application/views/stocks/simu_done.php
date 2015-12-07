@@ -5,8 +5,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="zh-cn">
 <?php $this->load->view('./templates/head'); ?>
 <?php
-$done_records = $done_list['data_page'];  //获取已成交记录
-$pages = $done_list['pagination']; //获取分页
+/**
+ * done_records - dict - 获取已成交记录
+ * pages - 分页
+ */
+$done_records = $done_list['data_page'];
+$pages = $done_list['pagination'];
 ?>
 <body class="bg-gray">
 <div class="wrapper">
@@ -20,17 +24,17 @@ $pages = $done_list['pagination']; //获取分页
                     <div class="simulate_panel">
                         <div class="tab-content">
                             <h4 class="theme-color container_to_top">成交记录</h4>
-
                             <div class="panel panel-default border_none">
                                 <div class="panel-body">
                                     <table class="table table-responsive table-hover table-bordered">
                                         <thead>
                                         <tr>
                                             <th>成交时间</th>
-                                            <th>证券代码</th>
-                                            <th>证券名称</th>
-                                            <th>委托方向</th>
-                                            <th>成交量(股)</th>
+                                            <th>代码</th>
+                                            <th>名称</th>
+                                            <th>类型</th>
+                                            <th>委托价</th>
+                                            <th>成交量</th>
                                             <th>成交价格</th>
                                             <th>成交金额</th>
                                             <th>成交全价</th>
@@ -49,6 +53,7 @@ $pages = $done_list['pagination']; //获取分页
                                                 <td data-toggle="modal" data-target="#graphModal" onclick="fillimage('<?= $stock_item['SecurityID']; ?>', '<?= $stock_item['Symbol']; ?>')"><a href="#" class="hty_a"><?php echo $stock_item['SecurityID']; ?></a></td>
                                                 <td><?php echo $stock_item['Symbol']; ?></td>
                                                 <td><?php if ($stock_item['trade_type'] == '1') {echo '买入';} else if ($stock_item['trade_type'] == '3') {echo "卖出";} else if($stock_item['trade_type'] == '3'){echo '债券付息';}?></td>
+                                                <td class="formatted"><?php echo $stock_item['price_order']; ?></td>
                                                 <td class="formatted"><?php echo $stock_item['Volume']; ?></td>
                                                 <td class="formatted decimal"><?php echo $stock_item['price_deal']; ?></td>
                                                 <td class="formatted"><?php echo $stock_item['fund_deal']; ?></td>
@@ -71,21 +76,17 @@ $pages = $done_list['pagination']; //获取分页
                 </div>
         </div>
     </div>
-
-    <!--悬停go-top按钮-->
-    <?php $this->load->view('./templates/go-top'); ?>
 </div>
+<?php $this->load->view('./templates/go-top'); ?>
 <?php $this->load->view('./templates/footer'); ?>
 <div class="modal fade" id="graphModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                        aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h3 class="modal-title" id="graph_modal_title"></h3>
             </div>
-            <div class="modal-body" id="graph_modal_body">
-            </div>
+            <div class="modal-body" id="graph_modal_body"></div>
         </div>
     </div>
 </div>
