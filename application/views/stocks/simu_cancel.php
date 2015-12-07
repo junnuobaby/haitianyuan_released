@@ -191,17 +191,20 @@ $pages = $pre_list['pagination']; //获取分页
         detail_content += '<tr><th>操作</th><td>' + (detail_lists[index]['trade_type'] == 0 ? "买入" : "卖出") + '</td></tr>';
         detail_content += '<tr><th>代码</th><td>' + detail_lists[index]['SecurityID'] + '</td></tr>';
         detail_content += '<tr><th>名称</th><td>' + detail_lists[index]['Symbol'] + '</td></tr>';
-        detail_content += '<tr><th>委托数量</th><td class="formatted">' + detail_lists[index]['Volume'] + '</td></tr>';
-        detail_content += '<tr><th>委托价格</th><td class="formatted">' + detail_lists[index]['price_order'] + '</td></tr>';
-        detail_content += '<tr><th>委托金额</th><td class="formatted">' + detail_lists[index]['fund_deal'] + '</td></tr>';
-        detail_content += '<tr><th>发生金额</th><td class="formatted">' + detail_lists[index]['hap_fund'] + '</td></tr>';
-        detail_content += '<tr><th>挂单全价</th><td class="formatted">' + detail_lists[index]['price_full'] + '</td></tr>';
-        detail_content += '<tr><th>现金余额</th><td class="formatted">' + detail_lists[index]['remain_fund'] + '</td></tr>';
-        detail_content += '<tr><th>手续费</th><td class="formatted">' + detail_lists[index]['fee'] + '</td></tr>';
-        detail_content += '<tr><th>印花税</th><td class="formatted">' + detail_lists[index]['tax'] + '</td></tr>';
-        detail_content += '<tr><th>其他杂费</th><td class="formatted">' + detail_lists[index]['other_fee'] + '</td></tr>';
+        detail_content += '<tr><th>委托数量</th><td>' + detail_lists[index]['Volume'] + '</td></tr>';
+        detail_content += '<tr><th>委托价格</th><td>' + detail_lists[index]['price_order'] + '</td></tr>';
+        detail_content += '<tr><th>委托金额</th><td>' + detail_lists[index]['fund_deal'] + '</td></tr>';
+        detail_content += '<tr><th>发生金额</th><td>' + detail_lists[index]['hap_fund'] + '</td></tr>';
+        detail_content += '<tr><th>挂单全价</th><td>' + detail_lists[index]['price_full'] + '</td></tr>';
+        detail_content += '<tr><th>现金余额</th><td>' + detail_lists[index]['remain_fund'] + '</td></tr>';
+        detail_content += '<tr><th>手续费</th><td>' + detail_lists[index]['fee'] + '</td></tr>';
+        detail_content += '<tr><th>印花税</th><td>' + detail_lists[index]['tax'] + '</td></tr>';
+        detail_content += '<tr><th>其他杂费</th><td>' + detail_lists[index]['other_fee'] + '</td></tr>';
         detail_content += '<tr><th>备注</th><td>' + detail_lists[index]['tip'] + '</td></tr>';
-        $('#detail_modal_cnt').html(detail_content);
+
+        var cnt = $('#detail_modal_cnt > table > tr:first-child > td:nth-child(2)').html();
+        format_num(cnt);
+        detail_modal.html(detail_content);
         $('#detailModal').modal('show');
     });
 
