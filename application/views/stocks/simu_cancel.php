@@ -187,7 +187,7 @@ $pages = $pre_list['pagination']; //获取分页
 
     $('.order_detail').bind('click', function fill_order_detail(){
         var index = $(this).data('index');
-        var detail_content = '<table class="table table-bordered table-responsive">';
+        var detail_content = '<table class="table table-bordered table-responsive text-center">';
         detail_content += '<tr><th>订单编号</th><td>' + detail_lists[index]['pre_id'] + '</td></tr>';
         detail_content += '<tr><th>操作</th><td>' + (detail_lists[index]['trade_type'] == 0 ? "买入" : "卖出") + '</td></tr>';
         detail_content += '<tr><th>代码</th><td>' + detail_lists[index]['SecurityID'] + '</td></tr>';
