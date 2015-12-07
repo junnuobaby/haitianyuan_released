@@ -92,7 +92,6 @@ $pages = $his_list['pagination'];
             </div>
         </div>
     </div>
-    <!--悬停go-top按钮-->
     <?php $this->load->view('./templates/go-top'); ?>
     <?php $this->load->view('./templates/footer'); ?>
 </div>
