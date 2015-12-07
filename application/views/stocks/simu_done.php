@@ -37,15 +37,9 @@ $pages = $done_list['pagination'];
                                                 <th>委托价</th>
                                                 <th>成交价</th>
                                                 <th>成交量</th>
-    <!--                                            <th>成交金额</th>-->
-    <!--                                            <th>成交全价</th>-->
                                                 <th>手续费</th>
                                                 <th>印花税</th>
                                                 <th>详细</th>
-    <!--                                            <th>其他杂费</th>-->
-    <!--                                            <th>发生金额</th>-->
-    <!--                                            <th>现金余额</th>-->
-    <!--                                            <th>备注</th>-->
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -53,21 +47,15 @@ $pages = $done_list['pagination'];
                                             <?php foreach ($done_records as $stock_item): ?>
                                                 <tr>
                                                     <td><?php echo $stock_item['timestamp']; ?></td>
-                                                    <td data-toggle="modal" data-target="#graphModal" onclick="fillimage('<?= $stock_item['SecurityID']; ?>', '<?= $stock_item['Symbol']; ?>')"><a href="#" class="hty_a"><?php echo $stock_item['SecurityID']; ?></a></td>
+                                                    <td data-toggle="modal" data-target="#graphModal" onclick="fillimage('<?= $stock_item['SecurityID']; ?>', '<?= $stock_item['Symbol']; ?>')"><a href="#" class="theme-color"><?php echo $stock_item['SecurityID']; ?></a></td>
                                                     <td><?php echo $stock_item['Symbol']; ?></td>
                                                     <td><?php if ($stock_item['trade_type'] == '1') {echo '买入';} else if ($stock_item['trade_type'] == '3') {echo "卖出";} else if($stock_item['trade_type'] == '3'){echo '债券付息';}?></td>
                                                     <td class="formatted"><?php echo $stock_item['price_order']; ?></td>
                                                     <td class="formatted decimal"><?php echo $stock_item['price_deal']; ?></td>
                                                     <td class="formatted"><?php echo $stock_item['Volume']; ?></td>
-    <!--                                                <td class="formatted">--><?php //echo $stock_item['fund_deal']; ?><!--</td>-->
-    <!--                                                <td class="formatted">--><?php //echo $stock_item['price_full']; ?><!--</td>-->
                                                     <td class="formatted"><?php echo $stock_item['fee'];?></td>
                                                     <td class="formatted"><?php echo $stock_item['tax'];?></td>
                                                     <td data-index="<?php echo $count_num; ?>" class="order_detail"><a href="#" class="theme-color">查看</a></td>
-    <!--                                                <td class="formatted">--><?php //echo $stock_item['other_fee'];?><!--</td>-->
-    <!--                                                <td class="formatted">--><?php //echo $stock_item['hap_fund'];?><!--</td>-->
-    <!--                                                <td class="formatted">--><?php //echo $stock_item['remain_fund'];?><!--</td>-->
-    <!--                                                <td>--><?php //echo $stock_item['tip'];?><!--</td>-->
                                                 </tr>
                                                 <?php $count_num++; ?>
                                             <?php endforeach; ?>
