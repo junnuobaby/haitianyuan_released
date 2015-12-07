@@ -33,7 +33,7 @@ $pages = $done_list['pagination'];
                                                 <th>成交时间</th>
                                                 <th>代码</th>
                                                 <th>名称</th>
-                                                <th>类型</th>
+                                                <th>操作</th>
                                                 <th>委托价</th>
                                                 <th>成交价</th>
                                                 <th>成交量</th>
