@@ -164,7 +164,6 @@ $pages = $done_list['pagination'];
         detail_content += '<tr><th>发生金额</th><td>' + format_num(detail_lists[index]['hap_fund']) + '</td></tr>';
         detail_content += '<tr><th>现金余额</th><td>' + format_num(detail_lists[index]['remain_fund']) + '</td></tr>';
         detail_content += '<tr><th>备注</th><td>' + detail_lists[index]['tip'] + '</td></tr>';
-
         $('#detail_modal_cnt').html(detail_content);
         $('#detailModal').modal('show');
     });

@@ -60,7 +60,7 @@ $pages = $pre_list['pagination']; //获取分页
                                         <?php foreach ($records as $stock_item): ?>
                                             <tr class="done_record">
                                                 <td data-toggle="modal" data-target="#graphModal" onclick="fillimage('<?= $stock_item['SecurityID']; ?>', '<?= $stock_item['Symbol']; ?>')">
-                                                    <a href="#" class="hty_a"><?php echo $stock_item['SecurityID']; ?></a>
+                                                    <a href="#" class="theme-color"><?php echo $stock_item['SecurityID']; ?></a>
                                                 </td>
                                                 <td><?php echo $stock_item['Symbol']; ?></td>
                                             <td><?php if($stock_item['trade_type'] == '0') {
