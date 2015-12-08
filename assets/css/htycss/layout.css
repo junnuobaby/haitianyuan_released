@@ -1156,6 +1156,96 @@ tr.rank_thead th{
     margin-top: 0;
     margin-bottom: 0;
 }
-
+/*理财师入驻*/
+.master-enter-status {
+    margin-top: 150px;
+    position: relative;
+    margin-bottom: 150px;
+}
+.master-enter-status-timeline {
+    height: 12px;
+    border: 1px solid #aaa;
+    border-radius: 7px;
+    background: #eee;
+    box-shadow: 0 0 5px 0 #C2C2C2 inset;
+}
+.master-enter-status-timeline .master-enter-status-timeline-completion {
+    height: 8px;
+    margin: 1px;
+    border-radius: 7px;
+    background: #ff7c3b;
+    width: 0;
+}
+.master-enter-status-timeline .master-enter-status-timeline-completion.c1 {
+    width: 33%;
+}
+.master-enter-status-timeline .master-enter-status-timeline-completion.c2 {
+    width: 66%;
+}
+.master-enter-status-timeline .master-enter-status-timeline-completion.c3 {
+    width: 100%;
+}
+.image-master-enter-status {
+    border: 1px solid #ddd;
+    padding: 7px;
+    box-shadow: 0 0 10px 0 #999;
+    background-color: #fdfdfd;
+    position: absolute;
+    margin-top: -35px;
+}
+.image-master-enter-status .active {
+    box-shadow: 0 0 10px 0 #ff7c3b;
+}
+.image-master-enter-status.active .status {
+    color: #e47943;
+    text-shadow: 0 0 1px #777;
+}
+.image-master-enter-status .icon {
+    height: 40px;
+    width: 40px;
+    background-size: contain;
+}
+.image-master-enter-status .status {
+    position: absolute;
+    text-shadow: 1px 1px #eee;
+    color: #333;
+    transform: rotate(-30deg);
+    -webkit-transform: rotate(-30deg);
+    width: 180px;
+    top: -50px;
+    left: 50px;
+}
+.image-master-enter-status-register {
+    left: 0;
+}
+.image-master-enter-status-information {
+    left: 31.74%;
+}
+.image-master-enter-status-realname {
+    left: 63.48%;
+}
+.image-master-enter-status-completed {
+    right: 0;
+}
+.image-master-enter-status-delivered .status {
+    top: 85px;
+    left: -180px;
+    transform: rotate(-30deg);
+    -webkit-transform: rotate(-30deg);
+    text-align: right;
+}
+.image-master-enter-status-delivered .status:before {
+    display: none;
+}
+.image-master-enter-status-completed .status {
+    top: 85px;
+    left: -180px;
+    transform: rotate(-30deg);
+    -webkit-transform: rotate(-30deg);
+    text-align: right;
+}
+.image-master-enter-status-completed .status:before {
+    display: none;
+}
 
 
