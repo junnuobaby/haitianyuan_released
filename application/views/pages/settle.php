@@ -160,20 +160,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     }
 </style>
 <script>
-    //处理上传的身份证照片，转为base64
-    function readFile(obj) {
-        var file = obj.files[0];
-        var reader = new FileReader();
-        //判断类型是不是图片
-        if (!/image\/\w+/.test(file.type)) {
-            alert("请确保文件为图像类型");
-            return false;
-        }
-        reader.readAsDataURL(file);
-        reader.onload = function (e) {
-            $('#base64_pic').val(this.result);
-        }
-    }
     $(document).ready(function () {
         //验证资格证号是否存在
         var certificate  = $('#certificate');
@@ -201,10 +187,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         var user_idc_error = $('#user_idc_error'); //获取身份证号码输入框
         var id_num = $.trim(user_idc.val());
         user_idc.blur(function () {
-            if (IdCardValidate(id_num) == false && id_num.length > 0) {
+            if (idCardValidate(id_num) == false) {
                 user_idc_error.html('(身份证格式错误！)');
             }else{
-                $.get("<?php  echo base_url('/index.php/auth/is_exist/web')?>" + '/' + id_num,
+                $.get("<?php echo base_url('/index.php/auth/is_exist/web')?>" + '/' + id_num,
                     function (data) {
                         if (data == 'true') {
                             user_idc_error.removeClass('hidden').html('(该号码已存在！)');
@@ -221,14 +207,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     var Wi = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2, 1];    // 加权因子
     var ValideCode = [1, 0, 10, 9, 8, 7, 6, 5, 4, 3, 2];            // 身份证验证位值.10代表X
-    function IdCardValidate(idCard) {
-        idCard = trim(idCard.replace(/ /g, ""));               //去掉字符串头尾空格
+    function idCardValidate(idCard) {
         if (idCard.length == 18) {
             var a_idCard = idCard.split("");                // 得到身份证数组
             if (isValidityBrithBy18IdCard(idCard) && isTrueValidateCodeBy18IdCard(a_idCard)) {   //进行18位身份证的基本验证和第18位的验证
                 return true;
-            } else {
-                return false;
             }
         } else {
             return false;
@@ -272,9 +255,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             return true;
         }
     }
-    //去掉字符串头尾空格
-    function trim(str) {
-        return str.replace(/(^\s*)|(\s*$)/g, "");
+    //处理上传的身份证照片，转为base64
+    function readFile(obj) {
+        var file = obj.files[0];
+        var reader = new FileReader();
+        //判断类型是不是图片
+        if (!/image\/\w+/.test(file.type)) {
+            alert("请确保文件为图像类型");
+            return false;
+        }
+        reader.readAsDataURL(file);
+        reader.onload = function (e) {
+            $('#base64_pic').val(this.result);
+        }
     }
 
 </script>
