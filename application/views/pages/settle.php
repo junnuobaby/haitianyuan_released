@@ -86,7 +86,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="form-group">
                                     <label for="user_idc_pic"  class="col-sm-3 control-label">上传身份证照</label>
                                     <div class="col-sm-6">
-                                        <input type="file" name="user_idc_pic" id="user_idc_pic" onchange="readFile(this)" required>
+                                        <input type="file"  id="user_idc_pic" onchange="readFile(this)" required>
+                                        <input type="hidden" id="base64_pic" name="user_idc_pic">
                                         <p class="help-block">请提交身份证正面照片</p>
                                     </div>
                                 </div>
@@ -162,6 +163,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
         var reader = new FileReader();
         reader.readAsDataURL(file);
+        reader.onload = function (e) {
+            alert(this.result); //就是base64
+            $('#base64_pic').val(this.result);
+        }
     }
     //验证身份证号码的有效性
     $(document).ready(function () {
