@@ -169,16 +169,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             certificate_error.addClass('hidden');
         });
         certificate.blur(function () {
-            alert('hh');
             if(certificate_val.length > 0){
-                $.get("<?php  echo base_url('/index.php/auth/is_exist/web')?>" + '/' + certificate_val,
-                    function (data) {
+                alert('hh');
+                $.ajax({
+                    url: '<?php echo base_url("/index.php/auth/is_exist/web"); ?>' + '/' + certificate_val,
+                    method: 'get',
+                    cache: false,
+                    success: function (data) {
                         if (data == 'true') {
                             certificate_error.removeClass('hidden').html('(该号码已存在！)');
                         } else {
                             certificate_error.addClass('hidden');
                         }
-                    });
+                    }
+                });
             }
         });
     });
