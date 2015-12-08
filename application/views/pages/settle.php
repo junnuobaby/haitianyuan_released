@@ -169,6 +169,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             certificate_error.addClass('hidden');
         });
         certificate.blur(function () {
+            alert('hh');
             if(certificate_val.length > 0){
                 $.get("<?php  echo base_url('/index.php/auth/is_exist/web')?>" + '/' + certificate_val,
                     function (data) {
