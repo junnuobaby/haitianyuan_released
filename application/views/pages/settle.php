@@ -47,39 +47,46 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                     <div class="panel-body">
                         <div class="col-md-10 col-md-offset-1">
+                            <?php $advantage_error = form_error('advantage'); ?>
+                            <?php $company_error = form_error('company'); ?>
+                            <?php $certificate_error = form_error('certificate'); ?>
+                            <?php $real_name_error = form_error('real_name'); ?>
+                            <?php $user_idc_error = form_error('user_idc'); ?>
                             <?php echo form_open('auth/submit_info/web', 'class="form-horizontal"') ?>
                                 <div class="form-group">
                                     <label for="inputEmail3" class="col-sm-3 control-label">擅长领域</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" name="advantage" id="advantage" placeholder="擅长领域" required>
+                                        <input type="text" class="form-control <?php echo $advantage_error ? 'has-error' : ''; ?>" name="advantage" id="advantage" placeholder="<?php if($advantage_error) echo $advantage_error; else echo '擅长领域' ?>" required>
                                     </div>
                                     <span class="text-danger">必填</span>
                                 </div>
                                 <div class="form-group">
                                     <label for="company" class="col-sm-3 control-label">所在公司</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" name="company" id="company" placeholder="所在公司" required>
+                                        <input type="text" class="form-control <?php echo $company_error ? 'has-error' : ''; ?>" name="company" id="company" placeholder="<?php if($company_error) echo $company_error; else echo '所在公司' ?>" required>
                                     </div>
                                     <span class="text-danger">必填</span>
                                 </div>
                                 <div class="form-group">
                                     <label for="certificate" class="col-sm-3 control-label">资格证号码</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control"  name="certificate" id="certificate" placeholder="资格号码">
+                                        <input type="text" class="form-control <?php echo $certificate_error ? 'has-error' : ''; ?>"  name="certificate" id="certificate" placeholder="<?php if($certificate_error) echo $certificate_error; else echo '资格证号码' ?>">
+                                        <p class="text-danger hidden" id="certificate_error"></p>
                                     </div>
                                     <span>选填</span>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputEmail3" class="col-sm-3 control-label">真实姓名</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" name="real_name" id="real_name" placeholder="请填写身份证上的真实姓名" required>
+                                        <input type="text" class="form-control <?php echo $real_name_error ? 'has-error' : ''; ?>" name="real_name" id="real_name" placeholder="<?php if($real_name_error) echo $real_name_error; else echo '真实姓名' ?>" required>
                                     </div>
                                     <span class="text-danger">必填</span>
                                 </div>
                                 <div class="form-group">
                                     <label for="user_idc" class="col-sm-3 control-label">身份证号码</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" name="user_idc" id="user_idc" placeholder="请输入身份证号码" required>
+                                        <input type="text" class="form-control <?php echo $user_idc_error ? 'has-error' : ''; ?>" name="user_idc" id="user_idc" placeholder="<?php if($user_idc_error) echo $user_idc_error; else echo '身份证号码' ?>" required>
+                                        <p class="text-danger hidden" id="user_idc_error"></p>
                                     </div>
                                     <span class="text-danger">必填</span>
                                 </div>
@@ -167,18 +174,48 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $('#base64_pic').val(this.result);
         }
     }
-    //验证身份证号码的有效性
     $(document).ready(function () {
+        //验证资格证号是否存在
+        var certificate  = $('#certificate');
+        var certificate_error  = $('#certificate_error');
+        var certificate_val = $.trim(certificate.val());
+        certificate.focus(function () {
+            certificate_error.addClass('hidden');
+        });
+        certificate.blur(function () {
+            if(certificate_val.length > 0){
+                $.get("<?php  echo base_url('/index.php/auth/is_exist/web')?>" + '/' + certificate_val,
+                    function (data) {
+                        if (data == 'true') {
+                            certificate_error.removeClass('hidden').html('(该号码已存在！)');
+                        } else {
+                            certificate_error.addClass('hidden');
+                        }
+                    });
+            }
+        });
+    });
+    $(document).ready(function () {
+        //验证身份证号码的有效性及是否存在
         var user_idc = $('#user_idc'); //获取身份证号码输入框
         var user_idc_error = $('#user_idc_error'); //获取身份证号码输入框
+        var id_num = $.trim(user_idc.val());
         user_idc.blur(function () {
-            var id_num = user_idc.val();
             if (IdCardValidate(id_num) == false && id_num.length > 0) {
                 user_idc_error.html('(身份证格式错误！)');
+            }else{
+                $.get("<?php  echo base_url('/index.php/auth/is_exist/web')?>" + '/' + id_num,
+                    function (data) {
+                        if (data == 'true') {
+                            user_idc_error.removeClass('hidden').html('(该号码已存在！)');
+                        } else {
+                            user_idc_error.addClass('hidden');
+                        }
+                    });
             }
         });
         user_idc.focus(function () {
-            user_idc_error.html('');
+            user_idc_error.addClass('hidden');
         });
     });
 
