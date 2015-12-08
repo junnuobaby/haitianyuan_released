@@ -164,11 +164,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         //验证资格证号是否存在
         var certificate  = $('#certificate');
         var certificate_error  = $('#certificate_error');
-        var certificate_val = $.trim(certificate.val());
         certificate.focus(function () {
             certificate_error.addClass('hidden');
         });
         certificate.blur(function () {
+            var certificate_val = $.trim(certificate.val());
             alert(certificate_val);
             if(certificate_val.length > 0){
                 alert('hh');
@@ -191,8 +191,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         //验证身份证号码的有效性及是否存在
         var user_idc = $('#user_idc'); //获取身份证号码输入框
         var user_idc_error = $('#user_idc_error'); //获取身份证号码输入框
-        var id_num = $.trim(user_idc.val());
         user_idc.blur(function () {
+            var id_num = $.trim(user_idc.val());
             if (idCardValidate(id_num) == false) {
                 user_idc_error.html('(身份证格式错误！)');
             }else{
