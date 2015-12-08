@@ -156,15 +156,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     //处理上传的身份证照片，转为base64
     function readFile(obj) {
         var file = obj.files[0];
+        var reader = new FileReader();
         //判断类型是不是图片
         if (!/image\/\w+/.test(file.type)) {
             alert("请确保文件为图像类型");
             return false;
         }
-        var reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onload = function (e) {
-            alert(this.result); //就是base64
             $('#base64_pic').val(this.result);
         }
     }
