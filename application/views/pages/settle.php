@@ -51,21 +51,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="form-group">
                                     <label for="inputEmail3" class="col-sm-3 control-label">擅长领域</label>
                                     <div class="col-sm-6">
-                                        <input type="email" class="form-control" name="advantage" id="advantage" placeholder="擅长领域" required>
+                                        <input type="text" class="form-control" name="advantage" id="advantage" placeholder="擅长领域" required>
                                     </div>
                                     <span class="text-danger">必填</span>
                                 </div>
                                 <div class="form-group">
                                     <label for="company" class="col-sm-3 control-label">所在公司</label>
                                     <div class="col-sm-6">
-                                        <input type="email" class="form-control" name="company" id="company" placeholder="所在公司" required>
+                                        <input type="text" class="form-control" name="company" id="company" placeholder="所在公司" required>
                                     </div>
                                     <span class="text-danger">必填</span>
                                 </div>
                                 <div class="form-group">
                                     <label for="certificate" class="col-sm-3 control-label">资格证号码</label>
                                     <div class="col-sm-6">
-                                        <input type="email" class="form-control"  name="certificate" id="certificate" placeholder="资格号码">
+                                        <input type="text" class="form-control"  name="certificate" id="certificate" placeholder="资格号码">
                                     </div>
                                     <span>选填</span>
                                 </div>
