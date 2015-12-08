@@ -47,7 +47,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                     <div class="panel-body">
                         <div class="col-md-10 col-md-offset-1">
-                            <form  class="form-horizontal">
+                            <?php echo form_open('auth/submit_info/web', 'class="form-horizontal"') ?>
                                 <div class="form-group">
                                     <label for="inputEmail3" class="col-sm-3 control-label">擅长领域</label>
                                     <div class="col-sm-6">
