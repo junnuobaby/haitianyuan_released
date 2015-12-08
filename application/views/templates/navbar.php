@@ -64,7 +64,7 @@
                 </li>
 
                 <li>
-                    <a href="<?php echo base_url('index.php/auth_state/web'); ?>" class="btn com add-in-btn"><span class="glyphicon glyphicon-plus"></span> 理财师入驻</a>
+                    <a href="<?php echo base_url('index.php/auth/state/web'); ?>" class="btn com add-in-btn"><span class="glyphicon glyphicon-plus"></span> 理财师入驻</a>
                 </li>
             </ul>
         <?php endif; ?>
