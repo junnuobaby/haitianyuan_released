@@ -169,6 +169,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             certificate_error.addClass('hidden');
         });
         certificate.blur(function () {
+            alert(certificate_val.length > 0);
             if(certificate_val.length > 0){
                 alert('hh');
                 $.ajax({
