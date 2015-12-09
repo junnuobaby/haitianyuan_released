@@ -134,7 +134,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="panel-body">
                         <div>
                             <h3>恭喜您，成功入驻成为海天园理财师</h3>
-                            <h5>立即前往我的<strong><a href="#" class="theme-color">主页</a></strong></h5>
+                            <h5>立即前往我的<strong><a href="<?php echo base_url('index.php/home/load_home/web/' . $identity . '/' . $uuid . '/' . '1'); ?>" class="theme-color">主页</a></strong></h5>
+                            <ul>
+                                <li>海天理财师可开通会员机制，并自定义收费标准。</li>
+                                <li>海天理财师可以发表理财观点并收费。</li>
+                                <li>海天理财师可以进行理财咨询并收费。</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
