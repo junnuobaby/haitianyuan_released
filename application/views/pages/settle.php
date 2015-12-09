@@ -5,7 +5,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!DOCTYPE html>
 <html lang="zh-cn">
 <?php $this->load->view('./templates/head'); ?>
-<?php $state = $auth_state; ?>
+<?php
+$state = $auth_state;
+$uuid = $this->session->userdata('uuid');
+?>
 <body>
 <div class="wrapper">
     <?php $this->load->view('./templates/navbar'); ?>
