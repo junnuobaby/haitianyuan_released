@@ -169,9 +169,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         });
         certificate.blur(function () {
             var certificate_val = $.trim(certificate.val());
-            alert(certificate_val);
             if(certificate_val.length > 0){
-                alert('hh');
                 $.ajax({
                     url: '<?php echo base_url("/index.php/auth/is_exist/web"); ?>' + '/' + certificate_val,
                     method: 'get',
