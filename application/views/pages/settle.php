@@ -8,6 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?php
 $state = $auth_state;
 $uuid = $this->session->userdata('uuid');
+$identity = $this->session->userdata('identity') == '0' ? 'user' : 'master';
 ?>
 <body>
 <div class="wrapper">
