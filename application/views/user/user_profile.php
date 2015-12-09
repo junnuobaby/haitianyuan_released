@@ -229,23 +229,6 @@ $user_address = explode('-', $basic_info['location']); //分割地址，得到�
                                 </td>
                             </tr>
                             <tr>
-                                <td width="20%">机构</td>
-                                <td width="80%"><a href="#" id="institue" name="institue"
-                                                   data-type="text" data-pk="1"
-                                                   data-url="<?php echo site_url("my_center/modify_basic_info") ?>"
-                                                   class="basic-info-a"
-                                                   data-title="修改所属机构"></a></td>
-                            </tr>
-                            <tr>
-                                <td width="20%">资格证号码</td>
-                                <td width="80%"><a href="#" id="qualification"
-                                                   name="qualification"
-                                                   data-type="text" data-pk="1"
-                                                   data-url="<?php echo site_url("my_center/modify_basic_info") ?>"
-                                                   class="basic-info-a"
-                                                   data-title="修改资格证号码"></a></td>
-                            </tr>
-                            <tr>
                                 <td width="20%">个人简介</td>
                                 <td width="80%"><a href="#" id="signature"
                                                    name="signature"
