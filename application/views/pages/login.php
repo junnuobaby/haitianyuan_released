@@ -28,7 +28,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             <div class="row pwd-help-info">
                 <div class="col-md-6">
-                    <input name="remember_me" value="1" checked="checked" type="checkbox"> 记住我
+                    <input name="remember_me" value="1" type="checkbox"> 记住我
                 </div>
                 <div class="col-md-6">
                     <a href="#" class="white-color pull-right">忘记密码？</a>
