@@ -141,16 +141,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </html>
 <style>
     .image-master-enter-status-register .icon{
-        background-image: url("<?php echo base_url('assets/images/icon/step_1.png'); ?>");
+        background-image: url("<?php echo base_url('assets/images/settle/step_1.png'); ?>");
     }
     .image-master-enter-status-information .icon {
-        background-image: url("<?php echo base_url('assets/images/icon/step_2.png'); ?>");
+        background-image: url("<?php echo base_url('assets/images/settle/step_2.png'); ?>");
     }
     .image-master-enter-status-realname .icon {
-        background-image: url("<?php echo base_url('assets/images/icon/step_3.png'); ?>");
+        background-image: url("<?php echo base_url('assets/images/settle/step_3.png'); ?>");
     }
     .image-master-enter-status-completed .icon {
-        background-image: url("<?php echo base_url('assets/images/icon/step_4.png'); ?>");
+        background-image: url("<?php echo base_url('assets/images/settle/step_4.png'); ?>");
     }
 </style>
 <script>
