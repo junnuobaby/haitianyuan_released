@@ -359,6 +359,9 @@ caption.caption-yinbang{
 .btn-a-light:active {
     color: white;
 }
+a.thumbnail.active, a.thumbnail:focus, a.thumbnail:hover {
+    border-color: #FD9271;
+}
 /*登录注册界面*/
 .login-box{
     color: white;

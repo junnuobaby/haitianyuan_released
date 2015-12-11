@@ -69,7 +69,7 @@ $jinbang = array($user, $user, $user, $user, $user, $user, $user, $user, $user, 
                                         echo "active";
                                     } ?>">
                                         <div class="col-md-10 col-md-offset-1">
-                                            <div class="row">
+                                            <div class="row rmd_master_lists">
                                                 <?php foreach ($master_info as $master): ?>
                                                     <div class="col-md-2">
                                                         <a href="<?php echo base_url('index.php/home/load_home/web/' . 'master' . '/' . $master['user_id'] . '/' . '1'); ?>"
