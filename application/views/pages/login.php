@@ -13,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <h1>登陆海天 <a href="#" class="pull-right turn-to-regist turn-btn">注册 <span class="glyphicon glyphicon-hand-right"></span></a></h1>
             <?php $username_error = form_error('user_name_input'); ?>
             <?php $password_error = form_error('password_input'); ?>
-            <?php echo form_open('login/login', 'class="form-horizontal login_form" id="login-form"'); ?>
+            <?php echo form_open('login/login', 'class="form-horizontal login_form" id="login_form"'); ?>
             <div class="input-group <?php echo $username_error ? 'has-error' : ''; ?>">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                 <input type="text" class="form-control" id="user_name_input" name="user_name_input" placeholder="<?php if($username_error) echo $username_error; else echo '手机号/会员名/邮箱' ?>">
@@ -116,7 +116,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
      * 登陆时前端验证，用户名和密码不能为空
      */
     $(document).ready(function () {
-        $('#login-form').submit(function () {
+        $('#login_form').submit(function () {
             if(trim($('#user_name_input')).length < 1){
                 $('#user_name_input').attr('placeholder','请填写用户名');
                 return false;
