@@ -31,7 +31,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <input name="remember_me" value="1" type="checkbox"> 记住我
                 </div>
                 <div class="col-md-6">
-                    <a href="<?php echo base_url('index.php/find_pwd/index'); ?>" class="white-color pull-right">忘记密码？</a>
+                    <a href="<?php echo base_url('index.php/findpwd/index'); ?>" class="white-color pull-right">忘记密码？</a>
                 </div>
             </div>
             <div class="row">
