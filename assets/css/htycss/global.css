@@ -56,6 +56,9 @@ a.btn.bg-theme:hover,button.btn.bg-theme:hover{
 .blue-color{
     color: #59b0ff;
 }
+.grey-color{
+    color: grey;
+}
 .white-color{
     color: white;
 }
