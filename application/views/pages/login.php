@@ -31,7 +31,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <input name="remember_me" value="1" type="checkbox"> 记住我
                 </div>
                 <div class="col-md-6">
-                    <a href="#" class="white-color pull-right">忘记密码？</a>
+                    <a href="<?php echo base_url('index.php/find_pwd/index'); ?>" class="white-color pull-right">忘记密码？</a>
                 </div>
             </div>
             <div class="row">
@@ -117,8 +117,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
      */
     $(document).ready(function () {
         $('#login-btn').click(function () {
-            console.log($.trim($('#user_name_input').val()));
-            console.log($.trim($('#password_input').val()));
             if($.trim($('#user_name_input').val()).length < 1){
                 $('#user_name_input').attr('placeholder','请填写用户名');
             }else if($.trim($('#password_input').val()).length < 1) {
