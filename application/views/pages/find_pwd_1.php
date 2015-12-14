@@ -16,7 +16,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
                 <div class="panel-body">
                     <?php echo form_open('/findpwd/findpwd_1_submit', 'class="form-horizontal f_pwd_form"'); ?>
-                    <form class="form-horizontal f_pwd_form">
                         <div class="form-group">
                             <label for="f_account" class="col-sm-3 control-label">手机号码 / 邮箱</label>
                             <div class="col-sm-5">
