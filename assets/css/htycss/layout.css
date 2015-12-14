@@ -1250,5 +1250,23 @@ tr.rank_thead th{
 .image-master-enter-status-completed .status:before {
     display: none;
 }
-
-
+/*找回密码*/
+.f_pwd_container{
+    margin-top: 70px;
+}
+a.next_vcode{
+    color: #266392 !important;
+    text-decoration: underline;
+}
+.img_vcode{
+    border: 1px solid #e2e2e2;
+}
+.f_pwd_form{
+    margin: 40px auto;
+}
+.f_pwd_form .form-control{
+    height: 40px;
+}
+.f_pwd_form .form-group {
+    margin-bottom: 20px;
+}
