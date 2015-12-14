@@ -16,13 +16,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <?php echo form_open('login/login', 'class="form-horizontal login_form"'); ?>
             <div class="input-group <?php echo $username_error ? 'has-error' : ''; ?>">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                <input type="text" class="form-control" id="user_name_input" name="user_name_input"  required placeholder="<?php if($username_error) echo $username_error; else echo '手机号/会员名/邮箱' ?>">
+                <input type="text" class="form-control" id="user_name_input" name="user_name_input" placeholder="<?php if($username_error) echo $username_error; else echo '手机号/会员名/邮箱' ?>">
             </div>
             <p class="theme-color hidden">请输入账号</p>
 
             <div class="input-group <?php echo $password_error ? 'has-error' : ''; ?>">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                <input type="password" class="form-control" id="password_input" name="password_input"  required placeholder="<?php if($password_error) echo $password_error; else echo '密码' ?>">
+                <input type="password" class="form-control" id="password_input" name="password_input" placeholder="<?php if($password_error) echo $password_error; else echo '密码' ?>">
             </div>
             <p class="theme-color hidden">请输入密码</p>
 
@@ -60,7 +60,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <?php $code_error = form_error('phone_code'); ?>
             <?php $nickname_error = form_error('nick_name'); ?>
             <?php $pwd_error = form_error('password'); ?>
-            <?php echo form_open('register/load_info', 'class="form-horizontal login_form"') ?>
+            <?php echo form_open('register/load_info', 'class="form-horizontal login_form" id="login-form"'); ?>
             <div class="input-group <?php echo $phone_error ? 'has-error' : ''; ?>">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-earphone"></span></span>
                 <input type="tel" class="form-control" id="user_mobile" name="phone_number" required value="<?php echo !$phone_error ? set_value('phone_number') : ''; ?>" placeholder="<?php if($phone_error) echo $phone_error; else echo '手机号' ?>">
@@ -112,6 +112,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     }
 </style>
 <script type="text/javascript">
+    /**
+     * 登陆时前端验证，用户名和密码不能为空
+     */
+    $(document).ready(function () {
+        $('#login-form').submit(function () {
+            if(trim($('#user_name_input')).length < 1){
+                $('#user_name_input').attr('placeholder','请填写用户名');
+                return false;
+            }else if(trim($('#password_input')).length < 1){
+                $('#password_input').attr('placeholder','请填写密码');
+                return false;
+            }else{
+                return true;
+            }
+        });
+    });
+
     /**
      * 全局变量
      * second - 倒计时设置为59s
