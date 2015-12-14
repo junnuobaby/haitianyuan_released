@@ -117,10 +117,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
      */
     $(document).ready(function () {
         $('#login-btn').click(function () {
-            if(trim($('#user_name_input')).length < 1){
+            if(trim($('#user_name_input').val()).length < 1){
                 $('#user_name_input').attr('placeholder','请填写用户名');
                 event.preventDefault();
-            }else if(trim($('#password_input')).length < 1) {
+            }else if(trim($('#password_input').val()).length < 1) {
                 $('#password_input').attr('placeholder', '请填写密码');
                 event.preventDefault();
             }else{
