@@ -37,7 +37,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="row">
                 <div class="col-md-12">
                     <div class="login-btn-div">
-                        <button type="submit" class="btn btn-block bg-theme">登陆</button>
+                        <button type="button" class="btn btn-block bg-theme" id="login-btn">登陆</button>
                     </div>
                 </div>
             </div>
@@ -116,13 +116,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
      * 登陆时前端验证，用户名和密码不能为空
      */
     $(document).ready(function () {
-        $('#login_form').submit(function (event) {
+        $('#login-btn').click(function () {
             if(trim($('#user_name_input')).length < 1){
                 $('#user_name_input').attr('placeholder','请填写用户名');
                 event.preventDefault();
             }else if(trim($('#password_input')).length < 1) {
                 $('#password_input').attr('placeholder', '请填写密码');
                 event.preventDefault();
+            }else{
+                $('#login_form').submit();
             }
         });
     });
