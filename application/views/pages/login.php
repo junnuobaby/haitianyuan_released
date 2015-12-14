@@ -116,15 +116,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
      * 登陆时前端验证，用户名和密码不能为空
      */
     $(document).ready(function () {
-        $('#login_form').submit(function () {
+        $('#login_form').submit(function (event) {
             if(trim($('#user_name_input')).length < 1){
                 $('#user_name_input').attr('placeholder','请填写用户名');
-                return false;
-            }else if(trim($('#password_input')).length < 1){
-                $('#password_input').attr('placeholder','请填写密码');
-                return false;
-            }else{
-                return true;
+                event.preventDefault();
+            }else if(trim($('#password_input')).length < 1) {
+                $('#password_input').attr('placeholder', '请填写密码');
+                event.preventDefault();
             }
         });
     });
