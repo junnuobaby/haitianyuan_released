@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <h3 class="panel-title">重置密码</h3>
                 </div>
                 <div class="panel-body">
-                    <form class="form-horizontal f_pwd_form">
+                    <?php echo form_open('/findpwd/findpwd_3_submit', 'class="form-horizontal f_pwd_form"'); ?>
                         <div class="form-group">
                             <label for="new_pwd" class="col-sm-3 control-label">新密码</label>
                             <div class="col-sm-5">

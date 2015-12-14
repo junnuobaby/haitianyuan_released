@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <h3 class="panel-title">找回密码</h3>
                 </div>
                 <div class="panel-body">
-                    <form class="form-horizontal f_pwd_form">
+                    <?php echo form_open('/findpwd/findpwd_2_submit', 'class="form-horizontal f_pwd_form"'); ?>
                         <div class="form-group">
                             <label for="reset_code" class="col-sm-3 control-label">重置验证码</label>
                             <div class="col-sm-5">
@@ -39,7 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-5">
-                                <a href="<?php echo base_url('index.php/login/find_pwd/3');?>" type="submit" class="btn bg-theme btn-block">下一步</a>
+                                <button type="submit" class="btn bg-theme btn-block">下一步</button>
                             </div>
                         </div>
                     </form>
