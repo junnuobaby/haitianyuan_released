@@ -33,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <label class="col-sm-3 control-label"></label>
                             <div class="col-sm-3">
 <!--                                <img class="img_vcode" src="--><?php //echo base_url('index.php/findpwd/update_captcha/'); ?><!--"/>-->
-                                <div id="vcode_img">
+                                <div id="vcode_img" style="border: 1px solid black;">
 
                                 </div>
 <!--                                --><?php //echo base_url('index.php/findpwd/update_captcha/'); ?>
