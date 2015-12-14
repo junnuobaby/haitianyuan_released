@@ -16,13 +16,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <?php echo form_open('login/login', 'class="form-horizontal login_form"'); ?>
             <div class="input-group <?php echo $username_error ? 'has-error' : ''; ?>">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                <input type="text" class="form-control" id="user_name_input" name="user_name_input" placeholder="<?php if($username_error) echo $username_error; else echo '手机号/会员名/邮箱' ?>">
+                <input type="text" class="form-control" id="user_name_input" name="user_name_input"  required placeholder="<?php if($username_error) echo $username_error; else echo '手机号/会员名/邮箱' ?>">
             </div>
             <p class="theme-color hidden">请输入账号</p>
 
             <div class="input-group <?php echo $password_error ? 'has-error' : ''; ?>">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                <input type="password" class="form-control" id="password_input" name="password_input" placeholder="<?php if($password_error) echo $password_error; else echo '密码' ?>">
+                <input type="password" class="form-control" id="password_input" name="password_input"  required placeholder="<?php if($password_error) echo $password_error; else echo '密码' ?>">
             </div>
             <p class="theme-color hidden">请输入密码</p>
 
@@ -63,12 +63,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <?php echo form_open('register/load_info', 'class="form-horizontal login_form"') ?>
             <div class="input-group <?php echo $phone_error ? 'has-error' : ''; ?>">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-earphone"></span></span>
-                <input type="tel" class="form-control" id="user_mobile" name="phone_number" value="<?php echo !$phone_error ? set_value('phone_number') : ''; ?>" placeholder="<?php if($phone_error) echo $phone_error; else echo '手机号' ?>">
+                <input type="tel" class="form-control" id="user_mobile" name="phone_number" required value="<?php echo !$phone_error ? set_value('phone_number') : ''; ?>" placeholder="<?php if($phone_error) echo $phone_error; else echo '手机号' ?>">
             </div>
             <p class="theme-color hidden" id="user_mobile_error"></p>
             <div class="input-group <?php echo $code_error ? 'has-error' : ''; ?>">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-eye-open"></span></span>
-                <input type="text" class="form-control" id="verification_code" name="phone_code" value="<?php echo !$code_error ? set_value('phone_code') : ''; ?>" placeholder="<?php if($code_error) echo $code_error; else echo '验证码' ?>">
+                <input type="text" class="form-control" id="verification_code" name="phone_code" required value="<?php echo !$code_error ? set_value('phone_code') : ''; ?>" placeholder="<?php if($code_error) echo $code_error; else echo '验证码' ?>">
                 <div class="input-group-btn"><button id="send_code" type="button" class="btn bg-theme" disabled="disabled">获取验证码</button></div>
             </div>
             <p class="theme-color hidden nick_name_error" id="ver_code_error"></p>
@@ -80,7 +80,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="input-group <?php echo $pwd_error ? 'has-error' : ''; ?>">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
                 <input type="password" style="display:none">
-                <input type="password" class="form-control" id="password" name="password" placeholder="<?php if($pwd_error) echo $pwd_error; else echo '密码 (不少于6位)' ?>">
+                <input type="password" class="form-control" id="password" name="password" required placeholder="<?php if($pwd_error) echo $pwd_error; else echo '密码 (不少于6位)' ?>">
             </div>
             <p class="theme-color hidden" id="pwd_error"></p>
             <div class="row pwd-help-info">
