@@ -38,7 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-5">
-                                <a href="<?php echo base_url('index.php/login/find_pwd/2');?>" type="submit" class="btn bg-theme btn-block">下一步</a>
+                                <button href="<?php echo base_url('index.php/findpwd/findpwd_1_submit');?>" type="submit" class="btn bg-theme btn-block">下一步</button>
                             </div>
                         </div>
                     </form>
