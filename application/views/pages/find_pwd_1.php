@@ -31,7 +31,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label"></label>
-                            <div class="col-sm-5">
+                            <div class="col-sm-3">
                                 <div id="vcode_img"></div>
                             </div>
                             <a href="#" class="next_vcode">看不清，换一张</a>
