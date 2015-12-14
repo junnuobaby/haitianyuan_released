@@ -15,6 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <h3 class="panel-title">找回密码</h3>
                 </div>
                 <div class="panel-body">
+                    <?php echo form_open('/findpwd/findpwd_1_submit', 'class="form-horizontal f_pwd_form"'); ?>
                     <form class="form-horizontal f_pwd_form">
                         <div class="form-group">
                             <label for="f_account" class="col-sm-3 control-label">手机号码 / 邮箱</label>
@@ -38,7 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-5">
-                                <button href="<?php echo base_url('index.php/findpwd/findpwd_1_submit');?>" type="submit" class="btn bg-theme btn-block">下一步</button>
+                                <button type="submit" class="btn bg-theme btn-block">下一步</button>
                             </div>
                         </div>
                     </form>
