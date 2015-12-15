@@ -34,7 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-5">
-                                <button type="submit" class="btn bg-theme btn-block" id="reset_pwd_btn">重置密码</button>
+                                <button type="button" class="btn bg-theme btn-block" id="reset_pwd_btn">重置密码</button>
                             </div>
                         </div>
                     </form>
