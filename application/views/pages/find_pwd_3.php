@@ -71,6 +71,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             var pwd_value = $.trim(pwd.val());
             var pwd_again = $('#new_pwd_again');
             var pwd_again_value = $.trim(pwd_again.val());
+            console.log('pwd_value:' + pwd_value );
+            console.log('pwd_again_value:' + pwd_value );
             if(pwd_value.length < 6 || /^\d+$/.test(pwd_value)){
                 $('.new_pwd_error').html('密码不能少于6位，且不能为纯数字');
             }else if(pwd_value !== pwd_again_value) {
