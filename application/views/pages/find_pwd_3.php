@@ -28,7 +28,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="form-group <?php echo $new_pwd_again_error ? 'has-error' : ''; ?>">
                             <label for="new_pwd_agin" class="col-sm-3 control-label">确认密码</label>
                             <div class="col-sm-5">
-                                <input type="password" class="form-control" id="new_pwd_agin" name="new_pwd_again" placeholder="<?php if($new_pwd_again_error) echo $new_pwd_again_error; else echo '请再次输入新密码'; ?>">
+                                <input type="password" class="form-control" id="new_pwd_again" name="new_pwd_again" placeholder="<?php if($new_pwd_again_error) echo $new_pwd_again_error; else echo '请再次输入新密码'; ?>">
                                 <span class="new_pwd_again_error"></span>
                             </div>
                         </div>
