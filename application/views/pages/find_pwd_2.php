@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <span class="grey-color">请输入收到的验证码，不区分大小写</span>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group ">
                             <label for="f_vcode" class="col-sm-3 control-label">图片验证码</label>
                             <div class="col-sm-5">
                                 <input type="text" class="form-control" id="f_vcode" name="f_vcode">

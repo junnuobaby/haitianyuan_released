@@ -15,17 +15,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <h3 class="panel-title">找回密码</h3>
                 </div>
                 <div class="panel-body">
+                    <?php $f_account_error = form_error('f_account'); ?>
+                    <?php $f_vcode_error = form_error('f_vcode'); ?>
                     <?php echo form_open('/findpwd/findpwd_1_submit', 'class="form-horizontal f_pwd_form"'); ?>
-                        <div class="form-group">
+                        <div class="form-group <?php echo $f_account_error ? 'has-error' : ''; ?>">
                             <label for="f_account" class="col-sm-3 control-label">手机号码 / 邮箱</label>
                             <div class="col-sm-5">
-                                <input type="text" class="form-control" id="f_account" name="f_account">
+                                <input type="text" class="form-control" id="f_account" name="f_account"  placeholder="<?php if($f_account_error) echo $f_account_error; else echo ''; ?>">
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group <?php echo $f_vcode_error ? 'has-error' : ''; ?>">
                             <label for="f_vcode" class="col-sm-3 control-label">验证码</label>
                             <div class="col-sm-5">
-                                <input type="text" class="form-control" id="f_vcode" name="f_vcode">
+                                <input type="text" class="form-control" id="f_vcode" name="f_vcode"  placeholder="<?php if($f_vcode_error) echo $f_vcode_error; else echo '';?>">
                                 <span class="grey-color">请输入图中字符，不区分大小写</span>
                             </div>
                         </div>
