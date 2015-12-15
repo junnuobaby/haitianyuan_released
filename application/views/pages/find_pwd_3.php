@@ -79,7 +79,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $('.new_pwd_again_error').html('两次密码不一致');
             }
             else{
-                $('#reset_pwd_form').submit();
+//                $('#reset_pwd_form').submit();
             }
         });
     });
