@@ -15,22 +15,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <h3 class="panel-title">重置密码</h3>
                 </div>
                 <div class="panel-body">
-                    <?php echo form_open('/findpwd/findpwd_3_submit', 'class="form-horizontal f_pwd_form"'); ?>
-                        <div class="form-group">
+                    <?php $new_pwd_error = form_error('new_pwd'); ?>
+                    <?php $new_pwd_again_error = form_error('new_pwd_again'); ?>
+                    <?php echo form_open('/findpwd/findpwd_3_submit', 'class="form-horizontal f_pwd_form" id="reset_pwd_form"'); ?>
+                        <div class="form-group <?php echo $new_pwd_error ? 'has-error' : ''; ?>">
                             <label for="new_pwd" class="col-sm-3 control-label">新密码</label>
                             <div class="col-sm-5">
-                                <input type="password" class="form-control" id="new_pwd" name="new_pwd" placeholder="请输入不少于6位的密码，不能为纯数字">
+                                <input type="password" class="form-control" id="new_pwd" name="new_pwd" placeholder="<?php if($new_pwd_error) echo $new_pwd_error; else echo '请输入不少于6位的密码，不能为纯数字'; ?>">
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group <?php echo $new_pwd_again_error ? 'has-error' : ''; ?>">
                             <label for="new_pwd_agin" class="col-sm-3 control-label">确认密码</label>
                             <div class="col-sm-5">
-                                <input type="password" class="form-control" id="new_pwd_agin" name="new_pwd_again" placeholder="请再次输入新密码">
+                                <input type="password" class="form-control" id="new_pwd_agin" name="new_pwd_again" placeholder="<?php if($new_pwd_again_error) echo $new_pwd_again_error; else echo '请再次输入新密码'; ?>">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-5">
-                                <button type="submit" class="btn bg-theme btn-block">重置密码</button>
+                                <button type="submit" class="btn bg-theme btn-block" id="reset_pwd_btn">重置密码</button>
                             </div>
                         </div>
                     </form>
@@ -57,5 +59,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </body>
 </html>
 <script>
-
+    $(document).ready(function () {
+        $('#reset_pwd_btn').click(function () {
+            var pwd = $('#new_pwd');
+            var pwd_value = $.trim(pwd.val());
+            var pwd_again = $('#new_pwd_again');
+            var pwd_again_value = $.trim(pwd_again.val());
+            if(pwd_value.length < 6 || /^\d+$/.test(pwd_value)){
+                pwd.attr('placeholder','密码不能少于6位，且不能为纯数字');
+            }else if(pwd_value !== pwd_again_value) {
+                pwd_again.attr('placeholder', '两次密码不一致');
+            }
+            else{
+                $('#reset_pwd_form').submit();
+            }
+        });
+    });
 </script>
