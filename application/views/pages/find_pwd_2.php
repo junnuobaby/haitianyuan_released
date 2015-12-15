@@ -15,18 +15,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <h3 class="panel-title">找回密码</h3>
                 </div>
                 <div class="panel-body">
+                    <?php $reset_code_error = form_error('reset_code'); ?>
+                    <?php $f_vcode_error = form_error('f_vcode'); ?>
                     <?php echo form_open('/findpwd/findpwd_2_submit', 'class="form-horizontal f_pwd_form"'); ?>
-                        <div class="form-group">
+                        <div class="form-group <?php echo $reset_code_error ? 'has-error' : ''; ?>">
                             <label for="reset_code" class="col-sm-3 control-label">重置验证码</label>
                             <div class="col-sm-5">
-                                <input type="text" class="form-control" id="reset_code" name="reset_code">
+                                <input type="text" class="form-control" id="reset_code" name="reset_code"  placeholder="<?php if($reset_code_error) echo $reset_code_error; else echo ''; ?>">
                                 <span class="grey-color">请输入收到的验证码，不区分大小写</span>
                             </div>
                         </div>
-                        <div class="form-group ">
+                        <div class="form-group <?php echo $f_vcode_error ? 'has-error' : ''; ?>">
                             <label for="f_vcode" class="col-sm-3 control-label">图片验证码</label>
                             <div class="col-sm-5">
-                                <input type="text" class="form-control" id="f_vcode" name="f_vcode">
+                                <input type="text" class="form-control" id="f_vcode" name="f_vcode"  placeholder="<?php if($f_vcode_error) echo $f_vcode_error; else echo ''; ?>">
                                 <span class="grey-color">请输入下图中字符，不区分大小写</span>
                             </div>
                         </div>
@@ -39,7 +41,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-5">
-                                <button type="submit" class="btn bg-theme btn-block">下一步</button>
+                                <a href="<?php echo base_url('index.php/findpwd/page_back'); ?>" class="btn bg-theme">上一步</a>
+                                <button type="submit" class="btn bg-theme">下一步</button>
                             </div>
                         </div>
                     </form>
