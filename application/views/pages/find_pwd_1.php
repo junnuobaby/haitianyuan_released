@@ -34,9 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="form-group">
                             <label class="col-sm-3 control-label"></label>
                             <div class="col-sm-3">
-                                <div>
-                                    <img id="vcode_img" class="img-responsive" src="<?php echo base_url('index.php/findpwd/update_captcha/'); ?>" alt="我的头像"/>
-                                </div>
+                                <div id="vcode_img"></div>
                             </div>
                             <a href="#" class="next_vcode">看不清，换一张</a>
                         </div>
@@ -70,15 +68,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </html>
 <script>
     $(document).ready(function () {
+        $.ajax({
+            url: '<?php echo base_url('index.php/findpwd/update_captcha/'); ?>',
+            method: 'get',
+            success: function (response) {
+                $('#vcode_img').html(response);
+            }
+        });
         $('.next_vcode').click(function () {
             $.ajax({
                 url: '<?php echo base_url('index.php/findpwd/update_captcha/'); ?>',
                 method: 'get',
                 success: function (response) {
-                    $('#vcode_img').attr('src',response);
+                    $('#vcode_img').html(response);
                 }
             });
-//            $('#vcode_img').attr('src','<?php //echo base_url('index.php/findpwd/update_captcha/'); ?>//');
         });
     });
 </script>
