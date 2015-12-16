@@ -62,10 +62,11 @@
                         <li><a href="#"><span class="glyphicon glyphicon-level-up"></span> 私信</a></li>
                     </ul>
                 </li>
-
+                <?php if ($identity == 'user'): ?>
                 <li>
                     <a href="<?php echo base_url('index.php/auth/state/web'); ?>" class="btn com add-in-btn"><span class="glyphicon glyphicon-plus"></span> 理财师入驻</a>
                 </li>
+                <?php endif;?>
             </ul>
         <?php endif; ?>
     </div>
