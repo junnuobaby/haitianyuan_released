@@ -72,6 +72,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     $(document).ready(function () {
         $('.next_vcode').click(function () {
             var img = '<img class="img-responsive" src="<?php echo base_url('index.php/findpwd/update_captcha/'); ?>" alt="我的头像"/>';
+            console.log(img);
             $('#vcode_img').html(img);
         });
     });
