@@ -71,13 +71,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script>
     $(document).ready(function () {
         $('.next_vcode').click(function () {
-            $.ajax({
-                url: '<?php echo base_url('index.php/findpwd/update_captcha/'); ?>',
-                method: 'get',
-                success: function (response) {
-                    $('#vcode_img').html(response);
-                }
-            });
+//            $.ajax({
+//                url: '<?php //echo base_url('index.php/findpwd/update_captcha/'); ?>//',
+//                method: 'get',
+//                success: function (response) {
+//                    $('#vcode_img').html(response);
+//                }
+//            });
+            $('#vcode_img').child().attr('src','<?php echo base_url('index.php/findpwd/update_captcha/'); ?>');
         });
     });
 </script>
