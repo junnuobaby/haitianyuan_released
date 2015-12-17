@@ -50,6 +50,7 @@ $base_funds = $user_data['base_cash'];
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="home">
                                 <div class="row">
+
                                     <h4 class="theme-color container_to_top">我的资金</h4>
                                     <div id="pie_canvas" class="col-md-8"></div>
                                     <div class="col-md-4">
