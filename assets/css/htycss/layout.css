@@ -1270,3 +1270,125 @@ a.next_vcode{
 .f_pwd_form .form-group {
     margin-bottom: 20px;
 }
+/*模拟炒股金榜*/
+.match_txt_color {
+    color:#FFF9AF;
+}
+.match_jmp_txt{
+    position: relative;
+}
+.match_jmp_txt a:link,.match_jmp_txt a:visited,.match_jmp_txt a:hover,.match_jmp_txt a:focus{
+    color: white;
+}
+.match_jmp_txt a:link{
+    display: block;
+    position: absolute;
+    font-size: 25px;
+    width:160px;
+    background-color: #59b0ff;
+    right: 20px;
+    bottom: 10px;
+}
+.match_jmp_txt a:hover{
+    background-color: #2e81ff;
+}
+.match_section{
+    background-color: white;
+    padding: 20px 30px;
+    margin: 20px auto;
+    position: relative;
+    min-height: 100px;
+}
+.match_badge{
+    background-color: #E33F27;
+    position: absolute;
+    padding: 10px 10px 10px 10px;
+    left:20px;
+    top:-5px;
+    font-size: 22px;
+    color: #FFF6D2;
+    border: 10px solid #E33F27;
+    outline: solid 3px #FFF9AF;
+    outline-offset: -8px;
+}
+.match_cmp_rank{
+    display: inline-block;
+    margin-right: 50px;
+    font-size: 18px;
+}
+.match_rules{
+    margin: 60px 10px 10px 10px;
+}
+.match_section h3::before{
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: #E33F27;
+    margin-right: 20px;
+}
+.match_section p{
+    font-size: 18px;
+    font-weight: 400;
+    vertical-align: bottom;
+    color: #666;
+    margin-top: 15px;
+    line-height: 30px;
+}
+span.rank_cirle{
+    background-color: #D1353B;
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    border-radius: 14px/13px;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 28px;
+    padding-left: 8px;
+}
+.match_rank_table .heading{
+    font-size: 18px;
+    line-height: 42px;
+    color: #969696;
+}
+/*比赛个人中心*/
+.match_sidebar{
+    min-height:700px;
+    border:1px solid #fff;
+    box-shadow: 0 0 2px 0 #fff;
+}
+.match_avatar{
+    padding: 20px 10px 0 10px;
+    margin-bottom: 40px;
+}
+.match_avatar img{
+    border: 1px solid #FFF6D2;
+}
+a.match_center_item:link, a.match_center_item:visited{
+    display: block;
+    padding: 20px 10px 20px 20px;
+    border-bottom: 1px solid #a7a7a7;
+    border-top: 1px solid #a7a7a7;
+    font-size: 16px;
+    color: #4d5054;
+}
+a.match_center_item:hover{
+    background-color: #FFF;
+    color: #FD7A65;
+}
+a.match_center_item span{
+    margin-right: 10px;
+}
+a.match_trade_btn{
+    display: block;
+    margin: 10px 10px 5px 60px;
+    color: #616569;
+}
+.match_cnt{
+    min-height: 800px;
+    background-color: #FFF;
+    width: 100%;
+    padding: 20px 20px;
+}

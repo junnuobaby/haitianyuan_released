@@ -50,11 +50,11 @@ $base_funds = $user_data['base_cash'];
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="home">
                                 <div class="row">
+                                    <h4 class="theme-color container_to_top">我的资金</h4>
                                     <div id="pie_canvas" class="col-md-8"></div>
                                     <div class="col-md-4">
-                                        <h4 class="theme-color container_to_top">我的资金</h4>
                                         <div class="table-responsive">
-                                            <table class="table  basic_fund_info">
+                                            <table class="table basic_fund_info">
                                                 <tr><th>总资产</th><td id="my_asset" class="formatted"></td></tr>
                                                 <tr><th>总现金</th><td class="formatted"><?php echo $user_data['cash_all']; ?></td></tr>
                                                 <tr><th>可用现金</th><td class="formatted"><?php echo $user_data['cash_use']; ?></td></tr>
