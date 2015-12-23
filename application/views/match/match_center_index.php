@@ -4,7 +4,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <!DOCTYPE html>
 <html lang="zh-cn">
-<?php $this->load->view('./templates/head'); ?>
 <?php
 /**
  * user_data - dict - 用户资金数据
@@ -46,22 +45,20 @@ $base_funds = $user_data['base_cash'];
                         <div role="tabpanel" class="tab-pane active" id="home">
                             <div class="row">
                                 <h4 class="theme-color container_to_top">我的资金</h4>
-                                <div id="pie_canvas" class="col-md-8">
-<!--                                    <img src="--><?php //echo base_url('assets/images/pie.png'); ?><!--"/>-->
-                                </div>
+                                <div id="pie_canvas" class="col-md-8"></div>
                                 <div class="col-md-4">
                                     <div class="table-responsive">
                                         <table class="table basic_fund_info">
-                                            <tr><th>总资产</th><td id="my_asset" class="formatted">1000000</td></tr>
+                                            <tr><th>总资产</th><td id="my_asset" class="formatted"></td></tr>
                                             <tr><th>总现金</th><td class="formatted"><?php echo $user_data['cash_all']; ?></td></tr>
                                             <tr><th>可用现金</th><td class="formatted"><?php echo $user_data['cash_use']; ?></td></tr>
-                                            <tr><th>股票市值</th><td id="stock_value">0.00</td></tr>
-                                            <tr><th>债券市值</th><td id="bond_value">0.00</td></tr>
-                                            <tr><th>仓位</th><td id="my_position">0%</td></tr>
-                                            <tr><th>总盈亏</th><td id="pl_value">0</td></tr>
-                                            <tr><th>总盈亏率</th><td id="pl_rate">0</td></tr>
-                                            <tr><th>浮动盈亏</th><td id="fd_value">0</td></tr>
-                                            <tr><th>浮动盈亏率</th><td id="fd_rate">0</td></tr>
+                                            <tr><th>股票市值</th><td id="stock_value"></td></tr>
+                                            <tr><th>债券市值</th><td id="bond_value"></td></tr>
+                                            <tr><th>仓位</th><td id="my_position"></td></tr>
+                                            <tr><th>总盈亏</th><td id="pl_value"></td></tr>
+                                            <tr><th>总盈亏率</th><td id="pl_rate"></td></tr>
+                                            <tr><th>浮动盈亏</th><td id="fd_value"></td></tr>
+                                            <tr><th>浮动盈亏率</th><td id="fd_rate"></td></tr>
                                         </table>
                                     </div>
                                 </div>
@@ -169,8 +166,20 @@ $base_funds = $user_data['base_cash'];
             </div>
         </div>
     </div>
-</div><?php $this->load->view('./templates/go-top'); ?>
+</div>
+<?php $this->load->view('./templates/go-top'); ?>
 <?php $this->load->view('./templates/footer'); ?>
+<div class="modal fade" id="graphModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title" id="graph_modal_title"></h3>
+            </div>
+            <div class="modal-body" id="graph_modal_body"></div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
 <style>
@@ -184,6 +193,7 @@ $base_funds = $user_data['base_cash'];
      * 给数字渲染颜色
      */
     $(document).ready(function () {
+        $('.main_jumptron').css('margin-bottom', '0px');
         $('.formatted').each(function () {
             var value = format_num($(this).html());
             $(this).html(value);
@@ -197,4 +207,123 @@ $base_funds = $user_data['base_cash'];
             }
         });
     });
+
+    /**
+     * 全局变量
+     * interval - setInterval返回的ID值
+     * 局部变量
+     * base_funds - 初始资金
+     * cash_all - 总现金
+     * stock_info - 存有持仓股票信息的数组
+     * bond_info - 存有持仓债券信息的数组
+     * stock_value - 股票市值
+     * bond_value - 债券市值
+     * asset_all - 总资产（总现金+股票市值+债券市值）
+     * position - 仓位 （（股票市值+债券市值）/ 总资产）
+     * fpl_value - 浮动盈亏金额
+     * fpl_rate - 获浮动盈亏率
+     * tpl_value - 总盈亏金额
+     * tpl_rate - 总盈亏率
+     * 单支证券变量
+     * key - 证券代码
+     * tr_id - 行ID
+     * trade_price - 当前价
+     * id_extent - 涨跌幅
+     */
+    var interval;
+    $(document).ready(function () {
+        load_dynamic_data();
+        clearInterval(interval);
+        interval = setInterval(load_dynamic_data, 8000);
+        function load_dynamic_data() {
+            $.ajax({
+                url: '<?php echo base_url("index.php/stock/get_dynamic_info/web"); ?>',
+                method: 'get',
+                dataType: 'json',
+                success: function (response) {
+                    var base_funds = parseFloat('<?php echo $base_funds;?>');
+                    var cash_all = parseFloat('<?php echo $user_data['cash_all']; ?>');
+                    var stock_info = response.stock_info;
+                    var bond_info = response.bond_info;
+                    var stock_value = parseFloat(response.stock_value);
+                    var bond_value = parseFloat(response.bond_value);
+                    var asset_all = parseFloat(cash_all + stock_value + bond_value);
+                    var position = parseFloat(stock_value + bond_value) * 100 / asset_all;
+                    var fpl_value = parseFloat(response.pl_value);
+                    var fpl_rate = parseFloat(response.pl_rate);
+                    var tpl_value = asset_all - base_funds;
+                    var tpl_rate = decimal((tpl_value * 100) / base_funds);
+                    var key,tr_id,trade_price,id_extent;
+
+                    $('#stock_value').html(format_num(stock_value));
+                    $('#bond_value').html(format_num(bond_value));
+                    $('#my_asset').html(format_num(asset_all));
+                    $('#my_position').html(format_num(position) + '%');
+                    $('#pl_value').html(format_num(tpl_value)).css('color', (parseFloat(tpl_value) > 0) ? 'red' : 'green');
+                    $('#pl_rate').html(tpl_rate + '%').css('color', (parseFloat(tpl_rate) > 0) ? 'red' : 'green');
+                    $('#fd_value').html(format_num(fpl_value)).css('color', (parseFloat(fpl_value) > 0) ? 'red' : 'green');
+                    $('#fd_rate').html(fpl_rate).css('color', (parseFloat(fpl_rate) > 0) ? 'red' : 'green');
+
+                    for (key in stock_info) {
+                        tr_id = '#' + key;
+                        trade_price = decimal(stock_info[key]['TradePrice']);
+                        id_extent = decimal(parseFloat(stock_info[key]['id_extent']) * 100);
+                        $(tr_id).children('td.stock_present_price').html(trade_price);
+                        $(tr_id).children('td.stock_pl_value').html(format_num(decimal(stock_info[key]['float_pl']))).css('color', (parseFloat(stock_info[key]['float_pl']) > 0) ? 'red' : 'green');
+                        $(tr_id).children('td.stock_pl_rate').html(format_num(stock_info[key]['float_pl_rate']) + '%').css('color', (parseFloat(stock_info[key]['float_pl_rate']) > 0) ? 'red' : 'green');
+                        $(tr_id).children('td.stock_extend').html(id_extent + '%').css('color', (parseFloat(id_extent) > 0) ? 'red' : 'green');}
+                    for (key in bond_info) {
+                        tr_id = '#' + key;
+                        trade_price = decimal(bond_info[key]['TradePrice']);
+                        id_extent = decimal(parseFloat(bond_info[key]['id_extent']) * 100);
+                        $(tr_id).children('td.bond_present_price').html(trade_price);
+                        $(tr_id).children('td.bond_pl_value').html(format_num(decimal(bond_info[key]['float_pl']))).css('color', (parseFloat(bond_info[key]['float_pl']) > 0) ? 'red' : 'green');
+                        $(tr_id).children('td.bond_pl_rate').html(format_num(bond_info[key]['float_pl_rate']) + '%').css('color', (parseFloat(bond_info[key]['float_pl_rate']) > 0) ? 'red' : 'green');
+                        $(tr_id).children('td.bond_extend').html(id_extent + '%').css('color', (parseFloat(id_extent) > 0) ? 'red' : 'green');
+                        $(tr_id).children('td.completed_cost').html(format_num(parseFloat($(tr_id).data('interest')) + parseFloat(trade_price)));
+                    }
+                    /**
+                     * 绘制资金分布饼图
+                     */
+                    var parts = ['可用现金', '债券市值', '股票市值', '冻结资金'];
+                    var cash_use = decimal(parseFloat("<?php echo $user_data['cash_use'];?>"));
+                    var cash_freeze = decimal(parseFloat("<?php echo $user_data['cash_freeze'];?>"));
+                    var pie_div_id = document.getElementById('pie_canvas');
+                    var parts_value = [
+                        {value: cash_use, name: '可用现金'},
+                        {value: bond_value, name: '债券市值'},
+                        {value: stock_value, name: '股票市值'},
+                        {value: cash_freeze, name: '冻结资金'}
+                    ];
+                    draw_pie(parts, parts_value, pie_div_id);
+                }
+            });
+        }
+    });
+
+    /**
+     * 用新浪接口获取分时图
+     * stock_id - 股票代码
+     * stock_name - 股票名称
+     */
+    function fillimage(stock_id, stock_name) {
+        var modal_body = document.getElementById("graph_modal_body");
+        var modal_title = document.getElementById("graph_modal_title");
+        var start_code = stock_id.toString().substr(0, 2);
+        console.log(start_code);
+        if (start_code == '30' || start_code == '00') {
+            stock_id = 'sz' + stock_id;
+        } else if (start_code == '60') {
+            stock_id = 'sh' + stock_id;
+        } else {
+            modal_body.innerHTML = '暂无该数据';
+            return;
+        }
+        modal_body.innerHTML = "<h3>分时图</h3>";
+        modal_body.innerHTML += "<img src='http://image.sinajs.cn/newchart/min/n/" + stock_id + ".gif' />";
+        modal_body.innerHTML += "<hr/>";
+        modal_body.innerHTML += "<h3>K线图</h3>";
+        modal_body.innerHTML += "<img src='http://image.sinajs.cn/newchart/daily/n/" + stock_id + ".gif' />";
+        modal_title.innerHTML = "<h2>" + "<strong>" + stock_name + "</strong>" + "(" + stock_id + ")" + "</h2>"
+    }
 </script>
