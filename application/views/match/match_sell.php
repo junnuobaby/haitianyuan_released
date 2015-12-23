@@ -134,11 +134,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?php $this->load->view('./templates/footer'); ?>
 </body>
 </html>
-<style>
-    .match_index_body {
-        background: #E33F27 url('<?php echo base_url('/assets/images/back/match_back1.png');?>') no-repeat scroll;
-    }
-</style>
 <script>
     var interval;
     var is_bond = false;

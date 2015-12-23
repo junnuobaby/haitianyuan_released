@@ -92,11 +92,6 @@ $pages = $his_list['pagination'];
 <?php $this->load->view('./templates/footer'); ?>
 </body>
 </html>
-<style>
-    .match_index_body {
-        background: #E33F27 url('<?php echo base_url('/assets/images/back/3.png');?>') no-repeat scroll;
-    }
-</style>
 <script>
     $(document).ready(function () {
         $('.main_jumptron').css('margin-bottom', '0px');
