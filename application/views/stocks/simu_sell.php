@@ -171,7 +171,7 @@ $sell_stocks = $sell_list;
         //ajax向后台请求要卖出股票的最新信息
         function selected_code_info(code) {
             $.ajax({
-                url: '<?php echo base_url("index.php/stock/get_bs/web"); ?>' + '/' + code,
+                url: '<?php echo base_url("index.php/stock/req_st_data/web/ngs/5"); ?>' + '/' + code,
                 method: 'get',
                 cache: false,
                 dataType: 'json',
@@ -255,7 +255,7 @@ $sell_stocks = $sell_list;
             var info_str = '确定卖出' + bond_quantity + '手' + bond_name + '?';
             if (confirm(info_str)) {
                 $.ajax({
-                    url: '<?php echo base_url("index.php/stock/sell_stock/web"); ?>',
+                    url: '<?php echo base_url("index.php/stock/req_st_data/web/ngs/7"); ?>',
                     method: 'post',
                     data: {
                         SecurityID: bond_code,
