@@ -1359,6 +1359,12 @@ span.rank_cirle{
     border:1px solid #fff;
     box-shadow: 0 0 2px 0 #fff;
 }
+.match_sidebar .collapse a:link{
+    color:#4d5054;
+}
+.match_sidebar .collapse a.match_nav_active:link,.match_sidebar .collapse a.match_nav_active:visited{
+    color: #FD7A65 !important;
+}
 .match_avatar{
     padding: 20px 10px 0 10px;
     margin-bottom: 40px;
@@ -1374,9 +1380,12 @@ a.match_center_item:link, a.match_center_item:visited{
     font-size: 16px;
     color: #4d5054;
 }
-a.match_center_item:hover{
+a.match_center_item.match_nav_active:link, a.match_center_item.match_nav_active:visited{
     background-color: #FFF;
     color: #FD7A65;
+}
+a.match_center_item:hover{
+    background-color: #FFF;
 }
 a.match_center_item span{
     margin-right: 10px;
@@ -1385,10 +1394,4 @@ a.match_trade_btn{
     display: block;
     margin: 10px 10px 5px 60px;
     color: #616569;
-}
-.match_cnt{
-    min-height: 800px;
-    background-color: #FFF;
-    width: 100%;
-    padding: 20px 20px;
 }
