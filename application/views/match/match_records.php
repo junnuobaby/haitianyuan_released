@@ -5,6 +5,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!DOCTYPE html>
 <html lang="zh-cn">
 <?php $this->load->view('./templates/head'); ?>
+<?php
+/**
+ * done_records - dict - 获取操作记录
+ * pages - 分页
+ */
+$done_records = $his_list['data_page'];
+$pages = $his_list['pagination'];
+?>
 <body class="match_index_body bg-gray">
 <div class="wrapper">
     <?php $this->load->view('./stocks/bonds_navbar'); ?>

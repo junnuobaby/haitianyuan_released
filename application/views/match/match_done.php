@@ -5,6 +5,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!DOCTYPE html>
 <html lang="zh-cn">
 <?php $this->load->view('./templates/head'); ?>
+<?php
+/**
+ * done_records - dict - 获取已成交记录
+ * pages - 分页
+ */
+$done_records = $done_list['data_page'];
+$pages = $done_list['pagination'];
+?>
 <body class="match_index_body bg-gray">
 <div class="wrapper">
     <?php $this->load->view('./stocks/bonds_navbar'); ?>
@@ -87,11 +95,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?php $this->load->view('./templates/footer'); ?>
 </body>
 </html>
-<style>
-    .match_index_body {
-        background: #E33F27 url('<?php echo base_url('/assets/images/back/3.png');?>') no-repeat scroll;
-    }
-</style>
 <script>
     $(document).ready(function () {
         $('.main_jumptron').css('margin-bottom', '0px');
