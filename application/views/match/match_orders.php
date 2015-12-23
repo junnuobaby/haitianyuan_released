@@ -4,6 +4,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <!DOCTYPE html>
 <html lang="zh-cn">
+<?php
+/**
+ * records - dict - 还在委托状态的订单详情
+ *           key:
+ *              pre_id - 订单编号
+ *              trade_type - 操作（0 - 买入 2- 卖出）
+ *              SecurityID - 代码
+ *              Symbol - 名称
+ *              Volume - 挂单数量
+ *              price_order - 挂单价格
+ *              price_full - 挂单全价
+ *              fund_deal - 挂单金额
+ *              fee - 手续费
+ *              tax - 印花税
+ *              other_fee - 其他杂费
+ *              hap_fund - 发送金额
+ *              remain_fund - 现金余额
+ *              timestamp - 下单时间
+ *              tip - 备注
+ */
+$records = $pre_list['data_page']; //获取还在委托状态的订单详情
+$pages = $pre_list['pagination']; //获取分页
+?>
 <?php $this->load->view('./templates/head'); ?>
 <body class="match_index_body bg-gray">
 <div class="wrapper">
@@ -95,11 +118,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?php $this->load->view('./templates/footer'); ?>
 </body>
 </html>
-<style>
-    .match_index_body {
-        background: #E33F27 url('<?php echo base_url('/assets/images/back/3.png');?>') no-repeat scroll;
-    }
-</style>
 <script>
     $(document).ready(function () {
         $('.main_jumptron').css('margin-bottom', '0');
@@ -108,27 +126,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $(this).html(value);
         });
     });
-//    $(document).ready(function () {
-//        $('a.cancel_btn').click(function () {
-//            var record_id = $(this).data('id');
-//            var record_tr = $(this).parents('tr.done_record');
-//            if (confirm('确定撤销该订单？')) {
-//                $.ajax({
-//                    url: '<?php //echo base_url("index.php/stock/cancel_order/web"); ?>//' + '/' + record_id,
-//                    method: 'get',
-//                    dataType: 'json',
-//                    success: function (response) {
-//                        if (response.status == '0') {
-//                            record_tr.fadeOut('slow');
-//                        }
-//                        else if (response.status == '1') {
-//                            alert(response.msg);
-//                        }
-//                    }
-//                });
-//            }
-//        });
-//    });
+    $(document).ready(function () {
+        $('a.cancel_btn').click(function () {
+            var record_id = $(this).data('id');
+            var record_tr = $(this).parents('tr.done_record');
+            if (confirm('确定撤销该订单？')) {
+                $.ajax({
+                    url: '<?php echo base_url("index.php/stock/req_st_data/web/gs/8"); ?>' + '/' + record_id,
+                    method: 'get',
+                    dataType: 'json',
+                    success: function (response) {
+                        if (response.status == '0') {
+                            record_tr.fadeOut('slow');
+                        }
+                        else if (response.status == '1') {
+                            alert(response.msg);
+                        }
+                    }
+                });
+            }
+        });
+    });
     //从新浪获取分时图
     function fillimage(stock_id, stock_name) {
         var modal_body = document.getElementById("graph_modal_body");
@@ -187,5 +205,4 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         $('#detail_modal_cnt').html(detail_content);
         $('#detailModal').modal('show');
     });
-
 </script>

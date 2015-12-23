@@ -31,6 +31,6 @@ $face_pic = $this->session->userdata('face_pic');
         background: #FFF6D2 url('<?php echo base_url('/assets/images/back/match_back2.png');?>') repeat scroll;
     }
     .match_index_body {
-        background: #E33F27 url('<?php echo base_url('/assets/images/back/3.png');?>') no-repeat scroll;
+        background: #E33F27 url('<?php echo base_url('/assets/images/back/match_back1.png');?>') no-repeat scroll;
     }
 </style>

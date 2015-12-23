@@ -133,7 +133,7 @@ $pages = $pre_list['pagination']; //获取分页
             var record_tr = $(this).parents('tr.done_record');
             if (confirm('确定撤销该订单？')) {
                 $.ajax({
-                    url: '<?php echo base_url("index.php/stock/cancel_order/web"); ?>' + '/' + record_id,
+                    url: '<?php echo base_url("index.php/stock/req_st_data/web/ngs/8"); ?>' + '/' + record_id,
                     method: 'get',
                     dataType: 'json',
                     success: function (response) {

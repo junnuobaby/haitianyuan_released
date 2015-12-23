@@ -234,7 +234,7 @@ $month_rank = floatval($basic_info['month_rank']);
         interval = setInterval(load_dynamic_data, 8000);
         function load_dynamic_data() {
             $.ajax({
-                url: '<?php echo base_url("index.php/stock/get_dynamic_info/web"); ?>',
+                url: '<?php echo base_url("index.php/stock/req_st_data/web/gs/10"); ?>',
                 method: 'get',
                 dataType: 'json',
                 success: function (response) {

@@ -156,7 +156,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 }
                 if (code_input_val.length >= 1) {
                     xhr = $.ajax({
-                        url: '<?php echo base_url("index.php/stock/buy_code_complement/web"); ?>' + '/' + code_input_val,
+                        url: '<?php echo base_url("index.php/stock/req_st_data/web/gs/3"); ?>' + '/' + code_input_val,
                         method: 'get',
                         cache: false,
                         dataType: 'json',
@@ -171,7 +171,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 }
                 if (code_input_val.length >= 1) {
                     xhr = $.ajax({
-                        url: '<?php echo base_url("index.php/stock/buy_code_complement/web"); ?>' + '/' + encodeURIComponent(code_input_val),
+                        url: '<?php echo base_url("index.php/stock/req_st_data/web/gs/3"); ?>' + '/' + encodeURIComponent(code_input_val),
                         method: 'get',
                         cache: false,
                         dataType: 'json',
@@ -245,7 +245,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         //在鼠标点击选中和enter键之后调用该函数
         function selected_code_info(code) {
             $.ajax({
-                url: '<?php echo base_url("index.php/stock/get_bs/web"); ?>' + '/' + code,
+                url: '<?php echo base_url("index.php/stock/req_st_data/web/gs/5"); ?>' + '/' + code,
                 method: 'get',
                 cache: false,
                 dataType: 'json',
@@ -348,7 +348,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             if (validate(bond_code, bond_price, bond_quantity) && validate_charge(bond_quantities, bond_price, "<?php echo $cash_use;?>")) {
                 if (confirm(info_str)) {
                     $.ajax({
-                        url: '<?php echo base_url("index.php/stock/buy_stock/web"); ?>',
+                        url: '<?php echo base_url("index.php/stock/req_st_data/web/gs/6"); ?>',
                         method: 'post',
                         data: {
                             SecurityID: bond_code,
