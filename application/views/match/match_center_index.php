@@ -206,11 +206,6 @@ $month_rank = floatval($basic_info['month_rank']);
 </div>
 </body>
 </html>
-<style>
-    .match_index_body {
-        background: #E33F27 url('<?php echo base_url('/assets/images/back/3.png');?>') no-repeat scroll;
-    }
-</style>
 <script>
     /**
      * 格式化显示数据

@@ -36,7 +36,8 @@ $ranking = 0;
                         <a href="<?php echo base_url('/index.php/stock/index/web/2/3');?>" class="list-group-item <?php if($nav_mode == "simu_heros_3") echo "active"; ?>"><span class="glyphicon glyphicon-th-large"></span> 周收益率排名</a>
                         <a href="<?php echo base_url('/index.php/stock/index/web/2/4');?>" class="list-group-item <?php if($nav_mode == "simu_heros_4") echo "active"; ?>"><span class="glyphicon glyphicon-th"></span> 月收益率排名</a>
                     </div>
-                </div>            </div>
+                </div>
+            </div>
             <div class="col-md-10 col-sm-10 bg-white ">
                 <div class="stocks_min_h  block-radius">
                     <!--禅师级别-->
