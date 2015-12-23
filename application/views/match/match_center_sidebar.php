@@ -25,6 +25,6 @@
 </div>
 <style>
     .match_sidebar {
-        background: #FFF6D2 url('<?php echo base_url('/assets/images/back/4.png');?>') repeat scroll;
+        background: #FFF6D2 url('<?php echo base_url('/assets/images/back/match_back2.png');?>') repeat scroll;
     }
 </style>

@@ -129,11 +129,11 @@ $lists_10 = array($item,$item,$item,$item,$item,$item,$item,$item,$item,$item);
 </html>
 <style>
     .match_index_body{
-        background: #E33F27 url('<?php echo base_url('/assets/images/back/3.png');?>') no-repeat scroll;
+        background: #E33F27 url('<?php echo base_url('/assets/images/back/match_back1.png');?>') no-repeat scroll;
     }
     .match_jmp{
         height:310px;
-        background: url('<?php echo base_url('/assets/images/jumptron/4.png');?>') no-repeat;
+        background: url('<?php echo base_url('/assets/images/back/match_jmp.png');?>') no-repeat;
         margin: 10px auto;
         position: relative;
         left: 50px;
