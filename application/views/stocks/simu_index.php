@@ -222,7 +222,7 @@ $base_funds = $user_data['base_cash'];
         interval = setInterval(load_dynamic_data, 8000);
         function load_dynamic_data() {
             $.ajax({
-                url: '<?php echo base_url("index.php/stock/get_dynamic_info/web"); ?>',
+                url: '<?php echo base_url("index.php/stock/req_st_data/web/ngs/10"); ?>',
                 method: 'get',
                 dataType: 'json',
                 success: function (response) {
