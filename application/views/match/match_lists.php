@@ -20,7 +20,7 @@ $lists_10 = array($item,$item,$item,$item,$item,$item,$item,$item,$item,$item);
         <div class="col-md-10  col-md-offset-1">
             <div class="match_jmp_txt">
                 <h1 class="match_txt_color">参加金榜比赛赢取大奖</h1>
-                <h3 class="match_txt_color">所以参赛选手缴纳的入场费，将作为奖金全额发放</h3>
+                <h3 class="match_txt_color">所有参赛选手缴纳的入场费，将作为奖金全额发放</h3>
                 <a href="<?php echo base_url('/index.php/stock/sign_up/web');?>" class="btn"><?php if($state == 1) echo '进入比赛'; else echo '我要报名';?></a>
             </div>
         </div>
