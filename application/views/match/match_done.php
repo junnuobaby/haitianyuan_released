@@ -1,78 +1,65 @@
-<!--模拟炒股，已成交的订单-->
+<!--模拟炒股金榜-历史成交-->
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html lang="zh-cn">
 <?php $this->load->view('./templates/head'); ?>
-<?php
-/**
- * done_records - dict - 获取已成交记录
- * pages - 分页
- */
-$done_records = $done_list['data_page'];
-$pages = $done_list['pagination'];
-?>
-<body class="bg-gray">
+<body class="match_index_body bg-gray">
 <div class="wrapper">
     <?php $this->load->view('./stocks/bonds_navbar'); ?>
     <div class="container">
-        <div class="row">
-            <?php $this->load->view('./stocks/simu_menu'); ?>
-        </div>
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
-                <div class="bg-white stocks_min_h  block-radius">
-                    <div class="simulate_panel">
-                        <div class="tab-content">
-                                <h4 class="theme-color container_to_top">成交记录</h4>
-                                <div class="panel panel-default border_none">
-                                    <div class="panel-body">
-                                        <table class="table table-responsive table-hover table-bordered">
-                                            <thead>
-                                            <tr>
-                                                <th>成交时间</th>
-                                                <th>代码</th>
-                                                <th>名称</th>
-                                                <th>操作</th>
-                                                <th>委托价</th>
-                                                <th>成交价</th>
-                                                <th>成交量</th>
-                                                <th>手续费</th>
-                                                <th>印花税</th>
-                                                <th>详细</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <?php $count_num = 0; ?>
-                                            <?php foreach ($done_records as $stock_item): ?>
-                                                <tr>
-                                                    <td><?php echo $stock_item['timestamp']; ?></td>
-                                                    <td data-toggle="modal" data-target="#graphModal" onclick="fillimage('<?= $stock_item['SecurityID']; ?>', '<?= $stock_item['Symbol']; ?>')"><a href="#" class="theme-color"><?php echo $stock_item['SecurityID']; ?></a></td>
-                                                    <td><?php echo $stock_item['Symbol']; ?></td>
-                                                    <td><?php if ($stock_item['trade_type'] == '1') {echo '买入';} else if ($stock_item['trade_type'] == '3') {echo "卖出";} else if($stock_item['trade_type'] == '3'){echo '债券付息';}?></td>
-                                                    <td class="formatted"><?php echo $stock_item['price_order']; ?></td>
-                                                    <td class="formatted decimal"><?php echo $stock_item['price_deal']; ?></td>
-                                                    <td class="formatted"><?php echo $stock_item['Volume']; ?></td>
-                                                    <td class="formatted"><?php echo $stock_item['fee'];?></td>
-                                                    <td class="formatted"><?php echo $stock_item['tax'];?></td>
-                                                    <td data-index="<?php echo $count_num; ?>" class="order_detail"><a href="#" class="theme-color">查看</a></td>
-                                                </tr>
-                                                <?php $count_num++; ?>
-                                            <?php endforeach; ?>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                <div class="text-center"><p class="pages"><?php echo $pages; ?></p></div>
+        <?php $this->load->view('./match/match_center_sidebar'); ?>
+        <div class="col-md-10">
+            <div class="bg-white stocks_min_h  block-radius">
+                <div class="simulate_panel">
+                    <div class="tab-content">
+                        <h4 class="theme-color container_to_top">成交记录</h4>
+                        <div class="panel panel-default border_none">
+                            <div class="panel-body">
+                                <table class="table table-responsive table-hover table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>成交时间</th>
+                                        <th>代码</th>
+                                        <th>名称</th>
+                                        <th>操作</th>
+                                        <th>委托价</th>
+                                        <th>成交价</th>
+                                        <th>成交量</th>
+                                        <th>手续费</th>
+                                        <th>印花税</th>
+                                        <th>详细</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php $count_num = 0; ?>
+                                    <?php foreach ($done_records as $stock_item): ?>
+                                        <tr>
+                                            <td><?php echo $stock_item['timestamp']; ?></td>
+                                            <td data-toggle="modal" data-target="#graphModal" onclick="fillimage('<?= $stock_item['SecurityID']; ?>', '<?= $stock_item['Symbol']; ?>')"><a href="#" class="theme-color"><?php echo $stock_item['SecurityID']; ?></a></td>
+                                            <td><?php echo $stock_item['Symbol']; ?></td>
+                                            <td><?php if ($stock_item['trade_type'] == '1') {echo '买入';} else if ($stock_item['trade_type'] == '3') {echo "卖出";} else if($stock_item['trade_type'] == '3'){echo '债券付息';}?></td>
+                                            <td class="formatted"><?php echo $stock_item['price_order']; ?></td>
+                                            <td class="formatted decimal"><?php echo $stock_item['price_deal']; ?></td>
+                                            <td class="formatted"><?php echo $stock_item['Volume']; ?></td>
+                                            <td class="formatted"><?php echo $stock_item['fee'];?></td>
+                                            <td class="formatted"><?php echo $stock_item['tax'];?></td>
+                                            <td data-index="<?php echo $count_num; ?>" class="order_detail"><a href="#" class="theme-color">查看</a></td>
+                                        </tr>
+                                        <?php $count_num++; ?>
+                                    <?php endforeach; ?>
+                                    </tbody>
+                                </table>
                             </div>
+                        </div>
+                        <div class="text-center"><p class="pages"><?php echo $pages; ?></p></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<?php $this->load->view('./templates/go-top'); ?>
-<?php $this->load->view('./templates/footer'); ?>
 <div class="modal fade" id="graphModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -96,7 +83,15 @@ $pages = $done_list['pagination'];
         </div>
     </div>
 </div>
+<?php $this->load->view('./templates/go-top'); ?>
+<?php $this->load->view('./templates/footer'); ?>
 </body>
+</html>
+<style>
+    .match_index_body {
+        background: #E33F27 url('<?php echo base_url('/assets/images/back/3.png');?>') no-repeat scroll;
+    }
+</style>
 <script>
     $(document).ready(function () {
         $('.main_jumptron').css('margin-bottom', '0px');
@@ -169,4 +164,3 @@ $pages = $done_list['pagination'];
     });
 
 </script>
-</html>

@@ -23,8 +23,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *                Ban_Volume - 不可卖出数量
  *                Order_Volume - 冻结数量
  *                BuyCost - 买入成本
- *                day_letf - 距付息日（天）- (*仅债券有该字段)
- *                expire-day - 到期时间 - (*仅债券有该字段)
+ *                day_left - 距付息日（天）- (*仅债券有该字段)
+ *                profit_end - 到期时间 - (*仅债券有该字段)
  *                interest - 债券利息 - (*仅债券有该字段)
  * base_funds - number - 用户起始资金
  */
