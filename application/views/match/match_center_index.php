@@ -30,6 +30,21 @@ $user_stocks = $user_info['data_stock'];
 $user_bonds = $user_info['data_bond'];
 $base_funds = $user_data['base_cash'];
 ?>
+<!--用户业绩（收益率曲线图和排名）-->
+<?php
+$basic_info = $performance['data_user'];  //用户收益率等当前信息
+$perform_info = $performance['data_line']; //用户历史收益率数据
+$perform_avg = $performance['data_avg'];  //平均历史收益率数据
+$stock_value = floatval($basic_info['fund']) - floatval($basic_info['cash_all']);  //计算持有股票的市值
+$profit_rate = number_format(floatval($basic_info['profit_rate']) * 100, 2);
+$profit_rank = floatval($basic_info['profit_rank']);
+$day_rate = number_format(floatval($basic_info['day_rate']) * 100, 2);
+$day_rank = floatval($basic_info['day_rank']);
+$week_rate = number_format(floatval($basic_info['week_rate']) * 100, 2);
+$week_rank = floatval($basic_info['week_rank']);
+$month_rate = number_format(floatval($basic_info['month_rate']) * 100, 2);
+$month_rank = floatval($basic_info['month_rank']);
+?>
 <!--绘图文件-->
 <?php $this->load->view('./stocks/graph'); ?>
 <?php $this->load->view('./templates/head'); ?>
@@ -68,10 +83,19 @@ $base_funds = $user_data['base_cash'];
                                 <div class="row">
                                     <div class="col-md-3">
                                         <table class="table">
-                                            <tr><th>周收益率：</th><td>0.00%</td></tr>
-                                            <tr><th>月收益率：</th><td>0.00%</td></tr>
-                                            <tr><th>周排行：</th><td>10000</td></tr>
-                                            <tr><th>月排行：</th><td>10000</td></tr>
+                                            <thead>
+                                            <tr>
+                                                <th>时间</th>
+                                                <th>收益率</th>
+                                                <th>排名</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr><th>本日：</th><td class="render"><?php echo $day_rate; ?>%</td><td><?php echo $day_rank; ?></td></tr>
+                                            <tr><th>本周：</th><td class="render"><?php echo $week_rate; ?>%</td><td><?php echo $week_rank; ?></td></tr>
+                                            <tr><th>本月：</th><td class="render"><?php echo $month_rate; ?>%</td><td><?php echo $month_rank; ?></td></tr>
+                                            <tr><th>总：</th><td class="render"><?php echo $profit_rate; ?></td><?php echo $profit_rank; ?></tr>
+                                            </tbody>
                                         </table>
                                     </div>
                                     <div class="col-md-6 col-md-offset-2" >

@@ -22,7 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <tr>
                                         <th>时间</th>
                                         <th>代码</th>
-                                        <th>名称</th>
+                                        <th>名称
                                         <th>操作</th>
                                         <th>价格</th>
                                         <th>数量</th>
