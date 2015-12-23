@@ -81,7 +81,8 @@ $ranking = 0;
                                             ?>
                                             <?= $ranking; ?></td>
                                         <td class="table_left">
-                                            <img width="20px" height="20px" src="<?php echo base_url('/uploads/' . $item['face_pic']); ?>" alt="..."> <?= $item['user_name']; ?></td>
+                                            <img width="20px" height="20px" src="<?php echo base_url('/uploads/' . $item['face_pic']); ?>"
+                                                 alt="..."> <?= $item['user_name']; ?></td>
                                         <td class="formatted table_right"><?= $item['fund']; ?></td>
                                         <td class="table_right"><?= number_format(floatval($item['position']) * 100, 2); ?>
                                             %
@@ -109,7 +110,7 @@ $ranking = 0;
                         <div class="rank_table">
                             <div class="col-md-8 col-md-offset-4">
                                 <div class="plaque">
-                                    <img width="70px" height="70px" class="inline_block"
+                                    <img width="70px" height="70px" class="img-responsive inline_block"
                                          src="<?php echo base_url('/assets/images/icon/zongshi.png'); ?>"
                                          alt="Logo加载中...">
                                     <img class="img-responsive inline_block"
@@ -146,7 +147,7 @@ $ranking = 0;
                                                 ?>
                                                 <?= $ranking; ?></td>
                                             <td class="table_left"><img width="20px" height="20px" src="<?php echo base_url('/uploads/' . $item['face_pic']); ?>"
-                                                                        class="img-responsive " alt="..."> <?= $item['user_name']; ?></td>
+                                                                         alt="..."> <?= $item['user_name']; ?></td>
                                             <td class="formatted table_right"><?= $item['fund']; ?></td>
                                             <td class="table_right"><?= number_format(floatval($item['position']) * 100, 2); ?>
                                                 %
@@ -175,7 +176,7 @@ $ranking = 0;
                         <div class="rank_table">
                             <div class="col-md-8 col-md-offset-4">
                                 <div class="plaque">
-                                    <img width="70px" height="70px" class="inline_block"
+                                    <img width="70px" height="70px" class="img-responsive inline_block"
                                          src="<?php echo base_url('/assets/images/icon/dashi.png'); ?>"
                                          alt="Logo加载中...">
                                     <img class="img-responsive inline_block"
@@ -211,7 +212,7 @@ $ranking = 0;
                                                 } ?>
                                                 <?= $ranking; ?></td>
                                             <td class="table_left"><img width="20px" height="20px" src="<?php echo base_url('/uploads/' . $item['face_pic']); ?>"
-                                                                        class="img-responsive " alt="..."> <?= $item['user_name']; ?></td>
+                                                                        alt="..."> <?= $item['user_name']; ?></td>
                                             <td class="formatted table_right"><?= $item['fund']; ?></td>
                                             <td class="table_right"><?= number_format(floatval($item['position']) * 100, 2); ?>
                                                 %
