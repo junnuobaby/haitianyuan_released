@@ -54,7 +54,7 @@ $month_rank = floatval($basic_info['month_rank']);
     <div class="container">
         <?php $this->load->view('./match/match_center_sidebar'); ?>
         <div class="col-md-10">
-            <div class="bg-white stocks_min_h block-radius">
+            <div class="bg-white match_index_height block-radius">
                 <div class="simulate_panel">
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane active" id="home">
