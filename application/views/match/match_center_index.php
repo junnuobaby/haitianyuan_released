@@ -94,7 +94,7 @@ $month_rank = floatval($basic_info['month_rank']);
                                             <tr><th>本日：</th><td class="render"><?php echo $day_rate; ?>%</td><td><?php echo $day_rank; ?></td></tr>
                                             <tr><th>本周：</th><td class="render"><?php echo $week_rate; ?>%</td><td><?php echo $week_rank; ?></td></tr>
                                             <tr><th>本月：</th><td class="render"><?php echo $month_rate; ?>%</td><td><?php echo $month_rank; ?></td></tr>
-                                            <tr><th>总：</th><td class="render"><?php echo $profit_rate; ?></td><?php echo $profit_rank; ?></tr>
+                                            <tr><th>总的：</th><td class="render"><?php echo $profit_rate; ?></td><td><?php echo $profit_rank; ?></td></tr>
                                             </tbody>
                                         </table>
                                     </div>
