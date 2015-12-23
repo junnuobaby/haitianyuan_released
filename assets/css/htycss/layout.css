@@ -1272,7 +1272,7 @@ a.next_vcode{
 }
 /*模拟炒股金榜*/
 .match_index_height{
-    min-height: 1500px;
+    min-height: 1200px;
 }
 .match_txt_color {
     color:#FFF9AF;
