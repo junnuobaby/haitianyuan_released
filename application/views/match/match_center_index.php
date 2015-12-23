@@ -98,7 +98,7 @@ $month_rank = floatval($basic_info['month_rank']);
                                             </tbody>
                                         </table>
                                     </div>
-                                    <div class="col-md-6 col-md-offset-2" >
+                                    <div class="col-md-6" >
                                         <div id="perform_canvas"></div>
                                     </div>
                                 </div>
@@ -232,28 +232,6 @@ $month_rank = floatval($basic_info['month_rank']);
         });
     });
 
-    /**
-     * 全局变量
-     * interval - setInterval返回的ID值
-     * 局部变量
-     * base_funds - 初始资金
-     * cash_all - 总现金
-     * stock_info - 存有持仓股票信息的数组
-     * bond_info - 存有持仓债券信息的数组
-     * stock_value - 股票市值
-     * bond_value - 债券市值
-     * asset_all - 总资产（总现金+股票市值+债券市值）
-     * position - 仓位 （（股票市值+债券市值）/ 总资产）
-     * fpl_value - 浮动盈亏金额
-     * fpl_rate - 获浮动盈亏率
-     * tpl_value - 总盈亏金额
-     * tpl_rate - 总盈亏率
-     * 单支证券变量
-     * key - 证券代码
-     * tr_id - 行ID
-     * trade_price - 当前价
-     * id_extent - 涨跌幅
-     */
     var interval;
     $(document).ready(function () {
         load_dynamic_data();
