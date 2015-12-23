@@ -99,7 +99,7 @@ $month_rank = floatval($basic_info['month_rank']);
                                         </table>
                                     </div>
                                     <div class="col-md-8 col-md-offset-1" >
-                                        <div id="perform_canvas" class="match_perform_canvas"></div>
+                                        <div id="match_perform_canvas"></div>
                                     </div>
                                 </div>
 
@@ -351,7 +351,7 @@ $month_rank = floatval($basic_info['month_rank']);
         <?php $count += 1;?>
         <?php endforeach;?>
 
-        var div_id = document.getElementById('perform_canvas');
+        var div_id = document.getElementById('match_perform_canvas');
         draw(user_rate, avg_rate, time_list, div_id);//绘制收益率曲线图
     });
 </script>

@@ -1395,6 +1395,6 @@ a.match_trade_btn{
     margin: 10px 10px 5px 60px;
     color: #616569;
 }
-.match_perform_canvas{
+#match_perform_canvas{
     height: 300px;
 }
