@@ -23,7 +23,7 @@ $face_pic = $this->session->userdata('face_pic');
         </div>
         <a class="match_center_item" href="<?php echo base_url('index.php/match/match_rank');?>"><span class="glyphicon glyphicon-align-left"></span> 排行榜</a>
         <a class="match_center_item" href="#"><span class="glyphicon glyphicon-edit"></span>奖项公布</a>
-        <a class="match_center_item" href="#"><span class="glyphicon glyphicon-hand-right"></span>退出金榜</a>
+        <a class="match_center_item" href="<?php echo base_url('index.php/stock/exit_game/web');?>"><span class="glyphicon glyphicon-hand-right"></span>退出金榜</a>
     </section>
 </div>
 <style>
