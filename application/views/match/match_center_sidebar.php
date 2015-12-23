@@ -1,12 +1,13 @@
 <!--金榜比赛侧边栏-->
 <?php
 $face_pic = $this->session->userdata('face_pic');
+$user_name = $this->session->userdata('username');
 ?>
 <div class="col-md-2">
     <section class="match_sidebar">
         <div class="match_avatar">
             <img width="180px" height="180px" class="img-circle img-responsive" src="<?php echo site_url('/uploads/'.$face_pic); ?>" alt="我的头像">
-            <h4 class="text-center">君诺宝宝</h4>
+            <h4 class="text-center"><?php echo $user_name;?></h4>
         </div>
 
         <a class="match_center_item match_achive <?php if($sub_nav_mode == 'match_center_index') echo 'match_nav_active';?>" href="<?php echo base_url('/index.php/stock/match/web/1/1');?>"><span class="glyphicon glyphicon-home"></span>我的成绩</a>
