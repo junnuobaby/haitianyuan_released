@@ -99,7 +99,7 @@ $month_rank = floatval($basic_info['month_rank']);
                                         </table>
                                     </div>
                                     <div class="col-md-6 col-md-offset-2" >
-                                        <img height='200px' src="<?php echo base_url('assets/images/profit.png'); ?>"/>
+                                        <div id="perform_canvas"></div>
                                     </div>
                                 </div>
 
@@ -350,4 +350,30 @@ $month_rank = floatval($basic_info['month_rank']);
         modal_body.innerHTML += "<img src='http://image.sinajs.cn/newchart/daily/n/" + stock_id + ".gif' />";
         modal_title.innerHTML = "<h2>" + "<strong>" + stock_name + "</strong>" + "(" + stock_id + ")" + "</h2>"
     }
+
+    /**
+     * 绘制收益率曲线图
+     */
+    $(document).ready(function () {
+        var user_rate = [];
+        var avg_rate = [];
+        var time_list = [];
+        <?php $count = 0;?>
+        <?php foreach($perform_info as $item):?>
+        <?php $day_rate = round(floatval($item['day_rate'])*100, 2);?>
+        user_rate[<?php echo $count;?>] = <?php echo $day_rate;?>;
+        time_list[<?php echo $count;?>] = "<?php echo explode(' ', $item['timestamp'])[0];?>";
+        <?php $count += 1;?>
+        <?php endforeach;?>
+
+        <?php $count = 0;?>
+        <?php foreach($perform_avg as $item):?>
+        <?php $avg_rate = round(floatval($item['day_rate'])*100, 2);?>
+        avg_rate[<?php echo $count;?>] = <?php echo $avg_rate;?>;
+        <?php $count += 1;?>
+        <?php endforeach;?>
+
+        var div_id = document.getElementById('perform_canvas');
+        draw(user_rate, avg_rate, time_list, div_id);//绘制收益率曲线图
+    });
 </script>
