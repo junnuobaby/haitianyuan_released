@@ -19,7 +19,7 @@ $face_pic = $this->session->userdata('face_pic');
         <a class="match_center_item " href="#match_records" data-toggle="collapse"><span class="glyphicon glyphicon-book"></span>交易记录</a>
         <div class="collapse <?php if($sub_nav_mode == 'match_done' || $sub_nav_mode == 'match_records') echo 'in';?>" id="match_records">
             <a href="<?php echo base_url('/index.php/stock/match/web/1/5');?>" class="match_trade_btn <?php if($sub_nav_mode == 'match_done') echo 'match_nav_active';?>">历史成交</a>
-            <a href="<?php echo base_url('/index.php/stock/match/web/1/7');?>" class="match_trade_btn <?php if($sub_nav_mode == 'match_records') echo 'match_nav_active';?>">操作记录</a>
+            <a href="<?php echo base_url('/index.php/stock/match/web/1/6');?>" class="match_trade_btn <?php if($sub_nav_mode == 'match_records') echo 'match_nav_active';?>">操作记录</a>
         </div>
         <a class="match_center_item" href="<?php echo base_url('index.php/match/match_rank');?>"><span class="glyphicon glyphicon-align-left"></span> 排行榜</a>
         <a class="match_center_item" href="#"><span class="glyphicon glyphicon-edit"></span>奖项公布</a>
