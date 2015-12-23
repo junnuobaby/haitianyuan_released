@@ -85,7 +85,7 @@ $month_rank = floatval($basic_info['month_rank']);
                                         <table class="table">
                                             <thead>
                                             <tr>
-                                                <th>时间</th>
+                                                <th>-</th>
                                                 <th>收益率</th>
                                                 <th>排名</th>
                                             </tr>
