@@ -119,6 +119,7 @@
 <?php $this->load->view('./templates/go-top'); ?>
 <?php $this->load->view('./templates/footer'); ?>
 </body>
+</html>
 <script>
     /**
      * 全局变量
@@ -405,4 +406,3 @@
         });
     });
 </script>
-</html>

@@ -136,146 +136,146 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </html>
 <style>
     .match_index_body {
-        background: #E33F27 url('<?php echo base_url('/assets/images/back/3.png');?>') no-repeat scroll;
+        background: #E33F27 url('<?php echo base_url('/assets/images/back/match_back1.png');?>') no-repeat scroll;
     }
 </style>
 <script>
-//    var interval;
-//    var is_bond = false;
-//    $(document).ready(function () {
-//        $('.main_jumptron').css('margin-bottom', '0px');
-//    });
-//    $(document).ready(function () {
-//        var code_input = $('#bond_code');
-//        $(code_input).change(function () {
-//            var selected_code = $(this).children('option:selected').data('code');
-//            var selected_name = $(this).children('option:selected').data('name');
-//            var max_volume = $(this).children('option:selected').data('volume');
-//            var selected_cost = $(this).children('option:selected').data('cost');
-//            //显示最大可卖出数量
-//            $('div.largest_quantity').removeClass('hidden');
-//            //显示买入该股票价格
-//            $('#buy_in_price').html(decimal(selected_cost));
-//            if(is_bond){
-//                $('#largest_quantity').html(Math.round(parseInt(max_volume) / 10));
-//            }else{
-//                $('#largest_quantity').html(Math.round(parseInt(max_volume) / 100));
-//            }
-//            selected_code_info(selected_code);
-//            clearInterval(interval);
-//            interval = setInterval(function () {selected_code_info(selected_code)}, 8000); //每隔8s自动请求一次
-//        });
-//
-//        //ajax向后台请求要卖出股票的最新信息
-//        function selected_code_info(code) {
-//            $.ajax({
-//                url: '<?php //echo base_url("index.php/stock/get_bs/web"); ?>//' + '/' + code,
-//                method: 'get',
-//                cache: false,
-//                dataType: 'json',
-//                success: code_info_display
-//            });
-//        }
-//
-//        //显示所选证券的实时数据信息
-//        function code_info_display(data) {
-//            if (data.status == '2') {
-//                alert('本支股票已停牌');
-//                clearInterval(interval);
-//            }
-//            else {
-//                var response = data.st_info;
-//                is_bond = response.is_bond;
-//                var bond_name = response.Symbol; //ajax获取证券名称
-//                var bond_cur_price = decimal(response.TradePrice); //获取最新价
-//                var bond_lastday_price = decimal(response.PreClosePx); //获取昨日收盘价
-//                var bond_highest = decimal(1.1 * bond_lastday_price); //涨停
-//                var bond_lowest = decimal(0.9 * bond_lastday_price); //跌停
-//                var sell_1ist = [response.SellPrice1, response.SellPrice2, response.SellPrice3, response.SellPrice4, response.SellPrice5]; //卖五
-//                var buy_1ist = [response.BuyPrice1, response.BuyPrice2, response.BuyPrice3, response.BuyPrice4, response.BuyPrice5];  //买五
-//                var sell_volume = [response.SellVolume1, response.SellVolume2, response.SellVolume3, response.SellVolume4, response.SellVolume5]; //卖五
-//                var buy_volume = [response.BuyVolume1, response.BuyVolume2, response.BuyVolume3, response.BuyVolume4, response.BuyVolume5];  //买五
-//
-//                for(var j= 0; j < sell_1ist.length; j++){
-//                    sell_1ist[j] = decimal(sell_1ist[j]);
-//                    sell_volume[j] = format_num(sell_volume[j]);
-//                    buy_1ist[j] = decimal(buy_1ist[j]);
-//                    buy_volume[j] = format_num(buy_volume[j]);
-//                }
-//
-//                var bond_price_cnt = '<tr><td>最新：</td><td>' + bond_cur_price + '</td></tr>';
-//                bond_price_cnt += '<tr><td>昨收：</td><td>' + bond_lastday_price + '</td></tr>';
-//                bond_price_cnt += '<tr><td>涨停：</td><td>'+ bond_highest +'</td></tr>';
-//                bond_price_cnt += '<tr><td>跌停：</td><td>' + bond_lowest + '</td></tr>';
-//                $('#bond_name').html(bond_name);
-//                $('#bond_price').html(bond_price_cnt);
-//
-//
-//                //设置卖五的价格和数量
-//                var top_sell_cnt = '<tr><td>卖五：</td><td>' + sell_1ist[4] + '</td><td>' + sell_volume[4] + '</td></tr>';
-//                top_sell_cnt += '<tr><td>卖四：</td><td>' + sell_1ist[3] + '</td><td>' + sell_volume[3] + '</td></tr>';
-//                top_sell_cnt += '<tr><td>卖三：</td><td>' + sell_1ist[2] + '</td><td>' + sell_volume[2] + '</td></tr>';
-//                top_sell_cnt += '<tr><td>卖二：</td><td>' + sell_1ist[1] + '</td><td>' + sell_volume[1] + '</td></tr>';
-//                top_sell_cnt += '<tr><td>卖一：</td><td>' + sell_1ist[0] + '</td><td>' + sell_volume[0] + '</td></tr>';
-//                $('#top_sell').html(top_sell_cnt);
-//                //设置买五的价格和数量
-//                var top_buy_cnt = '<tr><td>买一：</td><td>' + buy_1ist[0] + '</td><td>' + buy_volume[0] + '</td></tr>';
-//                top_buy_cnt += '<tr><td>买二：</td><td>' + buy_1ist[1] + '</td><td>' + buy_volume[1] + '</td></tr>';
-//                top_buy_cnt += '<tr><td>买三：</td><td>' + buy_1ist[2] + '</td><td>' + buy_volume[2] + '</td></tr>';
-//                top_buy_cnt += '<tr><td>买四：</td><td>' + buy_1ist[3] + '</td><td>' + buy_volume[3] + '</td></tr>';
-//                top_buy_cnt += '<tr><td>买五：</td><td>' + buy_1ist[4] + '</td><td>' + buy_volume[4] + '</td></tr>';
-//                $('#top_buy').html(top_buy_cnt);
-//
-//                //根据价格设置显示颜色
-//                var top_price = $('#bond_price tr td:nth-child(2),#top_buy tr td:nth-child(2), #top_sell tr td:nth-child(2)');
-//                top_price.each(function () {
-//                    if (parseFloat($(this).html()) > parseFloat(bond_lastday_price)) {
-//                        $(this).addClass('red');
-//                    } else {
-//                        $(this).addClass('green');
-//                    }
-//                });
-//            }
-//        }
-//
-//        //卖出按钮事件
-//        $('#buy').click(function () {
-//            var bond_code = $('#bond_code').children('option:selected').data('code'); //证券代码
-//            var bond_name = $('#bond_code').children('option:selected').data('name'); //证券名称
-//            var bond_price = $('#buy_price').val(); //卖出价格
-//            var bond_quantity = $('#buy_quantity').val(); //卖出数量
-//            var bond_quantities; //求卖出的股数（卖出手数*100）
-//            if(is_bond){
-//                bond_quantities = parseInt(bond_quantity) * 10;
-//            }else{
-//                bond_quantities = parseInt(bond_quantity) * 100;
-//            }
-//            var info_str = '确定卖出' + bond_quantity + '手' + bond_name + '?';
-//            if (confirm(info_str)) {
-//                $.ajax({
-//                    url: '<?php //echo base_url("index.php/stock/sell_stock/web"); ?>//',
-//                    method: 'post',
-//                    data: {
-//                        SecurityID: bond_code,
-//                        Symbol: bond_name,
-//                        SellPrice: bond_price,
-//                        SellVolume: bond_quantities
-//                    },
-//                    dataType: 'json',
-//                    success: function (response) {
-//                        if (response.status == '0') {
-//                            $('div.alert-info').removeClass('hidden');
-//                        }
-//                        else if (response.status == '1') {
-//                            alert(response.msg);
-//                        }
-//                    },
-//                    error: function () {
-//                        alert('服务器错误');
-//                    }
-//                });
-//            }
-//        });
-//    });
+    var interval;
+    var is_bond = false;
+    $(document).ready(function () {
+        $('.main_jumptron').css('margin-bottom', '0px');
+    });
+    $(document).ready(function () {
+        var code_input = $('#bond_code');
+        $(code_input).change(function () {
+            var selected_code = $(this).children('option:selected').data('code');
+            var selected_name = $(this).children('option:selected').data('name');
+            var max_volume = $(this).children('option:selected').data('volume');
+            var selected_cost = $(this).children('option:selected').data('cost');
+            //显示最大可卖出数量
+            $('div.largest_quantity').removeClass('hidden');
+            //显示买入该股票价格
+            $('#buy_in_price').html(decimal(selected_cost));
+            if(is_bond){
+                $('#largest_quantity').html(Math.round(parseInt(max_volume) / 10));
+            }else{
+                $('#largest_quantity').html(Math.round(parseInt(max_volume) / 100));
+            }
+            selected_code_info(selected_code);
+            clearInterval(interval);
+            interval = setInterval(function () {selected_code_info(selected_code)}, 8000); //每隔8s自动请求一次
+        });
+
+        //ajax向后台请求要卖出股票的最新信息
+        function selected_code_info(code) {
+            $.ajax({
+                url: '<?php echo base_url("index.php/stock/get_bs/web"); ?>' + '/' + code,
+                method: 'get',
+                cache: false,
+                dataType: 'json',
+                success: code_info_display
+            });
+        }
+
+        //显示所选证券的实时数据信息
+        function code_info_display(data) {
+            if (data.status == '2') {
+                alert('本支股票已停牌');
+                clearInterval(interval);
+            }
+            else {
+                var response = data.st_info;
+                is_bond = response.is_bond;
+                var bond_name = response.Symbol; //ajax获取证券名称
+                var bond_cur_price = decimal(response.TradePrice); //获取最新价
+                var bond_lastday_price = decimal(response.PreClosePx); //获取昨日收盘价
+                var bond_highest = decimal(1.1 * bond_lastday_price); //涨停
+                var bond_lowest = decimal(0.9 * bond_lastday_price); //跌停
+                var sell_1ist = [response.SellPrice1, response.SellPrice2, response.SellPrice3, response.SellPrice4, response.SellPrice5]; //卖五
+                var buy_1ist = [response.BuyPrice1, response.BuyPrice2, response.BuyPrice3, response.BuyPrice4, response.BuyPrice5];  //买五
+                var sell_volume = [response.SellVolume1, response.SellVolume2, response.SellVolume3, response.SellVolume4, response.SellVolume5]; //卖五
+                var buy_volume = [response.BuyVolume1, response.BuyVolume2, response.BuyVolume3, response.BuyVolume4, response.BuyVolume5];  //买五
+
+                for(var j= 0; j < sell_1ist.length; j++){
+                    sell_1ist[j] = decimal(sell_1ist[j]);
+                    sell_volume[j] = format_num(sell_volume[j]);
+                    buy_1ist[j] = decimal(buy_1ist[j]);
+                    buy_volume[j] = format_num(buy_volume[j]);
+                }
+
+                var bond_price_cnt = '<tr><td>最新：</td><td>' + bond_cur_price + '</td></tr>';
+                bond_price_cnt += '<tr><td>昨收：</td><td>' + bond_lastday_price + '</td></tr>';
+                bond_price_cnt += '<tr><td>涨停：</td><td>'+ bond_highest +'</td></tr>';
+                bond_price_cnt += '<tr><td>跌停：</td><td>' + bond_lowest + '</td></tr>';
+                $('#bond_name').html(bond_name);
+                $('#bond_price').html(bond_price_cnt);
+
+
+                //设置卖五的价格和数量
+                var top_sell_cnt = '<tr><td>卖五：</td><td>' + sell_1ist[4] + '</td><td>' + sell_volume[4] + '</td></tr>';
+                top_sell_cnt += '<tr><td>卖四：</td><td>' + sell_1ist[3] + '</td><td>' + sell_volume[3] + '</td></tr>';
+                top_sell_cnt += '<tr><td>卖三：</td><td>' + sell_1ist[2] + '</td><td>' + sell_volume[2] + '</td></tr>';
+                top_sell_cnt += '<tr><td>卖二：</td><td>' + sell_1ist[1] + '</td><td>' + sell_volume[1] + '</td></tr>';
+                top_sell_cnt += '<tr><td>卖一：</td><td>' + sell_1ist[0] + '</td><td>' + sell_volume[0] + '</td></tr>';
+                $('#top_sell').html(top_sell_cnt);
+                //设置买五的价格和数量
+                var top_buy_cnt = '<tr><td>买一：</td><td>' + buy_1ist[0] + '</td><td>' + buy_volume[0] + '</td></tr>';
+                top_buy_cnt += '<tr><td>买二：</td><td>' + buy_1ist[1] + '</td><td>' + buy_volume[1] + '</td></tr>';
+                top_buy_cnt += '<tr><td>买三：</td><td>' + buy_1ist[2] + '</td><td>' + buy_volume[2] + '</td></tr>';
+                top_buy_cnt += '<tr><td>买四：</td><td>' + buy_1ist[3] + '</td><td>' + buy_volume[3] + '</td></tr>';
+                top_buy_cnt += '<tr><td>买五：</td><td>' + buy_1ist[4] + '</td><td>' + buy_volume[4] + '</td></tr>';
+                $('#top_buy').html(top_buy_cnt);
+
+                //根据价格设置显示颜色
+                var top_price = $('#bond_price tr td:nth-child(2),#top_buy tr td:nth-child(2), #top_sell tr td:nth-child(2)');
+                top_price.each(function () {
+                    if (parseFloat($(this).html()) > parseFloat(bond_lastday_price)) {
+                        $(this).addClass('red');
+                    } else {
+                        $(this).addClass('green');
+                    }
+                });
+            }
+        }
+
+        //卖出按钮事件
+        $('#buy').click(function () {
+            var bond_code = $('#bond_code').children('option:selected').data('code'); //证券代码
+            var bond_name = $('#bond_code').children('option:selected').data('name'); //证券名称
+            var bond_price = $('#buy_price').val(); //卖出价格
+            var bond_quantity = $('#buy_quantity').val(); //卖出数量
+            var bond_quantities; //求卖出的股数（卖出手数*100）
+            if(is_bond){
+                bond_quantities = parseInt(bond_quantity) * 10;
+            }else{
+                bond_quantities = parseInt(bond_quantity) * 100;
+            }
+            var info_str = '确定卖出' + bond_quantity + '手' + bond_name + '?';
+            if (confirm(info_str)) {
+                $.ajax({
+                    url: '<?php echo base_url("index.php/stock/sell_stock/web"); ?>',
+                    method: 'post',
+                    data: {
+                        SecurityID: bond_code,
+                        Symbol: bond_name,
+                        SellPrice: bond_price,
+                        SellVolume: bond_quantities
+                    },
+                    dataType: 'json',
+                    success: function (response) {
+                        if (response.status == '0') {
+                            $('div.alert-info').removeClass('hidden');
+                        }
+                        else if (response.status == '1') {
+                            alert(response.msg);
+                        }
+                    },
+                    error: function () {
+                        alert('服务器错误');
+                    }
+                });
+            }
+        });
+    });
 </script>
 
