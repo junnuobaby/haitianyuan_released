@@ -98,7 +98,7 @@ $month_rank = floatval($basic_info['month_rank']);
                                             </tbody>
                                         </table>
                                     </div>
-                                    <div class="col-md-9 col-md-offset-1" >
+                                    <div class="col-md-8 col-md-offset-1" >
                                         <div id="perform_canvas"></div>
                                     </div>
                                 </div>
