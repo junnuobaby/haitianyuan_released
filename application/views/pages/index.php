@@ -5,8 +5,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="zh-cn">
 <?php $this->load->view('./templates/head'); ?>
 <?php
-$user = array('pos' => '1', 'name' => 'baby', 'fund' => '1100000', 'profit' => '10%');
-$jinbang = array($user, $user, $user, $user, $user, $user, $user, $user, $user, $user);
+//$user = array('pos' => '1', 'name' => 'baby', 'fund' => '1100000', 'profit' => '10%');
+//$jinbang = array($user, $user, $user, $user, $user, $user, $user, $user, $user, $user);
+$jinbang = $golden_rank;
+$yinbang = $silver_rank;
 ?>
 <body class="bg-gray">
 <div class="wrapper">
@@ -132,10 +134,10 @@ $jinbang = array($user, $user, $user, $user, $user, $user, $user, $user, $user, 
                                     <tbody>
                                     <?php foreach ($jinbang as $item): ?>
                                         <tr>
-                                            <td><?php echo $item['pos']; ?></td>
-                                            <td><?php echo $item['name']; ?></td>
+                                            <td><?php echo '1'; ?></td>
+                                            <td><?php echo $item['username']; ?></td>
                                             <td><?php echo $item['fund']; ?></td>
-                                            <td><?php echo $item['profit']; ?></td>
+                                            <td><?php echo $item['profit_rate']; ?></td>
                                         </tr>
                                     <?php endforeach; ?>
                                     </tbody>
@@ -161,12 +163,12 @@ $jinbang = array($user, $user, $user, $user, $user, $user, $user, $user, $user, 
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <?php foreach ($jinbang as $item): ?>
+                                    <?php foreach ($yinbang as $item): ?>
                                         <tr>
-                                            <td><?php echo $item['pos']; ?></td>
-                                            <td><?php echo $item['name']; ?></td>
+                                            <td><?php echo '1'; ?></td>
+                                            <td><?php echo $item['username']; ?></td>
                                             <td><?php echo $item['fund']; ?></td>
-                                            <td><?php echo $item['profit']; ?></td>
+                                            <td><?php echo $item['profit_rate']; ?></td>
                                         </tr>
                                     <?php endforeach; ?>
                                     </tbody>
