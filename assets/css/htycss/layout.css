@@ -1416,7 +1416,7 @@ a.match_trade_btn{
     z-index: -1;
     height: 0px;
     overflow: hidden;
-    border-width: 20px;
+    border-width: 22px;
     border-style: solid;
     vertical-align: -25px;
 }
