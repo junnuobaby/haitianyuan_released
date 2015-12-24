@@ -31,7 +31,7 @@ $ranking = 0;
                 <div id="ranking_sidebar" class="flow-sidebar" data-spy="affix" data-offset-top='70'>
                     <div class="rank_label">
                         <span class="label_left"></span>
-                        <a href="#" class="">海天金榜</a>
+                        <h1>海天金榜</h1>
                         <span class="label_right"></span>
                     </div>
                     <div class="list-group">

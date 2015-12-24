@@ -1420,3 +1420,6 @@ a.match_trade_btn{
     border-style: solid;
     vertical-align: -30px;
 }
+.rank_label h1{
+    display: inline-block;
+}
