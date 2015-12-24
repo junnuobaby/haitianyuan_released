@@ -1138,7 +1138,7 @@ tr.rank_thead th{
 #ranking_sidebar .list-group-item.active:focus,
 #ranking_sidebar .list-group-item.active:hover {
     z-index: 2;
-    color: #315568;
+    color: #FD7A65;
     background-color: #F5F5F5;
     border-color: #DDD;
 }
