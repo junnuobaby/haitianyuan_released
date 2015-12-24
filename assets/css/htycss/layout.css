@@ -1421,5 +1421,12 @@ a.match_trade_btn{
     vertical-align: -30px;
 }
 .rank_label h1{
-    display: inline-block;
+    display: inline;
+    padding: 12px;
+    margin: 0px -20px;
+    border-width: 4px;
+    border-style: solid;
+    font-weight: normal;
+    font-size: 30px;
+    color: #55785A;
 }
