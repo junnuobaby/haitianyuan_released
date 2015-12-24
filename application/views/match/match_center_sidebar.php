@@ -22,7 +22,13 @@ $user_name = $this->session->userdata('username');
             <a href="<?php echo base_url('/index.php/stock/match/web/1/5');?>" class="match_trade_btn <?php if($sub_nav_mode == 'match_done') echo 'match_nav_active';?>">历史成交</a>
             <a href="<?php echo base_url('/index.php/stock/match/web/1/6');?>" class="match_trade_btn <?php if($sub_nav_mode == 'match_records') echo 'match_nav_active';?>">操作记录</a>
         </div>
-        <a class="match_center_item" href="<?php echo base_url('index.php/match/match_rank');?>"><span class="glyphicon glyphicon-align-left"></span> 排行榜</a>
+        <a class="match_center_item" href="#match_ranking" data-toggle="collapse"><span class="glyphicon glyphicon-align-left"></span> 排行榜</a>
+        <div class="collapse <?php if($sub_nav_mode == 'simu_heros_1' || $sub_nav_mode == 'simu_heros_2' || $sub_nav_mode == 'simu_heros_3' || $sub_nav_mode == 'simu_heros_4') echo 'in';?>" id="match_ranking">
+            <a href="<?php echo base_url('/index.php/stock/match/web/2/1');?>" class="match_trade_btn <?php if($sub_nav_mode == 'simu_heros_1') echo 'match_nav_active';?>">总收益率</a>
+            <a href="<?php echo base_url('/index.php/stock/match/web/2/2');?>" class="match_trade_btn <?php if($sub_nav_mode == 'simu_heros_2') echo 'match_nav_active';?>">日收益率</a>
+            <a href="<?php echo base_url('/index.php/stock/match/web/2/3');?>" class="match_trade_btn <?php if($sub_nav_mode == 'simu_heros_3') echo 'match_nav_active';?>">周收益率</a>
+            <a href="<?php echo base_url('/index.php/stock/match/web/2/4');?>" class="match_trade_btn <?php if($sub_nav_mode == 'simu_heros_4') echo 'match_nav_active';?>">月收益率</a>
+        </div>
         <a class="match_center_item" href="#"><span class="glyphicon glyphicon-edit"></span>奖项公布</a>
     </section>
 </div>
