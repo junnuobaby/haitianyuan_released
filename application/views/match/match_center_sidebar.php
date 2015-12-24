@@ -25,7 +25,7 @@ $user_name = $this->session->userdata('username');
         </div>
         <a class="match_center_item" href="#match_ranking" data-toggle="collapse"><span class="glyphicon glyphicon-align-left"></span> 排行榜</a>
         <div class="collapse <?php if($sub_nav_mode == 'match_rank_1' || $sub_nav_mode == 'match_rank_2' || $sub_nav_mode == 'match_rank_3' || $sub_nav_mode == 'match_rank_4') echo 'in';?>" id="match_ranking">
-            <a href="<?php echo base_url('/index.php/stock/match/web/2/1');?>" class="match_trade_btn <?php if($sub_nav_mode == 'match_rank_1') echo 'match_nav_active';?>">总收益率排行</a>
+            <a href="<?php echo base_url('/index.php/stock/match/web/2/1');?>" class="match_trade_btn <?php if($sub_nav_mode == 'match_rank_1') echo 'match_nav_active';?>">总收益率</a>
             <a href="<?php echo base_url('/index.php/stock/match/web/2/2');?>" class="match_trade_btn <?php if($sub_nav_mode == 'match_rank_2') echo 'match_nav_active';?>">日收益率</a>
             <a href="<?php echo base_url('/index.php/stock/match/web/2/3');?>" class="match_trade_btn <?php if($sub_nav_mode == 'match_rank_3') echo 'match_nav_active';?>">周收益率</a>
             <a href="<?php echo base_url('/index.php/stock/match/web/2/4');?>" class="match_trade_btn <?php if($sub_nav_mode == 'match_rank_4') echo 'match_nav_active';?>">月收益率</a>
