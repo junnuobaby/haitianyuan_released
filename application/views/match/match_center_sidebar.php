@@ -4,6 +4,7 @@ $face_pic = $this->session->userdata('face_pic');
 $user_name = $this->session->userdata('username');
 ?>
 <div class="col-md-2">
+    <?php echo $sub_nav_mode;?>
     <section class="match_sidebar">
         <div class="match_avatar">
             <img width="180px" height="180px" class="img-circle img-responsive" src="<?php echo site_url('/uploads/'.$face_pic); ?>" alt="我的头像">
@@ -24,7 +25,7 @@ $user_name = $this->session->userdata('username');
         </div>
         <a class="match_center_item" href="#match_ranking" data-toggle="collapse"><span class="glyphicon glyphicon-align-left"></span> 排行榜</a>
         <div class="collapse <?php if($sub_nav_mode == 'simu_heros_1' || $sub_nav_mode == 'simu_heros_2' || $sub_nav_mode == 'simu_heros_3' || $sub_nav_mode == 'simu_heros_4') echo 'in';?>" id="match_ranking">
-            <a href="<?php echo base_url('/index.php/stock/match/web/2/1');?>" class="match_trade_btn <?php if($sub_nav_mode == 'simu_heros_1') echo 'match_nav_active';?>">总收益率</a>
+            <a href="<?php echo base_url('/index.php/stock/match/web/2/1');?>" class="match_trade_btn <?php if($sub_nav_mode == 'simu_heros_1') echo 'match_nav_active';?>"><总收益率</a>
             <a href="<?php echo base_url('/index.php/stock/match/web/2/2');?>" class="match_trade_btn <?php if($sub_nav_mode == 'simu_heros_2') echo 'match_nav_active';?>">日收益率</a>
             <a href="<?php echo base_url('/index.php/stock/match/web/2/3');?>" class="match_trade_btn <?php if($sub_nav_mode == 'simu_heros_3') echo 'match_nav_active';?>">周收益率</a>
             <a href="<?php echo base_url('/index.php/stock/match/web/2/4');?>" class="match_trade_btn <?php if($sub_nav_mode == 'simu_heros_4') echo 'match_nav_active';?>">月收益率</a>
