@@ -29,7 +29,7 @@ $ranking = 0;
     <div class="container">
         <?php $this->load->view('./match/match_center_sidebar'); ?>
         <div class="col-md-10">
-            <div class="bg-white  block-radius">
+            <div class="bg-white stocks_min_h block-radius match_rank_body">
                 <!--禅师级别-->
                 <div class="rank_table">
                     <div class="col-md-8 col-md-offset-4">
