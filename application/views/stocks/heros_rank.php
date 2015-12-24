@@ -30,12 +30,18 @@ $ranking = 0;
             <div class="col-md-2">
                 <div id="ranking_sidebar" class="flow-sidebar" data-spy="affix" data-offset-top='70'>
                     <div class="list-group">
-                        <a href="#" class="jinbang_rank_label"><h5>海天金榜</h5></a>
+                        <div class="rank_label">
+                            <span class="label_left"></span>
+                            <a href="#" class="">海天金榜</a>
+                            <span class="label_right"></span>
+                        </div>
                         <a href="<?php echo base_url('/index.php/stock/index/web/2/5');?>" class="list-group-item <?php if($nav_mode == "simu_heros_5") echo "active"; ?>"><span class="glyphicon glyphicon-th"></span> 总收益率排名</a>
                         <a href="<?php echo base_url('/index.php/stock/index/web/2/6');?>" class="list-group-item <?php if($nav_mode == "simu_heros_6") echo "active"; ?>"><span class="glyphicon glyphicon-th"></span> 日收益率排名</a>
                         <a href="<?php echo base_url('/index.php/stock/index/web/2/7');?>" class="list-group-item <?php if($nav_mode == "simu_heros_7") echo "active"; ?>"><span class="glyphicon glyphicon-th"></span> 周收益率排名</a>
                         <a href="<?php echo base_url('/index.php/stock/index/web/2/8');?>" class="list-group-item <?php if($nav_mode == "simu_heros_8") echo "active"; ?>"><span class="glyphicon glyphicon-th"></span> 月收益率排名</a>
-                        <a href="#" class="yinbang_rank_label"><h5>海天银榜</h5></a>
+                        <div>
+                            <a href="#" class="yinbang_rank_label">海天银榜</a>
+                        </div>
                         <a href="<?php echo base_url('/index.php/stock/index/web/2/1');?>" class="list-group-item <?php if($nav_mode == "simu_heros_1") echo "active"; ?>"><span class="glyphicon glyphicon-star"></span> 总收益率排名</a>
                         <a href="<?php echo base_url('/index.php/stock/index/web/2/2');?>" class="list-group-item <?php if($nav_mode == "simu_heros_2") echo "active"; ?>"><span class="glyphicon glyphicon-asterisk"></span> 日收益率排名</a>
                         <a href="<?php echo base_url('/index.php/stock/index/web/2/3');?>" class="list-group-item <?php if($nav_mode == "simu_heros_3") echo "active"; ?>"><span class="glyphicon glyphicon-th-large"></span> 周收益率排名</a>
