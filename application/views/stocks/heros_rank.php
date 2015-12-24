@@ -5,8 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="zh-cn">
 <?php $this->load->view('./templates/head'); ?>
 <?php
-$hero_lists = array_merge($heros_list, $heros_list, $heros_list, $heros_list, $heros_list, $heros_list, $heros_list,
-    $heros_list, $heros_list, $heros_list);  //获取排行榜前100数据
+$hero_lists = array_merge($heros_list, $heros_list, $heros_list, $heros_list, $heros_list, $heros_list, $heros_list, $heros_list, $heros_list, $heros_list);  //获取排行榜前100数据
 $len = count($hero_lists);
 $stage_1 = array();   //宗师级
 $stage_2 = array();   //大师级
@@ -31,12 +30,12 @@ $ranking = 0;
             <div class="col-md-2">
                 <div id="ranking_sidebar" class="flow-sidebar" data-spy="affix" data-offset-top='70'>
                     <div class="list-group">
-                        <a href="#" class="list-group-item"><h5>海天金榜</h5></a>
+                        <a href="#" class="list-group-item jinbang_rank"><h5>海天金榜</h5></a>
                         <a href="<?php echo base_url('/index.php/stock/index/web/2/5');?>" class="list-group-item <?php if($nav_mode == "simu_heros_5") echo "active"; ?>"><span class="glyphicon glyphicon-th"></span> 总收益率排名</a>
                         <a href="<?php echo base_url('/index.php/stock/index/web/2/6');?>" class="list-group-item <?php if($nav_mode == "simu_heros_6") echo "active"; ?>"><span class="glyphicon glyphicon-th"></span> 日收益率排名</a>
                         <a href="<?php echo base_url('/index.php/stock/index/web/2/7');?>" class="list-group-item <?php if($nav_mode == "simu_heros_7") echo "active"; ?>"><span class="glyphicon glyphicon-th"></span> 周收益率排名</a>
                         <a href="<?php echo base_url('/index.php/stock/index/web/2/8');?>" class="list-group-item <?php if($nav_mode == "simu_heros_8") echo "active"; ?>"><span class="glyphicon glyphicon-th"></span> 月收益率排名</a>
-                        <a href="#" class="list-group-item"><h5>海天银榜</h5></a>
+                        <a href="#" class="list-group-item yinbang_rank"><h5>海天银榜</h5></a>
                         <a href="<?php echo base_url('/index.php/stock/index/web/2/1');?>" class="list-group-item <?php if($nav_mode == "simu_heros_1") echo "active"; ?>"><span class="glyphicon glyphicon-star"></span> 总收益率排名</a>
                         <a href="<?php echo base_url('/index.php/stock/index/web/2/2');?>" class="list-group-item <?php if($nav_mode == "simu_heros_2") echo "active"; ?>"><span class="glyphicon glyphicon-asterisk"></span> 日收益率排名</a>
                         <a href="<?php echo base_url('/index.php/stock/index/web/2/3');?>" class="list-group-item <?php if($nav_mode == "simu_heros_3") echo "active"; ?>"><span class="glyphicon glyphicon-th-large"></span> 周收益率排名</a>
@@ -274,4 +273,9 @@ $ranking = 0;
         });
     });
 </script>
+<style>
+    .yinbang_rank{
+        background: #FFF6D2 url('<?php echo base_url('/assets/images/back/match_back2.png');?>') repeat scroll;
+    }
+</style>
 </html>
