@@ -165,6 +165,7 @@ $yinbang = $silver_rank;
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    <?php $count = 1;?>
                                     <?php foreach ($yinbang as $item): ?>
                                         <tr>
                                             <td><?php echo '1'; ?></td>
@@ -172,6 +173,7 @@ $yinbang = $silver_rank;
                                             <td><?php echo $item['fund']; ?></td>
                                             <td><?php echo $item['profit_rate']; ?></td>
                                         </tr>
+                                        <?Php $count++;?>
                                     <?php endforeach; ?>
                                     </tbody>
                                 </table>
