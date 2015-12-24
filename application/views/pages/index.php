@@ -168,8 +168,8 @@ $yinbang = $silver_rank;
                                     <?php $count = 1;?>
                                     <?php foreach ($yinbang as $item): ?>
                                         <tr>
-                                            <td><?php echo '1'; ?></td>
-                                            <td><?php echo $item['user_name']; ?></td>
+                                            <td><?php echo $count; ?></td>
+                                            <td class="formatted"><?php echo $item['user_name']; ?></td>
                                             <td><?php echo $item['fund']; ?></td>
                                             <td><?php echo $item['profit_rate']; ?></td>
                                         </tr>
@@ -190,3 +190,19 @@ $yinbang = $silver_rank;
 <?php $this->load->view('./templates/footer'); ?>
 </body>
 </html>
+<script>
+    $(document).ready(function () {
+        $('.formatted').each(function () {
+            var value = format_num($(this).html());
+            $(this).html(value);
+        });
+        $('.render').each(function () {
+            var value = $(this).html().indexOf('-');
+            if (value == -1) {
+                $(this).css('color', 'red');
+            } else {
+                $(this).css('color', 'green');
+            }
+        });
+    });
+</script>
