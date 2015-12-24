@@ -1410,7 +1410,7 @@ a.match_trade_btn{
 .label_right{
     border-color: #3D2519 #55785A #3D2519 #3D2519;
 }
-.label_left .label_right{
+.label_left,.label_right{
     display: inline-block;
     position: relative;
     z-index: -1;
