@@ -78,7 +78,7 @@ $lists_10 = array($item,$item,$item,$item,$item,$item,$item,$item,$item,$item);
             </section>
             <section class="match_section">
                 <span class="match_badge">排行榜</span>
-                <a href="#" class="match_cmp_rank pull-right">查看完整榜单 <span class="glyphicon glyphicon-hand-right"></span></a>
+                <a href="<?php echo base_url('/index.php/stock/index/web/2');?>" class="match_cmp_rank pull-right">查看完整榜单 <span class="glyphicon glyphicon-hand-right"></span></a>
                 <div class="match_rules">
                     <div class="row">
                         <div class="col-md-6">
