@@ -135,7 +135,7 @@ $yinbang = $silver_rank;
                                         <tr>
                                             <td><?php echo $count; ?></td>
                                             <td><?php echo $item['user_name']; ?></td>
-                                            <td class="formatted"><?php echo $item['fund']; ?></td>
+                                            <td class="formatted"><?php echo round($item['fund']); ?></td>
                                             <td><?php echo $item['profit_rate']; ?></td>
                                         </tr>
                                         <?Php $count++;?>
@@ -168,7 +168,7 @@ $yinbang = $silver_rank;
                                         <tr>
                                             <td><?php echo $count; ?></td>
                                             <td><?php echo $item['user_name']; ?></td>
-                                            <td class="formatted"><?php echo $item['fund']; ?></td>
+                                            <td class="formatted"><?php echo round($item['fund']); ?></td>
                                             <td><?php echo $item['profit_rate']; ?></td>
                                         </tr>
                                         <?Php $count++;?>
