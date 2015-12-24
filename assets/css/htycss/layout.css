@@ -1418,7 +1418,7 @@ a.match_trade_btn{
     overflow: hidden;
     border-width: 20px;
     border-style: solid;
-    vertical-align: -20px;
+    vertical-align: -25px;
 }
 .rank_label h1{
     display: inline;
