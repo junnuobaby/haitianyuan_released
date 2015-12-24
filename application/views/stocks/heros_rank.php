@@ -29,12 +29,12 @@ $ranking = 0;
         <div class="row">
             <div class="col-md-2">
                 <div id="ranking_sidebar" class="flow-sidebar" data-spy="affix" data-offset-top='70'>
+                    <div class="rank_label">
+                        <span class="label_left"></span>
+                        <a href="#" class="">海天金榜</a>
+                        <span class="label_right"></span>
+                    </div>
                     <div class="list-group">
-                        <div class="rank_label">
-                            <span class="label_left"></span>
-                            <a href="#" class="">海天金榜</a>
-                            <span class="label_right"></span>
-                        </div>
                         <a href="<?php echo base_url('/index.php/stock/index/web/2/5');?>" class="list-group-item <?php if($nav_mode == "simu_heros_5") echo "active"; ?>"><span class="glyphicon glyphicon-th"></span> 总收益率排名</a>
                         <a href="<?php echo base_url('/index.php/stock/index/web/2/6');?>" class="list-group-item <?php if($nav_mode == "simu_heros_6") echo "active"; ?>"><span class="glyphicon glyphicon-th"></span> 日收益率排名</a>
                         <a href="<?php echo base_url('/index.php/stock/index/web/2/7');?>" class="list-group-item <?php if($nav_mode == "simu_heros_7") echo "active"; ?>"><span class="glyphicon glyphicon-th"></span> 周收益率排名</a>
