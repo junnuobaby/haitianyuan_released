@@ -5,8 +5,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="zh-cn">
 <?php $this->load->view('./templates/head'); ?>
 <?php
-//$user = array('pos' => '1', 'name' => 'baby', 'fund' => '1100000', 'profit' => '10%');
-//$jinbang = array($user, $user, $user, $user, $user, $user, $user, $user, $user, $user);
 $jinbang = $golden_rank;
 $yinbang = $silver_rank;
 ?>
@@ -137,7 +135,7 @@ $yinbang = $silver_rank;
                                         <tr>
                                             <td><?php echo $count; ?></td>
                                             <td><?php echo $item['user_name']; ?></td>
-                                            <td><?php echo $item['fund']; ?></td>
+                                            <td class="formatted"><?php echo $item['fund']; ?></td>
                                             <td><?php echo $item['profit_rate']; ?></td>
                                         </tr>
                                         <?Php $count++;?>
@@ -169,8 +167,8 @@ $yinbang = $silver_rank;
                                     <?php foreach ($yinbang as $item): ?>
                                         <tr>
                                             <td><?php echo $count; ?></td>
-                                            <td class="formatted"><?php echo $item['user_name']; ?></td>
-                                            <td><?php echo $item['fund']; ?></td>
+                                            <td><?php echo $item['user_name']; ?></td>
+                                            <td class="formatted"><?php echo $item['fund']; ?></td>
                                             <td><?php echo $item['profit_rate']; ?></td>
                                         </tr>
                                         <?Php $count++;?>
