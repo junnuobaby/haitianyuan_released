@@ -1405,10 +1405,10 @@ a.match_trade_btn{
 
 }
 .label_left{
-    border-color: #3D2519 #3D2519 #3D2519 #55785A;
+    border-color: #3D2519 #3D2519 #3D2519 #ebebeb;
 }
 .label_right{
-    border-color: #3D2519 #55785A #3D2519 #3D2519;
+    border-color: #3D2519 #ebebeb #3D2519 #3D2519;
 }
 .label_left,.label_right{
     display: inline-block;
@@ -1430,5 +1430,5 @@ a.match_trade_btn{
     font-size: 20px;
     color: #55785A;
     background: #3D2519 none repeat scroll 0% 0%;
-    border-color: #55785A;
+    border-color: #ebebeb;
 }
