@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="zh-cn">
 <?php $this->load->view('./templates/head'); ?>
 <?php
-$hero_lists = array_merge($heros_list, $heros_list, $heros_list, $heros_list, $heros_list, $heros_list, $heros_list, $heros_list, $heros_list, $heros_list);  //获取排行榜前100数据
+$hero_lists = $heros_list;
 $len = count($hero_lists);
 $stage_1 = array();   //宗师级
 $stage_2 = array();   //大师级
