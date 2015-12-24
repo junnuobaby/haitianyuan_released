@@ -1422,11 +1422,13 @@ a.match_trade_btn{
 }
 .rank_label h1{
     display: inline;
-    padding: 12px;
+    padding: 8px;
     margin: 0px -20px;
     border-width: 4px;
     border-style: solid;
     font-weight: normal;
-    font-size: 30px;
+    font-size: 20px;
     color: #55785A;
+    background: #3D2519 none repeat scroll 0% 0%;
+    border-color: #55785A;
 }
