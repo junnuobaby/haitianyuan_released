@@ -4,7 +4,6 @@ $face_pic = $this->session->userdata('face_pic');
 $user_name = $this->session->userdata('username');
 ?>
 <div class="col-md-2">
-    <?php echo $sub_nav_mode;?>
     <section class="match_sidebar">
         <div class="match_avatar">
             <img width="180px" height="180px" class="img-circle img-responsive" src="<?php echo site_url('/uploads/'.$face_pic); ?>" alt="我的头像">
