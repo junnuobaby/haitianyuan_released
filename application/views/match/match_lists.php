@@ -7,8 +7,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?php $this->load->view('./templates/head'); ?>
 <?php
 $state = $this->session->userdata('game_auth');
-$item = array('rank'=>'1', 'name'=>'158xxxxxx75', 'profit'=>'142.31%');
-$lists_10 = array($item,$item,$item,$item,$item,$item,$item,$item,$item,$item);
+//$item = array('rank'=>'1', 'name'=>'158xxxxxx75', 'profit'=>'142.31%');
+//$lists_10 = array($item,$item,$item,$item,$item,$item,$item,$item,$item,$item);
+$jinbang = $golden_rank;
 ?>
 <body class="match_index_body">
 <div class="wrapper">
@@ -90,13 +91,13 @@ $lists_10 = array($item,$item,$item,$item,$item,$item,$item,$item,$item,$item);
                                     <th>总收益率</th>
                                 </tr>
                                 </thead>
-                                <?php foreach($lists_10 as $list):?>
+                                <?php for($count = 0;$count < 10; $count++):?>
                                 <tr>
-                                    <td ><span class="rank_cirle"><?php echo $list['rank'];?></span></td>
-                                    <td><?php echo $list['name'];?></td>
-                                    <td><?php echo $list['profit'];?></td>
+                                    <td ><span class="rank_cirle"><?php echo $count+1;?></span></td>
+                                    <td><?php echo $jinbang[$count]['user_name'];?></td>
+                                    <td><?php echo $jinbang[$count]['profit_rate'];?></td>
                                 </tr>
-                                <?php endforeach;?>
+                                <?php endfor;?>
                             </table>
                         </div>
                         <div class="col-md-6">
@@ -108,13 +109,13 @@ $lists_10 = array($item,$item,$item,$item,$item,$item,$item,$item,$item,$item);
                                     <th>总收益率</th>
                                 </tr>
                                 </thead>
-                                <?php foreach($lists_10 as $list):?>
+                                <?php for($count = 10;$count < 20; $count++):?>
                                     <tr>
-                                        <td><span class="rank_cirle"><?php echo $list['rank'];?></span></td>
-                                        <td><?php echo $list['name'];?></td>
-                                        <td><?php echo $list['profit'];?></td>
+                                        <td><span class="rank_cirle"><?php echo $count+1;?></span></td>
+                                        <td><?php echo $jinbang[$count]['user_name'];?></td>
+                                        <td><?php echo $jinbang[$count]['profit_rate'];?></td>
                                     </tr>
-                                <?php endforeach;?>
+                                <?php endfor;?>
                             </table>
                         </div>
                     </div>
