@@ -276,6 +276,8 @@ $ranking = 0;
 <style>
     .yinbang_rank{
         background: #FFF6D2 url('<?php echo base_url('/assets/images/back/match_back2.png');?>') repeat scroll;
+        font-size: 18px;
+        font-weight: 400;
     }
 </style>
 </html>
