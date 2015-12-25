@@ -56,7 +56,7 @@
         <div class="join-contest">
             <p><span class="take_in_num">555</span>人正在角逐金榜,<span class="take_in_num">1500</span>人正在角逐银榜</p>
             <p>
-                <a href="#" class="inline_block take_in">
+                <a href="<?php echo base_url('/index.php/stock/index/web/3');?>" class="inline_block take_in">
                     <span class="glyphicon glyphicon-hand-right"></span> 马上参加
                 </a>
             </p>
