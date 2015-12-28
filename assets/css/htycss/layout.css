@@ -1406,10 +1406,10 @@ a.match_trade_btn{
 
 }
 .label_left{
-    border-color: #e4dd43 #e4dd43 #e4dd43 #ebebeb;
+    border-color: #ffff00 #ffff00 #ffff00 #ebebeb;
 }
 .label_right{
-    border-color: #e4dd43 #ebebeb #e4dd43 #e4dd43;
+    border-color: #ffff00 #ebebeb #ffff00 #ffff00;
 }
 .label_left,.label_right{
     display: inline-block;
@@ -1428,7 +1428,7 @@ a.match_trade_btn{
     font-weight: normal;
     font-size: 20px;
     color: #FFF;
-    background: #315568 none repeat scroll 0% 0%;
+    background: #ffff00 none repeat scroll 0% 0%;
     border: 4px solid #ebebeb;
 }
 .match_rank_body{
