@@ -1402,15 +1402,6 @@ a.match_trade_btn{
 #match_perform_canvas{
     height: 300px;
 }
-.rank_label{
-
-}
-.label_left{
-    border-color: #d8b888 #d8b888 #d8b888 #ebebeb;
-}
-.label_right{
-    border-color: #d8b888 #ebebeb #d8b888 #d8b888;
-}
 .label_left,.label_right{
     display: inline-block;
     position: relative;
@@ -1428,8 +1419,25 @@ a.match_trade_btn{
     font-weight: normal;
     font-size: 20px;
     color: #FFF;
-    background: #d8b888 none repeat scroll 0% 0%;
     border: 4px solid #ebebeb;
+}
+.jinbang_label .label_left{
+    border-color: #d8b888 #d8b888 #d8b888 #ebebeb;
+}
+.jinbang_label .label_right{
+    border-color: #d8b888 #ebebeb #d8b888 #d8b888;
+}
+.jinbang_label h1{
+    background: #d8b888 none repeat scroll 0% 0%;
+}
+.yinbang_label .label_left{
+    border-color: #7c7c7c #7c7c7c #7c7c7c #ebebeb;
+}
+.yinbang_label .label_right{
+    border-color: #7c7c7c #ebebeb #7c7c7c #7c7c7c;
+}
+.yinbang_label h1{
+    background: #7c7c7c none repeat scroll 0% 0%;
 }
 .match_rank_body{
     padding: 20px 30px;

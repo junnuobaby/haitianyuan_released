@@ -29,7 +29,7 @@ $ranking = 0;
         <div class="row">
             <div class="col-md-2">
                 <div id="ranking_sidebar" class="flow-sidebar" data-spy="affix" data-offset-top='70'>
-                    <div class="rank_label">
+                    <div class="rank_label jinbang_label">
                         <span class="label_left"></span>
                         <h1>海天金榜</h1>
                         <span class="label_right"></span>
@@ -40,7 +40,7 @@ $ranking = 0;
                         <a href="<?php echo base_url('/index.php/stock/index/web/2/7');?>" class="list-group-item <?php if($nav_mode == "simu_heros_7") echo "active"; ?>"><span class="glyphicon glyphicon-th-large"></span> 周收益率排名</a>
                         <a href="<?php echo base_url('/index.php/stock/index/web/2/8');?>" class="list-group-item <?php if($nav_mode == "simu_heros_8") echo "active"; ?>"><span class="glyphicon glyphicon-th"></span> 月收益率排名</a>
                     </div>
-                    <div class="rank_label">
+                    <div class="rank_label yinbang_label">
                         <span class="label_left"></span>
                         <h1>海天银榜</h1>
                         <span class="label_right"></span>
