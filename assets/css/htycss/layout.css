@@ -1406,10 +1406,10 @@ a.match_trade_btn{
 
 }
 .label_left{
-    border-color: #315568 #315568 #315568 #ebebeb;
+    border-color: #e4dd43 #e4dd43 #e4dd43 #ebebeb;
 }
 .label_right{
-    border-color: #315568 #ebebeb #315568 #315568;
+    border-color: #e4dd43 #ebebeb #e4dd43 #e4dd43;
 }
 .label_left,.label_right{
     display: inline-block;
