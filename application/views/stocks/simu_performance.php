@@ -18,7 +18,6 @@ $data['performance'] = $performance;  //从服务器获取收益数据
         </div>
         <?php $this->load->view('./stocks/performance', $data); ?>
     </div>
-
     <!--悬停go-top按钮-->
     <?php $this->load->view('./templates/go-top'); ?>
 </div>
