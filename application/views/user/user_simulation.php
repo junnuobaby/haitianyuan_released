@@ -15,13 +15,11 @@ $user_id = $info['host_id'];
     $data['info'] = $info;
     $this->load->view('./user/user_jumptron', $data);
     ?>
-    <!--页面主要内容-->
     <div class="container master_homepage_container">
         <div class="col-md-8 col-sm-8 bg-white block-radius user_min_height">
             <?php $menu_view['user_id'] = $user_id; ?>
             <?php $this->load->view('./user/user_menu', $menu_view); ?>
             <div class="tab-content">
-                <!--华山论剑-->
                 <div class="tab-pane active" id="simulation_contest">
                     <div class="bg-white q_a_container">
                         <section>
