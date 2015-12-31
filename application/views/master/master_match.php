@@ -16,14 +16,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!--页面主要内容-->
     <div class="container master_homepage_container">
         <div class="col-md-8 col-sm-8 bg-white block-radius user_min_height">
-            <div class="sub_nav">
-                <ul class="nav nav-tabs">
-                    <li role="presentation" ><a href="<?php echo base_url('index.php/home/load_home/web/' .'master'. '/' . $master_id.'/'.'1');?>">问答</a></li>
-                    <li role="presentation"><a href="<?php echo base_url('index.php/home/load_home/web/' . 'master' . '/' . $master_id . '/' . '2'); ?>">观点</a></li>
-                    <li role="presentation" class="active"><a href="<?php echo base_url('index.php/home/load_home/web/' . 'master' . '/' . $master_id . '/' . '3'); ?>">华山论剑</a></li>
-                    <li role="presentation"><a href="#">海天赛场</a></li>
-                </ul>
-            </div>
+            <?php $menu_view['master_id'] = $master_id; ?>
+            <?php $this->load->view('./master/master_menu', $menu_view);?>
             <div class="tab-content ">
                 <div class="tab-pane active" id="simulation_contest">
                     <div class="bg-white q_a_container">
