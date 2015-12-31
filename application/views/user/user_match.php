@@ -22,7 +22,7 @@ $user_id = $info['host_id'];
             <?php $this->load->view('./user/user_menu', $menu_view); ?>
             <div class="tab-content">
                 <!--海天赛场-->
-                <div class="tab-pane" id="simulation_contest">
+                <div class="tab-pane active" id="simulation_contest">
                     <div class="bg-white q_a_container">
                         <section>
                             <h4 class="theme-color">收益率</h4>
