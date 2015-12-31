@@ -13,6 +13,6 @@ $face_pic = $info['face_pic'];
 </div>
 <script>
     $(document).ready(function () {
-        $('.master_homepage_jumptron').css('background-image', 'url("<?php echo base_url('assets/images/back/2.jpg'); ?>")');
+        $('.master_homepage_jumptron').css('background-image', 'url("<?php echo base_url('assets/images/back/homepage_jmp.jpg'); ?>")');
     });
 </script>
