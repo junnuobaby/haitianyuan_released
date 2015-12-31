@@ -31,7 +31,7 @@ $vips = $master_info;
                                             <img src="<?php echo base_url('/uploads/' . $vip['face_pic']); ?>" class="img-responsive img-circle user_homepage_avatar" alt="..."></div>
                                     </div>
                                     <div class="col-md-9">
-                                        <h4><a href= "#" class="theme-color"><?php echo $vip['username']; ?></a></h4>
+                                        <h4><a href= "#" class="theme-color"><?php echo $vip['master_name']; ?></a></h4>
                                         <p>关注 <?php echo $vip['concerns_count']; ?> | 粉丝 <?php echo $vip['fans_count']; ?>
                                             | <?php if ($vip['online_state'] == true) {
                                                 echo '在线';
