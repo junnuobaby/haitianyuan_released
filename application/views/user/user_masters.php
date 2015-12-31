@@ -28,7 +28,7 @@ $vips = $master_info;
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="master_avatar_box">
-                                            <img src="<?php echo base_url('/assets/images/touxiang/1.jpg');?>" class="img-responsive img-circle user_homepage_avatar" alt="..."></div>
+                                            <img src="<?php echo base_url('/uploads/' . $vip['face_pic']); ?>" class="img-responsive img-circle user_homepage_avatar" alt="..."></div>
                                     </div>
                                     <div class="col-md-9">
                                         <h4><a href= "#" class="theme-color"><?php echo $vip['username']; ?></a></h4>
