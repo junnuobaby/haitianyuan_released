@@ -33,7 +33,7 @@ $user_stocks = $user_info['data_stock'];
 $user_bonds = $user_info['data_bond'];
 $base_funds = $user_data['base_cash'];
 ?>
-<?php echo count($user_data);?>
+<?php echo count($user_bonds);?>
 <!--绘图文件-->
 <?php $this->load->view('./stocks/graph'); ?>
 <?php $this->load->view('./templates/head'); ?>
