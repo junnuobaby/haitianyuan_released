@@ -28,7 +28,10 @@ $vips = $master_info;
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="master_avatar_box">
-                                            <img src="<?php echo base_url('/uploads/' . $vip['face_pic']); ?>" class="img-responsive img-circle user_homepage_avatar" alt="..."></div>
+                                            <a href= "<?php echo base_url('index.php/home/load_home/web/' . 'master' . '/' . $vip['master_id'] . '/' . '1'); ?>" class="theme-color">
+                                                <img src="<?php echo base_url('/uploads/' . $vip['face_pic']); ?>" class="img-responsive img-circle user_homepage_avatar" alt="...">
+                                            </a>
+                                        </div>
                                     </div>
                                     <div class="col-md-9">
                                         <h4><a href= "<?php echo base_url('index.php/home/load_home/web/' . 'master' . '/' . $vip['master_id'] . '/' . '1'); ?>" class="theme-color"><?php echo $vip['master_name']; ?></a></h4>
