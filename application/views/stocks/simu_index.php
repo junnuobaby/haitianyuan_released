@@ -129,6 +129,7 @@ $base_funds = $user_data['base_cash'];
                                                 </thead>
                                                 <tbody>
                                                 <?php foreach ($user_bonds as $stock_item): ?>
+                                                    <?php echo $stock_item['SecurityID'];?>
                                                     <?php $sell_avail = intval($stock_item['Volume_All']) - intval($stock_item['Ban_Volume']) - intval($stock_item['Order_Volume']);?>
                                                     <tr id="<?php echo $stock_item['SecurityID']; ?>" data-interest="<?php echo $stock_item['interest']; ?>">
                                                         <td><?php echo $stock_item['SecurityID']; ?></td>
