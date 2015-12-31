@@ -33,7 +33,7 @@ $vips = array($user_info, $user_info, $user_info);
             <?php $menu_view['user_id'] = $user_id; ?>
             <?php $this->load->view('./user/user_menu', $menu_view); ?>
             <div class="tab-content">
-                <div class="tab-pane" id="self_master">
+                <div class="tab-pane active" id="self_master">
                     <div class="bg-white q_a_container">
                         <div class="panel-body">
                             <?php foreach ($vips as $vip): ?>
