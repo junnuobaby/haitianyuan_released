@@ -7,11 +7,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?php $this->load->view('./templates/head'); ?>
 <body class="bg-gray">
 <?php $this->load->view('./templates/navbar'); ?>
-
 <div class="wrapper">
     <?php
     $data['info'] = $info;
     $data['is_fan'] = $is_fan;
+    $master_id = $info['host_id'];
     $this->load->view('./master/master_jumptron', $data); ?>
     <!--页面主要内容-->
     <div class="container master_homepage_container">
