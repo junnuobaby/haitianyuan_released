@@ -20,17 +20,7 @@ $master_id = $info['host_id'];
     <!--页面主要内容-->
     <div class="container master_homepage_container">
         <div class="col-md-8 col-sm-8 bg-white block-radius mas_min_height">
-            <div class="sub_nav">
-                <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#qa">问答</a></li>
-                    <li role="presentation"><a
-                            href="<?php echo base_url('index.php/home/load_home/web/' . 'master' . '/' . $master_id . '/' . '2'); ?>">观点</a>
-                    </li>
-                    <li role="presentation"><a href="#">示范</a></li>
-                    <li role="presentation"><a href="#">华山论剑</a></li>
-                    <li role="presentation"><a href="#">论坛</a></li>
-                </ul>
-            </div>
+            <?php $this->load->view('./master/master_menu');?>
             <div class="tab-content">
                 <!--问答-->
                 <div class="tab-pane active" id="qa">
@@ -41,20 +31,15 @@ $master_id = $info['host_id'];
                                     <h4 class="q_a_question ">
                                         <span class="q_a_span">问</span>
                                         <a href="#"><?php echo $qa_item['qu_content']; ?> </a></h4>
-
                                     <div class="qu_time">
-                                        <span><?php echo $qa_item['qu_timestamp'] ?></span>来自<a href="#"
-                                                                                                class="questioner"><?php echo $qa_item['questioner'] ?></a>
+                                        <span><?php echo $qa_item['qu_timestamp'] ?></span>来自<a href="#" class="questioner"><?php echo $qa_item['questioner'] ?></a>
                                     <span class="key_word"><?php if ($qa_item['kwords'] == '') {
                                             echo '暂无标签';
                                         } else {
                                             echo $qa_item['kwords'];
                                         } ?></span>
                                     </div>
-                                    <p class="q_a_answer"><span
-                                            class="theme-color">答:</span>&nbsp;&nbsp;<?php echo $qa_item['ans_content']; ?>
-                                    </p>
-
+                                    <p class="q_a_answer"><span class="theme-color">答:</span>&nbsp;&nbsp;<?php echo $qa_item['ans_content']; ?></p>
                                     <div class="q_a_footer">
                                         <span>满意度：<?php echo 5; ?></span>
                                         <span>回答时间：<?php echo $qa_item['ans_timestamp']; ?></span>

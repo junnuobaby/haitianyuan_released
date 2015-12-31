@@ -6,7 +6,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="zh-cn">
 <?php $this->load->view('./templates/head'); ?>
 <body class="bg-gray">
-<!--<script src="--><?php //echo base_url('/assets/js/htyjs/general_navbar.js') ?><!--"></script>-->
 <?php $this->load->view('./templates/navbar'); ?>
 <?php
 $view_list = $op_qa['data_page'];
@@ -23,11 +22,10 @@ $pages = $op_qa['pagination'];
         <div class="col-md-8 col-sm-8 bg-white block-radius mas_min_height">
             <div class="sub_nav">
                 <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation"><a href="<?php echo base_url('index.php/home/load_home/web/' .'master'. '/' . $master_id.'/'.'1');?>" >问答</a></li>
+                    <li role="presentation"><a href="<?php echo base_url('index.php/home/load_home/web/' .'master'. '/' . $master_id.'/'.'1');?>">问答</a></li>
                     <li role="presentation" class="active"><a href="#">观点</a></li>
-                    <li role="presentation"><a href="#">示范</a></li>
-                    <li role="presentation"><a href="#" >华山论剑</a></li>
-                    <li role="presentation"><a href="#" >论坛</a></li>
+                    <li role="presentation"><a href="<?php echo base_url('index.php/home/load_home/web/' . 'master' . '/' . $master_id . '/' . '3'); ?>" >华山论剑</a></li>
+                    <li role="presentation"><a href="<?php echo base_url('index.php/home/load_home/web/' . 'master' . '/' . $master_id . '/' . '4'); ?>" >海天赛场</a></li>
                 </ul>
             </div>
             <div class="tab-content">
