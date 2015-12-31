@@ -7,6 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?php $this->load->view('./templates/head'); ?>
 <body class="bg-gray">
 <?php $this->load->view('./templates/navbar'); ?>
+<?php $this->load->view('./stocks/graph'); ?>
 <div class="wrapper">
     <?php
     $data['info'] = $info;
@@ -24,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <section>
                             <h4 class="theme-color">收益率</h4>
                             <div class="row">
-                                <img src="<?php echo base_url('assets/images/2.png'); ?>"/>
+                                <div id="match_perform_canvas"></div>
                             </div>
                             <div class="row well">
                                 <div class="col-md-3">
@@ -55,9 +56,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </section>
                         <section>
                             <h4 class="theme-color">资金</h4>
-                            <div class="row">
-                                <!--                                <img src="--><?php //echo base_url('assets/images/3.png'); ?><!--"/>-->
-                            </div>
                             <div class="row well">
                                 <div class="col-md-4">
                                     <div class="table-responsive">
@@ -181,6 +179,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </body>
 </html>
 <script>
+    /**
+     * 绘制收益率曲线图
+     */
     $(document).ready(function () {
+        var user_rate = [];
+        var avg_rate = [];
+        var time_list = [];
+        <?php $count = 0;?>
+        <?php foreach($perform_info as $item):?>
+        <?php $day_rate = round(floatval($item['day_rate'])*100, 2);?>
+        user_rate[<?php echo $count;?>] = <?php echo $day_rate;?>;
+        time_list[<?php echo $count;?>] = "<?php echo explode(' ', $item['timestamp'])[0];?>";
+        <?php $count += 1;?>
+        <?php endforeach;?>
+
+        <?php $count = 0;?>
+        <?php foreach($perform_avg as $item):?>
+        <?php $avg_rate = round(floatval($item['day_rate'])*100, 2);?>
+        avg_rate[<?php echo $count;?>] = <?php echo $avg_rate;?>;
+        <?php $count += 1;?>
+        <?php endforeach;?>
+
+        var div_id = document.getElementById('match_perform_canvas');
+        draw(user_rate, avg_rate, time_list, div_id);//绘制收益率曲线图
     });
 </script>

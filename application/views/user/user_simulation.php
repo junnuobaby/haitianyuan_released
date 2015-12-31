@@ -7,25 +7,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?php $this->load->view('./templates/head'); ?>
 <body class="bg-gray">
 <?php $this->load->view('./templates/navbar'); ?>
-<?php $this->load->view('./stocks/graph'); ?>
+<?php
+$user_id = $info['host_id'];
+?>
 <div class="wrapper">
     <?php
     $data['info'] = $info;
-    $data['is_fan'] = $is_fan;
-    $master_id = $info['host_id'];
-    $this->load->view('./master/master_jumptron', $data); ?>
+    $this->load->view('./user/user_jumptron', $data);
+    ?>
     <!--页面主要内容-->
     <div class="container master_homepage_container">
         <div class="col-md-8 col-sm-8 bg-white block-radius user_min_height">
-            <?php $menu_view['master_id'] = $master_id; ?>
-            <?php $this->load->view('./master/master_menu', $menu_view);?>
+            <?php $menu_view['user_id'] = $user_id; ?>
+            <?php $this->load->view('./user/user_menu', $menu_view); ?>
             <div class="tab-content">
-                <div class="tab-pane active" id="simulation_contest">
+                <!--华山论剑-->
+                <div class="tab-pane" id="simulation_contest">
                     <div class="bg-white q_a_container">
                         <section>
                             <h4 class="theme-color">收益率</h4>
                             <div class="row">
-                                <div id="match_perform_canvas"></div>
+                                <img src="<?php echo base_url('assets/images/2.png'); ?>"/>
                             </div>
                             <div class="row well">
                                 <div class="col-md-3">
@@ -87,6 +89,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </div>
                             </div>
                         </section>
+
                         <section>
                             <h4 class="theme-color">持有股票<small>(行情每8s刷新)</small></h4>
                             <div class="table-responsive">
@@ -167,7 +170,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </section>
                     </div>
                 </div>
-
             </div>
         </div>
         <?php $this->load->view('./templates/right-sidebar'); ?>
@@ -178,30 +180,3 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?php $this->load->view('./templates/footer'); ?>
 </body>
 </html>
-<script>
-    /**
-     * 绘制收益率曲线图
-     */
-    $(document).ready(function () {
-        var user_rate = [];
-        var avg_rate = [];
-        var time_list = [];
-        <?php $count = 0;?>
-        <?php foreach($perform_info as $item):?>
-        <?php $day_rate = round(floatval($item['day_rate'])*100, 2);?>
-        user_rate[<?php echo $count;?>] = <?php echo $day_rate;?>;
-        time_list[<?php echo $count;?>] = "<?php echo explode(' ', $item['timestamp'])[0];?>";
-        <?php $count += 1;?>
-        <?php endforeach;?>
-
-        <?php $count = 0;?>
-        <?php foreach($perform_avg as $item):?>
-        <?php $avg_rate = round(floatval($item['day_rate'])*100, 2);?>
-        avg_rate[<?php echo $count;?>] = <?php echo $avg_rate;?>;
-        <?php $count += 1;?>
-        <?php endforeach;?>
-
-        var div_id = document.getElementById('match_perform_canvas');
-        draw(user_rate, avg_rate, time_list, div_id);//绘制收益率曲线图
-    });
-</script>
