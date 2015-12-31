@@ -33,6 +33,7 @@ $user_stocks = $user_info['data_stock'];
 $user_bonds = $user_info['data_bond'];
 $base_funds = $user_data['base_cash'];
 ?>
+<?php echo count($user_data);?>
 <!--绘图文件-->
 <?php $this->load->view('./stocks/graph'); ?>
 <?php $this->load->view('./templates/head'); ?>
@@ -129,7 +130,6 @@ $base_funds = $user_data['base_cash'];
                                                 </thead>
                                                 <tbody>
                                                 <?php foreach ($user_bonds as $stock_item): ?>
-                                                    <?php echo $stock_item['SecurityID'];?>
                                                     <?php $sell_avail = intval($stock_item['Volume_All']) - intval($stock_item['Ban_Volume']) - intval($stock_item['Order_Volume']);?>
                                                     <tr id="<?php echo $stock_item['SecurityID']; ?>" data-interest="<?php echo $stock_item['interest']; ?>">
                                                         <td><?php echo $stock_item['SecurityID']; ?></td>
