@@ -20,7 +20,8 @@ $master_id = $info['host_id'];
     <!--页面主要内容-->
     <div class="container master_homepage_container">
         <div class="col-md-8 col-sm-8 bg-white block-radius mas_min_height">
-            <?php $this->load->view('./master/master_menu');?>
+            <?php $menu_view['master_id'] = $master_id; ?>
+            <?php $this->load->view('./master/master_menu', $menu_view);?>
             <div class="tab-content">
                 <!--问答-->
                 <div class="tab-pane active" id="qa">
