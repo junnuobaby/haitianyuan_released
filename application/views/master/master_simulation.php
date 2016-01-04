@@ -198,6 +198,8 @@ $all_assets = number_format($stock['stock_value'] + $stock['bond_value'] + $basi
         var user_rate = [];
         var avg_rate = [];
         var time_list = [];
+        <?php $perform_info = $stock['data_performance']['data_line'];?>
+        <?php $perform_avg = $stock['data_performance']['data_avg'];?>
         <?php $count = 0;?>
         <?php foreach($perform_info as $item):?>
         <?php $day_rate = round(floatval($item['day_rate'])*100, 2);?>
@@ -205,7 +207,6 @@ $all_assets = number_format($stock['stock_value'] + $stock['bond_value'] + $basi
         time_list[<?php echo $count;?>] = "<?php echo explode(' ', $item['timestamp'])[0];?>";
         <?php $count += 1;?>
         <?php endforeach;?>
-
         <?php $count = 0;?>
         <?php foreach($perform_avg as $item):?>
         <?php $avg_rate = round(floatval($item['day_rate'])*100, 2);?>
@@ -220,8 +221,8 @@ $all_assets = number_format($stock['stock_value'] + $stock['bond_value'] + $basi
     $(document).ready(function () {
         var base_funds = parseFloat('<?php echo $basic_info['base_cash'];?>');
         var asset_all = parseFloat('<?php echo $all_assets;?>');
-        var fpl_value = parseFloat('<?php echo $pl_value;?>');
-        var fpl_rate = parseFloat('<?php echo $pl_rate;?>');
+        var fpl_value = parseFloat('<?php echo $stock['pl_value'];?>');
+        var fpl_rate = parseFloat('<?php echo $stock['pl_rate'];?>');
         var tpl_value = asset_all - base_funds;
         var tpl_rate = decimal((tpl_value * 100) / base_funds);
 
