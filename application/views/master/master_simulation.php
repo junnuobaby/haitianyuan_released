@@ -9,7 +9,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?php $this->load->view('./templates/navbar'); ?>
 <?php $this->load->view('./stocks/graph'); ?>
 <?php
-echo $nav_mode;
 /**
  * basic_info - dict - 用户模拟投资基本信息
  *              key:
