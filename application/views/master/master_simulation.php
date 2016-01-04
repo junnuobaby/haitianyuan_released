@@ -23,6 +23,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * bond_value - 债券市值
  * user_stocks - 用户持有股票
  * user_bonds - 用户持有债券
+ * fpl_value - 浮动盈亏
+ * fpl_rate - 浮动盈亏率
  */
 $basic_info = $stock['data_finance']['data_user'];
 $stock_value = $stock['stock_value'];
@@ -38,6 +40,8 @@ $month_rank = floatval($basic_info['month_rank']);
 $all_assets = number_format($stock['stock_value'] + $stock['bond_value'] + $basic_info['cash_all']);
 $user_stocks = $stock['data_finance']['data_stock'];
 $user_bonds = $stock['data_finance']['data_bond'];
+$fpl_value = $stock['pl_value'];
+$fpl_rate = $stock['pl_rate'];
 ?>
 <div class="wrapper">
     <?php
@@ -110,7 +114,7 @@ $user_bonds = $stock['data_finance']['data_bond'];
                                         <table class="table basic_fund_info">
                                             <tr><th>股票市值</th><td class="formatted"><?php echo $stock_value?></td></tr>
                                             <tr><th>债券市值</th><td class="formatted"><?php echo $bond_value;?></td></tr>
-                                            <tr><th>仓位</th><td class="formatted"><?php echo $basic_info['position'] * 100;?>%</td></tr>
+                                            <tr><th>仓位</th><td id="my_position"></td></tr>
                                         </table>
                                     </div>
                                 </div>
@@ -265,14 +269,14 @@ $user_bonds = $stock['data_finance']['data_bond'];
     $(document).ready(function () {
         var base_funds = parseFloat('<?php echo $basic_info['base_cash'];?>');
         var asset_all = parseFloat('<?php echo $all_assets;?>');
-        var fpl_value = parseFloat('<?php echo $stock['pl_value'];?>');
-        var fpl_rate = parseFloat('<?php echo $stock['pl_rate'];?>');
+        var fpl_value = parseFloat('<?php echo $fpl_value;?>);
+        var fpl_rate = parseFloat('<?php echo $fpl_rate;?>');
         var tpl_value = asset_all - base_funds;
         var tpl_rate = decimal((tpl_value * 100) / base_funds);
 
         $('#pl_value').html(format_num(tpl_value)).css('color', (parseFloat(tpl_value) > 0) ? 'red' : 'green');
         $('#pl_rate').html(tpl_rate + '%').css('color', (parseFloat(tpl_rate) > 0) ? 'red' : 'green');
         $('#fd_value').html(format_num(fpl_value)).css('color', (parseFloat(fpl_value) > 0) ? 'red' : 'green');
-        $('#fd_rate').html(fpl_rate).css('color', (parseFloat(fpl_rate) > 0) ? 'red' : 'green');
+        $('#fd_rate').html(fpl_rate + '%').css('color', (parseFloat(fpl_rate) > 0) ? 'red' : 'green');
     });
 </script>
