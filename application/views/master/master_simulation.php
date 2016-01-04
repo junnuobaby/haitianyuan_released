@@ -19,6 +19,8 @@ $week_rank = floatval($basic_info['week_rank']);
 $month_rate = number_format(floatval($basic_info['month_rate']) * 100, 2);
 $month_rank = floatval($basic_info['month_rank']);
 $all_assets = number_format($stock['stock_value'] + $stock['bond_value'] + $basic_info['cash_all']);
+$user_stocks = $stock['data_finance']['data_stock'];
+$user_bonds = $stock['data_finance']['data_bond'];
 ?>
 <div class="wrapper">
     <?php
