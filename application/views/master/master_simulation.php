@@ -200,8 +200,8 @@ $user_bonds = $stock['data_finance']['data_bond'];
         var user_rate = [];
         var avg_rate = [];
         var time_list = [];
-        <?php $perform_info = $stock['data_performance']['data_line'];?>
-        <?php $perform_avg = $stock['data_performance']['data_avg'];?>
+        <?php $perform_info = $stock['data_perform']['data_line'];?>
+        <?php $perform_avg = $stock['data_perform']['data_avg'];?>
         <?php $count = 0;?>
         <?php foreach($perform_info as $item):?>
         <?php $day_rate = round(floatval($item['day_rate'])*100, 2);?>
@@ -215,9 +215,8 @@ $user_bonds = $stock['data_finance']['data_bond'];
         avg_rate[<?php echo $count;?>] = <?php echo $avg_rate;?>;
         <?php $count += 1;?>
         <?php endforeach;?>
-
         var div_id = document.getElementById('match_perform_canvas');
-        draw(user_rate, avg_rate, time_list, div_id);//绘制收益率曲线图
+        draw(user_rate, avg_rate, time_list, div_id); //绘制收益率曲线图
     });
 
     $(document).ready(function () {
