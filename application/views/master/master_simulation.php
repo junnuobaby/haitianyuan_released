@@ -18,11 +18,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *                day_rate - 日收益率 | day_rank - 日收益率排名
  *                week_rate - 周收益率 | week_rank - 周收益率排名
  *                month_rate - 月收益率 | month_rank - 月收益率排名
- *
+ * assets - 总资产（股票市值 + 债券市值 + 总现金）
+ * user_stocks - 用户持有股票
+ * user_bonds - 用户持有债券
  */
 $basic_info = $stock['data_finance']['data_user'];
-echo $basic_info['day_rate'];
-
 $profit_rate = number_format(floatval($basic_info['profit_rate']) * 100, 2);
 $profit_rank = floatval($basic_info['profit_rank']);
 $day_rate = number_format(floatval($basic_info['day_rate']) * 100, 2);
@@ -58,24 +58,24 @@ $user_bonds = $stock['data_finance']['data_bond'];
                                 <div class="col-md-3">
                                     <div class="table-responsive">
                                         <table class="table basic_fund_info">
-                                            <tr><th>日收益率</th><td id="my_position"><?php echo $day_rate; ?>%</td></tr>
-                                            <tr><th>日排名</th><td id="fd_rate"><?php echo $day_rank; ?></td></tr>
+                                            <tr><th>日收益率</th><td><?php echo $day_rate; ?>%</td></tr>
+                                            <tr><th>日排名</th><td><?php echo $day_rank; ?></td></tr>
                                         </table>
                                     </div>
                                 </div>
-                                <div class="col-md-3 col-md-offset-1">
+                                <div class="col-md-3">
                                     <div class="table-responsive">
                                         <table class="table basic_fund_info">
-                                            <tr><th>周收益率</th><td id="pl_value"><?php echo $week_rate; ?>%</td></tr>
-                                            <tr><th>周排名</th><td id="fd_value"><?php echo $week_rank; ?></td></tr>
+                                            <tr><th>周收益率</th><td><?php echo $week_rate; ?>%</td></tr>
+                                            <tr><th>周排名</th><td><?php echo $week_rank; ?></td></tr>
                                         </table>
                                     </div>
                                 </div>
-                                <div class="col-md-3 col-md-offset-1">
+                                <div class="col-md-3">
                                     <div class="table-responsive">
                                         <table class="table basic_fund_info">
-                                            <tr><th>月收益率</th><td id="pl_rate"><?php echo $month_rate; ?>%</td></tr>
-                                            <tr><th>月排名</th><td id="fd_rate"><?php echo $month_rank; ?></td></tr>
+                                            <tr><th>月收益率</th><td><?php echo $month_rate; ?>%</td></tr>
+                                            <tr><th>月排名</th><td><?php echo $month_rank; ?></td></tr>
                                         </table>
                                     </div>
                                 </div>
