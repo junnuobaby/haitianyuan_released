@@ -259,7 +259,7 @@ $month_rank = floatval($basic_info['month_rank']);
                     $('#pl_value').html(format_num(tpl_value)).css('color', (parseFloat(tpl_value) > 0) ? 'red' : 'green');
                     $('#pl_rate').html(tpl_rate + '%').css('color', (parseFloat(tpl_rate) > 0) ? 'red' : 'green');
                     $('#fd_value').html(format_num(fpl_value)).css('color', (parseFloat(fpl_value) > 0) ? 'red' : 'green');
-                    $('#fd_rate').html(fpl_rate).css('color', (parseFloat(fpl_rate) > 0) ? 'red' : 'green');
+                    $('#fd_rate').html(fpl_rate + '%').css('color', (parseFloat(fpl_rate) > 0) ? 'red' : 'green');
 
                     for (key in stock_info) {
                         tr_id = '#' + key;
