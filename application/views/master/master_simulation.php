@@ -8,6 +8,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body class="bg-gray">
 <?php $this->load->view('./templates/navbar'); ?>
 <?php $this->load->view('./stocks/graph'); ?>
+<?php
+$basic_info = $stock['data_finance']['data_user'];  //用户收益率等当前信息
+$profit_rate = number_format(floatval($basic_info['profit_rate']) * 100, 2);
+$profit_rank = floatval($basic_info['profit_rank']);
+$day_rate = number_format(floatval($basic_info['day_rate']) * 100, 2);
+$day_rank = floatval($basic_info['day_rank']);
+$week_rate = number_format(floatval($basic_info['week_rate']) * 100, 2);
+$week_rank = floatval($basic_info['week_rank']);
+$month_rate = number_format(floatval($basic_info['month_rate']) * 100, 2);
+$month_rank = floatval($basic_info['month_rank']);
+$all_assets = number_format($stock['stock_value'] + $stock['bond_value'] + $basic_info['cash_all']);
+?>
 <div class="wrapper">
     <?php
     $data['info'] = $info;
@@ -31,24 +43,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="col-md-3">
                                     <div class="table-responsive">
                                         <table class="table basic_fund_info">
-                                            <tr><th>本日收益率</th><td id="my_position">10%</td></tr>
-                                            <tr><th>本日排名</th><td id="fd_rate">3</td></tr>
+                                            <tr><th>本日收益率</th><td id="my_position"><?php echo $day_rate; ?>%</td></tr>
+                                            <tr><th>本日排名</th><td id="fd_rate"><?php echo $day_rank; ?></td></tr>
                                         </table>
                                     </div>
                                 </div>
                                 <div class="col-md-3 col-md-offset-1">
                                     <div class="table-responsive">
                                         <table class="table basic_fund_info">
-                                            <tr><th>周收益率</th><td id="pl_value">15%</td></tr>
-                                            <tr><th>周排名</th><td id="fd_value">1</td></tr>
+                                            <tr><th>周收益率</th><td id="pl_value"><?php echo $week_rate; ?>%</td></tr>
+                                            <tr><th>周排名</th><td id="fd_value"><?php echo $week_rank; ?></td></tr>
                                         </table>
                                     </div>
                                 </div>
                                 <div class="col-md-3 col-md-offset-1">
                                     <div class="table-responsive">
                                         <table class="table basic_fund_info">
-                                            <tr><th>月收益率</th><td id="pl_rate">1.54%</td></tr>
-                                            <tr><th>月排名</th><td id="fd_rate">3</td></tr>
+                                            <tr><th>月收益率</th><td id="pl_rate"><?php echo $month_rate; ?>%</td></tr>
+                                            <tr><th>月排名</th><td id="fd_rate"><?php echo $month_rank; ?></td></tr>
                                         </table>
                                     </div>
                                 </div>
@@ -60,28 +72,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="col-md-4">
                                     <div class="table-responsive">
                                         <table class="table basic_fund_info">
-                                            <tr><th>总资产</th><td id="my_asset" class="formatted">10120000</td></tr>
-                                            <tr><th>总现金</th><td class="formatted">10000000</td></tr>
-                                            <tr><th>可用现金</th><td class="formatted">1000000</td></tr>
+                                            <tr><th>总资产</th><td id="my_asset" class="formatted"><?php echo $all_assets;?></td></tr>
+                                            <tr><th>总现金</th><td class="formatted"><?php echo $basic_info['cash_all'];?></td></tr>
+                                            <tr><th>可用现金</th><td class="formatted"><?php echo $basic_info['cash_use'];?></td></tr>
                                         </table>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="table-responsive">
                                         <table class="table basic_fund_info">
-                                            <tr><th>股票市值</th><td id="stock_value">392600</td></tr>
-                                            <tr><th>债券市值</th><td id="bond_value">200000</td></tr>
-                                            <tr><th>仓位</th><td id="my_position">10%</td></tr>
+                                            <tr><th>股票市值</th><td id="stock_value"><?php echo $stock['stock_value'];?></td></tr>
+                                            <tr><th>债券市值</th><td id="bond_value"><?php echo $stock['bond_value'];?></td></tr>
+                                            <tr><th>仓位</th><td id="my_position"><?php echo $basic_info['position'];?></td></tr>
                                         </table>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="table-responsive">
                                         <table class="table basic_fund_info">
-                                            <tr><th>总盈亏</th><td id="pl_value">15902</td></tr>
-                                            <tr><th>总盈亏率</th><td id="pl_rate">1.54%</td></tr>
-                                            <tr><th>浮动盈亏</th><td id="fd_value">-1900</td></tr>
-                                            <tr><th>浮动盈亏率</th><td id="fd_rate">3.46%</td></tr>
+                                            <tr><th>总盈亏</th><td id="pl_value"></td></tr>
+                                            <tr><th>总盈亏率</th><td id="pl_rate"></td></tr>
+                                            <tr><th>浮动盈亏</th><td id="fd_value"></td></tr>
+                                            <tr><th>浮动盈亏率</th><td id="fd_rate"></td></tr>
                                         </table>
                                     </div>
                                 </div>
@@ -203,5 +215,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         var div_id = document.getElementById('match_perform_canvas');
         draw(user_rate, avg_rate, time_list, div_id);//绘制收益率曲线图
+    });
+
+    $(document).ready(function () {
+        var base_funds = parseFloat('<?php echo $basic_info['base_cash'];?>');
+        var asset_all = parseFloat('<?php echo $all_assets;?>');
+        var fpl_value = parseFloat('<?php echo $pl_value;?>');
+        var fpl_rate = parseFloat('<?php echo $pl_rate;?>');
+        var tpl_value = asset_all - base_funds;
+        var tpl_rate = decimal((tpl_value * 100) / base_funds);
+
+        $('#pl_value').html(format_num(tpl_value)).css('color', (parseFloat(tpl_value) > 0) ? 'red' : 'green');
+        $('#pl_rate').html(tpl_rate + '%').css('color', (parseFloat(tpl_rate) > 0) ? 'red' : 'green');
+        $('#fd_value').html(format_num(fpl_value)).css('color', (parseFloat(fpl_value) > 0) ? 'red' : 'green');
+        $('#fd_rate').html(fpl_rate).css('color', (parseFloat(fpl_rate) > 0) ? 'red' : 'green');
     });
 </script>
