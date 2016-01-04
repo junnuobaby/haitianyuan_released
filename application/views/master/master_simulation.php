@@ -54,10 +54,10 @@ $user_bonds = $stock['data_finance']['data_bond'];
                 <div class="tab-pane active" id="simulation_contest">
                     <div class="bg-white q_a_container">
                         <section>
-                            <h4 class="theme-color">收益率</h4>
                             <div class="row">
                                 <div id="match_perform_canvas"></div>
                             </div>
+                            <h4 class="theme-color">收益率</h4>
                             <div class="row well">
                                 <div class="col-md-3">
                                     <div class="table-responsive">
