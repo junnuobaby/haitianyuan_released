@@ -20,8 +20,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *                month_rate - 月收益率 | month_rank - 月收益率排名
  *
  */
-echo $basic_info['profit_rate'];
 $basic_info = $stock['data_finance']['data_user'];
+echo $basic_info['profit_rate'];
+
 $profit_rate = number_format(floatval($basic_info['profit_rate']) * 100, 2);
 $profit_rank = floatval($basic_info['profit_rank']);
 $day_rate = number_format(floatval($basic_info['day_rate']) * 100, 2);
