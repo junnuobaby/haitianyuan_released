@@ -9,7 +9,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?php $this->load->view('./templates/navbar'); ?>
 <?php $this->load->view('./stocks/graph'); ?>
 <?php
-$basic_info = $stock['data_finance']['data_user'];  //用户收益率等当前信息
+/**
+ * basic_info - dict - 用户模拟投资基本信息
+ *              key:
+ *                cash_all - 总现金 | cash_use - 可用现金 | cash_freeze - 冻结资金
+ *                base_cash - 初始资金 | position - 仓位
+ *                profit_rate - 平均收益率 | profit_rank - 平均收益率排名
+ *                day_rate - 日收益率 | day_rank - 日收益率排名
+ *                week_rate - 周收益率 | week_rank - 周收益率排名
+ *                month_rate - 月收益率 | month_rank - 月收益率排名
+ *
+ */
+echo $basic_info['profit_rate'];
+$basic_info = $stock['data_finance']['data_user'];
 $profit_rate = number_format(floatval($basic_info['profit_rate']) * 100, 2);
 $profit_rank = floatval($basic_info['profit_rank']);
 $day_rate = number_format(floatval($basic_info['day_rate']) * 100, 2);
