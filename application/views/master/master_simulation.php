@@ -43,8 +43,8 @@ $all_assets = number_format($stock['stock_value'] + $stock['bond_value'] + $basi
                                 <div class="col-md-3">
                                     <div class="table-responsive">
                                         <table class="table basic_fund_info">
-                                            <tr><th>本日收益率</th><td id="my_position"><?php echo $day_rate; ?>%</td></tr>
-                                            <tr><th>本日排名</th><td id="fd_rate"><?php echo $day_rank; ?></td></tr>
+                                            <tr><th>日收益率</th><td id="my_position"><?php echo $day_rate; ?>%</td></tr>
+                                            <tr><th>日排名</th><td id="fd_rate"><?php echo $day_rank; ?></td></tr>
                                         </table>
                                     </div>
                                 </div>
