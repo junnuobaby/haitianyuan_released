@@ -278,6 +278,6 @@ $fpl_rate = $stock['pl_rate'];
         $('#pl_rate').html(tpl_rate + '%').css('color', (parseFloat(tpl_rate) > 0) ? 'red' : 'green');
         $('#fd_value').html(format_num(fpl_value)).css('color', (parseFloat(fpl_value) > 0) ? 'red' : 'green');
         $('#fd_rate').html(fpl_rate + '%').css('color', (parseFloat(fpl_rate) > 0) ? 'red' : 'green');
-        $('#my_position').html(format_num(<?php echo $basic_info['position'];?>) + '%');
+        $('#my_position').html(format_num(<?php echo $basic_info['position'] * 100;?>) + '%');
     });
 </script>
