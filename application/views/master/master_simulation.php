@@ -19,10 +19,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *                week_rate - 周收益率 | week_rank - 周收益率排名
  *                month_rate - 月收益率 | month_rank - 月收益率排名
  * assets - 总资产（股票市值 + 债券市值 + 总现金）
+ * stock_value - 股票市值
+ * bond_value - 债券市值
  * user_stocks - 用户持有股票
  * user_bonds - 用户持有债券
  */
 $basic_info = $stock['data_finance']['data_user'];
+$stock_value = $stock['stock_value'];
+$bond_value = $stock['bond_value'];
 $profit_rate = number_format(floatval($basic_info['profit_rate']) * 100, 2);
 $profit_rank = floatval($basic_info['profit_rank']);
 $day_rate = number_format(floatval($basic_info['day_rate']) * 100, 2);
@@ -58,6 +62,14 @@ $user_bonds = $stock['data_finance']['data_bond'];
                                 <div class="col-md-3">
                                     <div class="table-responsive">
                                         <table class="table basic_fund_info">
+                                            <tr><th>总收益率</th><td><?php echo $profit_rate; ?>%</td></tr>
+                                            <tr><th>总排名</th><td><?php echo $profit_rank; ?></td></tr>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="table-responsive">
+                                        <table class="table basic_fund_info">
                                             <tr><th>日收益率</th><td><?php echo $day_rate; ?>%</td></tr>
                                             <tr><th>日排名</th><td><?php echo $day_rank; ?></td></tr>
                                         </table>
@@ -87,7 +99,7 @@ $user_bonds = $stock['data_finance']['data_bond'];
                                 <div class="col-md-4">
                                     <div class="table-responsive">
                                         <table class="table basic_fund_info">
-                                            <tr><th>总资产</th><td id="my_asset" class="formatted"><?php echo $all_assets;?></td></tr>
+                                            <tr><th>总资产</th><td class="formatted"><?php echo $all_assets;?></td></tr>
                                             <tr><th>总现金</th><td class="formatted"><?php echo $basic_info['cash_all'];?></td></tr>
                                             <tr><th>可用现金</th><td class="formatted"><?php echo $basic_info['cash_use'];?></td></tr>
                                         </table>
@@ -96,9 +108,9 @@ $user_bonds = $stock['data_finance']['data_bond'];
                                 <div class="col-md-4">
                                     <div class="table-responsive">
                                         <table class="table basic_fund_info">
-                                            <tr><th>股票市值</th><td id="stock_value"><?php echo $stock['stock_value'];?></td></tr>
-                                            <tr><th>债券市值</th><td id="bond_value"><?php echo $stock['bond_value'];?></td></tr>
-                                            <tr><th>仓位</th><td id="my_position"><?php echo $basic_info['position'];?></td></tr>
+                                            <tr><th>股票市值</th><td><?php echo $stock_value?></td></tr>
+                                            <tr><th>债券市值</th><td><?php echo $bond_value;?></td></tr>
+                                            <tr><th>仓位</th><td><?php echo $basic_info['position'];?></td></tr>
                                         </table>
                                     </div>
                                 </div>
@@ -206,6 +218,24 @@ $user_bonds = $stock['data_finance']['data_bond'];
 </body>
 </html>
 <script>
+    /**
+     * 格式化显示数据
+     * 给数字渲染颜色
+     */
+    $(document).ready(function () {
+        $('.formatted').each(function () {
+            var value = format_num($(this).html());
+            $(this).html(value);
+        });
+        $('.render').each(function () {
+            var value = $(this).html().indexOf('-');
+            if (value == -1) {
+                $(this).css('color', 'red');
+            } else {
+                $(this).css('color', 'green');
+            }
+        });
+    });
     /**
      * 绘制收益率曲线图
      */
