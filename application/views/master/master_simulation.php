@@ -108,9 +108,9 @@ $user_bonds = $stock['data_finance']['data_bond'];
                                 <div class="col-md-4">
                                     <div class="table-responsive">
                                         <table class="table basic_fund_info">
-                                            <tr><th>股票市值</th><td><?php echo $stock_value?></td></tr>
-                                            <tr><th>债券市值</th><td><?php echo $bond_value;?></td></tr>
-                                            <tr><th>仓位</th><td><?php echo $basic_info['position'];?></td></tr>
+                                            <tr><th>股票市值</th><td class="formatted"><?php echo $stock_value?></td></tr>
+                                            <tr><th>债券市值</th><td class="formatted"><?php echo $bond_value;?></td></tr>
+                                            <tr><th>仓位</th><td class="formatted"><?php echo $basic_info['position'] * 100;?>%</td></tr>
                                         </table>
                                     </div>
                                 </div>
