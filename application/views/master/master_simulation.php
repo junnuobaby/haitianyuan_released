@@ -270,6 +270,7 @@ $fpl_rate = $stock['pl_rate'];
         var base_funds = parseFloat('<?php echo $basic_info['base_cash'];?>');
         alert(base_funds);
         var asset_all = parseFloat('<?php echo $all_assets;?>');
+        alert(asset_all);
         var fpl_value = parseFloat('<?php echo $fpl_value;?>');
         var fpl_rate = parseFloat('<?php echo $fpl_rate;?>');
         var tpl_value = asset_all - base_funds;
