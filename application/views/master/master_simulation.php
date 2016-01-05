@@ -160,10 +160,10 @@ $fpl_rate = $stock['pl_rate'];
                                             <td class="formatted"><?php echo intval($stock_item['Volume_All']); ?></td>
                                             <td class="formatted"><?php echo $sell_avail;?></td>
                                             <td><?php echo number_format(floatval($stock_item['BuyCost']), 2); ?></td>
-                                            <td class="stock_present_price"></td>
-                                            <td class="stock_pl_value"></td>
-                                            <td class="stock_pl_rate"></td>
-                                            <td class="stock_extend"></td>
+                                            <td class="stock_present_price"><?php echo number_format(floatval($stock_item['TradePrice']), 2); ?></td>
+                                            <td class="stock_pl_value"><?php echo $stock_item['float_pl']; ?></td>
+                                            <td class="stock_pl_rate"><?php echo $stock_item['float_pl_rate']; ?></td>
+                                            <td class="stock_extend"><?php echo $stock_item['id_extent']; ?></td>
                                         </tr>
                                     <?php endforeach; ?>
                                     </tbody>
