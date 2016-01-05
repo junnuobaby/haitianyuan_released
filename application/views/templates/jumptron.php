@@ -1,4 +1,21 @@
 <!--巨幕-->
+<?php
+function deal_num($num){
+    $str_num = strval($num);
+    $num_len = strlen($str_num);
+    if($num_len < 4){
+        for($i = $num_len; $i < 4; $i++){
+            $str_num = '0'.$str_num;
+        }
+    }
+    return $str_num;
+}
+?>
+<?php
+$golden_num = $data_count['num_golden'];
+$silver_num = $data_count['num_silver'];
+$all_num = deal_num($data_count['num_all']);
+?>
 <div class="main_jumptron ">
     <div class="main_jumptron_img">
         <div id="jumptron-carousel" class="carousel slide" data-ride="carousel">
@@ -42,17 +59,16 @@
     <div class="jumptron_logo">
         <div class="jinbang_num">
             <p id="jinbang_num" class="bang_num inline_block">
-                <span>2</span>
-                <span>0</span>
-                <span>5</span>
-                <span>5</span>
+                <?php for($count = 0; $count < strlen($all_num); $count++):?>
+                <span><?php echo substr($all_num, $count, 1);?></span>
+                <?php endfor;?>
                 人
             </p>
             <p>正在参与海天模拟炒股</p>
             <hr/>
         </div>
         <div class="join-contest">
-            <p><span class="take_in_num">555</span>人正在角逐金榜,<span class="take_in_num">1500</span>人正在角逐银榜</p>
+            <p><span class="take_in_num"><?php echo $golden_num;?></span>人正在角逐金榜,<span class="take_in_num"><?php echo $silver_num;?></span>人正在角逐银榜</p>
             <p>
                 <a href="<?php echo base_url('/index.php/stock/index/web/3');?>" class="inline_block take_in">
                     <span class="glyphicon glyphicon-hand-right"></span> 马上参加

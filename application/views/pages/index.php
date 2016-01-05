@@ -12,7 +12,9 @@ $yinbang = $silver_rank;
 <div class="wrapper">
     <div class="page_min_height">
         <?php $this->load->view('./templates/navbar'); ?>
-        <?php $this->load->view('./templates/jumptron'); ?>
+        <?php
+        $data['data_count'] = $data_count;
+        $this->load->view('./templates/jumptron', $data); ?>
         <section class="web-info-section">
             <div class="container">
                 <div class="row">
