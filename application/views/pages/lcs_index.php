@@ -85,8 +85,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                         <p>个性签名：<?php echo $vip['signature']; ?></p>
                                         <div class="action_box">
-                                            <a class="btn bg-theme qu_btn_id" data-id="<?php echo $vip['user_id'];?>" data-name="<?php echo $vip['username'];?>"><span
-                                                    class="glyphicon glyphicon-plus"></span> 关注
+                                            <a class="btn bg-theme qu_btn_id" id='fan_btn'><span class="glyphicon glyphicon-plus"></span> <?php if ($vip['is_fan']) echo "已关注"; else echo "关注"; ?>
                                             </a>
                                         </div>
                                     </div>
@@ -104,7 +103,44 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </body>
 </html>
 <script>
+    //取消关注和加关注
     $(document).ready(function () {
-
+        $('#fan_btn').click(function () {
+            var username = '<?php echo $username?>';
+            var current_user = '<?php echo $current_user?>';
+            if(username == current_user){
+                alert('不能关注自己');
+            }
+            else{
+                var is_fan = $('#fan_btn').html();
+                if (is_fan == '已关注') {
+                    $.ajax({
+                        url: '<?php echo base_url("index.php/home/cancel_fan/web"); ?>' + '/' + '<?php echo $master_id?>' + '/',
+                        method: 'get',
+                        success: function (data) {
+                            if (data.status == '0') {
+                                $('#fan_btn').html('关注');
+                            } else {
+                                alert(data.msg);
+                            }
+                        },
+                        dataType: "json"
+                    });
+                } else {
+                    $.ajax({
+                        url: '<?php echo base_url("index.php/home/add_fan/web"); ?>' + '/' + '<?php echo $master_id?>' + '/'+'<?php echo $username?>',
+                        method: 'get',
+                        success: function (data) {
+                            if (data.status == '0') {
+                                $('#fan_btn').html('已关注');
+                            } else {
+                                alert(data.msg);
+                            }
+                        },
+                        dataType: "json"
+                    });
+                }
+            }
+        });
     });
 </script>
