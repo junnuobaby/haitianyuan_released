@@ -85,7 +85,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                         <p>个性签名：<?php echo $vip['signature']; ?></p>
                                         <div class="action_box">
-                                            <a class="btn bg-theme qu_btn_id" data-id="<?php echo $vip['master_id'];?>" data-name="<?php echo $vip['master_name'];?>"><span
+                                            <a class="btn bg-theme qu_btn_id" data-id="<?php echo $vip['user_id'];?>" data-name="<?php echo $vip['username'];?>"><span
                                                     class="glyphicon glyphicon-plus"></span> 关注
                                             </a>
                                         </div>
