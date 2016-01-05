@@ -118,7 +118,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
             else{
                 var is_fan = $(this).html();
-                alert(is_fan);
+//                alert(is_fan);
                 if (is_fan == '已关注') {
                     $.ajax({
                         url: '<?php echo base_url("index.php/home/cancel_fan/web"); ?>' + '/' + master_id + '/',
