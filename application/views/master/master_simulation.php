@@ -202,7 +202,6 @@ $fpl_rate = $stock['pl_rate'];
                         </section>
                     </div>
                 </div>
-
             </div>
         </div>
         <?php $this->load->view('./templates/right-sidebar'); ?>
