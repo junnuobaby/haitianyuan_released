@@ -117,7 +117,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 alert('不能关注自己');
             }
             else{
-                var is_fan = $(this).html();
+                var is_fan = $.trim($(this).html());
 //                alert(is_fan);
                 if (is_fan == '已关注') {
                     $.ajax({
