@@ -1470,10 +1470,9 @@ img.user_avatar_box{
 }
 .master_avatar_box .user_homepage_avatar{
     border: 3px solid rgba(255, 166, 118, 0.4);
-    transition: all 0.5s ease;
 }
-.master_avatar_box:hover {
-    transform: scale(1.1);
+.master_avatar_box .user_homepage_avatar:hover {
+    border: 3px solid rgba(192, 240, 224, 0.8);
 }
 #simulation_contest p{
     padding: 15px;
