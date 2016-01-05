@@ -1480,3 +1480,41 @@ img.user_avatar_box:hover{
 #simulation_contest p{
     padding: 15px;
 }
+/*问答首页*/
+.lcs_jmp{
+    width: 100%;
+    height: 400px;
+    background-color: #7c7c7c;
+    margin-bottom: 30px;
+}
+.lcs_jmp img{
+    margin-top: 10px;
+}
+.lcs_num_box{
+    padding: 20px;
+    border-radius: 4px;
+    background-color: rgba(253, 146, 113, 1);
+    color: #FFF;
+    margin-bottom: 20px;
+}
+.lcs_num_box .lcs_answer_num span{
+    display: inline-block;
+    padding: 10px 10px;
+    background-color: #fff;
+    color: #FD9271;
+    font-size: 40px;
+    font-weight: 400;
+    box-shadow: 0px 1px 1px rgba(180, 180, 180, 0.59), 0px 1px 1px rgba(194, 194, 194, 0.38) inset;
+    border-radius: 6px;
+}
+.lcs_index_cnt .master_lists_box{
+    padding: 30px 30px;
+}
+.lcs_index_cnt .master_intro_box{
+    position: relative;
+}
+.lcs_index_cnt .action_box{
+    position: absolute;
+    right:20px;
+    top:0px;
+}

@@ -55,7 +55,6 @@ $all_num = deal_num($data_count['num_all']);
             </a>
         </div>
     </div>
-
     <div class="jumptron_logo">
         <div class="jinbang_num">
             <p id="jinbang_num" class="bang_num inline_block">
