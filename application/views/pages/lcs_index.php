@@ -88,7 +88,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                         <p>个性签名：<?php echo $vip['signature']; ?></p>
                                         <div class="action_box">
-                                            <a class="btn bg-theme qu_btn_id" id='fan_btn' data-masterid = '<?php echo $vip['user_id'];?>' data-mastername = '<?php echo $vip['username'];?>'>
+                                            <a class="btn bg-theme fan_btn" data-masterid = '<?php echo $vip['user_id'];?>' data-mastername = '<?php echo $vip['username'];?>'>
                                                 <span class="<?php if ($vip['is_fan']) echo ""; else echo "glyphicon glyphicon-plus"; ?>"></span> <?php if ($vip['is_fan']) echo "已关注"; else echo "关注"; ?>
                                             </a>
                                         </div>
@@ -109,12 +109,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script>
     //取消关注和加关注
     $(document).ready(function () {
-        $('#fan_btn').click(function () {
+        $('.fan_btn').click(function () {
             var username = '<?php echo $self_name?>';
             var master_id = $(this).data('masterid');
             var master_name = $(this).data('mastername');
-            alert(username);
-            alert(master_name);
             if(username == master_name){
                 alert('不能关注自己');
             }
