@@ -1450,9 +1450,6 @@ img.user_avatar_box{
     border: 5px solid rgba(255, 255, 255, 0.4);
     display: block;
 }
-img.user_avatar_box:hover {
-    border: 5px solid #C0F0E0;
-}
 .user_homepage_name{
     text-align: center;
     font-size: 20px;
@@ -1473,6 +1470,9 @@ img.user_avatar_box:hover {
 }
 .master_avatar_box .user_homepage_avatar{
     border: 5px solid rgba(255, 166, 118, 0.4);
+}
+img.master_avatar_box:hover {
+    border: 5px solid #C0F0E0;
 }
 #simulation_contest p{
     padding: 15px;
