@@ -78,7 +78,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <h4><a href="<?php echo base_url('index.php/home/load_home/web/' . 'master' . '/' . $vip['user_id'] . '/' . '1'); ?>" target="_blank" class="theme-color"><?php echo $vip['username']; ?></a></h4>
                                         <p>关注 <?php echo $vip['concerns_count']; ?> |
                                             粉丝 <?php echo $vip['fans_count']; ?>
-                                            | <?php if ($vip['online_state'] == true) {
+                                            | <?php if ($vip['online'] == true) {
                                                 echo '在线';
                                             } else {
                                                 echo "离线";
