@@ -117,14 +117,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 alert('不能关注自己');
             }
             else{
-                var is_fan = $('#fan_btn').html();
+                var is_fan = $(this).html();
                 if (is_fan == '已关注') {
                     $.ajax({
                         url: '<?php echo base_url("index.php/home/cancel_fan/web"); ?>' + '/' + master_id + '/',
                         method: 'get',
                         success: function (data) {
                             if (data.status == '0') {
-                                $('#fan_btn').html('关注');
+                                $(this).html('关注');
                             } else {
                                 alert(data.msg);
                             }
@@ -137,7 +137,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         method: 'get',
                         success: function (data) {
                             if (data.status == '0') {
-                                $('#fan_btn').html('已关注');
+                                $(this).html('已关注');
                             } else {
                                 alert(data.msg);
                             }
