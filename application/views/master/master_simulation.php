@@ -42,6 +42,7 @@ $user_stocks = $stock['data_finance']['data_stock'];
 $user_bonds = $stock['data_finance']['data_bond'];
 $fpl_value = $stock['pl_value'];
 $fpl_rate = $stock['pl_rate'];
+echo $all_assets;
 ?>
 <div class="wrapper">
     <?php
