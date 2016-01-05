@@ -67,7 +67,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <h4>全部理财师</h4>
                             <hr/>
                             <?php foreach ($masters as $vip): ?>
-<!--                                --><?php //echo $vip['online_state'];?>
                                 <div class="row">
                                     <div class="col-md-2">
                                         <div class="master_avatar_box">
