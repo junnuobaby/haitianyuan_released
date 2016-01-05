@@ -1472,7 +1472,7 @@ img.user_avatar_box{
     border: 5px solid rgba(255, 166, 118, 0.4);
 }
 .master_avatar_box:hover {
-    border: 5px solid #C0F0E0;
+    transform: scale(1.2);
 }
 #simulation_contest p{
     padding: 15px;
