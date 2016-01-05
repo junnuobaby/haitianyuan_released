@@ -146,7 +146,6 @@ $fpl_rate = $stock['pl_rate'];
                                         <th>现价</th>
                                         <th>浮动盈亏</th>
                                         <th>盈亏率</th>
-                                        <th>涨跌幅</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -163,7 +162,6 @@ $fpl_rate = $stock['pl_rate'];
                                             <td class="formatted"><?php echo number_format(floatval($stock_item['TradePrice']), 2); ?></td>
                                             <td class="formatted"><?php echo $stock_item['float_pl']; ?></td>
                                             <td class="formatted"><?php echo $stock_item['float_pl_rate']; ?></td>
-                                            <td class="formatted"><?php echo $stock_item['id_extent']; ?></td>
                                         </tr>
                                     <?php endforeach; ?>
                                     </tbody>
@@ -183,7 +181,6 @@ $fpl_rate = $stock['pl_rate'];
                                         <th>可卖</th>
                                         <th>浮动盈亏</th>
                                         <th>盈亏率</th>
-                                        <th>涨跌幅</th>
                                         <th>距付息</th>
                                         <th>到期时间</th>
                                     </tr>
@@ -201,7 +198,6 @@ $fpl_rate = $stock['pl_rate'];
                                             <td class="formatted"><?php echo $sell_avail; ?></td>
                                             <td class="bond_pl_value"></td>
                                             <td class="bond_pl_rate"></td>
-                                            <td class="bond_extend"></td>
                                             <td><?php echo intval($stock_item['day_left']); ?></td>
                                             <td><?php echo $stock_item['profit_end']; ?></td>
                                         </tr>
