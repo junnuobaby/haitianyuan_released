@@ -174,15 +174,12 @@ $fpl_rate = $stock['pl_rate'];
                                     <tr>
                                         <th>代码</th>
                                         <th>简称</th>
-                                        <th>成本</th>
-                                        <th>现价</th>
-                                        <th>全价</th>
                                         <th>持仓</th>
                                         <th>可卖</th>
+                                        <th>成本</th>
+                                        <th>现价</th>
                                         <th>浮动盈亏</th>
                                         <th>盈亏率</th>
-                                        <th>距付息</th>
-                                        <th>到期时间</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -191,15 +188,12 @@ $fpl_rate = $stock['pl_rate'];
                                         <tr id="<?php echo $stock_item['SecurityID']; ?>" data-interest="<?php echo $stock_item['interest']; ?>">
                                             <td><?php echo $stock_item['SecurityID']; ?></td>
                                             <td><?php echo $stock_item['Symbol']; ?></td>
-                                            <td><?php echo number_format(floatval($stock_item['BuyCost']), 2); ?></td>
-                                            <td class="bond_present_price"></td>
-                                            <td class="completed_cost"></td>
                                             <td class="formatted"><?php echo intval($stock_item['Volume_All']); ?></td>
                                             <td class="formatted"><?php echo $sell_avail; ?></td>
-                                            <td class="bond_pl_value"></td>
-                                            <td class="bond_pl_rate"></td>
-                                            <td><?php echo intval($stock_item['day_left']); ?></td>
-                                            <td><?php echo $stock_item['profit_end']; ?></td>
+                                            <td><?php echo number_format(floatval($stock_item['BuyCost']), 2); ?></td>
+                                            <td><?php echo number_format(floatval($stock_item['TradePrice']), 2); ?></td>
+                                            <td class="render"><?php echo number_format(floatval($stock_item['float_pl'])); ?></td>
+                                            <td class="render"><span class="formatted"><?php echo $stock_item['float_pl_rate']; ?></span>%</td>
                                         </tr>
                                     <?php endforeach; ?>
                                     </tbody>
