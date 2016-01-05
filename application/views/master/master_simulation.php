@@ -68,7 +68,7 @@ $fpl_rate = $stock['pl_rate'];
                                 <div class="col-md-3">
                                     <div class="table-responsive">
                                         <table class="table basic_fund_info">
-                                            <tr><th>总收益率</th><td><?php echo $profit_rate; ?>%</td></tr>
+                                            <tr><th>总收益率</th><td class="render"><?php echo $profit_rate; ?>%</td></tr>
                                             <tr><th>总排名</th><td><?php echo $profit_rank; ?></td></tr>
                                         </table>
                                     </div>
@@ -76,7 +76,7 @@ $fpl_rate = $stock['pl_rate'];
                                 <div class="col-md-3">
                                     <div class="table-responsive">
                                         <table class="table basic_fund_info">
-                                            <tr><th>日收益率</th><td><?php echo $day_rate; ?>%</td></tr>
+                                            <tr><th>日收益率</th><td class="render"><?php echo $day_rate; ?>%</td></tr>
                                             <tr><th>日排名</th><td><?php echo $day_rank; ?></td></tr>
                                         </table>
                                     </div>
@@ -84,7 +84,7 @@ $fpl_rate = $stock['pl_rate'];
                                 <div class="col-md-3">
                                     <div class="table-responsive">
                                         <table class="table basic_fund_info">
-                                            <tr><th>周收益率</th><td><?php echo $week_rate; ?>%</td></tr>
+                                            <tr><th>周收益率</th><td class="render"><?php echo $week_rate; ?>%</td></tr>
                                             <tr><th>周排名</th><td><?php echo $week_rank; ?></td></tr>
                                         </table>
                                     </div>
@@ -92,7 +92,7 @@ $fpl_rate = $stock['pl_rate'];
                                 <div class="col-md-3">
                                     <div class="table-responsive">
                                         <table class="table basic_fund_info">
-                                            <tr><th>月收益率</th><td><?php echo $month_rate; ?>%</td></tr>
+                                            <tr><th>月收益率</th><td class="render"><?php echo $month_rate; ?>%</td></tr>
                                             <tr><th>月排名</th><td><?php echo $month_rank; ?></td></tr>
                                         </table>
                                     </div>
