@@ -53,8 +53,8 @@ $vips = $master_info;
                                         <p>个性签名：<?php echo $vip['signature']; ?></p>
                                     </div>
                                     <div class="col-md-4">
-                                        <a class="btn  bg-theme qu_btn_id" data-id="<?php echo $vip['master_id'];?>" data-name="<?php echo $vip['master_name'];?>"><span
-                                                class="glyphicon glyphicon-question-sign"></span> 提问
+                                        <a class="btn  bg-theme qu_btn_id" data-id="<?php echo $vip['master_id'];?>" data-name="<?php echo $vip['master_name'];?>">
+                                            <span class="glyphicon glyphicon-question-sign"></span> 提问
                                         </a>
                                     </div>
                                 </div>
