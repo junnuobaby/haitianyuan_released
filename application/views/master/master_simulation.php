@@ -1,4 +1,4 @@
-<!--理财师主页-->
+<!--理财师主页-华山论剑-->
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
