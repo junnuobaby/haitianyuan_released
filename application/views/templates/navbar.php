@@ -22,7 +22,7 @@
         <nav class="collapse navbar-collapse pull-left" >
             <ul class="nav navbar-nav top-menu">
                 <li><a href="<?php echo base_url('/index.php/index');?>">首页</a></li>
-                <li><a href="<?php echo base_url('/index.php/index/index/web/2');?>">问答</a></li>
+                <li><a href="<?php echo base_url('/index/index/web/2');?>">问答</a></li>
                 <li><a href="<?php echo base_url('/index.php/stock/index/web/1/1');?>">华山论剑</a></li>
                 <li><a href="#">论坛</a></li>
             </ul>
