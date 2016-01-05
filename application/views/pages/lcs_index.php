@@ -70,7 +70,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="row">
                                     <div class="col-md-2">
                                         <div class="master_avatar_box">
-                                            <img src="<?php echo base_url('/uploads/' . $vip['face_pic']); ?>" class="img-responsive img-circle" alt="...">
+                                            <a href="<?php echo base_url('index.php/home/load_home/web/' . 'master' . '/' . $vip['user_id'] . '/' . '1'); ?>">
+                                                <img src="<?php echo base_url('/uploads/' . $vip['face_pic']); ?>" class="img-responsive img-circle" alt="...">
+                                            </a>
                                         </div>
                                     </div>
                                     <div class="col-md-10 master_intro_box">
@@ -85,7 +87,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                         <p>个性签名：<?php echo $vip['signature']; ?></p>
                                         <div class="action_box">
-                                            <a class="btn bg-theme qu_btn_id" id='fan_btn'><span class="<?php if ($vip['is_fan']) echo ""; else echo "glyphicon glyphicon-plus"; ?>"></span> <?php if ($vip['is_fan']) echo "已关注"; else echo "关注"; ?>
+                                            <a class="btn bg-theme qu_btn_id" id='fan_btn' data-masterid = '<?php echo $vip['user_id'];?>' data-mastername = '<?php echo $vip['username'];?>'><span class="<?php if ($vip['is_fan']) echo ""; else echo "glyphicon glyphicon-plus"; ?>"></span> <?php if ($vip['is_fan']) echo "已关注"; else echo "关注"; ?>
                                             </a>
                                         </div>
                                     </div>
@@ -106,41 +108,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     //取消关注和加关注
     $(document).ready(function () {
         $('#fan_btn').click(function () {
-            var username = '<?php echo $username?>';
-            var current_user = '<?php echo $current_user?>';
-            if(username == current_user){
-                alert('不能关注自己');
+            var master_id = $(this).data('masterid');
+            var master_name = $(this).data('mastername');
+            var is_fan = $('#fan_btn').html();
+            if (is_fan == '已关注') {
+                $.ajax({
+                    url: '<?php echo base_url("index.php/home/cancel_fan/web"); ?>' + '/' + master_id + '/',
+                    method: 'get',
+                    success: function (data) {
+                        if (data.status == '0') {
+                            $('#fan_btn').html('关注');
+                        } else {
+                            alert(data.msg);
+                        }
+                    },
+                    dataType: "json"
+                });
+            } else {
+                $.ajax({
+                    url: '<?php echo base_url("index.php/home/add_fan/web"); ?>' + '/' + master_id + '/'+ master_name,
+                    method: 'get',
+                    success: function (data) {
+                        if (data.status == '0') {
+                            $('#fan_btn').html('已关注');
+                        } else {
+                            alert(data.msg);
+                        }
+                    },
+                    dataType: "json"
+                });
             }
-            else{
-                var is_fan = $('#fan_btn').html();
-                if (is_fan == '已关注') {
-                    $.ajax({
-                        url: '<?php echo base_url("index.php/home/cancel_fan/web"); ?>' + '/' + '<?php echo $master_id?>' + '/',
-                        method: 'get',
-                        success: function (data) {
-                            if (data.status == '0') {
-                                $('#fan_btn').html('关注');
-                            } else {
-                                alert(data.msg);
-                            }
-                        },
-                        dataType: "json"
-                    });
-                } else {
-                    $.ajax({
-                        url: '<?php echo base_url("index.php/home/add_fan/web"); ?>' + '/' + '<?php echo $master_id?>' + '/'+'<?php echo $username?>',
-                        method: 'get',
-                        success: function (data) {
-                            if (data.status == '0') {
-                                $('#fan_btn').html('已关注');
-                            } else {
-                                alert(data.msg);
-                            }
-                        },
-                        dataType: "json"
-                    });
-                }
-            }
+
         });
     });
 </script>
