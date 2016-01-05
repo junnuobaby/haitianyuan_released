@@ -19,6 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *                week_rate - 周收益率 | week_rank - 周收益率排名
  *                month_rate - 月收益率 | month_rank - 月收益率排名
  * assets - 总资产（股票市值 + 债券市值 + 总现金）
+ * all_assets - 格式化后的总资产
  * stock_value - 股票市值
  * bond_value - 债券市值
  * user_stocks - 用户持有股票
@@ -37,12 +38,12 @@ $week_rate = number_format(floatval($basic_info['week_rate']) * 100, 2);
 $week_rank = floatval($basic_info['week_rank']);
 $month_rate = number_format(floatval($basic_info['month_rate']) * 100, 2);
 $month_rank = floatval($basic_info['month_rank']);
+$assets = $stock['stock_value'] + $stock['bond_value'] + $basic_info['cash_all'];
 $all_assets = number_format($stock['stock_value'] + $stock['bond_value'] + $basic_info['cash_all']);
 $user_stocks = $stock['data_finance']['data_stock'];
 $user_bonds = $stock['data_finance']['data_bond'];
 $fpl_value = $stock['pl_value'];
 $fpl_rate = $stock['pl_rate'];
-echo $all_assets;
 ?>
 <div class="wrapper">
     <?php
@@ -269,9 +270,7 @@ echo $all_assets;
 
     $(document).ready(function () {
         var base_funds = parseFloat('<?php echo $basic_info['base_cash'];?>');
-        alert(base_funds);
-        var asset_all = parseFloat('<?php echo $all_assets;?>');
-        alert(asset_all);
+        var asset_all = parseFloat('<?php echo $assets;?>');
         var fpl_value = parseFloat('<?php echo $fpl_value;?>');
         var fpl_rate = parseFloat('<?php echo $fpl_rate;?>');
         var tpl_value = asset_all - base_funds;
