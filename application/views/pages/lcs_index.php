@@ -119,7 +119,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             else{
                 var is_fan = $.trim($(this).html());
                 var btn = $(this);
-                if (is_fan == '已关注') {
+                if (is_fan == '已关注' && confirm('确认取消关注？')) {
                     $.ajax({
                         url: '<?php echo base_url("index.php/home/cancel_fan/web"); ?>' + '/' + master_id + '/',
                         method: 'get',
