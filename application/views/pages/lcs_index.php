@@ -110,6 +110,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     //取消关注和加关注
     $(document).ready(function () {
         $('.fan_btn').click(function () {
+            alert($(this));
             var username = '<?php echo $self_name?>';
             var master_id = $(this).data('masterid');
             var master_name = $(this).data('mastername');
@@ -124,7 +125,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         method: 'get',
                         success: function (data) {
                             if (data.status == '0') {
-                                alert(data.status);
                                 $(this).html('关注');
                             } else {
                                 alert(data.msg);
@@ -138,7 +138,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         method: 'get',
                         success: function (data) {
                             if (data.status == '0') {
-                                alert($(this).html());
                                 $(this).html('已关注');
                             } else {
                                 alert(data.msg);
