@@ -130,6 +130,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 alert(data.msg);
                             }
                         },
+                        dataType: "json"
                     });
                 } else {
                     $.ajax({
@@ -137,11 +138,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         method: 'get',
                         success: function (data) {
                             if (data.status == '0') {
+                                alert(data.status);
                                 $(this).html('已关注');
                             } else {
                                 alert(data.msg);
                             }
                         },
+                        dataType: "json"
                     });
                 }
             }
