@@ -110,7 +110,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     //取消关注和加关注
     $(document).ready(function () {
         $('.fan_btn').click(function () {
-            alert($(this));
+            alert($(this).html());
             var username = '<?php echo $self_name?>';
             var master_id = $(this).data('masterid');
             var master_name = $(this).data('mastername');
