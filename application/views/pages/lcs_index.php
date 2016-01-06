@@ -124,7 +124,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         method: 'get',
                         success: function (data) {
                             if (data.status == '0') {
-                                alert($(this).html());
+                                alert(data.status);
                                 $(this).html('关注');
                             } else {
                                 alert(data.msg);
