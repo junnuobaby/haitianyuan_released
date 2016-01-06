@@ -118,7 +118,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
             else{
                 var is_fan = $.trim($(this).html());
-//                alert(is_fan);
                 if (is_fan == '已关注') {
                     $.ajax({
                         url: '<?php echo base_url("index.php/home/cancel_fan/web"); ?>' + '/' + master_id + '/',
@@ -130,7 +129,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 alert(data.msg);
                             }
                         },
-                        dataType: "json"
                     });
                 } else {
                     $.ajax({
@@ -143,7 +141,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 alert(data.msg);
                             }
                         },
-                        dataType: "json"
                     });
                 }
             }
