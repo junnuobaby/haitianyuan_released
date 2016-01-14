@@ -362,9 +362,6 @@ caption.caption-yinbang{
 a.thumbnail.active, a.thumbnail:focus, a.thumbnail:hover {
     border-color: #FD9271;
 }
-a.user_identity:hover{
-    cursor: hand;
-}
 /*登录注册界面*/
 .login-box{
     color: white;
