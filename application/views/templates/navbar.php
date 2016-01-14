@@ -5,6 +5,8 @@
 <?php $uuid = $this->session->userdata('uuid'); ?>
 <?php $signature = $this->session->userdata('signature'); ?>
 <?php $avatar = $this->session->userdata('face_pic');?>
+<?php $user_name = $this->session->userdata('username');?>
+
 <header class="header">
     <div class="container">
         <div class="navbar-header">
@@ -46,22 +48,25 @@
                     <ul class="dropdown-menu avatar-dropdown-menu">
                         <li><a href="<?php echo base_url('index.php/home/load_home/web/' . $identity . '/' . $uuid . '/' . '1'); ?>"><span class="glyphicon glyphicon-home"></span> 我的主页</a></li>
                         <li><a href="<?php echo base_url('index.php/my_center/index'); ?>"><span class="glyphicon glyphicon-education"></span> 个人中心</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-cog"></span> 账号设置</a></li>
+<!--                        <li><a href="#"><span class="glyphicon glyphicon-cog"></span> 账号设置</a></li>-->
                         <li><a href="<?php echo base_url("index.php/login/logout"); ?>"><span class="glyphicon glyphicon-log-out"></span> 退出登陆</a></li>
                     </ul>
                 </li>
-                <li class="dropdown user-nav-dropdown user-msg">
-                    <a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                        aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-envelope hz-icon"></span> 消息</a>
-                    <ul class="dropdown-menu msg-dropdown-menu">
-                        <li><a href="#"><span class="glyphicon glyphicon-question-sign"></span> 问答</a></li>
-                        <li><a href="#"><span
-                                    class="glyphicon glyphicon-bullhorn"></span> 通知</a></li>
-                        <li><a href="#"><span
-                                    class="glyphicon glyphicon-comment"></span> 回复</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-level-up"></span> 私信</a></li>
-                    </ul>
+                <li>
+                    <a href="<?php echo base_url('index.php/home/load_home/web/' . $identity . '/' . $uuid . '/' . '1'); ?>"><?php echo $user_name;?></a>
                 </li>
+<!--                <li class="dropdown user-nav-dropdown user-msg">-->
+<!--                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"-->
+<!--                        aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-envelope hz-icon"></span> 消息</a>-->
+<!--                    <ul class="dropdown-menu msg-dropdown-menu">-->
+<!--                        <li><a href="#"><span class="glyphicon glyphicon-question-sign"></span> 问答</a></li>-->
+<!--                        <li><a href="#"><span-->
+<!--                                    class="glyphicon glyphicon-bullhorn"></span> 通知</a></li>-->
+<!--                        <li><a href="#"><span-->
+<!--                                    class="glyphicon glyphicon-comment"></span> 回复</a></li>-->
+<!--                        <li><a href="#"><span class="glyphicon glyphicon-level-up"></span> 私信</a></li>-->
+<!--                    </ul>-->
+<!--                </li>-->
                 <?php if ($identity == 'user'): ?>
                 <li>
                     <a href="<?php echo base_url('index.php/auth/state/web'); ?>" class="btn com add-in-btn"><span class="glyphicon glyphicon-plus"></span> 理财师入驻</a>

@@ -134,7 +134,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
      * send_code - 获取验证码按钮
      * count_down - 默认非倒计时状态
      */
-    var second = 59;
+    var second = 119;
     var speed = 1000;
     var send_code = $('#send_code');
     var count_down = false;
@@ -154,7 +154,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             clearTimeout(timeId);
             send_code.html('获取验证码');
             send_code.removeAttr('disabled');
-            second = 59;
+            second = 119;
             count_down = false;
         }
     }
