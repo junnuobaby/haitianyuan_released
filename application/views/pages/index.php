@@ -64,7 +64,6 @@ $yinbang = $silver_rank;
                 <div class="index-section-content index-section-1">
                     <div class="row">
                         <div id="carousel-rmd-master" class="carousel slide" data-ride="carousel">
-                            <!-- Wrapper for slides -->
                             <div class="carousel-inner" role="listbox">
                                 <?php for ($external_count = 0; $external_count < 3; $external_count++): ?>
                                     <div class="item <?php if ($external_count == 0) {

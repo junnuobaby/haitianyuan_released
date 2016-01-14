@@ -19,11 +19,26 @@ function format_num(s){
     return result;
 }
 
+function format_num_3(s){
+    var str = s.toString();
+    var result;
+    if(s.toString().indexOf('.') == -1){
+        result = str.replace(/\B(?=(?:\d{3})+\b)/g, ',');
+    } else{
+        result = parseFloat(s).toFixed(3).toString().replace(/\B(?=(?:\d{3})+\b)/g, ',');
+    }
+    return result;
+}
+
 /**
  * 给带小数点的数格式化为小数点后保留两位
  * @param s 需要格式化的小数
  */
 function decimal(s){
     var result = parseFloat(s).toFixed(2);
+    return result;
+}
+function decimal_3(s){
+    var result = parseFloat(s).toFixed(3);
     return result;
 }
