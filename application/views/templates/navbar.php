@@ -52,7 +52,7 @@
                         <li><a href="<?php echo base_url("index.php/login/logout"); ?>"><span class="glyphicon glyphicon-log-out"></span> 退出登陆</a></li>
                     </ul>
                 </li>
-                <li class="user-nav-dropdown user-img">
+                <li style="padding-top: 10px;">
                     <a href="<?php echo base_url('index.php/home/load_home/web/' . $identity . '/' . $uuid . '/' . '1'); ?>"><?php echo $user_name;?></a>
                 </li>
 <!--                <li class="dropdown user-nav-dropdown user-msg">-->
