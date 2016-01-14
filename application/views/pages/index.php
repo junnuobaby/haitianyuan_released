@@ -202,7 +202,7 @@ $yinbang = $silver_rank;
 
         $('.user_identity').click(function () {
             $.ajax({
-                url: '<?php echo base_url("index.php/stock/req_st_data/web/ngs/15/"); ?>' + $(this).data('id'),
+                url: '<?php echo base_url("index.php/stock/req_st_data/web/ngs/15"); ?>' + '/' + $(this).data('id'),
                 method: 'get',
                 dataType: 'json',
                 success: function (response) {
@@ -213,7 +213,7 @@ $yinbang = $silver_rank;
                     }else{
                         identity = 'user';
                     }
-                    window.location.href='<?php echo base_url('index.php/home/load_home/web/'); ?>' + identity + '/' +  id + '/' + '1';
+                    window.location.href='<?php echo base_url('index.php/home/load_home/web'); ?>'+ '/' + identity + '/' +  id + '/' + '1';
                 },
                 error: function () {
                     alert('服务器错误');
