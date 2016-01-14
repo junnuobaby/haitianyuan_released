@@ -164,7 +164,7 @@ $yinbang = $silver_rank;
                                     <?php foreach ($yinbang as $item): ?>
                                         <tr>
                                             <td><?php echo $count; ?></td>
-                                            <td><?php echo $item['user_name']; ?></td>
+                                            <td><a class="user_identity" href="#" data-id="<?php echo $item['user_id'];?>"><?php echo $item['user_name']; ?></a></td>
                                             <td class="formatted"><?php echo round($item['fund']); ?></td>
                                             <td class="render"><?php echo number_format(floatval($item['profit_rate'])*100, 2); ?>%</td>
                                         </tr>
