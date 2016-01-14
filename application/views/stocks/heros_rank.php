@@ -96,8 +96,9 @@ $ranking = 0;
                                             ?>
                                             <?= $ranking; ?></td>
                                         <td class="table_left">
-                                            <img width="20px" height="20px" src="<?php echo base_url('/uploads/' . $item['face_pic']); ?>"
-                                                 alt="..."><a ><?= $item['user_name']; ?></a></td>
+                                            <img width="20px" height="20px" src="<?php echo base_url('/uploads/' . $item['face_pic']); ?>" alt="...">
+                                            <a class="user_identity" href="javascript:;" data-id="<?php echo $item['user_id'];?>"><?= $item['user_name']; ?></a>
+                                        </td>
                                         <td class="formatted table_right"><?= $item['fund']; ?></td>
                                         <td class="table_right"><?= number_format(floatval($item['position']) * 100, 2); ?>
                                             %
@@ -161,8 +162,9 @@ $ranking = 0;
                                                 }
                                                 ?>
                                                 <?= $ranking; ?></td>
-                                            <td class="table_left"><img width="20px" height="20px" src="<?php echo base_url('/uploads/' . $item['face_pic']); ?>"
-                                                                         alt="..."> <?= $item['user_name']; ?></td>
+                                            <td class="table_left"><img width="20px" height="20px" src="<?php echo base_url('/uploads/' . $item['face_pic']); ?>" alt="...">
+                                                <a class="user_identity" href="javascript:;" data-id="<?php echo $item['user_id'];?>"><?= $item['user_name']; ?></a>
+                                            </td>
                                             <td class="formatted table_right"><?= $item['fund']; ?></td>
                                             <td class="table_right"><?= number_format(floatval($item['position']) * 100, 2); ?>
                                                 %
@@ -280,6 +282,27 @@ $ranking = 0;
             } else {
                 $(this).css('color', 'green');
             }
+        });
+
+        $('.user_identity').click(function () {
+            $.ajax({
+                url: '<?php echo base_url("index.php/stock/req_st_data/web/ngs/15"); ?>' + '/' + $(this).data('id'),
+                method: 'get',
+                dataType: 'json',
+                success: function (response) {
+                    var info = response.idc;
+                    var id = info.user_id;
+                    if(info.identity == 1){
+                        var identity = 'master';
+                    }else{
+                        identity = 'user';
+                    }
+                    window.location.href='<?php echo base_url('index.php/home/load_home/web'); ?>'+ '/' + identity + '/' +  id + '/' + '1';
+                },
+                error: function () {
+                    alert('服务器错误');
+                }
+            });
         });
     });
 </script>
