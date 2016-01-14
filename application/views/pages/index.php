@@ -202,7 +202,7 @@ $yinbang = $silver_rank;
 
         $('.user_identity').click(function () {
             $.ajax({
-                url: '<?php echo base_url("/stock/req_st_data/web/ngs/15/"); ?>' + $(this).data('id'),
+                url: '<?php echo base_url("index.php/stock/req_st_data/web/ngs/15/"); ?>' + $(this).data('id'),
                 method: 'get',
                 dataType: 'json',
                 success: function (response) {
