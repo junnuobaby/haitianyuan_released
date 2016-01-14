@@ -25,6 +25,7 @@ $vips = $master_info;
                     <div class="bg-white q_a_container">
                         <div class="panel-body">
                             <?php foreach ($vips as $vip): ?>
+                                <?php echo $vip['master_id'];?>
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="master_avatar_box">
