@@ -11,7 +11,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $user_id = $info['host_id'];
 $vips = $master_info;
 ?>
-<?php echo $vips;?>
 <div class="wrapper">
     <?php
     $data['info'] = $info;
@@ -29,13 +28,13 @@ $vips = $master_info;
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="master_avatar_box">
-                                            <a href= "<?php echo base_url('index.php/home/load_home/web/' . 'master' . '/' . $vip['user_id'] . '/' . '1'); ?>" class="theme-color">
+                                            <a href= "<?php echo base_url('index.php/home/load_home/web/' . 'master' . '/' . $vip['master_id'] . '/' . '1'); ?>" class="theme-color">
                                                 <img src="<?php echo base_url('/uploads/' . $vip['face_pic']); ?>" class="img-responsive img-circle user_homepage_avatar" alt="...">
                                             </a>
                                         </div>
                                     </div>
                                     <div class="col-md-9">
-                                        <h4><a href= "<?php echo base_url('index.php/home/load_home/web/' . 'master' . '/' . $vip['user_id'] . '/' . '1'); ?>" class="theme-color"><?php echo $vip['master_name']; ?></a></h4>
+                                        <h4><a href= "<?php echo base_url('index.php/home/load_home/web/' . 'master' . '/' . $vip['master_id'] . '/' . '1'); ?>" class="theme-color"><?php echo $vip['master_name']; ?></a></h4>
                                         <p>关注 <?php echo $vip['concerns_count']; ?> | 粉丝 <?php echo $vip['fans_count']; ?>
                                             | <?php if ($vip['online_state'] == true) {
                                                 echo '在线';

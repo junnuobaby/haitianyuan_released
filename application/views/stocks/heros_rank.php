@@ -97,7 +97,7 @@ $ranking = 0;
                                             <?= $ranking; ?></td>
                                         <td class="table_left">
                                             <img width="20px" height="20px" src="<?php echo base_url('/uploads/' . $item['face_pic']); ?>"
-                                                 alt="..."> <?= $item['user_name']; ?></td>
+                                                 alt="..."><a ><?= $item['user_name']; ?></a></td>
                                         <td class="formatted table_right"><?= $item['fund']; ?></td>
                                         <td class="table_right"><?= number_format(floatval($item['position']) * 100, 2); ?>
                                             %
