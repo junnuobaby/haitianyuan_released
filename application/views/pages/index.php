@@ -75,10 +75,7 @@ $yinbang = $silver_rank;
                                                     <div class="col-md-2">
                                                         <a href="<?php echo base_url('index.php/home/load_home/web/' . 'master' . '/' . $master['user_id'] . '/' . '1'); ?>"
                                                            class="thumbnail">
-                                                            <img class="img-responsive avatar-radius"
-                                                                 src="<?php echo base_url('/uploads/' . $master['face_pic']); ?>"
-                                                                 alt="...">
-
+                                                            <img class="img-responsive avatar-radius" src="<?php echo base_url('/uploads/' . $master['face_pic']); ?>" alt="...">
                                                             <div class="text-center">
                                                                 <h4 class="theme-color"><?php echo $master['username']; ?></h4>
                                                             </div>
@@ -136,7 +133,7 @@ $yinbang = $silver_rank;
                                         <tr>
                                             <td><?php echo $count; ?></td>
                                             <td><?php echo $item['user_name']; ?></td>
-                                            <td class="formatted"><?php echo round($item['fund']); ?></td>
+                                            <td class="formatted user_identity" data-id="<?php echo $item['user_id'];?>"><?php echo round($item['fund']); ?></td>
                                             <td class="render"><?php echo number_format(floatval($item['profit_rate'])*100, 2); ?>%</td>
                                         </tr>
                                         <?Php $count++;?>
@@ -148,7 +145,6 @@ $yinbang = $silver_rank;
                         <div class="col-md-2">
                             <div style="margin-top: 100px;margin-left: 25px;">
                                 <img src="<?php echo base_url('assets/images/thumbnail/index_vs.png'); ?>"/>
-
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -202,6 +198,27 @@ $yinbang = $silver_rank;
             } else {
                 $(this).css('color', 'green');
             }
+        });
+
+        $('.user_identity').click(function () {
+            $.ajax({
+                url: '<?php echo base_url("/stock/req_st_data/web/ngs/15/"); ?>' + $(this).data('id'),
+                method: 'get',
+                dataType: 'json',
+                success: function (response) {
+                    var info = response.idc;
+                    var id = info.user_id;
+                    if(info.identity == 1){
+                        var identity = 'master';
+                    }else{
+                        identity = 'user';
+                    }
+                    window.location.href='<?php echo base_url('index.php/home/load_home/web/'); ?>' + identity + '/' +  id + '/' + '1';
+                },
+                error: function () {
+                    alert('服务器错误');
+                }
+            });
         });
     });
 </script>
