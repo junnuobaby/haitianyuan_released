@@ -120,7 +120,7 @@ $yinbang = $silver_rank;
                     <div class="row">
                         <div class="col-md-4 col-md-offset-1">
                             <div class="table-responsive">
-                                <table class="table table-bordered table-hover table-condensed">
+                                <table class="table table-striped table-bordered table-hover">
                                     <caption class="caption-jinbang">海天金榜</caption>
                                     <thead>
                                     <tr>
@@ -153,7 +153,7 @@ $yinbang = $silver_rank;
                         </div>
                         <div class="col-md-4">
                             <div class="table-responsive">
-                                <table class="table table-bordered table-hover table-condensed">
+                                <table class="table table-striped table-bordered table-hover">
                                     <caption class="caption-yinbang">海天银榜</caption>
                                     <thead>
                                     <tr>
