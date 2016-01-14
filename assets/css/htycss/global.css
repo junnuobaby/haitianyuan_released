@@ -101,3 +101,6 @@ a.btn.bg-theme:hover,button.btn.bg-theme:hover{
 .ht_indent{
     padding-left: 2em;
 }
+.clickable{
+    cursor: hand;
+}
