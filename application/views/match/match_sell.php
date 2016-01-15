@@ -182,20 +182,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 var response = data.st_info;
                 is_bond = (data.is_bond == 1);
                 var bond_name = response.Symbol; //ajax获取证券名称
-                var bond_cur_price = decimal(response.TradePrice); //获取最新价
-                var bond_lastday_price = decimal(response.PreClosePx); //获取昨日收盘价
-                var bond_highest = decimal(1.1 * bond_lastday_price); //涨停
-                var bond_lowest = decimal(0.9 * bond_lastday_price); //跌停
+                var bond_cur_price = is_bond ? decimal_3(response.TradePrice) : decimal(response.TradePrice); //获取最新价
+                var bond_lastday_price = is_bond ? decimal_3(response.PreClosePx) : decimal(response.PreClosePx); //获取昨日收盘价
+                var bond_highest = is_bond ? decimal_3(1.1 * bond_lastday_price) : decimal(1.1 * bond_lastday_price); //涨停
+                var bond_lowest = is_bond ? decimal_3(0.9 * bond_lastday_price) : decimal(0.9 * bond_lastday_price); //跌停
                 var sell_1ist = [response.SellPrice1, response.SellPrice2, response.SellPrice3, response.SellPrice4, response.SellPrice5]; //卖五
                 var buy_1ist = [response.BuyPrice1, response.BuyPrice2, response.BuyPrice3, response.BuyPrice4, response.BuyPrice5];  //买五
                 var sell_volume = [response.SellVolume1, response.SellVolume2, response.SellVolume3, response.SellVolume4, response.SellVolume5]; //卖五
                 var buy_volume = [response.BuyVolume1, response.BuyVolume2, response.BuyVolume3, response.BuyVolume4, response.BuyVolume5];  //买五
 
                 for(var j= 0; j < sell_1ist.length; j++){
-                    sell_1ist[j] = decimal(sell_1ist[j]);
-                    sell_volume[j] = format_num(sell_volume[j]);
-                    buy_1ist[j] = decimal(buy_1ist[j]);
-                    buy_volume[j] = format_num(buy_volume[j]);
+                    sell_1ist[j] = is_bond ? decimal_3(sell_1ist[j]) : decimal(sell_1ist[j]);
+                    sell_volume[j] = is_bond ? format_num_3(sell_volume[j]) : format_num(sell_volume[j]);
+                    buy_1ist[j] = is_bond ? decimal_3(buy_1ist[j]) : decimal(buy_1ist[j]);
+                    buy_volume[j] = is_bond ? format_num_3(buy_volume[j]) : format_num(buy_volume[j]);
                 }
 
                 var bond_price_cnt = '<tr><td>最新：</td><td>' + bond_cur_price + '</td></tr>';
