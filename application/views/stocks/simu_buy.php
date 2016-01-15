@@ -266,10 +266,10 @@
                 var response = data.st_info;
                 var bond_name = response.Symbol; //ajax获取证券名称
                 is_bond = (data.is_bond == 1); //判断是否为债券
-                var bond_cur_price = decimal(response.TradePrice); //获取最新价
-                var bond_lastday_price = decimal(response.PreClosePx); //获取昨日收盘价
-                var bond_highest = decimal(1.1 * bond_lastday_price); //涨停
-                var bond_lowest = decimal(0.9 * bond_lastday_price); //跌停
+                var bond_cur_price = is_bond ? decimal_3(response.TradePrice) : decimal(response.TradePrice); //获取最新价
+                var bond_lastday_price = is_bond ? decimal_3(response.PreClosePx) : decimal(response.PreClosePx); //获取昨日收盘价
+                var bond_highest = is_bond ? decimal_3(1.1 * bond_lastday_price) : decimal(1.1 * bond_lastday_price); //涨停
+                var bond_lowest = is_bond ? decimal_3(0.9 * bond_lastday_price) : decimal(0.9 * bond_lastday_price); //跌停
                 var sell_1ist = [response.SellPrice1, response.SellPrice2, response.SellPrice3, response.SellPrice4, response.SellPrice5]; //卖五
                 var buy_1ist = [response.BuyPrice1, response.BuyPrice2, response.BuyPrice3, response.BuyPrice4, response.BuyPrice5];  //买五
                 var sell_volume = [response.SellVolume1, response.SellVolume2, response.SellVolume3, response.SellVolume4, response.SellVolume5]; //卖五
