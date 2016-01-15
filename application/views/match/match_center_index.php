@@ -271,13 +271,13 @@ $month_rank = floatval($basic_info['month_rank']);
                         $(tr_id).children('td.stock_extend').html(id_extent + '%').css('color', (parseFloat(id_extent) > 0) ? 'red' : 'green');}
                     for (key in bond_info) {
                         tr_id = '#' + key;
-                        trade_price = decimal(bond_info[key]['TradePrice']);
+                        trade_price = decimal_3(bond_info[key]['TradePrice']);
                         id_extent = decimal(parseFloat(bond_info[key]['id_extent']) * 100);
                         $(tr_id).children('td.bond_present_price').html(trade_price);
                         $(tr_id).children('td.bond_pl_value').html(format_num(decimal(bond_info[key]['float_pl']))).css('color', (parseFloat(bond_info[key]['float_pl']) > 0) ? 'red' : 'green');
                         $(tr_id).children('td.bond_pl_rate').html(format_num(bond_info[key]['float_pl_rate']) + '%').css('color', (parseFloat(bond_info[key]['float_pl_rate']) > 0) ? 'red' : 'green');
                         $(tr_id).children('td.bond_extend').html(id_extent + '%').css('color', (parseFloat(id_extent) > 0) ? 'red' : 'green');
-                        $(tr_id).children('td.completed_cost').html(format_num(parseFloat($(tr_id).data('interest')) + parseFloat(trade_price)));
+                        $(tr_id).children('td.completed_cost').html(format_num_3(parseFloat($(tr_id).data('interest')) + parseFloat(trade_price)));
                     }
                     /**
                      * 绘制资金分布饼图
