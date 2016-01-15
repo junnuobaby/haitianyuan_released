@@ -328,6 +328,7 @@
                 if (bond_price.length > 0 && !isNaN(bond_price) && parseFloat(bond_price) > 0) {
                     bond_price = decimal(bond_price);
                     available_money = parseFloat(available_money);
+                    alert(is_bond);
                     var quantity_avail = (is_bond) ? parseInt(available_money / (bond_price * 10)) : parseInt(available_money / (bond_price * 100));
                     $('div.largest_quantity').removeClass('hidden');
                     $('#largest_quantity').html(quantity_avail);
