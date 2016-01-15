@@ -262,7 +262,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             else {
                 var response = data.st_info;
                 var bond_name = response.Symbol; //ajax获取证券名称
-                is_bond = response.is_bond; //判断是否为债券
+                is_bond = (data.is_bond == 1);
                 var bond_cur_price = decimal(response.TradePrice); //获取最新价
                 var bond_lastday_price = decimal(response.PreClosePx); //获取昨日收盘价
                 var bond_highest = decimal(1.1 * bond_lastday_price); //涨停

@@ -277,9 +277,9 @@
 
                 for(var j= 0; j < sell_1ist.length; j++){
                     sell_1ist[j] = is_bond ? decimal_3(sell_1ist[j]) : decimal(sell_1ist[j]);
-                    sell_volume[j] = format_num(sell_volume[j]);
-                    buy_1ist[j] = decimal(buy_1ist[j]);
-                    buy_volume[j] = format_num(buy_volume[j]);
+                    sell_volume[j] = is_bond ? format_num_3(sell_volume[j]) : format_num(sell_volume[j]);
+                    buy_1ist[j] = is_bond ? decimal_3(buy_1ist[j]) : decimal(buy_1ist[j]);
+                    buy_volume[j] = is_bond ? format_num_3(buy_volume[j]) : format_num(buy_volume[j]);
                 }
 
                 var bond_price_cnt = '<tr><td>最新：</td><td>' + bond_cur_price + '</td></tr>';
