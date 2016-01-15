@@ -266,6 +266,7 @@
                 var response = data.st_info;
                 var bond_name = response.Symbol; //ajax获取证券名称
                 is_bond = response.is_bond; //判断是否为债券
+                alert(is_bond);
                 var bond_cur_price = decimal(response.TradePrice); //获取最新价
                 var bond_lastday_price = decimal(response.PreClosePx); //获取昨日收盘价
                 var bond_highest = decimal(1.1 * bond_lastday_price); //涨停
@@ -328,7 +329,6 @@
                 if (bond_price.length > 0 && !isNaN(bond_price) && parseFloat(bond_price) > 0) {
                     bond_price = decimal(bond_price);
                     available_money = parseFloat(available_money);
-                    alert(is_bond);
                     var quantity_avail = (is_bond) ? parseInt(available_money / (bond_price * 10)) : parseInt(available_money / (bond_price * 100));
                     $('div.largest_quantity').removeClass('hidden');
                     $('#largest_quantity').html(quantity_avail);
