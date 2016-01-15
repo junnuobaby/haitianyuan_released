@@ -167,7 +167,7 @@ $month_rank = floatval($basic_info['month_rank']);
                                                 <tr id="<?php echo $stock_item['SecurityID']; ?>" data-interest="<?php echo $stock_item['interest']; ?>">
                                                     <td><?php echo $stock_item['SecurityID']; ?></td>
                                                     <td><?php echo $stock_item['Symbol']; ?></td>
-                                                    <td><?php echo number_format(floatval($stock_item['BuyCost']), 2); ?></td>
+                                                    <td><?php echo number_format(floatval($stock_item['BuyCost']), 3); ?></td>
                                                     <td class="bond_present_price"></td>
                                                     <td class="completed_cost"></td>
                                                     <td class="formatted"><?php echo intval($stock_item['Volume_All']); ?></td>
