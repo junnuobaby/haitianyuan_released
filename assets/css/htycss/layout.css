@@ -88,6 +88,7 @@ footer.page_footer p {
     margin-top: 5px;
     margin-bottom: 0;
     padding-bottom: 10px;
+    background-color: #d9d9d9;
 }
 /*反馈,回到顶部*/
 .fixed-bar{
