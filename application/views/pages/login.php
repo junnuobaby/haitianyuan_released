@@ -84,7 +84,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <p class="theme-color hidden" id="user_mobile_error"></p>
             <div class="input-group <?php echo $code_error ? 'has-error' : ''; ?>">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-eye-open"></span></span>
-                <input type="text" class="form-control" id="verification_code" name="phone_code" required value="<?php echo !$code_error ? set_value('phone_code') : ''; ?>" placeholder="<?php if($code_error) echo $code_error; else echo '验证码' ?>">
+                <input type="text" class="form-control" id="verification_code" name="phone_code" required value="<?php echo !$code_error ? set_value('phone_code') : ''; ?>" placeholder="<?php if($code_error) echo $code_error; else echo '手机验证码' ?>">
                 <div class="input-group-btn"><button id="send_code" type="button" class="btn bg-theme" disabled="disabled">获取验证码</button></div>
             </div>
             <p class="theme-color hidden nick_name_error" id="ver_code_error"></p>
