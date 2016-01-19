@@ -169,10 +169,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         var password = $('#password');
         var password_agin = $('#password_again');
         var validate_code = $('#verification_code');
-        
-        $('input').focus(function () {
-            $('.input_alert_error').addClass('hidden');
-        });
 
         /**
          * 发送手机验证码
