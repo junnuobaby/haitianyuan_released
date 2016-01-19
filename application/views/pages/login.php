@@ -61,17 +61,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <?php $nickname_error = form_error('nick_name'); ?>
             <?php $pwd_error = form_error('password'); ?>
             <?php echo form_open('register/load_info', 'class="form-horizontal login_form"'); ?>
-            <div class="input-group <?php echo $phone_error ? 'has-error' : ''; ?>">
-                <span class="input-group-addon"><span class="glyphicon glyphicon-earphone"></span></span>
-                <input type="tel" class="form-control" id="user_mobile" name="phone_number" required value="<?php echo !$phone_error ? set_value('phone_number') : ''; ?>" placeholder="<?php if($phone_error) echo $phone_error; else echo '手机号' ?>">
-            </div>
-            <p class="theme-color hidden" id="user_mobile_error"></p>
-            <div class="input-group <?php echo $code_error ? 'has-error' : ''; ?>">
-                <span class="input-group-addon"><span class="glyphicon glyphicon-eye-open"></span></span>
-                <input type="text" class="form-control" id="verification_code" name="phone_code" required value="<?php echo !$code_error ? set_value('phone_code') : ''; ?>" placeholder="<?php if($code_error) echo $code_error; else echo '验证码' ?>">
-                <div class="input-group-btn"><button id="send_code" type="button" class="btn bg-theme" disabled="disabled">获取验证码</button></div>
-            </div>
-            <p class="theme-color hidden nick_name_error" id="ver_code_error"></p>
             <div class="input-group <?php echo $nickname_error ? 'has-error' : ''; ?>">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                 <input type="text" class="form-control" id="nick_name" name="nick_name" required value="<?php echo !$nickname_error ? set_value('nick_name') : ''; ?>" placeholder="<?php if($nickname_error) echo $nickname_error; else echo '请输入昵称' ?>">
@@ -88,6 +77,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <input type="password" class="form-control" id="password_again" required placeholder="请再次输入密码">
             </div>
             <p class="theme-color hidden" id="pwd_again_error"></p>
+            <div class="input-group <?php echo $phone_error ? 'has-error' : ''; ?>">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-earphone"></span></span>
+                <input type="tel" class="form-control" id="user_mobile" name="phone_number" required value="<?php echo !$phone_error ? set_value('phone_number') : ''; ?>" placeholder="<?php if($phone_error) echo $phone_error; else echo '手机号' ?>">
+            </div>
+            <p class="theme-color hidden" id="user_mobile_error"></p>
+            <div class="input-group <?php echo $code_error ? 'has-error' : ''; ?>">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-eye-open"></span></span>
+                <input type="text" class="form-control" id="verification_code" name="phone_code" required value="<?php echo !$code_error ? set_value('phone_code') : ''; ?>" placeholder="<?php if($code_error) echo $code_error; else echo '验证码' ?>">
+                <div class="input-group-btn"><button id="send_code" type="button" class="btn bg-theme" disabled="disabled">获取验证码</button></div>
+            </div>
+            <p class="theme-color hidden nick_name_error" id="ver_code_error"></p>
             <div class="row pwd-help-info">
                 <div class="col-md-12">
                     <div class="login-btn-div">
