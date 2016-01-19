@@ -82,11 +82,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <input type="password" style="display:none">
                 <input type="password" class="form-control" id="password" name="password" required placeholder="<?php if($pwd_error) echo $pwd_error; else echo '密码 (不少于6位)' ?>">
             </div>
+            <p class="theme-color hidden" id="pwd_error"></p>
             <div class="input-group <?php echo $pwd_error ? 'has-error' : ''; ?>">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
                 <input type="password" class="form-control" id="password_again" required placeholder="再次输入密码">
             </div>
-            <p class="theme-color hidden" id="pwd_error"></p>
             <div class="row pwd-help-info">
                 <div class="col-md-12">
                     <div class="login-btn-div">
