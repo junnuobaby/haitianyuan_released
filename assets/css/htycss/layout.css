@@ -85,8 +85,8 @@ footer.page_footer a {
     color: #555555;
 }
 footer.page_footer p {
-    margin-top: 10px;
-    margin-bottom: 0;
+    margin-top: 5px;
+    margin-bottom: 10px;
 }
 /*反馈,回到顶部*/
 .fixed-bar{
