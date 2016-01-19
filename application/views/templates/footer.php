@@ -7,7 +7,7 @@
                 <span><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a href="<?php echo base_url("index.php/info/contactus"); ?>"> 联系我们</a></span> |
                 <span><i class="glyphicon glyphicon-question-sign" aria-hidden="true"></i><a href="<?php echo base_url("index.php/info/user_help"); ?>"> 帮助</a></span> |
                 <span><i class="glyphicon glyphicon-eye-open" aria-hidden="true"></i><a href="<?php echo base_url("index.php/info/lcs"); ?>"> 理财师</a></span>
-                <p>Copyright ? 2015-2050 HaiTianHuLian Corparation, All rights reserved.</p>
+                <p>深圳海知科技有限公司 版权所有 | <a href="http://www.miitbeian.gov.cn/state/outPortal/loginPortal.action;jsessionid=3nXdWdffYvhRZ8HN6TB6hTgcVT95RNQyHyJgd14Q0StBDHcWWv63!-70556864">粤ICP备16004052号</a></p>
             </div>
         </div>
     </div>
