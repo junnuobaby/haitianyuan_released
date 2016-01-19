@@ -85,8 +85,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <p class="theme-color hidden" id="pwd_error"></p>
             <div class="input-group <?php echo $pwd_error ? 'has-error' : ''; ?>">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                <input type="password" class="form-control" id="password_again" required placeholder="再次输入密码">
+                <input type="password" class="form-control" id="password_again" required placeholder="请再次输入密码">
             </div>
+            <p class="theme-color hidden" id="pwd_again_error"></p>
             <div class="row pwd-help-info">
                 <div class="col-md-12">
                     <div class="login-btn-div">
@@ -166,6 +167,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         var user_mobile = $('#user_mobile');
         var nick_name = $('#nick_name');
         var password = $('#password');
+        var password_agin = $('#password_again');
         var validate_code = $('#verification_code');
 
         /**
@@ -259,6 +261,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         password.focus(function () {
             $('#pwd_error').addClass('hidden');
         });
+
+        password_agin.blur(function () {
+            var value = $.trim(password.val());
+            var again_value = $.trim(password_agin.val());
+            if (again_value != value) {
+                $('#pwd_again_error').removeClass('hidden').html('(前后两次输入的密码不一致！)');
+            } else {
+                $('#pwd_again_error').addClass('hidden');
+            }
+        });
+
+
     });
 
     /**
