@@ -74,7 +74,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <p class="theme-color hidden input_alert_error" id="pwd_error"></p>
             <div class="input-group <?php echo $pwd_error ? 'has-error' : ''; ?>">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                <input type="password" class="form-control" id="password_again" required placeholder="请再次输入密码">
+                <input type="password" class="form-control" id="password_again"  name="password_again" required placeholder="请再次输入密码">
             </div>
             <p class="theme-color hidden input_alert_error" id="pwd_again_error"></p>
             <div class="input-group <?php echo $phone_error ? 'has-error' : ''; ?>">
