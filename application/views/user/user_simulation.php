@@ -157,8 +157,8 @@ $fpl_rate = $stock['pl_rate'];
                                             <td><?php echo $stock_item['Symbol']; ?></td>
                                             <td class="formatted"><?php echo intval($stock_item['Volume_All']); ?></td>
                                             <td class="formatted"><?php echo $sell_avail;?></td>
-                                            <td><?php echo number_format(floatval($stock_item['BuyCost']), 2); ?></td>
-                                            <td><?php echo number_format(floatval($stock_item['TradePrice']), 2); ?></td>
+                                            <td><?php echo number_format(floatval($stock_item['BuyCost']), 3); ?></td>
+                                            <td><?php echo number_format(floatval($stock_item['TradePrice']), 3); ?></td>
                                             <td class="render"><?php echo number_format(floatval($stock_item['float_pl'])); ?></td>
                                             <td class="render"><span class="formatted"><?php echo $stock_item['float_pl_rate']; ?></span>%</td>
                                         </tr>
