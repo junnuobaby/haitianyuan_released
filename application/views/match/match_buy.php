@@ -342,6 +342,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         //买入按钮事件
         $('#buy').click(function () {
+            alert(bond_interest);
             var bond_code = $('#bond_code').val(); //证券代码
             var bond_name = $('#bond_name').html(); //证券名称
             var bond_price = decimal($('#buy_price').val()); //买入价格
