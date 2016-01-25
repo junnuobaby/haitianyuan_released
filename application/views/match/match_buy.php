@@ -36,6 +36,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <div class="hint_list"></div>
                                             </div>
                                         </div>
+                                        <div class="form-group">
+                                            <label for="profit_end" class="col-sm-4 control-label">到期时间:</label>
+                                            <div class="col-sm-8 bond_code_div">
+                                                <input type="text" class="form-control" id="profit_end">
+                                            </div>
+                                        </div>
                                         <div class="form-group hidden bond_full_price">
                                             <label class="col-sm-4 control-label">当前全价:</label>
                                             <div class="col-sm-8">
@@ -136,6 +142,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     var interval;
     var is_bond = false;
     var bond_interest = 0;
+    var profit_end;
+
     $(document).ready(function () {
         $('.main_jumptron').css('margin-bottom', '0px');
         $('.formatted').each(function () {
@@ -275,8 +283,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 var bond_name = response.Symbol; //ajax获取证券名称
                 is_bond = (data.is_bond == 1);
                 bond_interest = is_bond ? decimal_3(response.interest) : 0;
+                profit_end = is_bond ? response.profit_end : null;
+
                 if(isNaN(bond_interest)){
-                    alert('暂不支持该股票！');
+                    alert('暂不支持该证券！');
                 }else{
                     var bond_cur_price = is_bond ? decimal_3(response.TradePrice) : decimal(response.TradePrice); //获取最新价
                     var bond_lastday_price = is_bond ? decimal_3(response.PreClosePx) : decimal(response.PreClosePx); //获取昨日收盘价
@@ -288,8 +298,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     var buy_volume = [response.BuyVolume1, response.BuyVolume2, response.BuyVolume3, response.BuyVolume4, response.BuyVolume5];  //买五
 
                     if(is_bond){
+
                         $('.bond_full_price').removeClass('hidden');
                         $('#bond_full_price').html(decimal_3(bond_cur_price + bond_interest));
+                        $('#profit_end').val(profit_end);
                     }
 
                     for(var j= 0; j < sell_1ist.length; j++){
