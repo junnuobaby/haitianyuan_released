@@ -268,9 +268,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 var bond_name = response.Symbol; //ajax获取证券名称
                 is_bond = (data.is_bond == 1);
                 bond_interest = is_bond ? decimal_3(response.interest) : 0;
-                profit_end = is_bond ? response.profit_end : null;
+                profit_end = is_bond ? response.profit_end : '-';
 
-                if(isNaN(bond_interest)){
+                if(isNaN(bond_interest) || profit_end == null){
                     alert('暂不支持该证券！');
                 }else{
                     var bond_cur_price = is_bond ? decimal_3(response.TradePrice) : decimal(response.TradePrice); //获取最新价
