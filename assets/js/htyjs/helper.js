@@ -35,9 +35,9 @@ function format_num_3(s){
  */
 function decimal(s){
     var result = parseFloat(s).toFixed(2);
-    return result;
+    return Number(result);
 }
 function decimal_3(s){
     var result = parseFloat(s).toFixed(3);
-    return result;
+    return Number(result);
 }
