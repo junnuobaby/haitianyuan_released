@@ -332,7 +332,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     bond_interest = decimal(bond_interest);
                     bond_price = decimal(bond_price);
                     available_money = parseFloat(available_money);
-                    alert(bond_price);
+                    alert(bond_price + bond_interest);
                     var quantity_avail = (is_bond) ? parseInt(available_money / ((bond_price + bond_interest) * 10)) : parseInt(available_money / (bond_price * 100));
                     $('div.largest_quantity').removeClass('hidden');
                     $('#largest_quantity').html(quantity_avail);
