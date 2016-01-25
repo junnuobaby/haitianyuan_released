@@ -289,6 +289,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                     if(is_bond){
                         $('.bond_full_price').removeClass('hidden');
+                        alert(bond_cur_price + ',' + bond_interest);
                         $('#bond_full_price').html(decimal_3(bond_cur_price + bond_interest));
                     }
 
