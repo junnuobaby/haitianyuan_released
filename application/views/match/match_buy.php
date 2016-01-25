@@ -274,7 +274,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 var response = data.st_info;
                 var bond_name = response.Symbol; //ajax获取证券名称
                 is_bond = (data.is_bond == 1);
-                bond_interest = is_bond ? response.interest : 0;
+                bond_interest = is_bond ? decimal_3(response.interest) : 0;
                 if(isNaN(bond_interest)){
                     alert('暂不支持该股票！');
                 }else{
