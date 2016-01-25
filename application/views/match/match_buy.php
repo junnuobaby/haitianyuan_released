@@ -126,7 +126,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
      */
     var interval;
     var is_bond = false;
-    var bond_interest;
+    var bond_interest = 0;
     $(document).ready(function () {
         $('.main_jumptron').css('margin-bottom', '0px');
         $('.formatted').each(function () {
@@ -266,6 +266,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 var bond_name = response.Symbol; //ajax获取证券名称
                 is_bond = (data.is_bond == 1);
                 bond_interest = is_bond ? response.interest : 0;
+                if(isNaN(bond_interest)){
+                    alert('暂不支持该股票！');
+                }
                 var bond_cur_price = is_bond ? decimal_3(response.TradePrice) : decimal(response.TradePrice); //获取最新价
                 var bond_lastday_price = is_bond ? decimal_3(response.PreClosePx) : decimal(response.PreClosePx); //获取昨日收盘价
                 var bond_highest = is_bond ? decimal_3(1.1 * bond_lastday_price) : decimal(1.1 * bond_lastday_price); //涨停
@@ -328,9 +331,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 if (bond_price.length > 0 && !isNaN(bond_price) && parseFloat(bond_price) > 0) {
                     bond_interest = parseFloat(bond_interest);
                     bond_price = decimal(bond_price);
+                    alert(bond_interest);
                     available_money = parseFloat(available_money);
                     var quantity_avail = (is_bond) ? parseInt(available_money / ((bond_price + bond_interest) * 10)) : parseInt(available_money / (bond_price * 100));
-                    alert(quantity_avail);
                     $('div.largest_quantity').removeClass('hidden');
                     $('#largest_quantity').html(quantity_avail);
                 }
