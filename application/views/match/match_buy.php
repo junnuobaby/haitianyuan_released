@@ -267,7 +267,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 var response = data.st_info;
                 var bond_name = response.Symbol; //ajax获取证券名称
                 is_bond = (data.is_bond == 1);
-                bond_interest = is_bond ? decimal_3(response.interest) : 0;
+                bond_interest = is_bond ? parseFloat(response.interest) : 0;
                 profit_end = is_bond ? response.profit_end : '-';
 
                 if(isNaN(bond_interest) || profit_end == null){
@@ -296,9 +296,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     bond_price_cnt += '<tr><td>跌停：</td><td>' + bond_lowest + '</td></tr>';
 
                     if(is_bond){
-                        var full_price = parseFloat(bond_cur_price) + parseFloat(bond_interest);
-                        alert(bond_cur_price);
-                        bond_price_cnt += '<tr><td>全价：</td><td>' + decimal_3(full_price) + '</td></tr>';
+                        bond_price_cnt += '<tr><td>全价：</td><td>' + decimal_3(bond_interest + parseFloat(bond_cur_price)) + '</td></tr>';
                         bond_price_cnt += '<tr><td>到期：</td><td>' + profit_end + '</td></tr>';
                     }
 
