@@ -341,8 +341,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     $('span.buy_price_alert').removeClass('hidden');
                 }
                 if (bond_price.length > 0 && !isNaN(bond_price) && parseFloat(bond_price) > 0 && !isNaN(bond_interest)) {
-                    bond_interest = decimal(bond_interest);
-                    bond_price = decimal(bond_price);
+                    bond_interest = parseFloat(bond_interest);
+                    bond_price = parseFloat(bond_price);
                     available_money = parseFloat(available_money);
                     var quantity_avail = (is_bond) ? parseInt(available_money / ((bond_price + bond_interest) * 10)) : parseInt(available_money / (bond_price * 100));
                     $('div.largest_quantity').removeClass('hidden');
