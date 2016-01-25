@@ -36,7 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <div class="hint_list"></div>
                                             </div>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group profit_end hidden">
                                             <label for="profit_end" class="col-sm-4 control-label">到期时间:</label>
                                             <div class="col-sm-8 bond_code_div">
                                                 <input type="text" class="form-control" id="profit_end">
@@ -298,7 +298,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     var buy_volume = [response.BuyVolume1, response.BuyVolume2, response.BuyVolume3, response.BuyVolume4, response.BuyVolume5];  //买五
 
                     if(is_bond){
-
+                        $('.profit_end').removeClass('hidden');
                         $('.bond_full_price').removeClass('hidden');
                         $('#bond_full_price').html(decimal_3(bond_cur_price + bond_interest));
                         $('#profit_end').val(profit_end);
