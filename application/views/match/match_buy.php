@@ -36,21 +36,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <div class="hint_list"></div>
                                             </div>
                                         </div>
-                                        <div class="form-group profit_end hidden">
-                                            <label for="profit_end" class="col-sm-4 control-label">到期时间:</label>
-                                            <div class="col-sm-8 bond_code_div">
-                                                <input type="text" class="form-control" id="profit_end">
-                                            </div>
-                                        </div>
-                                        <div class="form-group hidden bond_full_price">
-                                            <label class="col-sm-4 control-label">当前全价:</label>
-                                            <div class="col-sm-8">
-                                                <div class="input-group">
-                                                    <span class="form-control warning_bg_color formatted" id="bond_full_price"></span>
-                                                    <div class="input-group-addon">元</div>
-                                                </div>
-                                            </div>
-                                        </div>
                                         <div class="form-group">
                                             <label for="buy_price" class="col-sm-4 control-label">买入价格:</label>
                                             <div class="col-sm-8">
@@ -297,12 +282,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     var sell_volume = [response.SellVolume1, response.SellVolume2, response.SellVolume3, response.SellVolume4, response.SellVolume5]; //卖五
                     var buy_volume = [response.BuyVolume1, response.BuyVolume2, response.BuyVolume3, response.BuyVolume4, response.BuyVolume5];  //买五
 
-                    if(is_bond){
-                        $('.profit_end').removeClass('hidden');
-                        $('.bond_full_price').removeClass('hidden');
-                        $('#bond_full_price').html(decimal_3(bond_cur_price + bond_interest));
-                        $('#profit_end').val(profit_end);
-                    }
 
                     for(var j= 0; j < sell_1ist.length; j++){
                         sell_1ist[j] = is_bond ? decimal_3(sell_1ist[j]) : decimal(sell_1ist[j]);
@@ -315,6 +294,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     bond_price_cnt += '<tr><td>昨收：</td><td>' + bond_lastday_price + '</td></tr>';
                     bond_price_cnt += '<tr><td>涨停：</td><td>'+ bond_highest +'</td></tr>';
                     bond_price_cnt += '<tr><td>跌停：</td><td>' + bond_lowest + '</td></tr>';
+
+                    if(is_bond){
+                        bond_price_cnt += '<tr><td>全价：</td><td>' + decimal_3(bond_cur_price + bond_interest) + '</td></tr>';
+                        bond_price_cnt += '<tr><td>到期：</td><td>' + profit_end + '</td></tr>';
+                    }
+
                     $('#bond_name').html(bond_name);
                     $('#bond_price').html(bond_price_cnt);
 
