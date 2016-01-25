@@ -347,7 +347,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             var bond_name = $('#bond_name').html(); //证券名称
             var bond_price = decimal($('#buy_price').val()); //买入价格
             var bond_quantity = $('#buy_quantity').val(); //买入数量(以手为单位)
-            var info_str = '确定买入' + bond_quantity + '手' + bond_name + '?';
+            var info_str = '确定买入' + bond_quantity + '手' + bond_name + '?' + bond_interest;
             var bond_quantities = (is_bond) ? parseInt(bond_quantity) * 10 : parseInt(bond_quantity) * 100; //买入股数
 
             if (validate(bond_code, bond_price, bond_quantity) && validate_charge(bond_quantities, bond_price, "<?php echo $cash_use;?>")) {
