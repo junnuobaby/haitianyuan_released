@@ -329,7 +329,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     $('span.buy_price_alert').removeClass('hidden');
                 }
                 if (bond_price.length > 0 && !isNaN(bond_price) && parseFloat(bond_price) > 0 && !isNaN(bond_interest)) {
-                    bond_interest = decimal(bond_interest);
+                    bond_interest = parseFloat(bond_interest);
                     bond_price = decimal(bond_price);
                     available_money = parseFloat(available_money);
                     alert(bond_price + bond_interest);
