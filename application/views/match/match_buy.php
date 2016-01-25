@@ -36,7 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <div class="hint_list"></div>
                                             </div>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group hidden">
                                             <label class="col-sm-4 control-label">当前全价:</label>
                                             <div class="col-sm-8">
                                                 <div class="input-group">
