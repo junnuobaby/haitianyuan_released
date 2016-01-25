@@ -296,7 +296,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     bond_price_cnt += '<tr><td>跌停：</td><td>' + bond_lowest + '</td></tr>';
 
                     if(is_bond){
-                        bond_price_cnt += '<tr><td>全价：</td><td>' + decimal_3(bond_cur_price + bond_interest) + '</td></tr>';
+                        bond_price_cnt += '<tr><td>全价：</td><td>' + decimal_3(parseFloat(parseFloat(bond_cur_price) + parseFloat(bond_cur_price))) + '</td></tr>';
                         bond_price_cnt += '<tr><td>到期：</td><td>' + profit_end + '</td></tr>';
                     }
 
