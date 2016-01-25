@@ -297,7 +297,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                     if(is_bond){
                         var full_price = parseFloat(bond_cur_price) + parseFloat(bond_interest);
-                        alert(typeof bond_cur_price);
+                        alert(bond_cur_price);
                         bond_price_cnt += '<tr><td>全价：</td><td>' + decimal_3(full_price) + '</td></tr>';
                         bond_price_cnt += '<tr><td>到期：</td><td>' + profit_end + '</td></tr>';
                     }
