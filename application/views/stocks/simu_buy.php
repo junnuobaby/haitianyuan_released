@@ -128,6 +128,9 @@
      */
     var interval;
     var is_bond = false;
+    var bond_interest = 0;
+    var profit_end;
+
     $(document).ready(function () {
         $('.main_jumptron').css('margin-bottom', '0px');
         $('.formatted').each(function () {
@@ -265,55 +268,68 @@
             else {
                 var response = data.st_info;
                 var bond_name = response.Symbol; //ajax获取证券名称
-                is_bond = (data.is_bond == 1); //判断是否为债券
-                var bond_cur_price = is_bond ? decimal_3(response.TradePrice) : decimal(response.TradePrice); //获取最新价
-                var bond_lastday_price = is_bond ? decimal_3(response.PreClosePx) : decimal(response.PreClosePx); //获取昨日收盘价
-                var bond_highest = is_bond ? decimal_3(1.1 * bond_lastday_price) : decimal(1.1 * bond_lastday_price); //涨停
-                var bond_lowest = is_bond ? decimal_3(0.9 * bond_lastday_price) : decimal(0.9 * bond_lastday_price); //跌停
-                var sell_1ist = [response.SellPrice1, response.SellPrice2, response.SellPrice3, response.SellPrice4, response.SellPrice5]; //卖五
-                var buy_1ist = [response.BuyPrice1, response.BuyPrice2, response.BuyPrice3, response.BuyPrice4, response.BuyPrice5];  //买五
-                var sell_volume = [response.SellVolume1, response.SellVolume2, response.SellVolume3, response.SellVolume4, response.SellVolume5]; //卖五
-                var buy_volume = [response.BuyVolume1, response.BuyVolume2, response.BuyVolume3, response.BuyVolume4, response.BuyVolume5];  //买五
+                is_bond = (data.is_bond == 1);
+                bond_interest = is_bond ? parseFloat(response.interest) : 0;
+                profit_end = is_bond ? response.profit_end : '-';
 
-                for(var j= 0; j < sell_1ist.length; j++){
-                    sell_1ist[j] = is_bond ? decimal_3(sell_1ist[j]) : decimal(sell_1ist[j]);
-                    sell_volume[j] = is_bond ? format_num_3(sell_volume[j]) : format_num(sell_volume[j]);
-                    buy_1ist[j] = is_bond ? decimal_3(buy_1ist[j]) : decimal(buy_1ist[j]);
-                    buy_volume[j] = is_bond ? format_num_3(buy_volume[j]) : format_num(buy_volume[j]);
-                }
+                if(isNaN(bond_interest) || profit_end == null){
+                    alert('暂不支持该证券！');
+                }else{
+                    var bond_cur_price = is_bond ? decimal_3(response.TradePrice) : decimal(response.TradePrice); //获取最新价
+                    var bond_lastday_price = is_bond ? decimal_3(response.PreClosePx) : decimal(response.PreClosePx); //获取昨日收盘价
+                    var bond_highest = is_bond ? decimal_3(1.1 * bond_lastday_price) : decimal(1.1 * bond_lastday_price); //涨停
+                    var bond_lowest = is_bond ? decimal_3(0.9 * bond_lastday_price) : decimal(0.9 * bond_lastday_price); //跌停
+                    var sell_1ist = [response.SellPrice1, response.SellPrice2, response.SellPrice3, response.SellPrice4, response.SellPrice5]; //卖五
+                    var buy_1ist = [response.BuyPrice1, response.BuyPrice2, response.BuyPrice3, response.BuyPrice4, response.BuyPrice5];  //买五
+                    var sell_volume = [response.SellVolume1, response.SellVolume2, response.SellVolume3, response.SellVolume4, response.SellVolume5]; //卖五
+                    var buy_volume = [response.BuyVolume1, response.BuyVolume2, response.BuyVolume3, response.BuyVolume4, response.BuyVolume5];  //买五
 
-                var bond_price_cnt = '<tr><td>最新：</td><td>' + bond_cur_price + '</td></tr>';
-                bond_price_cnt += '<tr><td>昨收：</td><td>' + bond_lastday_price + '</td></tr>';
-                bond_price_cnt += '<tr><td>涨停：</td><td>'+ bond_highest +'</td></tr>';
-                bond_price_cnt += '<tr><td>跌停：</td><td>' + bond_lowest + '</td></tr>';
-                $('#bond_name').html(bond_name);
-                $('#bond_price').html(bond_price_cnt);
-
-
-                //设置卖五的价格和数量
-                var top_sell_cnt = '<tr><td>卖五：</td><td>' + sell_1ist[4] + '</td><td>' + sell_volume[4] + '</td></tr>';
-                top_sell_cnt += '<tr><td>卖四：</td><td>' + sell_1ist[3] + '</td><td>' + sell_volume[3] + '</td></tr>';
-                top_sell_cnt += '<tr><td>卖三：</td><td>' + sell_1ist[2] + '</td><td>' + sell_volume[2] + '</td></tr>';
-                top_sell_cnt += '<tr><td>卖二：</td><td>' + sell_1ist[1] + '</td><td>' + sell_volume[1] + '</td></tr>';
-                top_sell_cnt += '<tr><td>卖一：</td><td>' + sell_1ist[0] + '</td><td>' + sell_volume[0] + '</td></tr>';
-                $('#top_sell').html(top_sell_cnt);
-                //设置买五的价格和数量
-                var top_buy_cnt = '<tr><td>买一：</td><td>' + buy_1ist[0] + '</td><td>' + buy_volume[0] + '</td></tr>';
-                top_buy_cnt += '<tr><td>买二：</td><td>' + buy_1ist[1] + '</td><td>' + buy_volume[1] + '</td></tr>';
-                top_buy_cnt += '<tr><td>买三：</td><td>' + buy_1ist[2] + '</td><td>' + buy_volume[2] + '</td></tr>';
-                top_buy_cnt += '<tr><td>买四：</td><td>' + buy_1ist[3] + '</td><td>' + buy_volume[3] + '</td></tr>';
-                top_buy_cnt += '<tr><td>买五：</td><td>' + buy_1ist[4] + '</td><td>' + buy_volume[4] + '</td></tr>';
-                $('#top_buy').html(top_buy_cnt);
-
-                //设置价格显示颜色
-                var top_price = $('#bond_price tr td:nth-child(2),#top_buy tr td:nth-child(2), #top_sell tr td:nth-child(2)');
-                top_price.each(function () {
-                    if (parseFloat($(this).html()) > parseFloat(bond_lastday_price)) {
-                        $(this).addClass('red');
-                    } else {
-                        $(this).addClass('green');
+                    for(var j= 0; j < sell_1ist.length; j++){
+                        sell_1ist[j] = is_bond ? decimal_3(sell_1ist[j]) : decimal(sell_1ist[j]);
+                        sell_volume[j] = is_bond ? format_num_3(sell_volume[j]) : format_num(sell_volume[j]);
+                        buy_1ist[j] = is_bond ? decimal_3(buy_1ist[j]) : decimal(buy_1ist[j]);
+                        buy_volume[j] = is_bond ? format_num_3(buy_volume[j]) : format_num(buy_volume[j]);
                     }
-                });
+
+                    var bond_price_cnt = '<tr><td>最新：</td><td>' + bond_cur_price + '</td></tr>';
+                    bond_price_cnt += '<tr><td>昨收：</td><td>' + bond_lastday_price + '</td></tr>';
+                    bond_price_cnt += '<tr><td>涨停：</td><td>'+ bond_highest +'</td></tr>';
+                    bond_price_cnt += '<tr><td>跌停：</td><td>' + bond_lowest + '</td></tr>';
+
+                    if(is_bond){
+                        bond_price_cnt += '<tr><td>全价：</td><td>' + decimal_3(bond_interest + parseFloat(bond_cur_price)) + '</td></tr>';
+                        bond_price_cnt += '<tr><td>到期：</td><td>' + profit_end + '</td></tr>';
+                    }
+
+                    $('#bond_name').html(bond_name);
+                    $('#bond_price').html(bond_price_cnt);
+
+
+                    //设置卖五的价格和数量
+                    var top_sell_cnt = '<tr><td>卖五：</td><td>' + sell_1ist[4] + '</td><td>' + sell_volume[4] + '</td></tr>';
+                    top_sell_cnt += '<tr><td>卖四：</td><td>' + sell_1ist[3] + '</td><td>' + sell_volume[3] + '</td></tr>';
+                    top_sell_cnt += '<tr><td>卖三：</td><td>' + sell_1ist[2] + '</td><td>' + sell_volume[2] + '</td></tr>';
+                    top_sell_cnt += '<tr><td>卖二：</td><td>' + sell_1ist[1] + '</td><td>' + sell_volume[1] + '</td></tr>';
+                    top_sell_cnt += '<tr><td>卖一：</td><td>' + sell_1ist[0] + '</td><td>' + sell_volume[0] + '</td></tr>';
+                    $('#top_sell').html(top_sell_cnt);
+                    //设置买五的价格和数量
+                    var top_buy_cnt = '<tr><td>买一：</td><td>' + buy_1ist[0] + '</td><td>' + buy_volume[0] + '</td></tr>';
+                    top_buy_cnt += '<tr><td>买二：</td><td>' + buy_1ist[1] + '</td><td>' + buy_volume[1] + '</td></tr>';
+                    top_buy_cnt += '<tr><td>买三：</td><td>' + buy_1ist[2] + '</td><td>' + buy_volume[2] + '</td></tr>';
+                    top_buy_cnt += '<tr><td>买四：</td><td>' + buy_1ist[3] + '</td><td>' + buy_volume[3] + '</td></tr>';
+                    top_buy_cnt += '<tr><td>买五：</td><td>' + buy_1ist[4] + '</td><td>' + buy_volume[4] + '</td></tr>';
+                    $('#top_buy').html(top_buy_cnt);
+
+                    //设置价格显示颜色
+                    var top_price = $('#bond_price tr td:nth-child(2),#top_buy tr td:nth-child(2), #top_sell tr td:nth-child(2)');
+                    top_price.each(function () {
+                        if (parseFloat($(this).html()) > parseFloat(bond_lastday_price)) {
+                            $(this).addClass('red');
+                        } else {
+                            $(this).addClass('green');
+                        }
+                    });
+                }
             }
         }
 
@@ -325,10 +341,11 @@
                 if (isNaN(bond_price) || parseFloat(bond_price) <= 0) {
                     $('span.buy_price_alert').removeClass('hidden');
                 }
-                if (bond_price.length > 0 && !isNaN(bond_price) && parseFloat(bond_price) > 0) {
-                    bond_price = decimal(bond_price);
+                if (bond_price.length > 0 && !isNaN(bond_price) && parseFloat(bond_price) > 0 && !isNaN(bond_interest)) {
+                    bond_interest = parseFloat(bond_interest);
+                    bond_price = parseFloat(bond_price);
                     available_money = parseFloat(available_money);
-                    var quantity_avail = (is_bond) ? parseInt(available_money / (bond_price * 10)) : parseInt(available_money / (bond_price * 100));
+                    var quantity_avail = (is_bond) ? parseInt(available_money / ((bond_price + bond_interest) * 10)) : parseInt(available_money / (bond_price * 100));
                     $('div.largest_quantity').removeClass('hidden');
                     $('#largest_quantity').html(quantity_avail);
                 }
