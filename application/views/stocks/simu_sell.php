@@ -159,7 +159,6 @@ $sell_stocks = $sell_list;
             var max_volume = $(this).children('option:selected').data('volume');
             var selected_cost = $(this).children('option:selected').data('cost');
             is_bond = ($(this).children('option:selected').data('identity') == 1);
-            alert(is_bond);
             //显示最大可卖出数量
             $('div.largest_quantity').removeClass('hidden');
             //显示买入该股票价格
