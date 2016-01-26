@@ -161,6 +161,8 @@ $sell_stocks = $sell_list;
             $('div.largest_quantity').removeClass('hidden');
             //显示买入该股票价格
             $('#buy_in_price').html(decimal(selected_cost));
+            alert(is_bond);
+            alert(max_volume);
             if(is_bond){
                 $('#largest_quantity').html(Math.round(parseInt(max_volume) / 10));
             }else{
