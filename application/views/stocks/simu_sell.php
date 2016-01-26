@@ -40,8 +40,8 @@ $sell_stocks = $sell_list;
                                                                     data-code="<?php echo $stock_item['SecurityID']; ?>"
                                                                     data-name="<?php echo $stock_item['Symbol']; ?>"
                                                                     data-volume="<?php echo $stock_item['max_volume']; ?>"
+                                                                    data-identity="<?php echo $stock_item['is_bond']; ?>"
                                                                     data-cost="<?php echo $stock_item['BuyCost']; ?>">
-                                                                    data-identity="<?php echo $stock_item['is_bond']; ?>">
                                                                     &nbsp;&nbsp;<?php echo $stock_item['SecurityID'] ?>
                                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $stock_item['Symbol'] ?>
                                                                 </option>
@@ -158,7 +158,7 @@ $sell_stocks = $sell_list;
             var selected_name = $(this).children('option:selected').data('name');
             var max_volume = $(this).children('option:selected').data('volume');
             var selected_cost = $(this).children('option:selected').data('cost');
-            is_bond = ($(this).children('option:selected').data('identity') == 1);
+            is_bond = ($(this).children('option:selected').data('cost') == 1);
             //显示最大可卖出数量
             $('div.largest_quantity').removeClass('hidden');
             //显示买入该股票价格
