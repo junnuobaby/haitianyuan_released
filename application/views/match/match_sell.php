@@ -29,7 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                     <?php if (count($sell_list) == 0): ?>
                                                         <option disabled="disabled">暂无可卖证券</option>
                                                     <?php else: ?>
-                                                        <?php foreach ($sell_stocks as $stock_item): ?>
+                                                        <?php foreach ($sell_list as $stock_item): ?>
                                                             <option
                                                                 data-code="<?php echo $stock_item['SecurityID']; ?>"
                                                                 data-name="<?php echo $stock_item['Symbol']; ?>"
