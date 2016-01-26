@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <div class="col-sm-8 bond_code_div">
                                                 <select class="form-control" id="bond_code">
                                                     <option></option>
-                                                    <?php if (count($sell_stocks) == 0): ?>
+                                                    <?php if (count($sell_list) == 0): ?>
                                                         <option disabled="disabled">暂无可卖证券</option>
                                                     <?php else: ?>
                                                         <?php foreach ($sell_stocks as $stock_item): ?>
