@@ -5,6 +5,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!DOCTYPE html>
 <html lang="zh-cn">
 <?php $this->load->view('./templates/head'); ?>
+<?php
+//获取持有的证券列表
+$sell_stocks = $sell_list;
+?>
 <body class="match_index_body bg-gray">
 <div class="wrapper">
     <?php $this->load->view('./stocks/bonds_navbar'); ?>
@@ -26,10 +30,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <div class="col-sm-8 bond_code_div">
                                                 <select class="form-control" id="bond_code">
                                                     <option></option>
-                                                    <?php if (count($sell_list) == 0): ?>
+                                                    <?php if (count($sell_stocks) == 0): ?>
                                                         <option disabled="disabled">暂无可卖证券</option>
                                                     <?php else: ?>
-                                                        <?php foreach ($sell_list as $stock_item): ?>
+                                                        <?php foreach ($sell_stocks as $stock_item): ?>
                                                             <option
                                                                 data-code="<?php echo $stock_item['SecurityID']; ?>"
                                                                 data-name="<?php echo $stock_item['Symbol']; ?>"
