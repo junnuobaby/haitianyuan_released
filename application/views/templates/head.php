@@ -1,6 +1,6 @@
 <!--头文件,链入外部样式表-->
 <head>
-    <title>海天理财</title>
+    <title><?php echo $title;?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
     <meta http-equiv=Content-Type content="text/html; charset=utf-8">
     <link href="<?php echo base_url('/assets/css/bootstrap.min.css'); ?>" rel="stylesheet" media="screen">

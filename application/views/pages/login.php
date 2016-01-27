@@ -1,9 +1,8 @@
 <!--z注册登陆-->
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?><!DOCTYPE html>
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+<!DOCTYPE html>
 <html lang="zh-cn">
-<?php $this->load->view('./templates/head'); ?>
+<?php $this->load->view('./templates/head', array('title' => '登陆注册')); ?>
 <body>
 <div class="wrapper">
     <?php $this->load->view('./templates/navbar'); ?>
