@@ -1,9 +1,9 @@
 <!--首页-->
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?><!DOCTYPE html>
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+<!DOCTYPE html>
 <html lang="zh-cn">
-<?php $this->load->view('./templates/head'); ?>
+
+<?php $this->load->view('./templates/head', array('title' => '海知理财')); ?>
 <?php
 $jinbang = $golden_rank;
 $yinbang = $silver_rank;
