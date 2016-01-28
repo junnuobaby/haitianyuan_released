@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <!DOCTYPE html>
 <html lang="zh-cn">
-<?php $this->load->view('./templates/head'); ?>
+<?php $this->load->view('./templates/head', array('title' => '已发布观点')); ?>
 <body class="bg-gray">
 <script src="<?php echo base_url('/assets/js/htyjs/general_navbar.js') ?>"></script>
 <?php

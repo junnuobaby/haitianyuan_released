@@ -25,7 +25,7 @@
 $records = $pre_list['data_page']; //获取还在委托状态的订单详情
 $pages = $pre_list['pagination']; //获取分页
 ?>
-<?php $this->load->view('./templates/head'); ?>
+<?php $this->load->view('./templates/head', array('title' => '撤单')); ?>
 <body class="bg-gray">
 <div class="wrapper">
     <?php $this->load->view('./stocks/bonds_navbar'); ?>

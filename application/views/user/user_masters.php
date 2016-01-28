@@ -1,10 +1,7 @@
-<!--理财师主页-->
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <!DOCTYPE html>
 <html lang="zh-cn">
-<?php $this->load->view('./templates/head'); ?>
+<?php $this->load->view('./templates/head', array('title' => '主页')); ?>
 <body class="bg-gray">
 <?php $this->load->view('./templates/navbar'); ?>
 <?php

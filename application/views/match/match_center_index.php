@@ -47,7 +47,7 @@ $month_rank = floatval($basic_info['month_rank']);
 ?>
 <!--绘图文件-->
 <?php $this->load->view('./stocks/graph'); ?>
-<?php $this->load->view('./templates/head'); ?>
+<?php $this->load->view('./templates/head', array('title' => '我的比赛')); ?>
 <body class="match_index_body bg-gray">
 <div class="wrapper">
     <?php $this->load->view('./stocks/bonds_navbar'); ?>

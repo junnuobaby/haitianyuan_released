@@ -35,7 +35,7 @@ $base_funds = $user_data['base_cash'];
 ?>
 <!--绘图文件-->
 <?php $this->load->view('./stocks/graph'); ?>
-<?php $this->load->view('./templates/head'); ?>
+<?php $this->load->view('./templates/head', array('title' => '模拟投资')); ?>
 <body class="bg-gray">
 <div class="wrapper">
     <?php $this->load->view('./stocks/bonds_navbar'); ?>

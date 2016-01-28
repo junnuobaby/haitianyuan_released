@@ -1,9 +1,8 @@
-<!--模拟炒股，撤销委托单-->
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="zh-cn">
-<?php $this->load->view('./templates/head'); ?>
+<?php $this->load->view('./templates/head', array('title' => '操作指南')); ?>
 <body class="bg-gray">
 <div class="wrapper">
     <?php $this->load->view('./stocks/bonds_navbar'); ?>

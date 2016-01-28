@@ -1,4 +1,3 @@
-<!--问答首页-->
 <?php
 function deal_num($num){
     $str_num = strval($num);
@@ -21,7 +20,7 @@ $masters = $master_info;
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="zh-cn">
-<?php $this->load->view('./templates/head', array('title' => '理财师')); ?>
+<?php $this->load->view('./templates/head', array('title' => '海知理财师')); ?>
 <body class="bg-gray">
 <div class="wrapper">
     <?php $this->load->view('./templates/navbar'); ?>

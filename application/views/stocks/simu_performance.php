@@ -3,7 +3,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="zh-cn">
-<?php $this->load->view('./templates/head'); ?>
+<?php $this->load->view('./templates/head', array('title' => '收益')); ?>
 <!--加载绘图程序-->
 <?php $this->load->view('./stocks/graph'); ?>
 <?php

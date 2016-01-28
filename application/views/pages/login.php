@@ -1,4 +1,4 @@
-<!--z注册登陆-->
+<!--注册登陆-->
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <!DOCTYPE html>
 <html lang="zh-cn">

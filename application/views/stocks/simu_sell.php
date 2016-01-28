@@ -3,7 +3,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="zh-cn">
-<?php $this->load->view('./templates/head'); ?>
+<?php $this->load->view('./templates/head', array('title' => '卖出')); ?>
 <?php
 //获取持有的证券列表
 $sell_stocks = $sell_list;

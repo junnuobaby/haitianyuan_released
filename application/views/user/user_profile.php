@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <!DOCTYPE html>
 <html lang="zh-cn">
-<?php $this->load->view('./templates/head'); ?>
+<?php $this->load->view('./templates/head', array('title' => '个人资料')); ?>
 <body>
 <link href="<?php echo base_url('/assets/css/jquery.Jcrop.css'); ?>" rel="stylesheet" media="screen">
 <script src="<?php echo base_url('/assets/js/htyjs/general_navbar.js') ?>"></script>

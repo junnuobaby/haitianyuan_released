@@ -3,7 +3,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="zh-cn">
-<?php $this->load->view('./templates/head'); ?>
+<?php $this->load->view('./templates/head', array('title' => '观点')); ?>
 <body class="bg-gray">
 <div class="wrapper">
     <?php $this->load->view('./templates/navbar'); ?>

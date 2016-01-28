@@ -27,7 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $records = $pre_list['data_page']; //获取还在委托状态的订单详情
 $pages = $pre_list['pagination']; //获取分页
 ?>
-<?php $this->load->view('./templates/head'); ?>
+<?php $this->load->view('./templates/head', array('title' => '订单')); ?>
 <body class="match_index_body bg-gray">
 <div class="wrapper">
     <?php $this->load->view('./stocks/bonds_navbar'); ?>
