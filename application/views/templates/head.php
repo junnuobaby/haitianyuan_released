@@ -3,6 +3,7 @@
     <title><?php echo $title;?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
     <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
     <link href="<?php echo base_url('/assets/css/bootstrap.min.css'); ?>" rel="stylesheet" media="screen">
     <link href="<?php echo base_url('/assets/css/htycss/layout.css'); ?>" rel="stylesheet" media="screen">
     <link href="<?php echo base_url('/assets/css/htycss/global.css'); ?>" rel="stylesheet" media="screen">
