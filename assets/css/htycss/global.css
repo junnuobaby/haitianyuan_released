@@ -35,7 +35,8 @@ a.btn.bg-theme:hover,button.btn.bg-theme:hover{
 }
 .wrapper {
     min-height: 100%;
-    margin: 0 auto 3em auto;
+    padding-bottom: 120px;
+    margin: 0 auto -80px auto;
 }
 .inline_block{
     display: inline-block;
